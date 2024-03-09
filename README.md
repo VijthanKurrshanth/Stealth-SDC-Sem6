@@ -29,5 +29,5 @@ This repo is initialized from develop branch. 2024/03/09.
 1. Gameplay Environment has beed added.
 2. Kitten and general Wandering AI(supports to any animals). (pursuiting has bugs not added as kitten component)
 3. Collectables Sprites has been added to the enviroment
-4. More Buttons has been added with pressed effects
+4. More Buttons has been added with pressing effects.
 5. Button effects and loadscene has been implmented to the start and quit buttons.
