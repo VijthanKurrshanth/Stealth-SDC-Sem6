@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3.MainMenu.unity
     guid: dd9751161c1a35d4da1f459402285793
+  - enabled: 1
+    path: Assets/Scenes/4. Kittens_Test.unity
+    guid: 95d3a26a06f45aa4c9559ad38693fac5
   m_configObjects: {}
