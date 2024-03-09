@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d6f43c381a1acd944a4e09bc64f6f01f
+guid: 5fb79f3d98685774cbc4c28b3d6742a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start Button_0
+      name: Quit Button_0
       rect:
         serializedVersion: 2
         x: 427
@@ -189,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839a9ff95197e2c4faa0d2abd1b4b4af
-      internalID: 978747027
+      spriteID: 47ac47be3850d5849a0d9890dd61a1b3
+      internalID: -1999423433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start Button_1
+      name: Quit Button_1
       rect:
         serializedVersion: 2
         x: 449
@@ -210,8 +210,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8599ddb9c052db841b7aad8c041b1858
-      internalID: -61923695
+      spriteID: 8cb22ce8efc62c2428091a358b344ba0
+      internalID: -658121452
       vertices: []
       indices: 
       edges: []
@@ -227,8 +227,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Start Button_0: 978747027
-      Start Button_1: -61923695
+      Quit Button_0: -1999423433
+      Quit Button_1: -658121452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

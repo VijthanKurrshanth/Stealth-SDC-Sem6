@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d6f43c381a1acd944a4e09bc64f6f01f
+guid: 4ada1c8730aaf904694dcd30ad10da78
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -175,7 +175,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start Button_0
+      name: Leader Board_0
       rect:
         serializedVersion: 2
         x: 427
@@ -189,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839a9ff95197e2c4faa0d2abd1b4b4af
-      internalID: 978747027
+      spriteID: 2fccf6c2ddb310346b6b92738b78bf26
+      internalID: 1579720897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start Button_1
+      name: Leader Board_1
       rect:
         serializedVersion: 2
         x: 449
@@ -210,8 +210,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8599ddb9c052db841b7aad8c041b1858
-      internalID: -61923695
+      spriteID: 4c98fcbc7410d464e8a043099ff2766c
+      internalID: -561980100
       vertices: []
       indices: 
       edges: []
@@ -227,8 +227,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Start Button_0: 978747027
-      Start Button_1: -61923695
+      Leader Board_0: 1579720897
+      Leader Board_1: -561980100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
