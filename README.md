@@ -1,4 +1,4 @@
-# Stealth-SDC-Sem6
+# Stealth-SDC-Sem6 - updated 03/09
 
 Repository for the game development challenge for Software Design Competition (EN3350) module, semester 6, University of Moratuwa.
 
@@ -25,6 +25,7 @@ Team Members :
 
 
 ## New features
+
 This repo is initialized from develop branch. 2024/03/09.
 1. Gameplay Environment has beed added.
 2. Kitten and general Wandering AI(any animals). (pursuiting has bugs not added )
