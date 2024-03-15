@@ -13,14 +13,16 @@ public class wandering8direction : MonoBehaviour
     [SerializeField] float maxDistance= 5f;
 
     private Vector2 wayPoint;
-    private Vector2 currentDirection;
+    private Vector2 direction;
 
     private Animator anim;
     private SpriteRenderer sprite_render;
     private float angle=0f;
     private Transform Transform;
     private Rigidbody2D rb;
-
+    private string directionOfMovement;
+    private Vector2 directionAngle;
+    private Vector2 newPoint;
   
     
 
@@ -40,7 +42,7 @@ public class wandering8direction : MonoBehaviour
     void Update()
     {
         
-        Vector2 direction = (wayPoint - (Vector2)transform.position).normalized;
+        direction = (wayPoint - (Vector2)transform.position).normalized;
         //Debug.Log("direction "+direction);
 
         transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
@@ -77,7 +79,7 @@ public class wandering8direction : MonoBehaviour
             float newY = Transform.position.y + maxDistance * Mathf.Sin(angleInRadians);
 
             // Create a new Vector2 with the calculated position
-            Vector2 newPoint = new Vector2(newX, newY);
+            newPoint = new Vector2(newX, newY);
             //Debug.Log(newPoint);
             return newPoint;
             
@@ -92,20 +94,20 @@ public class wandering8direction : MonoBehaviour
         {
 
             wayPoint = new Vector2(0, 0);
-            Debug.Log("Collision_kitten");
+            Debug.Log("Collision dober");
 
         }
     }
 
     void FindMovingAngleAndDirectionAndAnimate() 
     {
-        Vector2 directionAngle = wayPoint - (Vector2)transform.position;
+        directionAngle = wayPoint - (Vector2)transform.position;
         float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
         
 
         angle = (angledir + 360) % 360;
         
-        string directionOfMovement=" ";
+        
 
         
         if (angle>=350 | angle<=20)
@@ -182,22 +184,6 @@ public class wandering8direction : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
 
 
     void SetAnimeFalse()
