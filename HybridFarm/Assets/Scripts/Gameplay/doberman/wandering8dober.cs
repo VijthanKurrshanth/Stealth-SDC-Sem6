@@ -20,6 +20,7 @@ public class wandering8dober : MonoBehaviour
     private float angle=0f;
     private Transform Transform;
     private Rigidbody2D rb;
+    private string directionOfMovement;
 
   
     
@@ -105,7 +106,7 @@ public class wandering8dober : MonoBehaviour
 
         angle = (angledir + 360) % 360;
         
-        string directionOfMovement=" ";
+        
 
         
         if (angle>=350 | angle<=20)
@@ -182,22 +183,6 @@ public class wandering8dober : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
 
 
     void SetAnimeFalse()

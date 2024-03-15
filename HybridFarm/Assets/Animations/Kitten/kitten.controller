@@ -198,7 +198,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: left_0
+  m_Name: kitten
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: kitten_left_anim
