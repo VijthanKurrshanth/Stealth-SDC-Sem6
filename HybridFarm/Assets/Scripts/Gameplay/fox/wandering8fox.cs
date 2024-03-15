@@ -94,8 +94,8 @@ public class wandering8fox : MonoBehaviour
         {
 
             wayPoint = new Vector2(0, 0);
-            Debug.Log("Collision dober");
-            Debug.Log(wayPoint);
+            //Debug.Log("Collision dober");
+            //Debug.Log(wayPoint);
 
         }
     }
@@ -191,9 +191,9 @@ public class wandering8fox : MonoBehaviour
     {
         anim.SetBool("fox_up_anim",false);
         anim.SetBool("fox_leftup_anim",false);
-        //anim.SetBool("fox_left_anim",false);
-        //anim.SetBool("fox_leftdown_anim",false);
-        //anim.SetBool("fox_down_anim",false);
+        anim.SetBool("fox_left_anim",false);
+        anim.SetBool("fox_leftdown_anim",false);
+        anim.SetBool("fox_down_anim",false);
 
     }
 
