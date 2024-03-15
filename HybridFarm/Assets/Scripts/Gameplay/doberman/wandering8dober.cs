@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 
-public class wandering8direction : MonoBehaviour
+public class wandering8dober : MonoBehaviour
 {
     [SerializeField] float speed= 0.3f;
     [SerializeField] float range= 0.5f;
@@ -53,7 +53,7 @@ public class wandering8direction : MonoBehaviour
 
 
         FindMovingAngleAndDirectionAndAnimate();
-        
+        Debug.Log(wayPoint);
         
 
 
@@ -94,7 +94,8 @@ public class wandering8direction : MonoBehaviour
         {
 
             wayPoint = new Vector2(0, 0);
-            //Debug.Log("Collision kitten");
+            Debug.Log("Collision dober");
+            Debug.Log(wayPoint);
 
         }
     }
@@ -113,7 +114,7 @@ public class wandering8direction : MonoBehaviour
         if (angle>=350 | angle<=20)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_left_anim",true);
+            anim.SetBool("doberman_left_anim",true);
             sprite_render.flipX=true;
             directionOfMovement= "East";
         }
@@ -121,7 +122,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=21 && angle<=65)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_leftup_anim",true);
+            anim.SetBool("doberman_leftup_anim",true);
             sprite_render.flipX=true;
             directionOfMovement= "Northeast";
         }
@@ -130,7 +131,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=66 && angle<=115)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_up_anim",true);
+            anim.SetBool("doberman_up_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "North";
         }
@@ -138,7 +139,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=116 && angle<=159)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_leftup_anim",true);
+            anim.SetBool("doberman_leftup_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "Northwest";
         }
@@ -146,7 +147,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=160 && angle<=210)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_left_anim",true);
+            anim.SetBool("doberman_left_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "West";
         }
@@ -154,7 +155,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=211 && angle<=259)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_leftdown_anim",true);
+            anim.SetBool("doberman_leftdown_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "Southwest";
         }
@@ -162,7 +163,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=260 && angle<=300)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_down_anim",true);
+            anim.SetBool("doberman_down_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "South";
         }
@@ -170,7 +171,7 @@ public class wandering8direction : MonoBehaviour
         else if (angle>=301 && angle<=349)
         {
             SetAnimeFalse();
-            anim.SetBool("kitten_leftdown_anim",true);
+            anim.SetBool("doberman_leftdown_anim",true);
             sprite_render.flipX= true;
             directionOfMovement= "Southeast";
         }
@@ -188,11 +189,11 @@ public class wandering8direction : MonoBehaviour
 
     void SetAnimeFalse()
     {
-        anim.SetBool("kitten_up_anim",false);
-        anim.SetBool("kitten_leftup_anim",false);
-        anim.SetBool("kitten_left_anim",false);
-        anim.SetBool("kitten_leftdown_anim",false);
-        anim.SetBool("kitten_down_anim",false);
+        anim.SetBool("doberman_up_anim",false);
+        anim.SetBool("doberman_leftup_anim",false);
+        anim.SetBool("doberman_left_anim",false);
+        anim.SetBool("doberman_leftdown_anim",false);
+        anim.SetBool("doberman_down_anim",false);
 
     }
 
