@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 public class wandering8direction : MonoBehaviour
 {
     [SerializeField] float speed= 0.3f;
-    [SerializeField] float range= 4f;
+    [SerializeField] float range= 0.5f;
     [SerializeField] float maxDistance= 5f;
 
     private Vector2 wayPoint;
@@ -94,7 +94,7 @@ public class wandering8direction : MonoBehaviour
         {
 
             wayPoint = new Vector2(0, 0);
-            Debug.Log("Collision dober");
+            //Debug.Log("Collision kitten");
 
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 
-public class wandering8dober : MonoBehaviour
+public class wandering8fox : MonoBehaviour
 {
     [SerializeField] float speed= 0.3f;
     [SerializeField] float range= 0.5f;
@@ -114,7 +114,7 @@ public class wandering8dober : MonoBehaviour
         if (angle>=350 | angle<=20)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_left_anim",true);
+            anim.SetBool("fox_left_anim",true);
             sprite_render.flipX=true;
             directionOfMovement= "East";
         }
@@ -122,7 +122,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=21 && angle<=65)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_leftup_anim",true);
+            anim.SetBool("fox_leftup_anim",true);
             sprite_render.flipX=true;
             directionOfMovement= "Northeast";
         }
@@ -131,7 +131,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=66 && angle<=115)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_up_anim",true);
+            anim.SetBool("fox_up_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "North";
         }
@@ -139,7 +139,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=116 && angle<=159)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_leftup_anim",true);
+            anim.SetBool("fox_leftup_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "Northwest";
         }
@@ -147,7 +147,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=160 && angle<=210)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_left_anim",true);
+            anim.SetBool("fox_left_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "West";
         }
@@ -155,7 +155,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=211 && angle<=259)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_leftdown_anim",true);
+            anim.SetBool("fox_leftdown_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "Southwest";
         }
@@ -163,7 +163,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=260 && angle<=300)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_down_anim",true);
+            anim.SetBool("fox_down_anim",true);
             sprite_render.flipX=false;
             directionOfMovement= "South";
         }
@@ -171,7 +171,7 @@ public class wandering8dober : MonoBehaviour
         else if (angle>=301 && angle<=349)
         {
             SetAnimeFalse();
-            anim.SetBool("doberman_leftdown_anim",true);
+            anim.SetBool("fox_leftdown_anim",true);
             sprite_render.flipX= true;
             directionOfMovement= "Southeast";
         }
@@ -189,11 +189,11 @@ public class wandering8dober : MonoBehaviour
 
     void SetAnimeFalse()
     {
-        anim.SetBool("doberman_up_anim",false);
-        anim.SetBool("doberman_leftup_anim",false);
-        anim.SetBool("doberman_left_anim",false);
-        anim.SetBool("doberman_leftdown_anim",false);
-        anim.SetBool("doberman_down_anim",false);
+        anim.SetBool("fox_up_anim",false);
+        anim.SetBool("fox_leftup_anim",false);
+        //anim.SetBool("fox_left_anim",false);
+        //anim.SetBool("fox_leftdown_anim",false);
+        //anim.SetBool("fox_down_anim",false);
 
     }
 
