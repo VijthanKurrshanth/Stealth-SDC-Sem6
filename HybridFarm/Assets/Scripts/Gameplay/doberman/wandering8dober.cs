@@ -23,6 +23,14 @@ public class wandering8dober : MonoBehaviour
     private string directionOfMovement;
     private Vector2 directionAngle;
     private Vector2 newPoint;
+    // Define the y-axis range
+    private float minY = -3.2f;
+    private float maxY = 2.83f;
+
+    // Define the z-axis range
+    private float minZ = -10f;
+    private float maxZ = 1f;
+    private float mappedZ;
   
     
 
@@ -35,6 +43,8 @@ public class wandering8dober : MonoBehaviour
 
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
+        
+       
 
 
     }
@@ -45,15 +55,25 @@ public class wandering8dober : MonoBehaviour
         direction = (wayPoint - (Vector2)transform.position).normalized;
         //Debug.Log("direction "+direction);
 
-        transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
-                if (Vector2.Distance(transform.position, wayPoint) < range)
-                    {
-                        wayPoint=RandomDirectionWaypoint();
-                    }
+        mappedZ = Mathf.Lerp(minZ, maxZ, Mathf.InverseLerp(minY, maxY, wayPoint.y));
+        Vector3 targetPosition = new Vector3(wayPoint.x, wayPoint.y, mappedZ);
+        Debug.Log(mappedZ);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+
+
+
+
+
+        //transform.position = Vector2.MoveTowards(transform.position, wayPoint, speed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, wayPoint) < range)
+            {
+                wayPoint=RandomDirectionWaypoint();
+            }
 
 
         FindMovingAngleAndDirectionAndAnimate();
-        Debug.Log(wayPoint);
+        //Debug.Log(wayPoint);
         
 
 
@@ -94,8 +114,8 @@ public class wandering8dober : MonoBehaviour
         {
 
             wayPoint = new Vector2(0, 0);
-            Debug.Log("Collision dober");
-            Debug.Log(wayPoint);
+            //Debug.Log("Collision dober");
+            //Debug.Log(wayPoint);
 
         }
     }
