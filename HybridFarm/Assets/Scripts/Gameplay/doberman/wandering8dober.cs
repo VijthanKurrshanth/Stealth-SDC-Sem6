@@ -28,8 +28,8 @@ public class wandering8dober : MonoBehaviour
     private float maxY = 2.83f;
 
     // Define the z-axis range
-    private float minZ = -10f;
-    private float maxZ = 1f;
+    private float minZ = -0.5f;
+    private float maxZ = 0f;
     private float mappedZ;
   
     

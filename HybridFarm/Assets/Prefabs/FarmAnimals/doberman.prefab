@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   range: 0.93
-  maxDistance: 2.52
+  maxDistance: 4.49
 --- !u!58 &6245467675983343409
 CircleCollider2D:
   m_ObjectHideFlags: 0
