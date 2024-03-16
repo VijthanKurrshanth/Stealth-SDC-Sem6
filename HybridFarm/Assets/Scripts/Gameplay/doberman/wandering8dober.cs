@@ -24,7 +24,7 @@ public class wandering8dober : MonoBehaviour
     private Vector2 directionAngle;
     private Vector2 newPoint;
     // Define the y-axis range
-    private float minY = -3.2f;
+    private float minY = -2.9f;
     private float maxY = 2.83f;
 
     // Define the z-axis range
