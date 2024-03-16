@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1868468297517163290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.71, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   range: 0.93
-  maxDistance: 5
+  maxDistance: 4.49
 --- !u!58 &6245467675983343409
 CircleCollider2D:
   m_ObjectHideFlags: 0
