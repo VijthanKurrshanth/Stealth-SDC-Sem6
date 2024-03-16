@@ -57,7 +57,7 @@ public class wandering8dober : MonoBehaviour
 
         mappedZ = Mathf.Lerp(minZ, maxZ, Mathf.InverseLerp(minY, maxY, wayPoint.y));
         Vector3 targetPosition = new Vector3(wayPoint.x, wayPoint.y, mappedZ);
-        Debug.Log(mappedZ);
+        //Debug.Log(mappedZ);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
 
@@ -108,17 +108,80 @@ public class wandering8dober : MonoBehaviour
 
 
 
+
+
     void OnTriggerEnter2D (Collider2D collision)
     {
         if (collision.gameObject.CompareTag("background"))
         {
 
-            wayPoint = new Vector2(0, 0);
+            // wayPoint = new Vector2(0, 0);
+            // directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
+            // float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
+            // angle = (angledir + 360) % 360;
+            // Debug.Log(angle);
+            wayPoint=RandomDirectionWaypointonCollision();
             //Debug.Log("Collision dober");
             //Debug.Log(wayPoint);
 
         }
     }
+
+
+
+    Vector2 RandomDirectionWaypointonCollision()
+        {
+            
+            // float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
+            // //float selectedAngle = possibleAngles[Random.Range(0, possibleAngles.Length)];
+            
+            // directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
+            // float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
+            // angle = (angledir + 360) % 360;
+            // //Debug.Log(angle);
+            
+            // angle= selectedAngle;
+            // // Convert angle to radians
+            // float angleInRadians = selectedAngle * Mathf.Deg2Rad;
+            // //Debug.Log("angle "+ selectedAngle);
+
+            float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
+
+            directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
+            float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
+            float targetAngle = (angledir + 360) % 360;
+
+            float minDifference = float.MaxValue;
+            float closestAngle = 0f;
+
+            foreach (float possibleAngle in possibleAngles)
+            {
+                float difference = Mathf.Abs(Mathf.DeltaAngle(possibleAngle, targetAngle));
+                if (difference < minDifference)
+                {
+                    minDifference = difference;
+                    closestAngle = possibleAngle;
+                }
+            }  
+            float selectedAngle=closestAngle;
+            float angleInRadians = selectedAngle * Mathf.Deg2Rad;
+            
+            
+            // Calculate new position based on the selected angle and maxDistance
+            float newX = Transform.position.x + maxDistance * Mathf.Cos(angleInRadians);
+            float newY = Transform.position.y + maxDistance * Mathf.Sin(angleInRadians);
+
+            // Create a new Vector2 with the calculated position
+            newPoint = new Vector2(newX, newY);
+            //Debug.Log(newPoint);
+            return newPoint;
+            
+            // Now you can use the 'newPoint' as the waypoint
+        }
+
+
+
+
 
     void FindMovingAngleAndDirectionAndAnimate() 
     {
