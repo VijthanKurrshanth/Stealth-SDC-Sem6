@@ -100,3 +100,38 @@ questionnaire-app/front-end/*.env.production.local
 questionnaire-app/front-end/npm-debug.log*
 questionnaire-app/front-end/yarn-debug.log*
 questionnaire-app/front-end/yarn-error.log*
+
+# Spring .gitignore
+questionnaire-app/back-end/HELP.md
+questionnaire-app/back-end/target/
+questionnaire-app/back-end/!.mvn/wrapper/maven-wrapper.jar
+questionnaire-app/back-end/!**/src/main/**/target/
+questionnaire-app/back-end/!**/src/test/**/target/
+
+### STS ###
+questionnaire-app/back-end/.apt_generated
+questionnaire-app/back-end/.classpath
+questionnaire-app/back-end/.factorypath
+questionnaire-app/back-end/.project
+questionnaire-app/back-end/.settings
+questionnaire-app/back-end/.springBeans
+questionnaire-app/back-end/.sts4-cache
+
+### IntelliJ IDEA ###
+questionnaire-app/back-end/.idea
+questionnaire-app/back-end/*.iws
+questionnaire-app/back-end/*.iml
+questionnaire-app/back-end/*.ipr
+
+### NetBeans ###
+questionnaire-app/back-end//nbproject/private/
+questionnaire-app/back-end//nbbuild/
+questionnaire-app/back-end//dist/
+questionnaire-app/back-end//nbdist/
+questionnaire-app/back-end//.nb-gradle/
+questionnaire-app/back-end/build/
+questionnaire-app/back-end/!**/src/main/**/build/
+questionnaire-app/back-end/!**/src/test/**/build/
+
+### VS Code ###
+questionnaire-app/back-end/.vscode/
