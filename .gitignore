@@ -75,3 +75,28 @@ HybridFarm/.vscode/launch.json
 HybridFarm/.vscode/settings.json
 
 .fake
+
+# React .gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+questionnaire-app/node_modules/
+questionnaire-app/*.pnp
+questionnaire-app/*.pnp.js
+
+# testing
+questionnaire-app/coverage/
+
+# production
+questionnaire-app/build/
+
+# misc
+questionnaire-app/*.DS_Store
+questionnaire-app/*.env.local
+questionnaire-app/*.env.development.local
+questionnaire-app/*.env.test.local
+questionnaire-app/*.env.production.local
+
+questionnaire-app/npm-debug.log*
+questionnaire-app/yarn-debug.log*
+questionnaire-app/yarn-error.log*
