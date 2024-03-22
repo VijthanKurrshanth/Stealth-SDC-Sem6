@@ -74,7 +74,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: kitten_down_anim
+    m_ConditionEvent: down_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 970438043105044155}
@@ -151,7 +151,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: kitten_left_anim
+    m_ConditionEvent: left_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2116301954076690665}
@@ -176,7 +176,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: kitten_leftup_anim
+    m_ConditionEvent: leftup_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8293827132932264220}
@@ -201,42 +201,42 @@ AnimatorController:
   m_Name: kitten
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: kitten_left_anim
+  - m_Name: left_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: kitten_up_anim
+    m_Controller: {fileID: 0}
+  - m_Name: up_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: kitten_leftup_anim
+    m_Controller: {fileID: 0}
+  - m_Name: leftup_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: kitten_down_anim
+    m_Controller: {fileID: 0}
+  - m_Name: down_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: kitten_leftdown_anim
+    m_Controller: {fileID: 0}
+  - m_Name: leftdown_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: New Bool
+    m_Controller: {fileID: 0}
+  - m_Name: death
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -259,7 +259,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: kitten_leftdown_anim
+    m_ConditionEvent: leftdown_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 735254131692672262}
@@ -358,7 +358,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: kitten_up_anim
+    m_ConditionEvent: up_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2060045777392657945}
