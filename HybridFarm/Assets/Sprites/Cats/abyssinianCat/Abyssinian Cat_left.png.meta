@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -173,7 +173,238 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335cb7c9b2d30b640b3f2574735e0269
+      internalID: -1134931525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_1
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78847d97731d2794dab9a3d2c6e71aca
+      internalID: 1293489777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_2
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81306d584328e648bcf774891fab1aa
+      internalID: -724684194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_3
+      rect:
+        serializedVersion: 2
+        x: 2121
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b0757dd33033242ab2ed96ae248d49
+      internalID: -287517594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_4
+      rect:
+        serializedVersion: 2
+        x: 2828
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237093322baf61f4eabc0826b38e7957
+      internalID: -1861718587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_5
+      rect:
+        serializedVersion: 2
+        x: 3535
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71398536e56672f4fa211371783e0faf
+      internalID: 775356737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_6
+      rect:
+        serializedVersion: 2
+        x: 4242
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a5fde4ec69c9645b6eeebb5d3a0fd6
+      internalID: 1487665888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_7
+      rect:
+        serializedVersion: 2
+        x: 4949
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4608964648b66ef48b9aa81cd38cd4e2
+      internalID: 114531829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_8
+      rect:
+        serializedVersion: 2
+        x: 5656
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4af55e53390f7499efd5204ba1f390
+      internalID: -1618289372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_9
+      rect:
+        serializedVersion: 2
+        x: 6363
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b5be63be2a2cc4698c7c3ebd90e01a
+      internalID: 1711922396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Abyssinian Cat_left_10
+      rect:
+        serializedVersion: 2
+        x: 7070
+        y: 0
+        width: 707
+        height: 353
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72aba6d708ba7c84fbb750db3b5b8cf1
+      internalID: -2073368013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -184,7 +415,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Abyssinian Cat_left_0: -1134931525
+      Abyssinian Cat_left_1: 1293489777
+      Abyssinian Cat_left_10: -2073368013
+      Abyssinian Cat_left_2: -724684194
+      Abyssinian Cat_left_3: -287517594
+      Abyssinian Cat_left_4: -1861718587
+      Abyssinian Cat_left_5: 775356737
+      Abyssinian Cat_left_6: 1487665888
+      Abyssinian Cat_left_7: 114531829
+      Abyssinian Cat_left_8: -1618289372
+      Abyssinian Cat_left_9: 1711922396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
