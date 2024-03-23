@@ -1,1 +1,1 @@
-Add predator sprite sheet here
+Add predator sprite sheet here.
