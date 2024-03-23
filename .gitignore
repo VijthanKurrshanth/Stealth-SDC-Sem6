@@ -135,3 +135,5 @@ questionnaire-app/back-end/!**/src/test/**/build/
 
 ### VS Code ###
 questionnaire-app/back-end/.vscode/
+
+questionnaire-app/front-end/.vscode/settings.json
