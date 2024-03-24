@@ -31,7 +31,8 @@ public class QuestionService {
         Question question = questionRepo.findById(id).orElseThrow(ResourceNotFoundException::new);
         String questionText = question.getQuestion();
         Stream<Choice> choiceStream = choiceRepo.findByQuestionId(id).stream();
-        Map<Integer, String> choiceMap = choiceStream.collect(Collectors.toMap(Choice::getId, Choice::getChoiceText));
+        List<String> choiceMap = choiceStream.collect(Collectors.toMap(Choice::getId, Choice::getChoiceText)).entrySet().stream()
+                .toList().stream().map(Map.Entry::getValue).collect(Collectors.toList());
 
         return new QuestionDto(id, questionText, choiceMap);
     }
