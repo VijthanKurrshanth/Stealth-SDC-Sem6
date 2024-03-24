@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4178443058726991300}
   - component: {fileID: 7545703612443455594}
   - component: {fileID: 4931499708173389215}
-  - component: {fileID: 2877584518471035243}
   - component: {fileID: 6245467675983343409}
   m_Layer: 0
   m_Name: doberman
@@ -136,21 +135,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2877584518471035243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868468297517163290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c77bb3b6bc5a3145a36121e19d24328, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.6
-  range: 2.14
-  maxDistance: 4.49
 --- !u!58 &6245467675983343409
 CircleCollider2D:
   m_ObjectHideFlags: 0
