@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a071e1896028e404f906aad5478bde23
+guid: f67cc455f03286345a95ade89f3a0204
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -178,10 +178,10 @@ TextureImporter:
       name: chicken_left_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
+        x: 164
+        y: 66
+        width: 320
+        height: 247
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,8 +189,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c350376a2f09a9a4394382ad1b877eaa
-      internalID: 120667328
+      spriteID: 75e217211d215cf4bae6e2c3b57e489b
+      internalID: -198127522
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
       name: chicken_left_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 500
+        x: 843
+        y: 64
+        width: 304
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,8 +210,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d7cb76d3f0babb4bac94e3f05c107aa
-      internalID: -1834502352
+      spriteID: 887ff1969d0725546985181d9e51ae4b
+      internalID: -1941171194
       vertices: []
       indices: 
       edges: []
@@ -220,10 +220,10 @@ TextureImporter:
       name: chicken_left_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
+        x: 1519
+        y: 62
+        width: 290
+        height: 263
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,8 +231,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de8d3fa8f635fbe47a4e4e9ee0b7dd9c
-      internalID: -866553093
+      spriteID: 56c77eb1bca5d9a4689fd277fd459b8e
+      internalID: 1427249227
       vertices: []
       indices: 
       edges: []
@@ -241,10 +241,10 @@ TextureImporter:
       name: chicken_left_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
+        x: 2184
+        y: 82
+        width: 289
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,8 +252,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ddbdabadb17e594994bd501d9412fb6
-      internalID: -1001680859
+      spriteID: 4be5cd9263fc7ba44a39aa08a6f628d3
+      internalID: -982877796
       vertices: []
       indices: 
       edges: []
@@ -262,10 +262,10 @@ TextureImporter:
       name: chicken_left_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 500
-        height: 500
+        x: 2841
+        y: 79
+        width: 301
+        height: 238
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,8 +273,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 962f23cf9f8752244aafcc2b1f8a5144
-      internalID: 1017830729
+      spriteID: 984c3eb9eea87f14c8b8d85be7f7e515
+      internalID: -208606391
       vertices: []
       indices: 
       edges: []
@@ -283,10 +283,10 @@ TextureImporter:
       name: chicken_left_5
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 0
-        width: 500
-        height: 500
+        x: 3500
+        y: 77
+        width: 310
+        height: 242
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,8 +294,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5939e29a9931a0b4f98cee99256b7bc6
-      internalID: -12273191
+      spriteID: 10771316ad1db1545b2a8bb9334273a7
+      internalID: 1598336757
       vertices: []
       indices: 
       edges: []
@@ -304,10 +304,10 @@ TextureImporter:
       name: chicken_left_6
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 500
-        height: 500
+        x: 4169
+        y: 69
+        width: 306
+        height: 250
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,8 +315,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdc46d66c21e4e84d9dccaa7bea85e7b
-      internalID: -500426903
+      spriteID: 0f8379b67749d3941b1f04a4e6a447a1
+      internalID: -1461159732
       vertices: []
       indices: 
       edges: []
@@ -325,10 +325,10 @@ TextureImporter:
       name: chicken_left_7
       rect:
         serializedVersion: 2
-        x: 3500
-        y: 0
-        width: 500
-        height: 500
+        x: 4841
+        y: 66
+        width: 300
+        height: 251
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,8 +336,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1580fc561199b34bb14f9238b2fa06f
-      internalID: 251753403
+      spriteID: 1c83b18144a461b4ba2e8a8058a6ae2b
+      internalID: -1503863997
       vertices: []
       indices: 
       edges: []
@@ -346,10 +346,10 @@ TextureImporter:
       name: chicken_left_8
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 500
-        height: 500
+        x: 5507
+        y: 67
+        width: 301
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,8 +357,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 806695609d1734c438264662c8cb25fd
-      internalID: -388920214
+      spriteID: ecfe2021861b7f2488894adfcc46b57e
+      internalID: 830769786
       vertices: []
       indices: 
       edges: []
@@ -367,10 +367,10 @@ TextureImporter:
       name: chicken_left_9
       rect:
         serializedVersion: 2
-        x: 4500
-        y: 0
-        width: 500
-        height: 500
+        x: 6162
+        y: 67
+        width: 317
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,29 +378,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3521380d918de5f498d4fe963df7c7dd
-      internalID: -1593484672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chicken_left_10
-      rect:
-        serializedVersion: 2
-        x: 5000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c88ae034fbbf3b345b34e6f16f2e928b
-      internalID: -1385579716
+      spriteID: fe2e456ffad16924daa12af8c5b5a397
+      internalID: -1052457055
       vertices: []
       indices: 
       edges: []
@@ -416,17 +395,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      chicken_left_0: 120667328
-      chicken_left_1: -1834502352
-      chicken_left_10: -1385579716
-      chicken_left_2: -866553093
-      chicken_left_3: -1001680859
-      chicken_left_4: 1017830729
-      chicken_left_5: -12273191
-      chicken_left_6: -500426903
-      chicken_left_7: 251753403
-      chicken_left_8: -388920214
-      chicken_left_9: -1593484672
+      chicken_left_0: -198127522
+      chicken_left_1: -1941171194
+      chicken_left_2: 1427249227
+      chicken_left_3: -982877796
+      chicken_left_4: -208606391
+      chicken_left_5: 1598336757
+      chicken_left_6: -1461159732
+      chicken_left_7: -1503863997
+      chicken_left_8: 830769786
+      chicken_left_9: -1052457055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
