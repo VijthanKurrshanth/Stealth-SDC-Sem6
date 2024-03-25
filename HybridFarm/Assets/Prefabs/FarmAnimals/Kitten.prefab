@@ -97,8 +97,9 @@ GameObject:
   - component: {fileID: 6621600510411143396}
   - component: {fileID: 8188730208241030969}
   - component: {fileID: 3247667676641188943}
+  - component: {fileID: 5950508101794264257}
   m_Layer: 0
-  m_Name: kitten
+  m_Name: Kitten
   m_TagString: Kitten
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 8590519789475556145}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2642236, y: -0.23247933, z: 0}
+  m_LocalPosition: {x: 1.2883756, y: -0.4327342, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -255,3 +256,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.011399368, y: 0.064291455}
   m_Size: {x: 0.91928643, y: 0.43635505}
   m_Direction: 1
+--- !u!114 &5950508101794264257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8590519789475556145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b86cffc216042ac82f80e74fa5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  range: 2.14
+  maxDistance: 5
