@@ -25,7 +25,7 @@ public class shadowEffect : MonoBehaviour
         sr.material =Material;
 
         sr.sortingLayerName =renderer.sortingLayerName;
-        sr.sortingOrder = renderer.sortingOrder;
+        sr.sortingOrder = renderer.sortingOrder-1;
 
 
     }
