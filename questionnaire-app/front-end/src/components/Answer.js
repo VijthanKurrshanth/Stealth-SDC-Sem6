@@ -1,20 +1,20 @@
 import "../styles/Answer.css";
 
-const ChangeColorIfWrong = ({ isCorrect }) => {
+const ChangeColorIfWrong = ({ isCorrect, specificFeedback }) => {
   const className = isCorrect === "INCORRECT" ? "Wrong" : "Correct";
 
-  return <div className={className}>Your answer is: {isCorrect}</div>;
+  return <div className={className}>{specificFeedback}</div>;
 };
 
-const Answer = ({ isCorrect, yourAnswer, correctAnswer }) => {
+const Answer = ({ isCorrect, specificFeedback, generalFeedback }) => {
   return (
     <div className="AnswerBlock">
-      <ChangeColorIfWrong isCorrect={isCorrect} />
+      <ChangeColorIfWrong
+        isCorrect={isCorrect}
+        specificFeedback={specificFeedback}
+      />
       <p className="Body">
-        You chose : <div className="Answer">{yourAnswer}</div>
-      </p>
-      <p className="Body">
-        Correct answer is : <div className="Answer">{correctAnswer}</div>
+        <div className="Answer">{generalFeedback}</div>
       </p>
     </div>
   );

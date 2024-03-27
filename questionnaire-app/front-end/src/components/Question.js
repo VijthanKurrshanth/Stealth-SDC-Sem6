@@ -24,6 +24,7 @@ const Question = () => {
   useEffect(() => {
     if (reviewFinished) {
       setLoading(true);
+
       QuestionAPI.getFinalScore()
         .then((data) => {
           setFinalScore(data);
@@ -40,9 +41,11 @@ const Question = () => {
       return;
     } else {
       setLoading(true);
+
       if (questionId > 10) {
         setFinished(true);
         setQuestionId(0);
+
         QuestionAPI.getAnswers()
           .then((data) => {
             setAnswers(data);
@@ -88,7 +91,7 @@ const Question = () => {
       setReviewFinished(true);
     } else {
       setQuestionId(questionId + 1);
-      setQuestionText(answers[questionId]["Question"]);
+      setQuestionText(answers[questionId]["question"]);
     }
   }
 
@@ -115,9 +118,9 @@ const Question = () => {
             <header className="BlankSpace"></header>
             <h1 className="Question">{questionText}</h1>
             <Answer
-              isCorrect={answers[questionId - 1]["Score"]}
-              yourAnswer={answers[questionId - 1]["Your-Answer"]}
-              correctAnswer={answers[questionId - 1]["Correct-Answer"]}
+              isCorrect={answers[questionId - 1]["score"]}
+              specificFeedback={answers[questionId - 1]["specificFeedback"]}
+              generalFeedback={answers[questionId - 1]["generalFeedback"]}
             />
             <button
               className="FinishButton"
@@ -126,6 +129,7 @@ const Question = () => {
           </div>
         );
       }
+
       return (
         <div>
           <header className="BlankSpace"></header>
@@ -137,6 +141,7 @@ const Question = () => {
         </div>
       );
     }
+
     return (
       <div>
         <header className="BlankSpace"></header>

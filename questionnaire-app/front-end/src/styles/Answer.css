@@ -10,14 +10,20 @@
   color: #fee3ca;
   text-shadow: 3px 3px 3px #ff0000;
   text-align: center;
+  max-width: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .Correct {
   font-size: 2em;
   font-weight: 800;
   color: #fee3ca;
-  text-shadow: 2px 2px 2px #00e344;
+  text-shadow: 2px 2px 2px #00972d;
   text-align: center;
+  max-width: 80%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .Answer {
