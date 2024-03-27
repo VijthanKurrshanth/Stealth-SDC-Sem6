@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -28,8 +29,14 @@ public class QuestionController {
     // Get Answer Sheet REST API
     @GetMapping
     public ResponseEntity<?> getAnswerSheet() {
-        Map<Integer, Map<String, String>> response = questionService.getAnswerSheet();
+        List<Map<String, String>> response = questionService.getAnswerSheet();
         return ResponseEntity.ok(response);
+    }
+
+    // Get Final Score REST API
+    @GetMapping("score")
+    public ResponseEntity<?> getScore() {
+        return ResponseEntity.ok(questionService.getScore());
     }
 
     // Receive Answer REST API

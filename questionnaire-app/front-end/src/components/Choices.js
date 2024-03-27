@@ -1,19 +1,19 @@
 import "../styles/Choices.css";
 
-const Choices = () => {
+const Choices = ({ handleClick, choices }) => {
   return (
     <div className="Choices">
-      <button className="Choice">
-        Choice 1 Choice 1 Choice 1 Choice 1 Choice 1 Choice 1 Choice 1 Choice 1
+      <button className="Choice" onClick={() => handleClick(1)}>
+        {choices[0]}
       </button>
-      <button className="Choice">
-        Choice 2 Choice 2 Choice 2 Choice 2 Choice 2 Choice 2 Choice 2 Choice 2
+      <button className="Choice" onClick={() => handleClick(2)}>
+        {choices[1]}
       </button>
-      <button className="Choice">
-        Choice 3 Choice 3 Choice 3 Choice 3 Choice 3 Choice 3 Choice 3 Choice 3
+      <button className="Choice" onClick={() => handleClick(3)}>
+        {choices[2]}
       </button>
-      <button className="Choice">
-        Choice 4 Choice 4 Choice 4 Choice 4 Choice 4 Choice 4 Choice 4 Choice 4
+      <button className="Choice" onClick={() => handleClick(4)}>
+        {choices[3]}
       </button>
     </div>
   );

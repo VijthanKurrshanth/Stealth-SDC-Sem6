@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
@@ -16,7 +17,7 @@ import java.util.Map;
 public class QuestionDto {
     private Integer id;
     private String question;
-    private Map<Integer, String> choices;
+    private List<String> choices;
 
     public String toJsonString() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
