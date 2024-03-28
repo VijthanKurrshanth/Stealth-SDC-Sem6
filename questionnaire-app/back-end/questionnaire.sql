@@ -114,7 +114,7 @@ VALUES
 INSERT INTO specific_feedbacks (question_id, specific_feedback)
 VALUES
   (1, "Solar power is growing but is not the primary source globally."),
-  (1, "Wind power"),
+  (1, "Wind power is significant in some areas but not the main source worldwide."),
   (1, "Correct! Fossil fuels, including coal, natural gas, and oil, are currently the primary energy source for most power grids."),
   (1, "Hydropower is a key renewable source but not the primary source globally."),
   (2, "Water pipes are used for plumbing, not electrical transmission."),
