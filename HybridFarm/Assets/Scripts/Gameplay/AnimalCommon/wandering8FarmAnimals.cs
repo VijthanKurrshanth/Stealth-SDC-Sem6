@@ -6,9 +6,9 @@ using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
 
 
-public class wandering8animals : MonoBehaviour
+public class wandering8FarmAnimals : MonoBehaviour
 {
-    [SerializeField] float speed= 0.5f;
+    [SerializeField] float speed= 1.0f;
     [SerializeField] float range= 2.14f;
     [SerializeField] float maxDistance= 5f;
 
@@ -56,13 +56,13 @@ public class wandering8animals : MonoBehaviour
 
     void Update()
     {
-        // speed= 1f;
-        // if ( grassSpawner.checkForGrassPresence())
-        //     {
+        speed= 1f;
+        if ( grassSpawner.checkForGrassPresence())
+            {
   
-        //     speed= 2.5f;                # react to grass for farm animal only
+            speed= 2.5f;
         
-        //     }
+            }
 
         
         direction = (wayPoint - (Vector2)transform.position).normalized;

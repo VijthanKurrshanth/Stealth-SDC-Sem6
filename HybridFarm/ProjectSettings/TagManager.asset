@@ -8,6 +8,8 @@ TagManager:
   - Kitten
   - grass
   - chicken
+  - collectables
+  - collectableBox
   layers:
   - Default
   - TransparentFX
