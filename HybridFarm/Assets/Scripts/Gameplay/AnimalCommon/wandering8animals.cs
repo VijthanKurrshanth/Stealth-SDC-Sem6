@@ -56,7 +56,7 @@ public class wandering8animals : MonoBehaviour
 
     void Update()
     {
-        speed= 0.5f;
+        speed= 1f;
         if ( grassSpawner.checkForGrassPresence())
             {
   
