@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RawProductPrefab: {fileID: 6926607628925942432, guid: cc91266ed78eadd43a758b4c4ba7ea35, type: 3}
-  spawnInterval: 5
+  spawnInterval: 15
 --- !u!114 &6258814697159719742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d8c64a8c7e08f4ab923b611eb81983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 3
+  timer: 10
   spawnInterval: 2
   fadeDuration: 1

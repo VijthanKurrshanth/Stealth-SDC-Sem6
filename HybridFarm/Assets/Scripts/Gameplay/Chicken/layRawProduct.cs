@@ -5,7 +5,7 @@ using UnityEngine;
 public class layRawProduct : MonoBehaviour
 {
     public GameObject RawProductPrefab; // Reference to the prefab you want to spawn
-    public float spawnInterval = 5f; // Interval between each spawn
+    public float spawnInterval = 15f; // Interval between each spawn
 
     private float timer = 0f;
     grassSpawnDestroy grassSpawner;

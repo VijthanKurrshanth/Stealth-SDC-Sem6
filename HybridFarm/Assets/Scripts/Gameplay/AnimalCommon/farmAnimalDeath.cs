@@ -32,7 +32,7 @@ public class farmAnimalDeath : MonoBehaviour
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
                 if (timer <= 0) 
                 {
-                    
+                    Debug.Log("ok ready to destroy");
                     fadeTimer += Time.deltaTime;
                     // Calculate the current alpha value based on the fade progress
                     float alpha = Mathf.Lerp(1f, 0f, fadeTimer / fadeDuration);
@@ -44,7 +44,9 @@ public class farmAnimalDeath : MonoBehaviour
                     if (fadeTimer >= fadeDuration)
                     {
                         Destroy(gameObject);
+                        Debug.Log("destroy");
                     }
+                    Destroy(gameObject);
                     timer = Random.Range(spawnInterval-1,spawnInterval+1);
                 }
         }
