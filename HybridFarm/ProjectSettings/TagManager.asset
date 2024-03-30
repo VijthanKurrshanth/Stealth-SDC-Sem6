@@ -10,6 +10,7 @@ TagManager:
   - chicken
   - collectables
   - collectableBox
+  - Farm Evening
   layers:
   - Default
   - TransparentFX

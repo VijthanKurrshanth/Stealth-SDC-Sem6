@@ -24,17 +24,37 @@ public class grassSpawnDestroy : MonoBehaviour
 
         // Check if the mouse button is clicked (left mouse button)
         if (Input.GetMouseButtonDown(0))
-        {
+        {   
             
-            if (numberOfGrassplant<5) 
-            {// Convert mouse position to world position
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Ensure the grass spawns at z = 0 (assuming 2D)
+            Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
 
-            // Spawn grass at mouse position
-            Instantiate(grass, mousePosition, Quaternion.identity);
-            numberOfGrassplant+=1;
+            if (hit.collider != null)
+            {
+                // Check if the collider hit has the tag "background"
+                if (hit.collider.CompareTag("background"))
+                {
+                    // Collision occurred with object tagged as "background"
+                    Debug.Log("Clicked on background!");
+                }
+
+                if (hit.collider.CompareTag("Farm Evening")) 
+                {
+                    if (numberOfGrassplant<5) 
+                        {// Convert mouse position to world position
+                            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                            mousePosition.z = 0; // Ensure the grass spawns at z = 0 (assuming 2D)
+
+                            // Spawn grass at mouse position
+                            Instantiate(grass, mousePosition, Quaternion.identity);
+                            numberOfGrassplant+=1;
+                        }
+                }
+
             }
+
+            
+
         }
     }
 
