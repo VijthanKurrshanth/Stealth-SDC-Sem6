@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Numerics;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
@@ -31,6 +30,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float minZ = -0.5f;
     private float maxZ = 0f;
     private float mappedZ;
+
+    private float timer = 0f;
   
 
     grassSpawnDestroy grassSpawner;
@@ -49,7 +50,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
         
-       
+        timer = 2.0f;
 
 
     }
@@ -59,10 +60,19 @@ public class wandering8FarmAnimals : MonoBehaviour
         speed= 1f;
         if ( grassSpawner.checkForGrassPresence())
             {
-  
-            speed= 2.5f;
-        
+                
+                timer -= Time.deltaTime;
+                if (timer <=0)
+                {
+                    speed= 2.5f;
+                }
+            
             }
+            
+        else 
+        {
+            timer=2.0f;
+        }
 
         
         direction = (wayPoint - (Vector2)transform.position).normalized;

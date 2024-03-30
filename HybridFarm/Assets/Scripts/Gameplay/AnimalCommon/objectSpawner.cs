@@ -7,9 +7,18 @@ public class ObjectSpawner : MonoBehaviour
     public Vector2 spawnRange = new Vector2 (3 , 10);
     public Vector2 fieldRange= new Vector2 (3, 1) ;
     public float moveSpeed =50.0f; // Speed at which the object will move to the new position
+    [SerializeField] int reduceValue = 100;
 
+    MoneyScript moneyScript;
+    
+    void Start ()
+    {
+        moneyScript =FindObjectOfType<MoneyScript>();
+
+    }
     public void SpawnObject()
     {
+        
         // Generate random position within the spawn range
         Vector3 spawnPosition = new Vector3(
             Random.Range(-spawnRange.x, spawnRange.x),
@@ -33,6 +42,9 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float moveSpeed)
     {
+
+        
+
         // Calculate distance to move
         float distance = Vector3.Distance(objectToMove.position, targetPosition);
 
@@ -48,5 +60,6 @@ public class ObjectSpawner : MonoBehaviour
             // Yield until the next frame
             yield return null;
         }
+        moneyScript.moneyValue-=reduceValue; // reduce money
     }
 }

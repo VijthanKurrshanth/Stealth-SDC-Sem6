@@ -8,12 +8,14 @@ public class layRawProduct : MonoBehaviour
     public float spawnInterval = 5f; // Interval between each spawn
 
     private float timer = 0f;
+    grassSpawnDestroy grassSpawner;
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialize the timer
         timer = spawnInterval;
+        grassSpawner =FindObjectOfType<grassSpawnDestroy>();
     }
 
     // Update is called once per frame
@@ -25,9 +27,12 @@ public class layRawProduct : MonoBehaviour
 
         // If the timer reaches zero or less, spawn the prefab and reset the timer
         if (timer <= 0)
-        {
-            SpawnRawProduct();
-            timer = Random.Range(spawnInterval-1,spawnInterval+1);
+        {   
+            if ( grassSpawner.checkForGrassPresence())
+            {
+                SpawnRawProduct();
+                timer = Random.Range(spawnInterval-1,spawnInterval+1);
+            }
 
         }
     }
