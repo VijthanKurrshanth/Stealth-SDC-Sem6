@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 2331092240598925733}
   - component: {fileID: 8463685068497762216}
   - component: {fileID: 1075061913597250734}
+  - component: {fileID: 5257817141198033288}
   m_Layer: 0
   m_Name: chicken
   m_TagString: chicken
@@ -271,3 +272,17 @@ MonoBehaviour:
   speed: 1
   range: 2.14
   maxDistance: 5
+--- !u!114 &5257817141198033288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461410092442803493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fd47f53836fd44b9cabc2aa387c146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RawProductPrefab: {fileID: 6926607628925942432, guid: cc91266ed78eadd43a758b4c4ba7ea35, type: 3}
+  spawnInterval: 5

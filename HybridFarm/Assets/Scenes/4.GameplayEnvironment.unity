@@ -2465,6 +2465,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1616615435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6926607628925942432, guid: cc91266ed78eadd43a758b4c4ba7ea35, type: 3}
+  m_PrefabInstance: {fileID: 6327050772875349446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1761777283
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 5257817141198033288, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
+      propertyPath: RawProductPrefab
+      value: 
+      objectReference: {fileID: 1616615435}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
