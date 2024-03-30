@@ -23,15 +23,18 @@ public class layRawProduct : MonoBehaviour
     {
         
         // Decrease the timer
-        timer -= Time.deltaTime;
 
-        // If the timer reaches zero or less, spawn the prefab and reset the timer
-        if (timer <= 0)
         {   
-            if ( grassSpawner.checkForGrassPresence())
-            {
-                SpawnRawProduct();
-                timer = Random.Range(spawnInterval-1,spawnInterval+1);
+            if ( !grassSpawner.checkForGrassPresence())  // if grass exist this will be true
+            {   
+                timer -= Time.deltaTime;
+                // If the timer reaches zero or less, spawn the prefab and reset the timer
+                if (timer <= 0) 
+                {
+                    SpawnRawProduct();
+                    Debug.Log("Grass have");
+                    timer = Random.Range(spawnInterval-1,spawnInterval+1);
+                }
             }
 
         }
