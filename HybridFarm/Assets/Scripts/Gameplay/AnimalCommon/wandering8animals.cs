@@ -32,6 +32,9 @@ public class wandering8animals : MonoBehaviour
     private float maxZ = 0f;
     private float mappedZ;
   
+
+    grassSpawnDestroy grassSpawner;
+
     
 
     void Start()
@@ -40,6 +43,8 @@ public class wandering8animals : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite_render = GetComponent<SpriteRenderer>();
         Transform= GetComponent<Transform>();
+        
+        grassSpawner = FindObjectOfType<grassSpawnDestroy>();
 
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
@@ -51,6 +56,14 @@ public class wandering8animals : MonoBehaviour
 
     void Update()
     {
+        // speed= 1f;
+        // if ( grassSpawner.checkForGrassPresence())
+        //     {
+  
+        //     speed= 2.5f;                # react to grass for farm animal only
+        
+        //     }
+
         
         direction = (wayPoint - (Vector2)transform.position).normalized;
         //Debug.Log("direction "+direction);

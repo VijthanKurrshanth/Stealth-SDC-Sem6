@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - background
+  - Kitten
+  - grass
+  - chicken
+  - collectables
+  - collectableBox
+  - Farm Evening
   layers:
   - Default
   - TransparentFX
