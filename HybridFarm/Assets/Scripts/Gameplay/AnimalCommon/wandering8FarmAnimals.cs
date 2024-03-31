@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
@@ -10,10 +12,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     [SerializeField] float speed= 1.0f;
     [SerializeField] float range= 2.14f;
     [SerializeField] float maxDistance= 5f;
-
     private Vector2 wayPoint;
     private Vector2 direction;
-
     private Animator anim;
     private SpriteRenderer sprite_render;
     private float angle=0f;
@@ -30,12 +30,13 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float minZ = -0.5f;
     private float maxZ = 0f;
     private float mappedZ;
-
     private float timer = 0f;
-  
+
+    private float timervalue = 2.0f;
 
     grassSpawnDestroy grassSpawner;
-
+    public bool noGrassatAll = false;
+    private bool isHungry =false;
     
 
     void Start()
@@ -50,7 +51,8 @@ public class wandering8FarmAnimals : MonoBehaviour
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
         
-        timer = 2.0f;
+        timer = timervalue;
+        
 
 
     }
@@ -58,22 +60,27 @@ public class wandering8FarmAnimals : MonoBehaviour
     void Update()
     {
         speed= 1f;
+        
+        StartCoroutine(animalisHungryTrigger());
 
-        // FarmAnimal will continously 
-        if ( grassSpawner.checkForGrassPresence())
+        if ( grassSpawner.checkForGrassPresence() & isHungry )  // true if no grass found
             {
-                
-                timer -= Time.deltaTime;
-                if (timer <=0)
-                {
                     speed= 2.5f;
-                }
-            
+                    noGrassatAll = true;
             }
+
+        else if ( isHungry )
+        {
+            noGrassatAll = false;
+            // wayPoint = FindAndMoveTowardsGrass();   // remove comment for move toward grass and eat.
+            //speed = 2.5f;
             
+        }
+
         else 
         {
-            timer=2.0f;
+            timer=timervalue; 
+            noGrassatAll = false;
         }
 
         
@@ -139,16 +146,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("background"))
         {
-
-            // wayPoint = new Vector2(0, 0);
-            // directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
-            // float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
-            // angle = (angledir + 360) % 360;
-            // Debug.Log(angle);
             wayPoint=RandomDirectionWaypointonCollision();
-            //Debug.Log("Collision lynx");
-            //Debug.Log(wayPoint);
-
         }
     }
 
@@ -156,20 +154,6 @@ public class wandering8FarmAnimals : MonoBehaviour
 
     Vector2 RandomDirectionWaypointonCollision()
         {
-            
-            // float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
-            // //float selectedAngle = possibleAngles[Random.Range(0, possibleAngles.Length)];
-            
-            // directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
-            // float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
-            // angle = (angledir + 360) % 360;
-            // //Debug.Log(angle);
-            
-            // angle= selectedAngle;
-            // // Convert angle to radians
-            // float angleInRadians = selectedAngle * Mathf.Deg2Rad;
-            // //Debug.Log("angle "+ selectedAngle);
-
             float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
 
             directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
@@ -216,9 +200,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         angle = (angledir + 360) % 360;
         
-        
 
-        
         if (angle>=350 | angle<=20)
         {
             SetAnimeFalse();
@@ -302,9 +284,42 @@ public class wandering8FarmAnimals : MonoBehaviour
         anim.SetBool("left_anim",false);
         anim.SetBool("leftdown_anim",false);
         anim.SetBool("down_anim",false);
+        anim.SetBool("eat_anim",false);
 
     }
 
+
+
+
+
+    public Vector2 FindAndMoveTowardsGrass()
+    {
+        GameObject[] grassObjects = GameObject.FindGameObjectsWithTag("grass");
+
+        if (grassObjects.Length > 0)
+        {
+            Debug.Log("Grass Found");
+            // Assuming you want to return the position of the first grass object found
+            return grassObjects[0].transform.position;
+        }
+        else
+        {
+            Debug.LogWarning("No grass objects found!");
+            // Return a default vector indicating no grass found
+            return Vector2.zero;
+        }
+    }
+
+    IEnumerator animalisHungryTrigger()
+    {
+        //Debug.Log("Coroutine started in Update");
+
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(timervalue);
+
+        //Debug.Log("Coroutine resumed after 3 seconds in Update");
+        isHungry = true; // Reset coroutineStarted for the next iteration
+    }
 
 
     }

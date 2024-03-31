@@ -32,7 +32,6 @@ public class layRawProduct : MonoBehaviour
                 if (timer <= 0) 
                 {
                     SpawnRawProduct();
-                    Debug.Log("Grass have");
                     timer = Random.Range(spawnInterval-1,spawnInterval+1);
                 }
             }

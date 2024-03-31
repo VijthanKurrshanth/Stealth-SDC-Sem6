@@ -8,6 +8,8 @@ public class farmAnimalDeath : MonoBehaviour
     // Start is called before the first frame update
     grassSpawnDestroy grassSpawner;
 
+    wandering8FarmAnimals wandering8FarmAnimals;
+
     [SerializeField] float timer = 3.0f;
 
     [SerializeField] float spawnInterval = 2f;
@@ -20,13 +22,14 @@ public class farmAnimalDeath : MonoBehaviour
     {
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
         objectRenderer = GetComponent<Renderer>();
+        wandering8FarmAnimals = FindObjectOfType <wandering8FarmAnimals>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if ( grassSpawner.checkForGrassPresence())  // if no grass this will be true
+        if ( wandering8FarmAnimals.noGrassatAll)  // if no grass this will be true
         {   
                 timer -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
