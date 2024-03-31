@@ -17,7 +17,6 @@ public class farmAnimalDeath : MonoBehaviour
     void Start()
     {
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
-        objectRenderer = GetComponent<Renderer>();
         wandering8FarmAnimals = FindObjectOfType <wandering8FarmAnimals>();
         timer = Random.Range(timer-1,timer+2);
     }
