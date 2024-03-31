@@ -58,6 +58,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     void Update()
     {
         speed= 1f;
+
+        // FarmAnimal will continously 
         if ( grassSpawner.checkForGrassPresence())
             {
                 
