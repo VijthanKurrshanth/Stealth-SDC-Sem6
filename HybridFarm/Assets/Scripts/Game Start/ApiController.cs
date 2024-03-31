@@ -78,6 +78,8 @@ public static class ApiController
                     ProfilePictureUrl = (string)jsonObject["user"]["profilePictureUrl"]
                 };
 
+                PlayerPrefs.SetString("userName", userProfile.UserName);
+
                 return userProfile;
             }
         }
