@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
+using UnityEngine.Networking;
+using System.Collections;
 
 public static class ApiController
 {
@@ -92,6 +94,40 @@ public static class ApiController
         {
             Debug.LogError($"An unexpected error occurred: {ex.Message}");
             return null;
+        }
+    }
+
+    public static void UpdateUserProfile(string jwtKey, UpdateProfileObject updateProfileObject)
+    {
+        Debug.Log(updateProfileObject.FirstName + " " + updateProfileObject.LastName + " " + updateProfileObject.Email + " " + updateProfileObject.PhoneNumber + " " + updateProfileObject.Nic);
+        string url = "http://20.15.114.131:8080/api/user/profile/update";
+
+        string jsonData = JsonUtility.ToJson(updateProfileObject);
+
+        // Set the request body with JSON data
+        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
+        var putRequest = UnityWebRequest.Put(url, bodyData);
+
+        putRequest.SetRequestHeader("Content-Type", "application/json");
+        putRequest.SetRequestHeader("Authorization", "Bearer " + jwtKey);
+        putRequest.SetRequestHeader("Accept", "application/json");
+
+        putRequest.uploadHandler = new UploadHandlerRaw(bodyData);
+
+        putRequest.SendWebRequest();
+
+        // Handle the response
+        if (putRequest.result == UnityWebRequest.Result.ConnectionError || putRequest.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError("Error sending PUT request: " + putRequest.error);
+            return;
+        }
+        else
+        {
+            Debug.Log("PUT request successful!");
+            // Process the response data if needed (e.g., using putRequest.downloadHandler.text)
+            return;
         }
     }
 }

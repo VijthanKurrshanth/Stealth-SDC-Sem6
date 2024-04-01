@@ -3,32 +3,57 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using UnityEditor;
-using System;
+
 
 
 public class PlayerProfileEditor : MonoBehaviour
 {
-    private UserProfile userProfile;
+    private UserProfile userProfile = new();
+    private UpdateProfileObject updateProfileObject = new();
     public TextMeshProUGUI userName;
     public TextMeshProUGUI firstName;
     public TextMeshProUGUI lastName;
     public TextMeshProUGUI email;
     public TextMeshProUGUI phoneNumber;
     public TextMeshProUGUI nic;
+    public TextMeshProUGUI profilePictureUrl;
     public Image downloadedImage;
 
+    public TextMeshProUGUI firstNamePlaceholder;
+    public TextMeshProUGUI lastNamePlaceholder;
+    public TextMeshProUGUI emailPlaceholder;
+    public TextMeshProUGUI phoneNumberPlaceholder;
+    public TextMeshProUGUI nicPlaceholder;
+    public TextMeshProUGUI profilePictureUrlPlaceholder;
 
     // Start is called before the first frame update
     void Start()
     {
+        UpdateAttributes();
         StartCoroutine(RetrieveUserProfile());
+    }
+
+    private void UpdateAttributes()
+    {
+        userName = GameObject.Find("UserName").GetComponent<TextMeshProUGUI>();
+        firstName = GameObject.Find("FirstNameText").GetComponent<TextMeshProUGUI>();
+        lastName = GameObject.Find("LastNameText").GetComponent<TextMeshProUGUI>();
+        email = GameObject.Find("EmailText").GetComponent<TextMeshProUGUI>();
+        phoneNumber = GameObject.Find("PhoneText").GetComponent<TextMeshProUGUI>();
+        nic = GameObject.Find("NICText").GetComponent<TextMeshProUGUI>();
+        profilePictureUrl = GameObject.Find("URLText").GetComponent<TextMeshProUGUI>();
+
+        firstNamePlaceholder = GameObject.Find("FirstNamePlaceholder").GetComponent<TextMeshProUGUI>();
+        lastNamePlaceholder = GameObject.Find("LastNamePlaceholder").GetComponent<TextMeshProUGUI>();
+        emailPlaceholder = GameObject.Find("EmailPlaceholder").GetComponent<TextMeshProUGUI>();
+        phoneNumberPlaceholder = GameObject.Find("PhonePlaceholder").GetComponent<TextMeshProUGUI>();
+        nicPlaceholder = GameObject.Find("NICPlaceholder").GetComponent<TextMeshProUGUI>();
+        profilePictureUrlPlaceholder = GameObject.Find("URLPlaceholder").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     IEnumerator RetrieveUserProfile()
@@ -49,23 +74,26 @@ public class PlayerProfileEditor : MonoBehaviour
 
         Debug.Log($"User profile retrieved: {userProfile}");
 
-        setTexMeshPro();
+        SetTexMeshPro();
         StartCoroutine(DownloadImage(userProfile.ProfilePictureUrl));
     }
 
-    public UserProfile GetUserProfile()
+    public void SetTexMeshPro()
     {
-        return this.userProfile;
-    }
+        userName.text = userProfile.UserName;
+        firstName.text = userProfile.FirstName;
+        lastName.text = userProfile.LastName;
+        email.text = userProfile.Email;
+        phoneNumber.text = userProfile.PhoneNumber;
+        nic.text = userProfile.Nic;
+        profilePictureUrl.text = userProfile.ProfilePictureUrl;
 
-    public void setTexMeshPro()
-    {
-        this.userName.text = userProfile.UserName;
-        this.firstName.text = userProfile.FirstName;
-        this.lastName.text = userProfile.LastName;
-        this.email.text = userProfile.Email;
-        this.phoneNumber.text = userProfile.PhoneNumber;
-        this.nic.text = userProfile.Nic;
+        firstNamePlaceholder.text = userProfile.FirstName;
+        lastNamePlaceholder.text = userProfile.LastName;
+        emailPlaceholder.text = userProfile.Email;
+        phoneNumberPlaceholder.text = userProfile.PhoneNumber;
+        nicPlaceholder.text = userProfile.Nic;
+        profilePictureUrlPlaceholder.text = userProfile.ProfilePictureUrl;
     }
 
     IEnumerator DownloadImage(string url)
@@ -85,4 +113,49 @@ public class PlayerProfileEditor : MonoBehaviour
             downloadedImage.sprite = downloadedSprite;
         }
     }
+
+    public void OnEndEdit(string newText)
+    {
+        Debug.Log("First Name: " + firstName.text);
+        Debug.Log("Last Name: " + lastName.text);
+        Debug.Log("Email: " + email.text);
+        Debug.Log("Phone Number: " + phoneNumber.text);
+        Debug.Log("NIC: " + nic.text);
+    }
+
+    public void OnSaveButtonClick()
+    {
+        updateProfileObject.FirstName = firstName.text;
+        updateProfileObject.LastName = lastName.text;
+        updateProfileObject.Email = email.text;
+        updateProfileObject.PhoneNumber = phoneNumber.text;
+        updateProfileObject.Nic = nic.text;
+
+        Debug.Log(updateProfileObject.FirstName + " " + updateProfileObject.LastName + " " + updateProfileObject.Email + " " + updateProfileObject.PhoneNumber + " " + updateProfileObject.Nic);
+        Debug.Log(firstName.text + " " + lastName.text + " " + email.text + " " + phoneNumber.text + " " + nic.text);
+
+        StartCoroutine(UpdateProfile(updateProfileObject));
+    }
+
+    IEnumerator UpdateProfile(UpdateProfileObject updateProfileObject)
+    {
+        Debug.Log(updateProfileObject.FirstName);
+        string jwtKey = ApiController.GetJwtKey();
+        if (string.IsNullOrEmpty(jwtKey))
+        {
+            Debug.LogError("JWT key is null or empty");
+            yield break;
+        }
+
+        ApiController.UpdateUserProfile(jwtKey, updateProfileObject);
+    }
+}
+
+public class UpdateProfileObject
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public string PhoneNumber { get; set; }
+    public string Nic { get; set; }
 }
