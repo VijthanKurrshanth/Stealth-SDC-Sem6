@@ -37,6 +37,9 @@ public class wandering8FarmAnimals : MonoBehaviour
     grassSpawnDestroy grassSpawner;
     public bool noGrassatAll = false;
     private bool isHungry =false;
+    private bool startedEating = false;
+
+    farmAnimalDeath farmAnimalDeath;
     
 
     void Start()
@@ -47,6 +50,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         Transform= GetComponent<Transform>();
         
         grassSpawner = FindObjectOfType<grassSpawnDestroy>();
+        farmAnimalDeath = FindObjectOfType<farmAnimalDeath>();
 
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
@@ -72,9 +76,9 @@ public class wandering8FarmAnimals : MonoBehaviour
         else if ( isHungry )
         {
             noGrassatAll = false;
-            StartCoroutine(returnWaypointForApproachAGrass());
-            //wayPoint = FindAndMoveTowardsGrass();   // remove comment for move toward grass and eat.
-            //speed = 2.5f; // remove comment for move toward grass and eat.
+            //StartCoroutine(returnWaypointForApproachAGrass());
+            wayPoint = FindAndMoveTowardsGrass();   // remove comment for move toward grass and eat.
+            speed = 2f; // remove comment for move toward grass and eat.
             
         }
 
@@ -149,7 +153,41 @@ public class wandering8FarmAnimals : MonoBehaviour
         {
             wayPoint=RandomDirectionWaypointonCollision();
         }
+
+        // else if (collision.gameObject.CompareTag("grass"))
+        // {
+        //     if (isHungry) 
+        //     {SetAnimeFalse();
+        //     anim.SetBool("eat_anim",true);
+        //     startedEating = true;
+        //     Debug.Log("Eating");
+        //     StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
+
+        //     }
+        // }
     }
+
+
+    private void OnTriggerStay2D (Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("grass"))
+        {
+            if (isHungry) 
+            {SetAnimeFalse();
+            anim.SetBool("eat_anim",true);
+            startedEating = true;
+            Debug.Log("Eating");
+            StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
+
+            }
+    }
+
+    }
+
+
+
+
+    
 
 
 
@@ -204,6 +242,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         if (angle>=350 | angle<=20)
         {
+            
             SetAnimeFalse();
             anim.SetBool("left_anim",true);
             sprite_render.flipX=true;
@@ -212,6 +251,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=21 && angle<=65)
         {
+            
             SetAnimeFalse();
             anim.SetBool("leftup_anim",true);
             sprite_render.flipX=true;
@@ -221,6 +261,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=66 && angle<=115)
         {
+            
             SetAnimeFalse();
             anim.SetBool("up_anim",true);
             sprite_render.flipX=false;
@@ -229,6 +270,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=116 && angle<=159)
         {
+            
             SetAnimeFalse();
             anim.SetBool("leftup_anim",true);
             sprite_render.flipX=false;
@@ -237,6 +279,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=160 && angle<=210)
         {
+            
             SetAnimeFalse();
             anim.SetBool("left_anim",true);
             sprite_render.flipX=false;
@@ -245,6 +288,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         
         else if (angle>=211 && angle<=259)
         {
+            
             SetAnimeFalse();
             anim.SetBool("leftdown_anim",true);
             sprite_render.flipX=false;
@@ -253,6 +297,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=260 && angle<=300)
         {
+            
             SetAnimeFalse();
             anim.SetBool("down_anim",true);
             sprite_render.flipX=false;
@@ -261,6 +306,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else if (angle>=301 && angle<=349)
         {
+            
             SetAnimeFalse();
             anim.SetBool("leftdown_anim",true);
             sprite_render.flipX= true;
@@ -279,7 +325,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
 
     private void SetAnimeFalse()
-    {
+    {   
         anim.SetBool("up_anim",false);
         anim.SetBool("leftup_anim",false);
         anim.SetBool("left_anim",false);
@@ -300,6 +346,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         if (grassObjects.Length > 0)
         {
+            farmAnimalDeath.timerforDeath = farmAnimalDeath.timerofDeathConstant; // 10 can change as public var
             //Debug.Log("Grass Found");
             // Assuming you want to return the position of the first grass object found
             return grassObjects[0].transform.position;
@@ -324,20 +371,24 @@ public class wandering8FarmAnimals : MonoBehaviour
         isHungry = true; // Reset coroutineStarted for the next iteration
     }
 
-    private IEnumerator returnWaypointForApproachAGrass()
+    // private IEnumerator returnWaypointForApproachAGrass()    //this code approaching grass but fluctuating animation
+    // {
+        
+    //      yield return new WaitForSeconds(2);
+    //      wayPoint= FindAndMoveTowardsGrass();
+    //      yield return new WaitForSeconds(2);
+        
+        
+    //  }
+    private IEnumerator DestroyGrass(GameObject grassObject)
     {
-        
-         yield return new WaitForSeconds(2);
-         wayPoint= FindAndMoveTowardsGrass();
-         yield return new WaitForSeconds(2);
-        
-        
-     }
+        // Wait for some time to simulate eating animation
+        yield return new WaitForSeconds(2);
 
-     private IEnumerator giveDelay()
-        {
-            yield return new WaitForSeconds(4);
-        }
+        // Destroy the grass object after eating animation
+        Destroy(grassObject);
+    }
+
 
 
     }

@@ -10,7 +10,8 @@ public class farmAnimalDeath : MonoBehaviour
 
     wandering8FarmAnimals wandering8FarmAnimals;
 
-    [SerializeField] float timer = 10.0f;
+    public float timerforDeath = 10.0f;
+    public float timerofDeathConstant= 10.0f ;
 
 
 
@@ -18,7 +19,7 @@ public class farmAnimalDeath : MonoBehaviour
     {
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
         wandering8FarmAnimals = FindObjectOfType <wandering8FarmAnimals>();
-        timer = Random.Range(timer-1,timer+2);
+        timerforDeath = Random.Range(timerforDeath-1,timerforDeath+2);
     }
 
     // Update is called once per frame
@@ -27,9 +28,9 @@ public class farmAnimalDeath : MonoBehaviour
 
         if ( wandering8FarmAnimals.noGrassatAll)  // if no grass this will be true
         {   
-                timer -= Time.deltaTime;
+                timerforDeath -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
-                if (timer <= 0) 
+                if (timerforDeath <= 0) 
                 {
 
                     {
