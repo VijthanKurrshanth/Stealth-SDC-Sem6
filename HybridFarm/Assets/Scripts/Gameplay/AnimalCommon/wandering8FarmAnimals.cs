@@ -32,12 +32,13 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float mappedZ;
     private float timer = 0f;
 
-    private float timervalue = 2.0f;
+    private float timervalueForHungryTrigger = 5.0f;
 
     grassSpawnDestroy grassSpawner;
     public bool noGrassatAll = false;
     private bool isHungry =false;
     private bool startedEating = false;
+    private int destroyedNoOfGrassobject;
 
     farmAnimalDeath farmAnimalDeath;
     
@@ -55,7 +56,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
         
-        timer = timervalue;
+        timer = timervalueForHungryTrigger;
         
 
 
@@ -65,6 +66,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     {
         speed= 1f;
         
+
+
         StartCoroutine(animalisHungryTrigger());
 
         if ( grassSpawner.checkForGrassPresence() & isHungry )  // true if no grass found
@@ -84,7 +87,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         else 
         {
-            timer=timervalue; 
+            timer=timervalueForHungryTrigger; 
             noGrassatAll = false;
         }
 
@@ -365,7 +368,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         //Debug.Log("Coroutine started in Update");
 
         // Wait for 3 seconds
-        yield return new WaitForSeconds(timervalue);
+        yield return new WaitForSeconds(timervalueForHungryTrigger);
 
         //Debug.Log("Coroutine resumed after 3 seconds in Update");
         isHungry = true; // Reset coroutineStarted for the next iteration
@@ -383,10 +386,17 @@ public class wandering8FarmAnimals : MonoBehaviour
     private IEnumerator DestroyGrass(GameObject grassObject)
     {
         // Wait for some time to simulate eating animation
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         // Destroy the grass object after eating animation
         Destroy(grassObject);
+        destroyedNoOfGrassobject+=1;
+        if (destroyedNoOfGrassobject >=3) 
+        {
+            isHungry=false;
+            noGrassatAll = false;
+            timer=timervalueForHungryTrigger;
+        }
     }
 
 
