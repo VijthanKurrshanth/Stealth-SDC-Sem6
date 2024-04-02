@@ -69,8 +69,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         if (destroyedNoOfGrassobject >=3) 
         {
             isHungry=false;
-            noGrassatAll = false;
-            
+            noGrassatAll = false;       
 
         }
 
