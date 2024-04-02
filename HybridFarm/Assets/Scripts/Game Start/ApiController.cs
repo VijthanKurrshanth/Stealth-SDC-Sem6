@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
-using System.Collections;
 
 public static class ApiController
 {
@@ -63,27 +62,25 @@ public static class ApiController
             request.Accept = "application/json";
             request.Headers.Add("Authorization", "Bearer " + jwtKey);
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            using StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = reader.ReadToEnd();
+            JObject jsonObject = JObject.Parse(jsonResponse);
+
+            UserProfile userProfile = new UserProfile()
             {
-                string jsonResponse = reader.ReadToEnd();
-                JObject jsonObject = JObject.Parse(jsonResponse);
+                FirstName = (string)jsonObject["user"]["firstname"],
+                LastName = (string)jsonObject["user"]["lastname"],
+                UserName = (string)jsonObject["user"]["username"],
+                Nic = (string)jsonObject["user"]["nic"],
+                PhoneNumber = (string)jsonObject["user"]["phoneNumber"],
+                Email = (string)jsonObject["user"]["email"],
+                ProfilePictureUrl = (string)jsonObject["user"]["profilePictureUrl"]
+            };
 
-                UserProfile userProfile = new UserProfile()
-                {
-                    FirstName = (string)jsonObject["user"]["firstname"],
-                    LastName = (string)jsonObject["user"]["lastname"],
-                    UserName = (string)jsonObject["user"]["username"],
-                    Nic = (string)jsonObject["user"]["nic"],
-                    PhoneNumber = (string)jsonObject["user"]["phoneNumber"],
-                    Email = (string)jsonObject["user"]["email"],
-                    ProfilePictureUrl = (string)jsonObject["user"]["profilePictureUrl"]
-                };
+            PlayerPrefs.SetString("userName", userProfile.UserName);
 
-                PlayerPrefs.SetString("userName", userProfile.UserName);
-
-                return userProfile;
-            }
+            return userProfile;
         }
         catch (WebException ex)
         {
@@ -97,37 +94,50 @@ public static class ApiController
         }
     }
 
-    public static void UpdateUserProfile(string jwtKey, UpdateProfileObject updateProfileObject)
+    public static string UpdateUserProfile(string jwtKey, UpdateProfileDTO updateProfileObject)
     {
-        Debug.Log(updateProfileObject.FirstName + " " + updateProfileObject.LastName + " " + updateProfileObject.Email + " " + updateProfileObject.PhoneNumber + " " + updateProfileObject.Nic);
+        //Debug.Log(updateProfileObject.GetValueOrDefault("firstname"));
         string url = "http://20.15.114.131:8080/api/user/profile/update";
 
         string jsonData = JsonUtility.ToJson(updateProfileObject);
+        Debug.Log(jsonData);
+        byte[] myData = System.Text.Encoding.UTF8.GetBytes(jsonData);
 
-        // Set the request body with JSON data
-        byte[] bodyData = System.Text.Encoding.UTF8.GetBytes(jsonData);
-
-        var putRequest = UnityWebRequest.Put(url, bodyData);
+        var putRequest = UnityWebRequest.Put(url, myData);
 
         putRequest.SetRequestHeader("Content-Type", "application/json");
         putRequest.SetRequestHeader("Authorization", "Bearer " + jwtKey);
         putRequest.SetRequestHeader("Accept", "application/json");
 
-        putRequest.uploadHandler = new UploadHandlerRaw(bodyData);
-
         putRequest.SendWebRequest();
+
+        string response = putRequest.downloadHandler.text;
+        Debug.Log(response);
+        JObject jsonResponse = JObject.Parse(response);
 
         // Handle the response
         if (putRequest.result == UnityWebRequest.Result.ConnectionError || putRequest.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.LogError("Error sending PUT request: " + putRequest.error);
-            return;
+            return "sendError";
+        }
+        else if (putRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Update successful");
+            return "success";
         }
         else
         {
-            Debug.Log("PUT request successful!");
-            // Process the response data if needed (e.g., using putRequest.downloadHandler.text)
-            return;
+            if (jsonResponse.ContainsKey("message"))
+            {
+                Debug.LogError("Error updating user profile: " + (string)jsonResponse["message"]);
+                return (string)jsonResponse["message"];
+            }
+            else
+            {
+                Debug.LogError("Unknown error occurred");
+                return "unknownError";
+            }
         }
     }
 }

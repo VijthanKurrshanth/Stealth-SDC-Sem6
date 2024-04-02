@@ -2039,12 +2039,12 @@ MonoBehaviour:
   nic: {fileID: 160203411}
   profilePictureUrl: {fileID: 443408595}
   downloadedImage: {fileID: 431548392}
-  firstNamePlaceholder: {fileID: 987192351}
-  lastNamePlaceholder: {fileID: 1662185431}
-  emailPlaceholder: {fileID: 744821160}
-  phoneNumberPlaceholder: {fileID: 135293993}
-  nicPlaceholder: {fileID: 41336541}
-  profilePictureUrlPlaceholder: {fileID: 111488926}
+  firstNamePlaceholder: {fileID: 0}
+  lastNamePlaceholder: {fileID: 0}
+  emailPlaceholder: {fileID: 0}
+  phoneNumberPlaceholder: {fileID: 0}
+  nicPlaceholder: {fileID: 0}
+  profilePictureUrlPlaceholder: {fileID: 0}
 --- !u!1 &961580629
 GameObject:
   m_ObjectHideFlags: 0
