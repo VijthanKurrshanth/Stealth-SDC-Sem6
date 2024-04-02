@@ -32,13 +32,13 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float mappedZ;
     private float timer = 0f;
 
-    private float timervalueForHungryTrigger = 5.0f;
+    private float timervalueForHungryTrigger = 10.0f;
 
     grassSpawnDestroy grassSpawner;
     public bool noGrassatAll = false;
     private bool isHungry =false;
     private bool startedEating = false;
-    private int destroyedNoOfGrassobject;
+    private int destroyedNoOfGrassobject=0;
 
     farmAnimalDeath farmAnimalDeath;
     
@@ -66,9 +66,16 @@ public class wandering8FarmAnimals : MonoBehaviour
     {
         speed= 1f;
         
+        if (destroyedNoOfGrassobject >=3) 
+        {
+            isHungry=false;
+            noGrassatAll = false;
+        
+
+        }
 
 
-        StartCoroutine(animalisHungryTrigger());
+        
 
         if ( grassSpawner.checkForGrassPresence() & isHungry )  // true if no grass found
             {
@@ -89,6 +96,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         {
             timer=timervalueForHungryTrigger; 
             noGrassatAll = false;
+            StartCoroutine(animalisHungryTrigger());
         }
 
         
@@ -176,7 +184,8 @@ public class wandering8FarmAnimals : MonoBehaviour
         if (collision.gameObject.CompareTag("grass"))
         {
             if (isHungry) 
-            {SetAnimeFalse();
+            {
+            SetAnimeFalse();
             anim.SetBool("eat_anim",true);
             startedEating = true;
             Debug.Log("Eating");
@@ -371,6 +380,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         yield return new WaitForSeconds(timervalueForHungryTrigger);
 
         //Debug.Log("Coroutine resumed after 3 seconds in Update");
+        destroyedNoOfGrassobject =0;
         isHungry = true; // Reset coroutineStarted for the next iteration
     }
 
@@ -391,12 +401,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         // Destroy the grass object after eating animation
         Destroy(grassObject);
         destroyedNoOfGrassobject+=1;
-        if (destroyedNoOfGrassobject >=3) 
-        {
-            isHungry=false;
-            noGrassatAll = false;
-            timer=timervalueForHungryTrigger;
-        }
+        
     }
 
 
