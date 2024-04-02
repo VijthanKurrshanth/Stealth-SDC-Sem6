@@ -70,7 +70,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         {
             isHungry=false;
             noGrassatAll = false;
-        
+            
 
         }
 
