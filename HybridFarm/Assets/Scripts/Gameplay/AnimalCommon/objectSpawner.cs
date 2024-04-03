@@ -6,7 +6,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject objectToSpawn;
     public Vector2 spawnRange = new Vector2(3, 10);
     public Vector2 fieldRange = new Vector2(3, 1);
-    public float moveSpeed = 50.0f; // Speed at which the object will move to the new position
+    public float moveSpeed = 40.0f; // Speed at which the object will move to the new position
     [SerializeField] int reduceValue = 100;
 
     MoneyScript moneyScript;
@@ -55,7 +55,7 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float moveSpeed)
     {
-        // Calculate distance to move
+        //  distance to move calculatetions
         float distance = Vector3.Distance(objectToMove.position, targetPosition);
 
         // Continue moving until the object reaches the target position
