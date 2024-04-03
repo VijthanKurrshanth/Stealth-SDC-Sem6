@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // This is required for using UI elements
+//using UnityEngine.UI; // This is required for using UI elements
 using TMPro;
 
 public class MoneyScript : MonoBehaviour
