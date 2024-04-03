@@ -18,7 +18,7 @@ public class MoneyScript : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         // Example: Increase money value by 1 every frame 
