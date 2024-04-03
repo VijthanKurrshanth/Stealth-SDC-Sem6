@@ -13,7 +13,7 @@ public class MoneyScript : MonoBehaviour
     void Start()
     {
         moneyText = FindObjectOfType<TextMeshProUGUI>();
-        moneyValue = 100;
+        moneyValue = 100;   //initial Money
         UpdateMoneyText(); // Call the function to update the money text when the game starts
         
     }
