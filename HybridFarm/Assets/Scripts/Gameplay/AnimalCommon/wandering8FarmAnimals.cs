@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.UIElements;
+//using UnityEngine.SocialPlatforms;
+//using UnityEngine.UIElements;
+//using System.Collections.Generic;
+//using System.Runtime.CompilerServices;
+//using Unity.VisualScripting;
 
 
 public class wandering8FarmAnimals : MonoBehaviour
@@ -39,6 +39,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     private bool isHungry =false;
     private bool startedEating = false;
     private int destroyedNoOfGrassobject=0;
+    bool approachingGrass= false;
+
 
     farmAnimalDeath farmAnimalDeath;
     
@@ -119,7 +121,15 @@ public class wandering8FarmAnimals : MonoBehaviour
             }
 
 
-        FindMovingAngleAndDirectionAndAnimate();
+        if (approachingGrass){
+            FindMovingAngleAndDirectionAndAnimateForApproachingGrass();
+        }
+        
+        else {
+            FindMovingAngleAndDirectionAndAnimate();
+        }
+
+        
         //Debug.Log(wayPoint);
         
 
@@ -188,6 +198,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             anim.SetBool("eat_anim",true);
             startedEating = true;
             Debug.Log("Eating");
+            approachingGrass=false;
             StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
 
             }
@@ -335,6 +346,66 @@ public class wandering8FarmAnimals : MonoBehaviour
 
 
 
+
+    private void FindMovingAngleAndDirectionAndAnimateForApproachingGrass() 
+    {
+        directionAngle = wayPoint - (Vector2)transform.position;
+        float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
+        
+
+        angle = (angledir + 360) % 360;
+        
+
+        if (angle>=270 | angle<=90 )
+        {
+            
+            SetAnimeFalse();
+            anim.SetBool("left_anim",true);
+            sprite_render.flipX=true;
+            directionOfMovement= "East";
+
+        }
+
+        // else if (angle>=66 && angle<=115)
+        // {
+            
+        //     SetAnimeFalse();
+        //     anim.SetBool("up_anim",true);
+        //     sprite_render.flipX=false;
+        //     directionOfMovement= "North";
+        // }
+
+
+        else if (angle > 90 && angle < 270)
+        {
+            
+            SetAnimeFalse();
+            anim.SetBool("left_anim",true);
+            sprite_render.flipX=false;
+            directionOfMovement= "West";
+        }
+
+        // else if (angle>=260 && angle<=300)
+        // {
+            
+        //     SetAnimeFalse();
+        //     anim.SetBool("down_anim",true);
+        //     sprite_render.flipX=false;
+        //     directionOfMovement= "South";
+        // }
+
+
+        else 
+        {
+        
+        directionOfMovement= " Other Dir";
+        }
+     Debug.Log(directionOfMovement);
+    }
+
+
+
+
     private void SetAnimeFalse()
     {   
         anim.SetBool("up_anim",false);
@@ -360,6 +431,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             farmAnimalDeath.timerforDeath = farmAnimalDeath.timerofDeathConstant; // 10 can change as public var
             //Debug.Log("Grass Found");
             // Assuming you want to return the position of the first grass object found
+            approachingGrass= true;
             return grassObjects[0].transform.position;
             
         }
