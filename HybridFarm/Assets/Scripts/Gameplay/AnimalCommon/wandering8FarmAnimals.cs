@@ -424,17 +424,30 @@ public class wandering8FarmAnimals : MonoBehaviour
     private Vector2 FindAndMoveTowardsGrass()
     {
         GameObject[] grassObjects = GameObject.FindGameObjectsWithTag("grass");
-        //Debug.Log(grassObjects.Length);
 
         if (grassObjects.Length > 0)
         {
-            farmAnimalDeath.timerforDeath = farmAnimalDeath.timerofDeathConstant; // 10 can change as public var
-            //Debug.Log("Grass Found");
-            // Assuming you want to return the position of the first grass object found
-            approachingGrass= true;
-            return grassObjects[0].transform.position;
+            Vector3 currentPosition = transform.position; // Assuming this script is attached to the object that is checking for grass
+            GameObject nearestGrass = grassObjects[0];
+            float shortestDistance = Vector3.Distance(currentPosition, nearestGrass.transform.position);
+
+            for (int i = 1; i < grassObjects.Length; i++)
+            {
+                float distance = Vector3.Distance(currentPosition, grassObjects[i].transform.position);
+                if (distance < shortestDistance)
+                {
+                    shortestDistance = distance;
+                    nearestGrass = grassObjects[i];
+                }
+            }
+
+            // Now nearestGrass will hold the closest grass object
+            approachingGrass = true;
+            return nearestGrass.transform.position;
             
         }
+
+
         else
         {
             Debug.LogWarning("No grass objects found!");
