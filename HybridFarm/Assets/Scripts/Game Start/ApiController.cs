@@ -100,43 +100,8 @@ public static class ApiController
         string url = "http://20.15.114.131:8080/api/user/profile/update";
 
         string jsonData = JsonUtility.ToJson(updateProfileObject);
+        Debug.Log(jsonData);
 
-        // var putRequest = UnityWebRequest.Put(url, myData);
-
-        // putRequest.SetRequestHeader("Content-Type", "application/json");
-        // putRequest.SetRequestHeader("Authorization", "Bearer " + jwtKey);
-        // putRequest.SetRequestHeader("Accept", "application/json");
-
-        // putRequest.SendWebRequest();
-
-        // string response = putRequest.downloadHandler.text;
-        // Debug.Log(response);
-        // JObject jsonResponse = JObject.Parse(response);
-
-        // // Handle the response
-        // if (putRequest.result == UnityWebRequest.Result.ConnectionError || putRequest.result == UnityWebRequest.Result.ProtocolError)
-        // {
-        //     Debug.LogError("Error sending PUT request: " + putRequest.error);
-        //     return "sendError";
-        // }
-        // else if (putRequest.result == UnityWebRequest.Result.Success)
-        // {
-        //     Debug.Log("Update successful");
-        //     return "success";
-        // }
-        // else
-        // {
-        //     if (jsonResponse.ContainsKey("message"))
-        //     {
-        //         Debug.LogError("Error updating user profile: " + (string)jsonResponse["message"]);
-        //         return (string)jsonResponse["message"];
-        //     }
-        //     else
-        //     {
-        //         Debug.LogError("Unknown error occurred");
-        //         return "unknownError";
-        //     }
-        // }
         try
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);

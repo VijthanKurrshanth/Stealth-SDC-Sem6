@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.UI;
-
-
+using UnityEngine.SceneManagement;
 
 public class PlayerProfileEditor : MonoBehaviour
 {
@@ -30,39 +27,13 @@ public class PlayerProfileEditor : MonoBehaviour
     public TMP_InputField phoneNumberInputField;
     public TMP_InputField nicInputField;
 
+    public GameObject alertPanel;
+    public TextMeshProUGUI alertText;
+
     // Start is called before the first frame update
     void Start()
     {
-        UpdateAttributes();
         StartCoroutine(RetrieveUserProfile());
-    }
-
-    private void UpdateAttributes()
-    {
-        userName = GameObject.Find("UserName").GetComponent<TextMeshProUGUI>();
-        firstName = GameObject.Find("FirstNameText").GetComponent<TextMeshProUGUI>();
-        lastName = GameObject.Find("LastNameText").GetComponent<TextMeshProUGUI>();
-        email = GameObject.Find("EmailText").GetComponent<TextMeshProUGUI>();
-        phoneNumber = GameObject.Find("PhoneText").GetComponent<TextMeshProUGUI>();
-        nic = GameObject.Find("NICText").GetComponent<TextMeshProUGUI>();
-
-        firstNamePlaceholder = GameObject.Find("FirstNamePlaceholder").GetComponent<TextMeshProUGUI>();
-        lastNamePlaceholder = GameObject.Find("LastNamePlaceholder").GetComponent<TextMeshProUGUI>();
-        emailPlaceholder = GameObject.Find("EmailPlaceholder").GetComponent<TextMeshProUGUI>();
-        phoneNumberPlaceholder = GameObject.Find("PhonePlaceholder").GetComponent<TextMeshProUGUI>();
-        nicPlaceholder = GameObject.Find("NICPlaceholder").GetComponent<TextMeshProUGUI>();
-
-        firstNameInputField = GameObject.Find("FirstNameInputField").GetComponent<TMP_InputField>();
-        lastNameInputField = GameObject.Find("LastNameInputField").GetComponent<TMP_InputField>();
-        emailInputField = GameObject.Find("EmailInputField").GetComponent<TMP_InputField>();
-        phoneNumberInputField = GameObject.Find("PhoneInputField").GetComponent<TMP_InputField>();
-        nicInputField = GameObject.Find("NICInputField").GetComponent<TMP_InputField>();
-
-        firstNameInputField.onEndEdit.AddListener(OnEndEditFirstName);
-        lastNameInputField.onEndEdit.AddListener(OnEndEditLastName);
-        emailInputField.onEndEdit.AddListener(OnEndEditEmail);
-        phoneNumberInputField.onEndEdit.AddListener(OnEndEditPhoneNumber);
-        nicInputField.onEndEdit.AddListener(OnEndEditNic);
     }
 
     // Update is called once per frame
@@ -109,7 +80,7 @@ public class PlayerProfileEditor : MonoBehaviour
 
         updateProfileDTO.firstname = userProfile.FirstName;
         updateProfileDTO.lastname = userProfile.LastName;
-        updateProfileDTO.Email = userProfile.Email;
+        updateProfileDTO.email = userProfile.Email;
         updateProfileDTO.phoneNumber = userProfile.PhoneNumber;
         updateProfileDTO.nic = userProfile.Nic;
     }
@@ -136,6 +107,7 @@ public class PlayerProfileEditor : MonoBehaviour
         // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.firstname = inputText;
+        firstNamePlaceholder.text = inputText;
     }
 
     public void OnEndEditLastName(string inputText)
@@ -143,13 +115,15 @@ public class PlayerProfileEditor : MonoBehaviour
         // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.lastname = inputText;
+        lastNamePlaceholder.text = inputText;
     }
 
     public void OnEndEditEmail(string inputText)
     {
         // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
-        updateProfileDTO.Email = inputText;
+        updateProfileDTO.email = inputText;
+        emailPlaceholder.text = inputText;
     }
 
     public void OnEndEditPhoneNumber(string inputText)
@@ -157,6 +131,7 @@ public class PlayerProfileEditor : MonoBehaviour
         // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.phoneNumber = inputText;
+        phoneNumberPlaceholder.text = inputText;
     }
 
     public void OnEndEditNic(string inputText)
@@ -164,13 +139,13 @@ public class PlayerProfileEditor : MonoBehaviour
         // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.nic = inputText;
+        nicPlaceholder.text = inputText;
     }
 
     public void OnSaveButtonClick()
     {
         StartCoroutine(UpdateProfile(updateProfileDTO, (string message) =>
         {
-            Debug.Log(message);
             CheckPutRequestStatus(message);
         }));
     }
@@ -202,11 +177,19 @@ public class PlayerProfileEditor : MonoBehaviour
         else if (message == "success")
         {
             Debug.Log("User profile updated successfully");
+            SceneManager.LoadScene("3.MainMenu");
         }
         else
         {
             Debug.LogError(message);
+            alertText.text = message;
+            alertPanel.SetActive(true);
         }
+    }
+
+    public void OnAlertCloseButtonClick()
+    {
+        alertPanel.SetActive(false);
     }
 }
 
@@ -214,7 +197,7 @@ public class UpdateProfileDTO
 {
     public string firstname;
     public string lastname;
-    public string Email;
+    public string email;
     public string phoneNumber;
     public string nic;
 }

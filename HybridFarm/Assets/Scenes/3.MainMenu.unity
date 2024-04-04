@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1757950059}
+      - m_Target: {fileID: 153189646}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
