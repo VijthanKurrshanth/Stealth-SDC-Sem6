@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface ChoiceRepo extends JpaRepository<Choice, Integer> {
-    Collection<Choice> findByQuestionId(Integer id);
+    Collection<Choice> findByQuestionIdOrderById(Integer id);
 
     List<Choice> findByIsCorrect(boolean b);
 }

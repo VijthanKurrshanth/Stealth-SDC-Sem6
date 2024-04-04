@@ -39,11 +39,10 @@ public class QuestionService {
     public QuestionDto getQuestionDto(Integer id) {
         Question question = questionRepo.findById(id).orElseThrow(ResourceNotFoundException::new);
         String questionText = question.getQuestion();
-        Stream<Choice> choiceStream = choiceRepo.findByQuestionId(id).stream();
-        List<String> choiceMap = choiceStream.collect(Collectors.toMap(Choice::getId, Choice::getChoiceText)).entrySet().stream()
-                .toList().stream().map(Map.Entry::getValue).collect(Collectors.toList());
-
-        return new QuestionDto(id, questionText, choiceMap);
+        List<String> choiceList = choiceRepo.findByQuestionIdOrderById(id).stream()
+                .map(Choice::getChoiceText)
+                .collect(Collectors.toList());
+        return new QuestionDto(id, questionText, choiceList);
     }
 
     public void evaluate(Integer questionId, Integer answerId) {
