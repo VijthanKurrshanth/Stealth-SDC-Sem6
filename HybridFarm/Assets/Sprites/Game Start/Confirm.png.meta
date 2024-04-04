@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e5e0221f95aac947afb433978b75587
+guid: 97f38b12d05193b45b7bdd8fae3372ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NewGame_0
+      name: Confirm_0
       rect:
         serializedVersion: 2
         x: 474
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d84f77dfc2be4ef40ae08215898709e1
-      internalID: 523551093
+      spriteID: d4af82e1d0ce072479452329faa571c6
+      internalID: -2133120632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NewGame_1
+      name: Confirm_1
       rect:
         serializedVersion: 2
         x: 449
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316f9e5c757c2c74e9d9d2903c963a16
-      internalID: -1088828955
+      spriteID: 538c65d7962530e47bd6cd5d0b994561
+      internalID: -1838283853
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      NewGame_0: 523551093
-      NewGame_1: -1088828955
+      Confirm_0: -2133120632
+      Confirm_1: -1838283853
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

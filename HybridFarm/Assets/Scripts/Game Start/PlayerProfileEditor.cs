@@ -177,7 +177,13 @@ public class PlayerProfileEditor : MonoBehaviour
         else if (message == "success")
         {
             Debug.Log("User profile updated successfully");
-            SceneManager.LoadScene("3.MainMenu");
+            if (PlayerPrefs.GetInt("playerExists") == 0)
+            {
+                SceneManager.LoadScene("4.GameplayEnvironment");
+                PlayerPrefs.SetInt("playerExists", 1);
+            }
+            else
+                SceneManager.LoadScene("3.MainMenu");
         }
         else
         {
@@ -190,6 +196,11 @@ public class PlayerProfileEditor : MonoBehaviour
     public void OnAlertCloseButtonClick()
     {
         alertPanel.SetActive(false);
+    }
+
+    public void OnCloseButtonClicked()
+    {
+        SceneManager.LoadScene("3.MainMenu");
     }
 }
 
