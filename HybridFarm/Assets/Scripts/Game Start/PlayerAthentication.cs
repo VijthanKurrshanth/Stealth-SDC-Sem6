@@ -85,7 +85,7 @@ public class PlayerAuthentication : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         // Display the user profile
-        debugText.text = $"Welcome {userProfile.FirstName} {userProfile.LastName}!";
+        debugText.text = $"Welcome {userProfile.UserName}";
 
         // Save the user profile data
         PlayerPrefs.SetString("firstName", userProfile.FirstName);
