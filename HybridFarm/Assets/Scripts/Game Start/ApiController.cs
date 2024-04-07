@@ -32,7 +32,7 @@ public static class ApiController
 
         if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
         {
-            Debug.LogError($"Error occurred during JWT key retrieval: {request.error}");
+            Debug.Log($"Error occurred during JWT key retrieval: {request.error}");
             result = null;
         }
         else
@@ -50,7 +50,7 @@ public static class ApiController
     {
         if (string.IsNullOrEmpty(jwtKey))
         {
-            Debug.LogError("JWT key is null or empty");
+            Debug.Log("JWT key is null or empty");
             yield break;
         }
 
@@ -71,8 +71,7 @@ public static class ApiController
 
         if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
         {
-            Debug.LogError($"Error occurred during user profile retrieval: {request.error}");
-            yield break;
+            Debug.Log($"Error occurred during user profile retrieval: {request.error}");
         }
 
         string jsonResponse = request.downloadHandler.text;
@@ -117,7 +116,7 @@ public static class ApiController
         string message;
         if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
         {
-            Debug.LogError($"Error occurred during user profile update: {request.error}");
+            Debug.Log($"Error occurred during user profile update: {request.error}");
             string exceptionBodyString = request.downloadHandler.text;
             JObject exceptionBody = JObject.Parse(exceptionBodyString);
             message = (string)exceptionBody["message"];
@@ -132,11 +131,10 @@ public static class ApiController
     }
 
     // This method is used to open the web app frontend
-    public static IEnumerator OpenWebAppInNewTab()
+    public static void OpenWebAppInNewTab()
     {
         string targetUrl = "http://localhost:3000/";
         Application.OpenURL(targetUrl);
-        yield return null;
     }
 
     // This method is used to authenticate the web app interactions
@@ -163,8 +161,7 @@ public static class ApiController
 
         if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
         {
-            Debug.LogError($"Error occurred during Authentication: {request.error}");
-            yield break;
+            Debug.Log($"Error occurred during Authentication: {request.error}");
         }
         else
         {
@@ -175,7 +172,6 @@ public static class ApiController
     // This method is used to get the score from the web app backend
     public static IEnumerator GetScore(Action<int> callback = null)
     {
-        Debug.Log("Getting Score");
         int result;
         string url = "http://localhost:8020/hybridFarm/v1/score";
 
@@ -194,7 +190,7 @@ public static class ApiController
 
         if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
         {
-            Debug.LogError($"Error occurred during Score retrieval: {request.error}");
+            Debug.Log($"Error occurred during Score retrieval: {request.error}");
             result = -2;
         }
         else
@@ -207,10 +203,35 @@ public static class ApiController
             }
             else
             {
-                Debug.LogError("Failed to parse score into an integer");
+                Debug.Log("Failed to parse score into an integer");
                 result = -2;
             }
         }
         callback?.Invoke(result); // Invoke the callback function with the score
+    }
+
+    public static IEnumerator Reset()
+    {
+        string url = "http://localhost:8020/hybridFarm/v1/reset";
+        string body = "";
+
+        UnityWebRequest request = UnityWebRequest.Post(url, body, "application/json");
+        request.method = UnityWebRequest.kHttpVerbPOST;
+        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "*/*");
+
+        yield return request.SendWebRequest();
+
+        while (!request.isDone)
+        {
+            yield return null; // Pause the coroutine until the request is complete
+        }
+
+        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        {
+            Debug.Log($"Error occurred during resetting: {request.error}");
+        }
     }
 }

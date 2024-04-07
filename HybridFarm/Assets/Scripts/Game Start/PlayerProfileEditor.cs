@@ -30,27 +30,31 @@ public class PlayerProfileEditor : MonoBehaviour
     public GameObject alertPanel;
     public TextMeshProUGUI alertText;
 
+    public GameObject waitingPanel;
+    public TextMeshProUGUI waitingText;
+    public bool questionnaireFinished = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(RetrieveUserProfile());
+        RetrieveUserProfile();
     }
 
     // This method is used to retrieve the user profile from the server
-    private IEnumerator RetrieveUserProfile()
+    private void RetrieveUserProfile()
     {
-        yield return StartCoroutine(ApiController.GetJwtKey((string key) =>
+        StartCoroutine(ApiController.GetJwtKey((string key) =>
         {
             if (string.IsNullOrEmpty(key))
             {
-                Debug.LogError("JWT key is null or empty");
+                Debug.Log("JWT key is null or empty");
                 return;
             }
             StartCoroutine(ApiController.GetUserProfile(key, (UserProfile profile) =>
             {
                 if (userProfile == null)
                 {
-                    Debug.LogError("Failed to retrieve user profile");
+                    Debug.Log("Failed to retrieve user profile");
                 }
 
                 userProfile = profile; // Assign the retrieved user profile to the userProfile object
@@ -131,7 +135,7 @@ public class PlayerProfileEditor : MonoBehaviour
             string message = null;
             if (string.IsNullOrEmpty(key))
             {
-                Debug.LogError("JWT key is null or empty");
+                Debug.Log("JWT key is null or empty");
                 message = "sendError";
                 CheckPutRequestStatus(message);
             }
@@ -146,7 +150,7 @@ public class PlayerProfileEditor : MonoBehaviour
     {
         if (message == "sendError")
         {
-            Debug.LogError("Failed to update user profile");
+            Debug.Log("Failed to update user profile");
             return;
         }
         else if (message == "success")
@@ -156,7 +160,8 @@ public class PlayerProfileEditor : MonoBehaviour
             {
                 StartCoroutine(ApiController.AuthenticateWebApp(() =>
                 {
-                    StartCoroutine(ApiController.OpenWebAppInNewTab());
+                    waitingPanel.SetActive(true);
+                    ApiController.OpenWebAppInNewTab();
                     PlayerPrefs.SetInt("playerExists", 1);
                 })); // Authenticate the web app and open it in a new tab
 
@@ -166,7 +171,7 @@ public class PlayerProfileEditor : MonoBehaviour
         }
         else
         {
-            Debug.LogError(message);
+            Debug.Log(message);
             alertText.text = message;
             alertPanel.SetActive(true);
         }
@@ -180,6 +185,37 @@ public class PlayerProfileEditor : MonoBehaviour
     public void OnCloseButtonClicked()
     {
         SceneManager.LoadScene("3.MainMenu");
+    }
+
+    public void OnCloseWaitButtonClick()
+    {
+        StartCoroutine(ApiController.GetScore((score) =>
+        {
+            if (!questionnaireFinished)
+            {
+                if (score == -1)
+                {
+                    waitingText.text = "Please finish the questionnaire";
+                }
+                else if (score == -2)
+                {
+                    waitingText.text = "Connection Issue";
+                }
+                else
+                {
+                    waitingText.text = $"Your score is: {score} \n Press Finish button again.";
+                    PlayerPrefs.SetInt("playerBoostPoints", score);
+                    StartCoroutine(ApiController.Reset());
+                    questionnaireFinished = true;
+                }
+            }
+            else
+            {
+                questionnaireFinished = false;
+                waitingPanel.SetActive(false); // Hide the waiting panel
+                SceneManager.LoadScene("4.GameplayEnvironment");
+            }
+        }));
     }
 }
 
