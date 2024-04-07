@@ -95,6 +95,10 @@ const Question = () => {
     }
   }
 
+  function handleFinalButton() {
+    window.location.href = "/results";
+  }
+
   if (error)
     return (
       <div className="ErrorMessage">
