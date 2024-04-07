@@ -8,46 +8,37 @@ public class farmAnimalDeath : MonoBehaviour
     // Start is called before the first frame update
     grassSpawnDestroy grassSpawner;
 
-    [SerializeField] float timer = 3.0f;
+    wandering8FarmAnimals wandering8FarmAnimals;
 
-    [SerializeField] float spawnInterval = 2f;
-    public float fadeDuration = 1.0f; // Duration of the fade
-    private float fadeTimer = 0.0f; // Timer for tracking the fade progress
-    private Renderer objectRenderer; // Reference to the object's renderer
+    public float timerforDeath = 10.0f;
+    public float timerofDeathConstant= 10.0f ;
+
 
 
     void Start()
     {
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
-        objectRenderer = GetComponent<Renderer>();
+        wandering8FarmAnimals = FindObjectOfType <wandering8FarmAnimals>();
+        timerforDeath = Random.Range(timerforDeath-1,timerforDeath+2);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if ( grassSpawner.checkForGrassPresence())  // if no grass this will be true
+        if ( wandering8FarmAnimals.noGrassatAll)  // if no grass this will be true
         {   
-                timer -= Time.deltaTime;
+                timerforDeath -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
-                if (timer <= 0) 
+                if (timerforDeath <= 0) 
                 {
-                    Debug.Log("ok ready to destroy");
-                    fadeTimer += Time.deltaTime;
-                    // Calculate the current alpha value based on the fade progress
-                    float alpha = Mathf.Lerp(1f, 0f, fadeTimer / fadeDuration);
-                    // Set the object's material color with updated alpha
-                    Color currentColor = objectRenderer.material.color;
-                    currentColor.a = alpha;
-                    objectRenderer.material.color = currentColor;
-                    // If the fade is complete, destroy the object
-                    if (fadeTimer >= fadeDuration)
+
                     {
                         Destroy(gameObject);
                         Debug.Log("destroy");
                     }
                     Destroy(gameObject);
-                    timer = Random.Range(spawnInterval-1,spawnInterval+1);
+                    
                 }
         }
     }

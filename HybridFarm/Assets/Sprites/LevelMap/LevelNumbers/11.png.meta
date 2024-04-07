@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5fb79f3d98685774cbc4c28b3d6742a4
+guid: 540ec518482ddc34abfa3f29c60c86b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -175,13 +175,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Quit Button_0
+      name: 11_0
       rect:
         serializedVersion: 2
-        x: 427
-        y: 918
-        width: 1200
-        height: 426
+        x: 238
+        y: 418
+        width: 664
+        height: 664
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47ac47be3850d5849a0d9890dd61a1b3
-      internalID: -1999423433
+      spriteID: 081edf40ab44d6c409cbb7905b32d7fa
+      internalID: -745690033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Quit Button_1
+      name: 11_1
       rect:
         serializedVersion: 2
-        x: 449
-        y: 303
-        width: 1202
-        height: 427
+        x: 1197
+        y: 418
+        width: 664
+        height: 664
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,8 +210,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cb22ce8efc62c2428091a358b344ba0
-      internalID: -658121452
+      spriteID: 313c30868b9ae7f479a18b4dc41f8232
+      internalID: 1772569800
       vertices: []
       indices: 
       edges: []
@@ -227,8 +227,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Quit Button_0: -1999423433
-      Quit Button_1: -658121452
+      11_0: -745690033
+      11_1: 1772569800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

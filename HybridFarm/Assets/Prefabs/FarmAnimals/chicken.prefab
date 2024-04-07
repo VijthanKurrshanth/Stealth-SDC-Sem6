@@ -273,6 +273,7 @@ MonoBehaviour:
   speed: 1
   range: 2.14
   maxDistance: 5
+  noGrassatAll: 0
 --- !u!114 &5257817141198033288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +300,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d8c64a8c7e08f4ab923b611eb81983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
-  spawnInterval: 2
-  fadeDuration: 1
+  timerforDeath: 10
+  timerofDeathConstant: 10

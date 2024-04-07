@@ -100,7 +100,8 @@ public class wandering8animals : MonoBehaviour
     Vector2 RandomDirectionWaypoint()
         {
             
-            float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
+            //float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
+            float[] possibleAngles = { 0f,15f, 30f ,45f,60f,75f, 90f,105f, 120f ,135f,150f, 165f, 180f, 195f,210f , 225f, 240f, 255f , 270f,285f, 300f, 315f };
             float selectedAngle = possibleAngles[Random.Range(0, possibleAngles.Length)];
             angle= selectedAngle;
             // Convert angle to radians
@@ -158,8 +159,8 @@ public class wandering8animals : MonoBehaviour
             // float angleInRadians = selectedAngle * Mathf.Deg2Rad;
             // //Debug.Log("angle "+ selectedAngle);
 
-            float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
-
+            //float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
+            float[] possibleAngles = { 0f,15f, 30f ,45f,60f,75f, 90f,105f, 120f ,135f,150f, 165f, 180f, 195f,210f , 225f, 240f, 255f , 270f,285f, 300f, 315f };
             directionAngle = new Vector2(0, 0) - (Vector2)transform.position;
             float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
             float targetAngle = (angledir + 360) % 360;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class grassSpawnDestroy : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class grassSpawnDestroy : MonoBehaviour
     public bool flagRunEnabled = false; // Flag to enable/disable running
 
     private int numberOfGrassplant=0;
+
 
     void Update()
     {
@@ -25,6 +27,9 @@ public class grassSpawnDestroy : MonoBehaviour
         // Check if the mouse button is clicked (left mouse button)
         if (Input.GetMouseButtonDown(0))
         {   
+
+           
+
             
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
@@ -46,8 +51,17 @@ public class grassSpawnDestroy : MonoBehaviour
                             mousePosition.z = 0; // Ensure the grass spawns at z = 0 (assuming 2D)
 
                             // Spawn grass at mouse position
-                            Instantiate(grass, mousePosition, Quaternion.identity);
-                            numberOfGrassplant+=1;
+                            for (int i = 0; i < Random.Range(8, 9); i++) {
+                                // Instantiate your game object at the desired position with Quaternion.identity rotation.
+                                if (hit.collider.CompareTag("Farm Evening")){
+                                    float offsetX = Random.Range(-0.3f, 0.3f); // Adjust as needed
+                                    float offsetY = Random.Range(-0.3f, 0.3f); // Adjust as needed
+                                    Vector3 randomOffset = new Vector3(offsetX, offsetY,0);
+                                    Instantiate(grass, mousePosition + randomOffset, Quaternion.identity);
+                                }
+                            }
+                            numberOfGrassplant+=1;  // grass group bundle
+                            
                         }
                 }
 
@@ -62,5 +76,6 @@ public class grassSpawnDestroy : MonoBehaviour
     public bool checkForGrassPresence()
     {
         return flagRunEnabled;
+        
     }
 }

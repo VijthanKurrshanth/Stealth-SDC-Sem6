@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // This is required for using UI elements
+//using UnityEngine.UI; // This is required for using UI elements
 using TMPro;
 
 public class MoneyScript : MonoBehaviour
@@ -13,15 +13,15 @@ public class MoneyScript : MonoBehaviour
     void Start()
     {
         moneyText = FindObjectOfType<TextMeshProUGUI>();
-        moneyValue = 100;
+        moneyValue = 100;   //initial Money
         UpdateMoneyText(); // Call the function to update the money text when the game starts
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        // Example: Increase money value by 1 every frame (you should implement your own logic)
+        // Example: Increase money value by 1 every frame 
         // moneyValue += 1;
         if (moneyValue < 0)
         {
