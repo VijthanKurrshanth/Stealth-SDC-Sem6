@@ -134,11 +134,8 @@ public class wandering8FarmAnimals : MonoBehaviour
         {
             wayPoint=RandomDirectionWaypointonCollision();
         }
-    }
 
-    private void OnTriggerStay2D (Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("grass"))
+        else if (collision.gameObject.CompareTag("grass"))
         {
             if (isHungry) 
             {
@@ -150,6 +147,11 @@ public class wandering8FarmAnimals : MonoBehaviour
             StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
             }
         }
+    }
+
+    private void OnTriggerStay2D (Collider2D collision)
+    {
+
     }
 
     private Vector2 RandomDirectionWaypointonCollision()
@@ -314,8 +316,6 @@ public class wandering8FarmAnimals : MonoBehaviour
         isHungry = true; // Reset coroutineStarted for the next iteration
     }
 
-
-    //  }
     private IEnumerator DestroyGrass(GameObject grassObject)
     {
         yield return new WaitForSeconds(5);
@@ -420,14 +420,14 @@ public class wandering8FarmAnimals : MonoBehaviour
        {
             if (grasslocation.x >transform.position.x) {
             StartCoroutine(SetAnimeFalse());
-            sprite_render.flipX= false;
+            sprite_render.flipX= true;
             anim.SetBool("eat_anim",true);
             }
 
             else 
             {
                 StartCoroutine(SetAnimeFalse());
-                sprite_render.flipX= true;
+                sprite_render.flipX= false;
                 anim.SetBool("eat_anim",true);
   
             }
