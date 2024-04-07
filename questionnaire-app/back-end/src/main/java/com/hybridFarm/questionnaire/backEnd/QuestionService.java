@@ -56,6 +56,9 @@ public class QuestionService {
             score.setScore(questionId-1, false);
             System.out.println("Question " + questionId + " Incorrect");
         }
+        if (questionId == 10) {
+            score.setFinished(true);
+        }
     }
 
     public List<Map<String, String>> getAnswerSheet() {
@@ -79,6 +82,13 @@ public class QuestionService {
     }
 
     public Long getScore() {
+        if (!score.getFinished()) {
+            return -1L;
+        }
         return (long) Stream.of(score.getScore()).filter(Boolean::booleanValue).count(); // Counting the number of correct answers
+    }
+
+    public void resetScore() {
+        score.resetScore();
     }
 }

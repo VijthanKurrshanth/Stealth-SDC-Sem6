@@ -47,8 +47,6 @@ public class QuestionController {
         if (!authenticationController.getIsAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        else
-            authenticationController.setIsAuthenticated(false);
         return ResponseEntity.ok(questionService.getScore());
     }
 
@@ -59,6 +57,16 @@ public class QuestionController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         questionService.evaluate(questionId, answerId);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("reset")
+    public ResponseEntity<?> resetScore(){
+        if (!authenticationController.getIsAuthenticated()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        questionService.resetScore();
+        authenticationController.setIsAuthenticated(false);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
