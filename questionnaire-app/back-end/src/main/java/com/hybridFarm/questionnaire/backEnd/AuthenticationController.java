@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin
 @RequestMapping(path = "hybridFarm/v1")
 public class AuthenticationController {
-    private String authentiactionURL = "http://20.15.114.131:8080/api/login";
+    private final String authentiactionURL = System.getenv("AUTHENTICATION_URL");
     private final RestTemplate restTemplate = new RestTemplate();
     private final HttpHeaders headers = new HttpHeaders();
     @Getter
