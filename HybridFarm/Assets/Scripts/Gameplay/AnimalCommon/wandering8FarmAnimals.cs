@@ -429,8 +429,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 sprite_render.flipX= true;
                 anim.SetBool("eat_anim",true);
-                
-                
+  
             }
        }
 
