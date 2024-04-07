@@ -63,7 +63,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     void Update()
     {
         speed= 1f;
-        
+        StartCoroutine(FindMovingAngleAndDirectionAndAnimate());
+
         if (destroyedNoOfGrassobject >=3) 
         {
             isHungry=false;
@@ -78,6 +79,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             {
                     speed= 2.5f;
                     noGrassatAll = true;
+                    
             }
 
         else if ( isHungry )
@@ -116,7 +118,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 wayPoint=RandomDirectionWaypoint();
             }
 
-        FindMovingAngleAndDirectionAndAnimate();
+        
 
           //Debug.Log(wayPoint);
         
@@ -170,7 +172,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             SetAnimeFalse();
             anim.SetBool("eat_anim",true);
             startedEating = true;
-            Debug.Log("Eating");
+            //Debug.Log("Eating");
             approachingGrass=false;
             StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
 
@@ -214,102 +216,105 @@ public class wandering8FarmAnimals : MonoBehaviour
             
             // Now you can use the 'newPoint' as the waypoint
         }
-    private void FindMovingAngleAndDirectionAndAnimate() 
-    {
-        directionAngle = wayPoint - (Vector2)transform.position;
-        float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
-        
+    
 
-        angle = (angledir + 360) % 360;
-        
 
-        if (angle>=350 | angle<=20)
+    private IEnumerator FindMovingAngleAndDirectionAndAnimate() 
         {
+            directionAngle = wayPoint - (Vector2)transform.position;
+            float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
+            Debug.Log("Current angle is: " + angledir);
             
-            SetAnimeFalse();
-            anim.SetBool("left_anim",true);
-            sprite_render.flipX=true;
-            directionOfMovement= "East";
-        }
 
-        else if (angle>=21 && angle<=65)
-        {
+            angle = (angledir + 360) % 360;
             
-            SetAnimeFalse();
-            anim.SetBool("leftup_anim",true);
-            sprite_render.flipX=true;
-            directionOfMovement= "Northeast";
-        }
+
+            if (angle>=350 | angle<=20)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("left_anim",true);
+                sprite_render.flipX=true;
+                directionOfMovement= "East";
+            }
+
+            else if (angle>=21 && angle<=65)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("leftup_anim",true);
+                sprite_render.flipX=true;
+                directionOfMovement= "Northeast";
+            }
 
 
-        else if (angle>=66 && angle<=115)
-        {
+            else if (angle>=66 && angle<=115)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("up_anim",true);
+                sprite_render.flipX=false;
+                directionOfMovement= "North";
+            }
+
+            else if (angle>=116 && angle<=159)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("leftup_anim",true);
+                sprite_render.flipX=false;
+                directionOfMovement= "Northwest";
+            }
+
+            else if (angle>=160 && angle<=210)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("left_anim",true);
+                sprite_render.flipX=false;
+                directionOfMovement= "West";
+            }
             
-            SetAnimeFalse();
-            anim.SetBool("up_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "North";
-        }
+            else if (angle>=211 && angle<=259)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("leftdown_anim",true);
+                sprite_render.flipX=false;
+                directionOfMovement= "Southwest";
+            }
 
-        else if (angle>=116 && angle<=159)
-        {
+            else if (angle>=260 && angle<=300)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("down_anim",true);
+                sprite_render.flipX=false;
+                directionOfMovement= "South";
+            }
+
+            else if (angle>=301 && angle<=349)
+            {
+                
+                StartCoroutine(SetAnimeFalse());
+                anim.SetBool("leftdown_anim",true);
+                sprite_render.flipX= true;
+                directionOfMovement= "Southeast";
+            }
+
+            else 
+            {
             
-            SetAnimeFalse();
-            anim.SetBool("leftup_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "Northwest";
+            directionOfMovement= " Other Dir";
+            }
+        //Debug.Log(directionOfMovement);
+        yield return null;
         }
 
-        else if (angle>=160 && angle<=210)
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("left_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "West";
-        }
-        
-        else if (angle>=211 && angle<=259)
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("leftdown_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "Southwest";
-        }
-
-        else if (angle>=260 && angle<=300)
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("down_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "South";
-        }
-
-        else if (angle>=301 && angle<=349)
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("leftdown_anim",true);
-            sprite_render.flipX= true;
-            directionOfMovement= "Southeast";
-        }
-
-        else 
-        {
-        
-        directionOfMovement= " Other Dir";
-        }
-     Debug.Log(directionOfMovement);
-    }
 
 
 
-
-
-
-    private void SetAnimeFalse()
+    private IEnumerator SetAnimeFalse()
     {   
         anim.SetBool("up_anim",false);
         anim.SetBool("leftup_anim",false);
@@ -317,6 +322,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         anim.SetBool("leftdown_anim",false);
         anim.SetBool("down_anim",false);
         anim.SetBool("eat_anim",false);
+        yield return null;
 
     }
 
@@ -327,24 +333,24 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         if (grassObjects.Length > 0)
         {
-            Vector3 currentPosition = transform.position; // Assuming this script is attached to the object that is checking for grass
-            GameObject nearestGrass = grassObjects[0];
-            float shortestDistance = Vector3.Distance(currentPosition, nearestGrass.transform.position);
+                Vector3 currentPosition = transform.position; // Assuming this script is attached to the object that is checking for grass
+                GameObject nearestGrass = grassObjects[0];
+                float shortestDistance = Vector3.Distance(currentPosition, nearestGrass.transform.position);
 
-            for (int i = 1; i < grassObjects.Length; i++)
-            {
-                float distance = Vector3.Distance(currentPosition, grassObjects[i].transform.position);
-                if (distance < shortestDistance)
+                for (int i = 1; i < grassObjects.Length; i++)
                 {
-                    shortestDistance = distance;
-                    nearestGrass = grassObjects[i];
+                    float distanceGrasstoAnimal = Vector3.Distance(currentPosition, grassObjects[i].transform.position);
+                    if (distanceGrasstoAnimal < shortestDistance)
+                    {
+                        shortestDistance = distanceGrasstoAnimal;
+                        nearestGrass = grassObjects[i];
+                    }
                 }
-            }
 
-            // Now nearestGrass will hold the closest grass object
-            approachingGrass = true;
-            return nearestGrass.transform.position;
-            
+                // Now nearestGrass will hold the closest grass object
+                approachingGrass = true;
+                return nearestGrass.transform.position;
+                
         }
 
 
