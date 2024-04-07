@@ -1,6 +1,5 @@
 package com.hybridFarm.questionnaire.backEnd;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,6 @@ public class QuestionController {
     private final QuestionService questionService;
     private final AuthenticationController authenticationController;
 
-    @Autowired
     public QuestionController(QuestionService questionService, AuthenticationController authenticationController) {
         this.questionService = questionService;
         this.authenticationController = authenticationController;
@@ -52,7 +50,8 @@ public class QuestionController {
 
     // Receive Answer REST API
     @PostMapping("{id}")
-    public ResponseEntity<?> receiveAnswer(@PathVariable("id") Integer questionId, @RequestParam("Answer-Id") Integer answerId){
+    public ResponseEntity<?> receiveAnswer(@PathVariable("id") Integer questionId,
+            @RequestParam("Answer-Id") Integer answerId) {
         if (!authenticationController.getIsAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
@@ -61,7 +60,7 @@ public class QuestionController {
     }
 
     @PostMapping("reset")
-    public ResponseEntity<?> resetScore(){
+    public ResponseEntity<?> resetScore() {
         if (!authenticationController.getIsAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
