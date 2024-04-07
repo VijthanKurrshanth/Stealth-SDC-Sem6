@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 570109149}
   - component: {fileID: 570109148}
   - component: {fileID: 570109147}
+  - component: {fileID: 570109151}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -751,6 +752,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 570109151}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 6. LevelMap
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &570109149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +802,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570109145}
   m_CullTransparentMesh: 1
+--- !u!114 &570109151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570109145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581957121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1887,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -658121452, guid: 5fb79f3d98685774cbc4c28b3d6742a4, type: 3}
+    m_PressedSprite: {fileID: 80141338, guid: 95d2a422457f18147a515b7cda2e3ad8, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1896,7 +1921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1999423433, guid: 5fb79f3d98685774cbc4c28b3d6742a4, type: 3}
+  m_Sprite: {fileID: -1459485139, guid: 95d2a422457f18147a515b7cda2e3ad8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

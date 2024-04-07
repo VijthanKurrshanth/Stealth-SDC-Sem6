@@ -1,10 +1,6 @@
 using System.Collections;
 using UnityEngine;
-//using UnityEngine.SocialPlatforms;
-//using UnityEngine.UIElements;
-//using System.Collections.Generic;
-//using System.Runtime.CompilerServices;
-//using Unity.VisualScripting;
+
 
 
 public class wandering8FarmAnimals : MonoBehaviour
@@ -120,24 +116,10 @@ public class wandering8FarmAnimals : MonoBehaviour
                 wayPoint=RandomDirectionWaypoint();
             }
 
+        FindMovingAngleAndDirectionAndAnimate();
 
-        if (approachingGrass){
-            FindMovingAngleAndDirectionAndAnimateForApproachingGrass();
-        }
+          //Debug.Log(wayPoint);
         
-        else {
-            FindMovingAngleAndDirectionAndAnimate();
-        }
-
-        
-        //Debug.Log(wayPoint);
-        
-
-
-
-
-
-
     }
 
 
@@ -175,17 +157,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             wayPoint=RandomDirectionWaypointonCollision();
         }
 
-        // else if (collision.gameObject.CompareTag("grass"))
-        // {
-        //     if (isHungry) 
-        //     {SetAnimeFalse();
-        //     anim.SetBool("eat_anim",true);
-        //     startedEating = true;
-        //     Debug.Log("Eating");
-        //     StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
 
-        //     }
-        // }
     }
 
 
@@ -206,13 +178,6 @@ public class wandering8FarmAnimals : MonoBehaviour
     }
 
     }
-
-
-
-
-    
-
-
 
     private Vector2 RandomDirectionWaypointonCollision()
         {
@@ -249,11 +214,6 @@ public class wandering8FarmAnimals : MonoBehaviour
             
             // Now you can use the 'newPoint' as the waypoint
         }
-
-
-
-
-
     private void FindMovingAngleAndDirectionAndAnimate() 
     {
         directionAngle = wayPoint - (Vector2)transform.position;
@@ -348,64 +308,6 @@ public class wandering8FarmAnimals : MonoBehaviour
 
 
 
-    private void FindMovingAngleAndDirectionAndAnimateForApproachingGrass() 
-    {
-        directionAngle = wayPoint - (Vector2)transform.position;
-        float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
-        
-
-        angle = (angledir + 360) % 360;
-        
-
-        if (angle>=270 | angle<=90 )
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("left_anim",true);
-            sprite_render.flipX=true;
-            directionOfMovement= "East";
-
-        }
-
-        // else if (angle>=66 && angle<=115)
-        // {
-            
-        //     SetAnimeFalse();
-        //     anim.SetBool("up_anim",true);
-        //     sprite_render.flipX=false;
-        //     directionOfMovement= "North";
-        // }
-
-
-        else if (angle > 90 && angle < 270)
-        {
-            
-            SetAnimeFalse();
-            anim.SetBool("left_anim",true);
-            sprite_render.flipX=false;
-            directionOfMovement= "West";
-        }
-
-        // else if (angle>=260 && angle<=300)
-        // {
-            
-        //     SetAnimeFalse();
-        //     anim.SetBool("down_anim",true);
-        //     sprite_render.flipX=false;
-        //     directionOfMovement= "South";
-        // }
-
-
-        else 
-        {
-        
-        directionOfMovement= " Other Dir";
-        }
-     Debug.Log(directionOfMovement);
-    }
-
-
-
 
     private void SetAnimeFalse()
     {   
@@ -417,9 +319,6 @@ public class wandering8FarmAnimals : MonoBehaviour
         anim.SetBool("eat_anim",false);
 
     }
-
-
-
 
 
     private Vector2 FindAndMoveTowardsGrass()
@@ -469,19 +368,12 @@ public class wandering8FarmAnimals : MonoBehaviour
         isHungry = true; // Reset coroutineStarted for the next iteration
     }
 
-    // private IEnumerator returnWaypointForApproachAGrass()    //this code approaching grass but fluctuating animation
-    // {
-        
-    //      yield return new WaitForSeconds(2);
-    //      wayPoint= FindAndMoveTowardsGrass();
-    //      yield return new WaitForSeconds(2);
-        
-        
+
     //  }
     private IEnumerator DestroyGrass(GameObject grassObject)
     {
         // Wait for some time to simulate eating animation
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
 
         // Destroy the grass object after eating animation
         Destroy(grassObject);

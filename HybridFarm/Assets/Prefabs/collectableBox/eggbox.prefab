@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.9962016, b: 0.7377358, a: 1}
+  m_Sprite: {fileID: 151620723, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -93,6 +93,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7751624100312062729}
     m_Modifications:
+    - target: {fileID: -6509587173104923690, guid: cc91266ed78eadd43a758b4c4ba7ea35, type: 3}
+      propertyPath: collecatableBoxToSpawn
+      value: 
+      objectReference: {fileID: 1499076418586038428}
     - target: {fileID: 3662961520905988409, guid: cc91266ed78eadd43a758b4c4ba7ea35, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5054135
