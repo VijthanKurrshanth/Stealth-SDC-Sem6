@@ -41,26 +41,26 @@ public class PlayerProfileEditor : MonoBehaviour
     {
     }
 
-    IEnumerator RetrieveUserProfile()
+    private IEnumerator RetrieveUserProfile()
     {
-        string jwtKey = ApiController.GetJwtKey();
-        if (string.IsNullOrEmpty(jwtKey))
+        yield return StartCoroutine(ApiController.GetJwtKey((string key) =>
         {
-            Debug.LogError("JWT key is null or empty");
-            yield break;
-        }
-
-        this.userProfile = ApiController.GetUserProfile(jwtKey);
-        if (userProfile == null)
-        {
-            Debug.LogError("Failed to retrieve user profile");
-            yield break;
-        }
-
-        Debug.Log($"User profile retrieved: {userProfile}");
-
-        SetTexMeshPro();
-        //StartCoroutine(DownloadImage(userProfile.ProfilePictureUrl));
+            if (string.IsNullOrEmpty(key))
+            {
+                Debug.LogError("JWT key is null or empty");
+                return;
+            }
+            StartCoroutine(ApiController.GetUserProfile(key, (UserProfile profile) =>
+            {
+                if (userProfile == null)
+                {
+                    Debug.LogError("Failed to retrieve user profile");
+                }
+                Debug.Log($"User profile retrieved: {userProfile}");
+                userProfile = profile;
+                SetTexMeshPro();
+            }));
+        }));
     }
 
     public void SetTexMeshPro()
@@ -84,23 +84,6 @@ public class PlayerProfileEditor : MonoBehaviour
         updateProfileDTO.phoneNumber = userProfile.PhoneNumber;
         updateProfileDTO.nic = userProfile.Nic;
     }
-
-    // IEnumerator DownloadImage(string url)
-    // {
-    //     UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-    //     yield return request.SendWebRequest();
-
-    //     if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
-    //     {
-    //         Debug.Log("Error downloading image: " + request.error);
-    //     }
-    //     else
-    //     {
-    //         Texture2D myTexture = ((DownloadHandlerTexture)request.downloadHandler).texture;
-    //         // Conversion step: Create a Sprite from the downloaded Texture
-    //         Sprite downloadedSprite = Sprite.Create(myTexture, new Rect(0, 0, myTexture.width, myTexture.height), new Vector2(0.5f, 0.5f));
-    //     }
-    // }
 
     public void OnEndEditFirstName(string inputText)
     {
@@ -144,27 +127,24 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnSaveButtonClick()
     {
-        StartCoroutine(UpdateProfile(updateProfileDTO, (string message) =>
-        {
-            CheckPutRequestStatus(message);
-        }));
+        StartCoroutine(UpdateProfile(updateProfileDTO));
     }
 
-    IEnumerator UpdateProfile(UpdateProfileDTO updateProfileObject, Action<string> callback = null)
+    private IEnumerator UpdateProfile(UpdateProfileDTO updateProfileObject)
     {
-        string message;
-        string jwtKey = ApiController.GetJwtKey();
-        if (string.IsNullOrEmpty(jwtKey))
+        yield return StartCoroutine(ApiController.GetJwtKey((string key) =>
         {
-            Debug.LogError("JWT key is null or empty");
-            message = "sendError";
-            yield break;
-        }
-        else
-            message = ApiController.UpdateUserProfile(jwtKey, updateProfileObject);
-
-        // Call the callback function if it's not null
-        callback?.Invoke(message);
+            string message = null;
+            if (string.IsNullOrEmpty(key))
+            {
+                Debug.LogError("JWT key is null or empty");
+                message = "sendError";
+                CheckPutRequestStatus(message);
+            }
+            else
+                StartCoroutine(ApiController.UpdateUserProfile(key, updateProfileObject, (string response) =>
+                CheckPutRequestStatus(response)));
+        }));
     }
 
     private void CheckPutRequestStatus(string message)
