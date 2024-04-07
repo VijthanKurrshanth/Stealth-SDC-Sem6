@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerProfileEditor : MonoBehaviour
 {
     private UserProfile userProfile = new();
-    private UpdateProfileDTO updateProfileDTO = new();
+    private readonly UpdateProfileDTO updateProfileDTO = new();
     public TextMeshProUGUI userName;
     public TextMeshProUGUI firstName;
     public TextMeshProUGUI lastName;
@@ -36,11 +36,7 @@ public class PlayerProfileEditor : MonoBehaviour
         StartCoroutine(RetrieveUserProfile());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    // This method is used to retrieve the user profile from the server
     private IEnumerator RetrieveUserProfile()
     {
         yield return StartCoroutine(ApiController.GetJwtKey((string key) =>
@@ -56,13 +52,14 @@ public class PlayerProfileEditor : MonoBehaviour
                 {
                     Debug.LogError("Failed to retrieve user profile");
                 }
-                Debug.Log($"User profile retrieved: {userProfile}");
-                userProfile = profile;
+
+                userProfile = profile; // Assign the retrieved user profile to the userProfile object
                 SetTexMeshPro();
             }));
         }));
     }
 
+    // This method is used to set the retrieved user profile to the TextMeshPro objects
     public void SetTexMeshPro()
     {
         userName.text = userProfile.UserName;
@@ -78,6 +75,7 @@ public class PlayerProfileEditor : MonoBehaviour
         phoneNumberPlaceholder.text = userProfile.PhoneNumber;
         nicPlaceholder.text = userProfile.Nic;
 
+        // Initialize the updateProfileDTO object with the retrieved user profile data
         updateProfileDTO.firstname = userProfile.FirstName;
         updateProfileDTO.lastname = userProfile.LastName;
         updateProfileDTO.email = userProfile.Email;
@@ -87,15 +85,13 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnEndEditFirstName(string inputText)
     {
-        // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
-        updateProfileDTO.firstname = inputText;
-        firstNamePlaceholder.text = inputText;
+        updateProfileDTO.firstname = inputText; // Update the first name in the updateProfileDTO object
+        firstNamePlaceholder.text = inputText; // Update the first name in the placeholder
     }
 
     public void OnEndEditLastName(string inputText)
     {
-        // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.lastname = inputText;
         lastNamePlaceholder.text = inputText;
@@ -103,7 +99,6 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnEndEditEmail(string inputText)
     {
-        // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.email = inputText;
         emailPlaceholder.text = inputText;
@@ -111,7 +106,6 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnEndEditPhoneNumber(string inputText)
     {
-        // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.phoneNumber = inputText;
         phoneNumberPlaceholder.text = inputText;
@@ -119,7 +113,6 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnEndEditNic(string inputText)
     {
-        // Process the input text here (e.g., print it to the console)
         Debug.Log("User entered: " + inputText);
         updateProfileDTO.nic = inputText;
         nicPlaceholder.text = inputText;
@@ -127,12 +120,13 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public void OnSaveButtonClick()
     {
-        StartCoroutine(UpdateProfile(updateProfileDTO));
+        UpdateProfile(updateProfileDTO);
     }
 
-    private IEnumerator UpdateProfile(UpdateProfileDTO updateProfileObject)
+    // This method is used to update the user profile on the server
+    private void UpdateProfile(UpdateProfileDTO updateProfileObject)
     {
-        yield return StartCoroutine(ApiController.GetJwtKey((string key) =>
+        StartCoroutine(ApiController.GetJwtKey((string key) =>
         {
             string message = null;
             if (string.IsNullOrEmpty(key))
@@ -147,6 +141,7 @@ public class PlayerProfileEditor : MonoBehaviour
         }));
     }
 
+    // This method is used to check the status of the PUT request
     private void CheckPutRequestStatus(string message)
     {
         if (message == "sendError")
@@ -159,8 +154,12 @@ public class PlayerProfileEditor : MonoBehaviour
             Debug.Log("User profile updated successfully");
             if (PlayerPrefs.GetInt("playerExists") == 0)
             {
-                SceneManager.LoadScene("4.GameplayEnvironment");
-                PlayerPrefs.SetInt("playerExists", 1);
+                StartCoroutine(ApiController.AuthenticateWebApp(() =>
+                {
+                    StartCoroutine(ApiController.OpenWebAppInNewTab());
+                    PlayerPrefs.SetInt("playerExists", 1);
+                })); // Authenticate the web app and open it in a new tab
+
             }
             else
                 SceneManager.LoadScene("3.MainMenu");
@@ -184,6 +183,7 @@ public class PlayerProfileEditor : MonoBehaviour
     }
 }
 
+// This class is used to store the user profile data
 public class UpdateProfileDTO
 {
     public string firstname;
