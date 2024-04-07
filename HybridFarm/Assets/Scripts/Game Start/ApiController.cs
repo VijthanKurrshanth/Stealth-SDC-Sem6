@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
+using System.Text;
 
 public static class ApiController
 {
@@ -12,31 +13,32 @@ public static class ApiController
         try
         {
             string url = "http://20.15.114.131:8080/api/login";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.Accept = "*/*";
             string body = "{\"apiKey\":\"NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmNlOjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJjNA\"}";
 
-            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            UnityWebRequest request = UnityWebRequest.Post(url, body, "application/json");
+            request.method = UnityWebRequest.kHttpVerbPOST;
+            request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+            request.SetRequestHeader("Accept", "*/*");
+
+            request.SendWebRequest();
+
+            while (!request.isDone) // Wait for the request to complete
             {
-                streamWriter.Write(body);
-                streamWriter.Flush();
+                // You can add a loading indicator or handle progress here if needed
             }
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            if ((request.result == UnityWebRequest.Result.ConnectionError) || request.isHttpError)
             {
-                string jsonResponse = reader.ReadToEnd();
-                JObject jsonObject = JObject.Parse(jsonResponse);
-                string token = (string)jsonObject["token"];
-                return token;
+                Debug.LogError($"Error occurred during JWT key retrieval: {request.error}");
+                return null;
             }
-        }
-        catch (WebException ex)
-        {
-            Debug.LogError($"Error occurred during JWT key retrieval: {ex.Message}");
-            return null;
+
+            string jsonResponse = request.downloadHandler.text;
+            JObject jsonObject = JObject.Parse(jsonResponse);
+            string token = (string)jsonObject["token"];
+            return token;
         }
         catch (Exception ex)
         {
