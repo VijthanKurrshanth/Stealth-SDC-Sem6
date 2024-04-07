@@ -54,8 +54,8 @@ public class grassSpawnDestroy : MonoBehaviour
                             for (int i = 0; i < Random.Range(8, 9); i++) {
                                 // Instantiate your game object at the desired position with Quaternion.identity rotation.
                                 if (hit.collider.CompareTag("Farm Evening")){
-                                    float offsetX = Random.Range(-0.3f, 0.3f); // Adjust as needed
-                                    float offsetY = Random.Range(-0.3f, 0.3f); // Adjust as needed
+                                    float offsetX = Random.Range(-0.5f, 0.5f); // Adjust as needed
+                                    float offsetY = Random.Range(-0.5f, 0.5f); // Adjust as needed
                                     Vector3 randomOffset = new Vector3(offsetX, offsetY,0);
                                     Instantiate(grass, mousePosition + randomOffset, Quaternion.identity);
                                 }
