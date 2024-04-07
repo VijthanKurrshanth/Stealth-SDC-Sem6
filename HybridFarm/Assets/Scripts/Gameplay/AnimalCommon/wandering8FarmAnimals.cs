@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 public class wandering8FarmAnimals : MonoBehaviour
 {
     [SerializeField] float speed= 1.0f;
@@ -326,7 +327,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         movingTowardsGrassAndEat = true;
         
         Vector2 grasslocation= SearchAndFindGrass();
-        Debug.Log("grass location: "+grasslocation);
+        //Debug.Log("grass location: "+grasslocation);
         direction = (grasslocation - (Vector2)transform.position).normalized;
         //Debug.Log("direction "+direction);
         mappedZ = Mathf.Lerp(minZ, maxZ, Mathf.InverseLerp(minY, maxY, grasslocation.y));
@@ -334,9 +335,10 @@ public class wandering8FarmAnimals : MonoBehaviour
         //Debug.Log(mappedZ);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
+        Debug.Log(distanceToTarget);
         
 
-
+       if (distanceToTarget > 0.02) {
 
         directionAngle = grasslocation - (Vector2)transform.position;
             float angledir = Mathf.Atan2(directionAngle.y, directionAngle.x) * Mathf.Rad2Deg;
@@ -412,9 +414,25 @@ public class wandering8FarmAnimals : MonoBehaviour
                 directionOfMovement= " Other Dir";
             }
 
+       }
 
+       else 
+       {
+            if (grasslocation.x >transform.position.x) {
+            StartCoroutine(SetAnimeFalse());
+            sprite_render.flipX= false;
+            anim.SetBool("eat_anim",true);
+            }
 
-
+            else 
+            {
+                StartCoroutine(SetAnimeFalse());
+                sprite_render.flipX= true;
+                anim.SetBool("eat_anim",true);
+                
+                
+            }
+       }
 
         yield return new WaitForSeconds(5);
     }
