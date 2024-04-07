@@ -36,6 +36,7 @@ public class QuestionnaireHandler : MonoBehaviour
                 if (!finished)
                 {
                     waitingText.text = $"Your score is: {score} \n Press close button again.";
+                    PlayerPrefs.SetInt("playerBoostPoints", score);
                     finished = true;
                 }
                 else

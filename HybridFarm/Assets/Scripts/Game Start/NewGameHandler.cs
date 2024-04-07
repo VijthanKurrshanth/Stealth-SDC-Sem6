@@ -54,6 +54,7 @@ public class NewGameHandler : MonoBehaviour
     public void OnConfirmButtonClicked()
     {
         PlayerPrefs.SetInt("playerExists", 0);
+        PlayerPrefs.SetInt("playerBoostPoints", 0);
         SceneManager.LoadScene("7.UserProfile");
     }
 
