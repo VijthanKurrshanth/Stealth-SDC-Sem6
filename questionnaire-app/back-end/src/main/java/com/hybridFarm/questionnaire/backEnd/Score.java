@@ -36,5 +36,6 @@ public class Score {
     public void resetScore(){
         Arrays.fill(score, false);
         Arrays.fill(specificFeedbacks, "");
+        finished = false;
     }
 }
