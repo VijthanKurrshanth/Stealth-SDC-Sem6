@@ -318,7 +318,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
     private IEnumerator DestroyGrass(GameObject grassObject)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         Destroy(grassObject);
         destroyedNoOfGrassobject+=1; 
     }
@@ -433,7 +433,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             }
        }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
     }
 
 }
