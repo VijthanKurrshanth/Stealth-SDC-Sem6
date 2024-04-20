@@ -1,4 +1,4 @@
-# Instructions to Run backend
+# Instructions to Run the backend
 
 ## Add environment variables for the database
 
@@ -10,12 +10,16 @@
 
 ### Use AWS RDS database instance instead
 
-We have an AWS RDS database instance that you can use instead. For that please add the exact values in the `.env` file for the environment variables.
+We have an AWS RDS database instance that you can use instead. For that please change the following values for the environment variables.
+
+MYSQL_HOST=kurrshanth-db1.crg64q228anw.us-east-1.rds.amazonaws.com
+MYSQL_PASSWORD=Kurru4252
+MYSQL_USER=root
 
 ## Run the backend
 
-1. This application is built with Java 21. Verify if Java 21 is installed on your system. If not, please install it. Use command `java -version` and `javac -version` to check the version.
+1. This application is built with Java 21. Verify if Java 21 is installed on your system. If not, please install it. Use the command `java -`version`and`javac -version` to check the version.
 
-2. Use any IDE like `IntelliJ IDEA` to open the project and add the above mentioned environment variables.
+2. Use any IDE like `IntelliJ IDEA` to open the project and add the above-mentioned environment variables.
 
 3. Run the main class `BackEndApplication.java` to start the backend server.
