@@ -12,9 +12,11 @@
 
 We have an AWS RDS database instance that you can use instead. For that please change the following values for the environment variables.
 
-MYSQL_HOST=kurrshanth-db1.crg64q228anw.us-east-1.rds.amazonaws.com
-MYSQL_PASSWORD=Kurru4252
-MYSQL_USER=root
+> `MYSQL_HOST=kurrshanth-db1.crg64q228anw.us-east-1.rds.amazonaws.com`
+
+> `MYSQL_PASSWORD=Kurru4252`
+
+> `MYSQL_USER=root`
 
 ## Run the backend
 
