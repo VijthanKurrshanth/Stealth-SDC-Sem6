@@ -210,6 +210,7 @@ public static class ApiController
         callback?.Invoke(result); // Invoke the callback function with the score
     }
 
+    // This method is used to reset the score on the web app backend
     public static IEnumerator Reset()
     {
         string url = "http://localhost:8020/hybridFarm/v1/reset";
@@ -233,5 +234,87 @@ public static class ApiController
         {
             Debug.Log($"Error occurred during resetting: {request.error}");
         }
+    }
+
+    // This method is used to get the power consumption of the previous day
+    public static IEnumerator GetYesterdayConsumption(string jwtKey, Action<float> callback = null)
+
+    {
+        if (string.IsNullOrEmpty(jwtKey))
+        {
+            Debug.Log("JWT key is null or empty");
+            yield break;
+        }
+
+        float consumption = 0.0f;
+        string year = DateTime.Now.Year.ToString();
+        string month = DateTime.Now.ToString("MMMM").ToUpper();
+        string yesterday = DateTime.Now.AddDays(-1).Day.ToString();
+        string url = $"http://20.15.114.131:8080/api/power-consumption/month/daily/view?year={year}&month={month}";
+
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        request.method = UnityWebRequest.kHttpVerbGET;
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "application/json");
+        request.SetRequestHeader("Authorization", "Bearer " + jwtKey);
+
+        yield return request.SendWebRequest();
+
+        while (!request.isDone)
+        {
+            yield return null; // Pause the coroutine until the request is complete
+        }
+
+        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        {
+            Debug.Log($"Error occurred during yesterday power consumption retrieval: {request.error}");
+        }
+
+        string jsonResponse = request.downloadHandler.text;
+        JObject jsonObject = JObject.Parse(jsonResponse);
+
+        consumption = (float)jsonObject["dailyPowerConsumptionView"]["dailyUnits"][yesterday];
+
+        callback?.Invoke(consumption); // Invoke the callback function with the consumption
+    }
+
+    // This method is used to get the current power consumption
+    public static IEnumerator GetCurrentConsumption(string jwtKey, Action<float> callback = null)
+    {
+        if (string.IsNullOrEmpty(jwtKey))
+        {
+            Debug.Log("JWT key is null or empty");
+            yield break;
+        }
+
+        float consumption = 0.0f;
+        string url = "http://20.15.114.131:8080/api/power-consumption/current/view";
+
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        request.method = UnityWebRequest.kHttpVerbGET;
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "application/json");
+        request.SetRequestHeader("Authorization", "Bearer " + jwtKey);
+
+        yield return request.SendWebRequest();
+
+        while (!request.isDone)
+        {
+            yield return null; // Pause the coroutine until the request is complete
+        }
+
+        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        {
+            Debug.Log($"Error occurred during current power consumption retrieval: {request.error}");
+        }
+
+        string jsonResponse = request.downloadHandler.text;
+        JObject jsonObject = JObject.Parse(jsonResponse);
+
+        consumption = (float)jsonObject["currentConsumption"];
+
+        callback?.Invoke(consumption); // Invoke the callback function with the consumption
     }
 }

@@ -32,6 +32,9 @@ public class PlayerProfileEditor : MonoBehaviour
 
     public GameObject waitingPanel;
     public TextMeshProUGUI waitingText;
+    public GameObject loadingScreen;
+    public GameObject attackAlgorithm;
+
     public bool questionnaireFinished = false;
 
     // Start is called before the first frame update
@@ -213,9 +216,20 @@ public class PlayerProfileEditor : MonoBehaviour
             {
                 questionnaireFinished = false;
                 waitingPanel.SetActive(false); // Hide the waiting panel
-                SceneManager.LoadScene("4.GameplayEnvironment");
+                StartCoroutine(LoadingScreen());
             }
         }));
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+        while (attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval() == 0)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        loadingScreen.SetActive(false);
+        SceneManager.LoadScene("4.GameplayEnvironment");
     }
 }
 

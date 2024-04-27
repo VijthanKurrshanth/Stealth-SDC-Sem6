@@ -8,6 +8,8 @@ public class NewGameHandler : MonoBehaviour
     public GameObject continueButton;
     public GameObject continueButtonMask;
     public GameObject warningPanel;
+    public GameObject attackAlgorithm;
+    public GameObject loadingScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,7 @@ public class NewGameHandler : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        SceneManager.LoadScene("4.GameplayEnvironment");
+        StartCoroutine(LoadingScreen());
     }
 
     public void OnConfirmButtonClicked()
@@ -61,5 +63,16 @@ public class NewGameHandler : MonoBehaviour
     public void OnCloseButtonClicked()
     {
         warningPanel.SetActive(false);
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+        while (attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval() == 0)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        loadingScreen.SetActive(false);
+        SceneManager.LoadScene("4.GameplayEnvironment");
     }
 }

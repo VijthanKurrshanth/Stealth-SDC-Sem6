@@ -8,29 +8,29 @@ public class DebugApi : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(ApiController.GetJwtKey((responseString) => ShowUserProfile(responseString)));
+        //StartCoroutine(ApiController.GetJwtKey((responseString) => ShowUserProfile(responseString)));
     }
 
-    public void ShowUserProfile(string jwtKey)
-    {
-        if (jwtKey == null)
-        {
-            debugText.text = "Error occurred during JWT key retrieval";
-        }
-        else
-        {
-            debugText.text = "JWT key retrieved successfully";
-            UserProfile userProfile = new();
-            StartCoroutine(ApiController.GetUserProfile(jwtKey, (userProfile) => SaveProfile(userProfile)));
-            debugText.text = "First Name: " + userProfile.FirstName + "\n" +
-                            "Last Name: " + userProfile.LastName + "\n" +
-                            "User Name: " + userProfile.UserName + "\n" +
-                            "NIC: " + userProfile.Nic + "\n" +
-                            "Phone Number: " + userProfile.PhoneNumber + "\n" +
-                            "Email: " + userProfile.Email + "\n" +
-                            "JWT Key: " + jwtKey;
-        }
-    }
+    // public void ShowUserProfile(string jwtKey)
+    // {
+    //     if (jwtKey == null)
+    //     {
+    //         debugText.text = "Error occurred during JWT key retrieval";
+    //     }
+    //     else
+    //     {
+    //         debugText.text = "JWT key retrieved successfully";
+    //         UserProfile userProfile = new();
+    //         StartCoroutine(ApiController.GetUserProfile(jwtKey, (userProfile) => SaveProfile(userProfile)));
+    //         debugText.text = "First Name: " + userProfile.FirstName + "\n" +
+    //                         "Last Name: " + userProfile.LastName + "\n" +
+    //                         "User Name: " + userProfile.UserName + "\n" +
+    //                         "NIC: " + userProfile.Nic + "\n" +
+    //                         "Phone Number: " + userProfile.PhoneNumber + "\n" +
+    //                         "Email: " + userProfile.Email + "\n" +
+    //                         "JWT Key: " + jwtKey;
+    //     }
+    // }
 
     private void SaveProfile(UserProfile userProfile)
     {
@@ -42,4 +42,9 @@ public class DebugApi : MonoBehaviour
     //     string jwtKey = ApiController.GetJwtKey();
     //     debugText.text = "JWT Key: " + jwtKey;
     // }
+
+    public void OnClick()
+    {
+        StartCoroutine(ApiController.GetJwtKey((JWTkey) => StartCoroutine(ApiController.GetCurrentConsumption(JWTkey, (consumption) => Debug.Log(consumption)))));
+    }
 }
