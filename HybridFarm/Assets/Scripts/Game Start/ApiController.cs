@@ -280,7 +280,7 @@ public static class ApiController
     }
 
     // This method is used to get the current power consumption
-    public static IEnumerator GetCurrentConsumption(string jwtKey, Action<float> callback = null)
+    public static IEnumerator GetCurrentConsumption(string jwtKey, Action<string> callback = null)
     {
         if (string.IsNullOrEmpty(jwtKey))
         {
@@ -288,7 +288,7 @@ public static class ApiController
             yield break;
         }
 
-        float consumption = 0.0f;
+        string consumption = "";
         string url = "http://20.15.114.131:8080/api/power-consumption/current/view";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
@@ -313,8 +313,7 @@ public static class ApiController
         string jsonResponse = request.downloadHandler.text;
         JObject jsonObject = JObject.Parse(jsonResponse);
 
-        consumption = (float)jsonObject["currentConsumption"];
-
+        consumption = (string)jsonObject["currentConsumption"];
         callback?.Invoke(consumption); // Invoke the callback function with the consumption
     }
 }

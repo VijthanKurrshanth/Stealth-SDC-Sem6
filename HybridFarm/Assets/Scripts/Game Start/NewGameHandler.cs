@@ -78,15 +78,17 @@ public class NewGameHandler : MonoBehaviour
 
     public void OnTestButtonClicked()
     {
-        List<int> array = attackAlgorithm.GetComponent<AttackAlgorithm>().GetPredatorArray(0.05f);
-        PrintList(array);
+        // List<int> array = attackAlgorithm.GetComponent<AttackAlgorithm>().GetPredatorArray(0.05f);
+        // PrintList(array);
 
-        void PrintList(List<int> list)
-        {
-            foreach (int num in list)
-            {
-                Debug.Log(num);
-            }
-        }
+        // void PrintList(List<int> list)
+        // {
+        //     foreach (int num in list)
+        //     {
+        //         Debug.Log(num);
+        //     }
+        // }
+        //PlayerPrefs.SetString("currentConsumption", "348091.79162336694");
+        //StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().SendPredatorAttack());
     }
 }
