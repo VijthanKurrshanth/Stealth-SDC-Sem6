@@ -630,7 +630,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1471532731}
         m_TargetAssemblyTypeName: NewGameHandler, Assembly-CSharp
-        m_MethodName: OnContinueButtonClicked
+        m_MethodName: OnTestButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

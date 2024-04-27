@@ -75,4 +75,18 @@ public class NewGameHandler : MonoBehaviour
         loadingScreen.SetActive(false);
         SceneManager.LoadScene("4.GameplayEnvironment");
     }
+
+    public void OnTestButtonClicked()
+    {
+        List<int> array = attackAlgorithm.GetComponent<AttackAlgorithm>().GetPredatorArray(0.05f);
+        PrintList(array);
+
+        void PrintList(List<int> list)
+        {
+            foreach (int num in list)
+            {
+                Debug.Log(num);
+            }
+        }
+    }
 }
