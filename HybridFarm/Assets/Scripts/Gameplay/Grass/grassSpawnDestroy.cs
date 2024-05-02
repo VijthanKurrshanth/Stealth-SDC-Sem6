@@ -57,7 +57,7 @@ public class grassSpawnDestroy : MonoBehaviour
                             mousePosition.z = 0; // Ensure the grass spawns at z = 0 (assuming 2D)
 
                             // Spawn grass at mouse position
-                            for (int i = 0; i < Random.Range(8, 9); i++) {
+                            for (int i = 0; i < Random.Range(10, 12); i++) {
                                 // Instantiate your game object at the desired position with Quaternion.identity rotation.
                                 if (hit.collider.CompareTag("Farm Evening")){
                                     float offsetX = Random.Range(-0.6f, 0.6f); // Adjust as needed
