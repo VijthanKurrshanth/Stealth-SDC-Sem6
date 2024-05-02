@@ -1,16 +1,22 @@
+using System.Runtime.CompilerServices;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
 public class grassSpawnDestroy : MonoBehaviour
 {
-    public GameObject grass; // Reference to the grass prefab
+    public GameObject[] grassPrefabs; // Reference to the grass prefab
     public bool flagRunEnabled = false; // Flag to enable/disable running
 
     private int numberOfGrassplant=0;
 
 
+
+
     void Update()
     {
+        
+ 
         // Check if there are any grass objects present in the scene
         GameObject[] grassObjects = GameObject.FindGameObjectsWithTag("grass");
         if (grassObjects.Length > 0)
@@ -54,10 +60,11 @@ public class grassSpawnDestroy : MonoBehaviour
                             for (int i = 0; i < Random.Range(8, 9); i++) {
                                 // Instantiate your game object at the desired position with Quaternion.identity rotation.
                                 if (hit.collider.CompareTag("Farm Evening")){
-                                    float offsetX = Random.Range(-0.4f, 0.4f); // Adjust as needed
+                                    float offsetX = Random.Range(-0.6f, 0.6f); // Adjust as needed
                                     float offsetY = Random.Range(-0.3f, 0.3f); // Adjust as needed
                                     Vector3 randomOffset = new Vector3(offsetX, offsetY,0);
-                                    Instantiate(grass, mousePosition + randomOffset, Quaternion.identity);
+                                    int randomIndex = Random.Range(0, grassPrefabs.Length);
+                                    Instantiate(grassPrefabs[randomIndex], mousePosition + randomOffset, Quaternion.identity);
                                 }
                             }
                             numberOfGrassplant+=1;  // grass group bundle
