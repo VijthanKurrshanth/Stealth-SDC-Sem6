@@ -34,6 +34,9 @@ public class wandering8FarmAnimals : MonoBehaviour
 
     grassSpawnDestroy grassSpawner;
     farmAnimalDeath farmAnimalDeath;
+
+
+
     
 
     void Start()
@@ -60,7 +63,8 @@ public class wandering8FarmAnimals : MonoBehaviour
             isHungry=false;
             noGrassatAll = false;
             movingTowardsGrassAndEat=false;
-            StopCoroutine(MoveAndEat());       
+            StopCoroutine(MoveAndEat());  
+              
 
         }
 
@@ -69,11 +73,12 @@ public class wandering8FarmAnimals : MonoBehaviour
                     
                     speed= 2.5f;
                     noGrassatAll = true;
-                    //StopCoroutine(MoveAndEat());
-         
+                    StopCoroutine(MoveAndEat());
+                    movingTowardsGrassAndEat=false;
+                    
         }
 
-        else if ( isHungry )
+        else if ( isHungry)
         {
             noGrassatAll = false;
             //StartCoroutine(returnWaypointForApproachAGrass());
@@ -81,7 +86,8 @@ public class wandering8FarmAnimals : MonoBehaviour
             StartCoroutine (MoveAndEat());
             //wayPoint = FindAndMoveTowardsGrass();   // remove comment for move toward grass and eat.
             speed = 2.5f; // remove comment for move toward grass and eat.
-            
+
+  
         }
 
         else 
@@ -92,14 +98,16 @@ public class wandering8FarmAnimals : MonoBehaviour
             StartCoroutine(animalisHungryTrigger());
         }
         
-        if (!movingTowardsGrassAndEat)
+        
+        if (!movingTowardsGrassAndEat) 
         {
-        direction = (wayPoint - (Vector2)transform.position).normalized;
-        //Debug.Log("direction "+direction);
-        mappedZ = Mathf.Lerp(minZ, maxZ, Mathf.InverseLerp(minY, maxY, wayPoint.y));
-        Vector3 targetPosition = new Vector3(wayPoint.x, wayPoint.y, mappedZ);
-        //Debug.Log(mappedZ);
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            direction = (wayPoint - (Vector2)transform.position).normalized;
+            //Debug.Log("direction "+direction);
+            mappedZ = Mathf.Lerp(minZ, maxZ, Mathf.InverseLerp(minY, maxY, wayPoint.y));
+            Vector3 targetPosition = new Vector3(wayPoint.x, wayPoint.y, mappedZ);
+            //Debug.Log(mappedZ);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            Debug.Log("This is is speed2:  " + speed);
         }
 
         if (Vector2.Distance(transform.position, wayPoint) < range)
@@ -200,11 +208,10 @@ public class wandering8FarmAnimals : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No grass objects found!");
+            //Debug.LogWarning("No grass objects found!");
             // Return a default vector indicating no grass found
             //return Vector2.zero;
             return RandomDirectionWaypoint();
-            
         }
     }
     
@@ -317,8 +324,9 @@ public class wandering8FarmAnimals : MonoBehaviour
     }
     private IEnumerator MoveAndEat()
     {
+
+
         movingTowardsGrassAndEat = true;
-        
         Vector2 grasslocation= SearchAndFindGrass();
         //Debug.Log("grass location: "+grasslocation);
         direction = (grasslocation - (Vector2)transform.position).normalized;
@@ -328,7 +336,7 @@ public class wandering8FarmAnimals : MonoBehaviour
         //Debug.Log(mappedZ);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         float distanceToTarget = Vector2.Distance(transform.position, targetPosition);
-        Debug.Log(distanceToTarget);
+        //Debug.Log(distanceToTarget);
         
 
        if (distanceToTarget > 0.02) {
@@ -428,5 +436,16 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         yield return new WaitForSeconds(2);
     }
+
+
+
+    
+
+
+    
+
+
+
+    
 
 }
