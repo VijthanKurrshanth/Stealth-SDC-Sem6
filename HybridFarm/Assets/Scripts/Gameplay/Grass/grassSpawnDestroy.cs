@@ -7,7 +7,6 @@ public class grassSpawnDestroy : MonoBehaviour
 {
     public GameObject[] grassPrefabs; // Reference to the grass prefab
     public bool flagRunEnabled = false; // Flag to enable/disable running
-
     private int numberOfGrassplant=0;
 
 
@@ -33,10 +32,6 @@ public class grassSpawnDestroy : MonoBehaviour
         // Check if the mouse button is clicked (left mouse button)
         if (Input.GetMouseButtonDown(0))
         {   
-
-           
-
-            
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
 
@@ -67,20 +62,15 @@ public class grassSpawnDestroy : MonoBehaviour
                                     Instantiate(grassPrefabs[randomIndex], mousePosition + randomOffset, Quaternion.identity);
                                 }
                             }
-                            numberOfGrassplant+=1;  // grass group bundle
-                            
+                            numberOfGrassplant+=1;  // grass group bundle   
                         }
                 }
-
             }
-
-            
-
         }
     }
 
     // Method to check for grass presence
-    public bool checkForGrassPresence()
+    public bool checkForGrassNotPresence()
     {
         return flagRunEnabled;
         

@@ -42,13 +42,10 @@ public class wandering8FarmAnimals : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite_render = GetComponent<SpriteRenderer>();
         Transform= GetComponent<Transform>();
-        
         grassSpawner = FindObjectOfType<grassSpawnDestroy>();
         farmAnimalDeath = FindObjectOfType<farmAnimalDeath>();
-
         wayPoint = new Vector2(Transform.position.x -Random.Range(-maxDistance, maxDistance), Transform.position.y); //Random.Range(-maxDistance, maxDistance));
         //Debug.Log("waypoint "+ wayPoint);
-        
         timer = timervalueForHungryTrigger;
         
     }
@@ -67,22 +64,22 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         }
 
-        if ( grassSpawner.checkForGrassPresence() & isHungry )  // true if no grass found
+        if ( grassSpawner.checkForGrassNotPresence() & isHungry )  // true if no grass found
         {
                     speed= 2.5f;
                     noGrassatAll = true;
                     //StopCoroutine(MoveAndEat());
-                    
+         
         }
 
         else if ( isHungry )
         {
             noGrassatAll = false;
             //StartCoroutine(returnWaypointForApproachAGrass());
-            speed = 2f;
+            speed = 2.5f;
             StartCoroutine (MoveAndEat());
             //wayPoint = FindAndMoveTowardsGrass();   // remove comment for move toward grass and eat.
-            speed = 2f; // remove comment for move toward grass and eat.
+            speed = 2.5f; // remove comment for move toward grass and eat.
             
         }
 
@@ -200,7 +197,6 @@ public class wandering8FarmAnimals : MonoBehaviour
                         nearestGrass = grassObjects[i];
                     }
                 }
-
                 // Now nearestGrass will hold the closest grass object so chicken can move to nearest grass.
                 approachingGrass = true;
                 return nearestGrass.transform.position;       

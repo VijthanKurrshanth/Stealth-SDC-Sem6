@@ -25,7 +25,7 @@ public class layRawProduct : MonoBehaviour
         // Decrease the timer
 
         {   
-            if ( !grassSpawner.checkForGrassPresence())  // if grass exist this will be true
+            if ( !grassSpawner.checkForGrassNotPresence())  // if grass exist this will be true
             {   
                 timer -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
