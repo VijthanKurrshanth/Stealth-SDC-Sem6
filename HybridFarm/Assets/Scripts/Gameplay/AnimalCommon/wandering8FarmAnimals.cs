@@ -66,6 +66,7 @@ public class wandering8FarmAnimals : MonoBehaviour
 
         if ( grassSpawner.checkForGrassNotPresence() & isHungry )  // true if no grass found
         {
+                    
                     speed= 2.5f;
                     noGrassatAll = true;
                     //StopCoroutine(MoveAndEat());
@@ -146,10 +147,6 @@ public class wandering8FarmAnimals : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D (Collider2D collision)
-    {
-
-    }
 
     private Vector2 RandomDirectionWaypointonCollision()
     {
