@@ -23,15 +23,15 @@ public class ObjectiveTextDisplay : MonoBehaviour
             Debug.LogError("Timer Script requires a TextMeshProUGUI component attached to the same GameObject.");
             return;
         }
-
         StartCoroutine(DisplayObjectiveText());
     }
 
     private IEnumerator DisplayObjectiveText()
     {
         yield return new WaitForSeconds(0.01f); // Adjust the delay time as needed
-        if (objectiveFigure.IndexPostioninObjectiveItems[index]<13){
-        ObjectiveText.text = "1" + "/" + objectiveFigure.IndexPostioninObjectiveItems[index].ToString();
+        if (objectiveFigure.IndexPostioninObjectiveItems[index]<13)
+        {
+            ObjectiveText.text = "1" + "/" + objectiveFigure.IndexPostioninObjectiveItems[index].ToString();
         }
     }
 
