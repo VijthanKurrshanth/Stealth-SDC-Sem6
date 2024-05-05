@@ -1865,7 +1865,7 @@ MonoBehaviour:
   amount_of_money: 0
   No_of_chicken: 3
   No_of_pig: 2
-  No_of_cow: 1
+  No_of_cow: 0
   No_of_egg: 0
   No_of_eggPoweder: 0
   No_of_cake: 0
@@ -5046,6 +5046,7 @@ MonoBehaviour:
   ItemPrefab2: {fileID: 0}
   ItemPrefab3: {fileID: 0}
   itemsNumberpostionsInArray: 
+  ObjectiveSelectedprefabs: []
 --- !u!1001 &4957421206859879485
 PrefabInstance:
   m_ObjectHideFlags: 0
