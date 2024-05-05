@@ -20,6 +20,11 @@ public class Objective : MonoBehaviour
     public int No_of_curd =0 ;
     public int No_of_cheese =0;
 
+    public int[] items;
+    public string[] itemsname;
+    public string[] respectiveItemSprites;
+    
+
     void Start()
     {
      
@@ -28,9 +33,10 @@ public class Objective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int[] items = { No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
-        string[] itemsname = { "Money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausage", "milk", "curd", "cheese" };
-
+        items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
+        itemsname = new string[] { "Money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausage", "milk", "curd", "cheese" };
+      
+        respectiveItemSprites = new string[] { "","","", "Collectables Sheet-01_6", "Collectables Sheet-01_7","Collectables Sheet-01_8","Collectables Sheet-01_3","Collectables Sheet-01_4","Collectables Sheet-01_5","Collectables Sheet-01_2","Collectables Sheet-01_1","Collectables Sheet-01_0"};
         
 
     }
