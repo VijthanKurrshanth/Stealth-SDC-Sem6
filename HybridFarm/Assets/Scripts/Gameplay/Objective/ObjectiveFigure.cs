@@ -22,9 +22,11 @@ public class ObjectiveFigure : MonoBehaviour
         itemsNumberpostionsInArray[1]=1;
         itemsNumberpostionsInArray[2]=1;
 
-        ItemPrefab1= objective.respectiveItemSprites[2];
-        ItemPrefab2= objective.respectiveItemSprites[2];
-        ItemPrefab3= objective.respectiveItemSprites[3];
+        ItemPrefab1= objective.respectiveItemSprites[1] ;
+        ItemPrefab2= objective.respectiveItemSprites[2] ;
+        ItemPrefab3= objective.respectiveItemSprites[3] ;
+
+        Debug.Log(ItemPrefab1);
 
         for (int i = 0; i < objective.items.Length; i++)
         {
@@ -32,7 +34,6 @@ public class ObjectiveFigure : MonoBehaviour
             if (objective.items[i]>0)
             {
                 itemsNumberpostionsInArray[flag] = i;
-                //Debug.Log(i.ToString());
                 flag++;
             }
         }
@@ -42,19 +43,20 @@ public class ObjectiveFigure : MonoBehaviour
         if (itemsNumberpostionsInArray.Length <= 3)
             {
                 // Instantiate and position item 1
-                Vector3 spawnPosition1 = new Vector3(6.116402f, -3.85f, 16f);
+                Vector3 spawnPosition1 = new Vector3(6.05006402f, -3.85f, 16f);
                 GameObject objectiveitem1 = Instantiate(ItemPrefab1, spawnPosition1, Quaternion.identity);
-                transform.position = spawnPosition1;
+                
                  
                 // Instantiate and position item 2
-                Vector3 spawnPosition2 = new Vector3(6.116402f, -3.85f, 16f) + new Vector3(1.1f * 1, 0, 0);
+                Vector3 spawnPosition2 = new Vector3(6.0516402f, -3.85f, 16f) + new Vector3(1.1f * 1, 0, 0);
                 GameObject objectiveitem2 = Instantiate(ItemPrefab2, spawnPosition2, Quaternion.identity);
-                transform.position = spawnPosition2;
                 
+                
+
                 // Instantiate and position item 3
                 Vector3 spawnPosition3 = new Vector3(6.116402f, -3.85f, 16f) + new Vector3(1.1f * 2, 0, 0);
                 GameObject objectiveitem3 = Instantiate(ItemPrefab3, spawnPosition3, Quaternion.identity);
-                transform.position = spawnPosition3;
+                
                 
             }
 

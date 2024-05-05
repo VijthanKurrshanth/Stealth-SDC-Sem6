@@ -5042,9 +5042,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveText: {fileID: 0}
   noOfItemCollected: 0
-  ItemPrefab1: {fileID: 3168522659256452869, guid: 47df82865f8f1074186e4e4e2dc7a610, type: 3}
-  ItemPrefab2: {fileID: 6470789483994961023, guid: 735ac05910e3a944ebc156c2416304fa, type: 3}
-  ItemPrefab3: {fileID: 3743356786682539619, guid: 99267682e16e05c41b0a00a00ed88382, type: 3}
+  ItemPrefab1: {fileID: 0}
+  ItemPrefab2: {fileID: 0}
+  ItemPrefab3: {fileID: 0}
   itemsNumberpostionsInArray: 
 --- !u!1001 &4957421206859879485
 PrefabInstance:

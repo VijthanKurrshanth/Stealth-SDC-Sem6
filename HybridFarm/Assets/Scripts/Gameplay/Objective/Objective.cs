@@ -22,35 +22,38 @@ public class Objective : MonoBehaviour
 
     public int[] items;
     public string[] itemsname;
-    public GameObject[] respectiveItemSprites = new GameObject[13];
+    public GameObject[] respectiveItemSprites;
     
 
     void Start()
     {
+
         items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
         itemsname = new string[] { "Money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 
-        Debug.Log("Array size: " + respectiveItemSprites.Length);
+        respectiveItemSprites = new GameObject[13];
+        //Debug.Log("Array size: " + respectiveItemSprites.Length);
 
-        respectiveItemSprites[0]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/coin");
-        respectiveItemSprites[1]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/chicken_onlyface");
-        respectiveItemSprites[2]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/chicken_onlyface");
-        respectiveItemSprites[3]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/chicken_onlyface");
-        respectiveItemSprites[4]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/egg_GUI.prefab");
-        respectiveItemSprites[5]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/eggPowder_GUI.prefab");
-        respectiveItemSprites[6]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/cake_GUI.prefab");
-        respectiveItemSprites[7]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/meat_GUI");
-        respectiveItemSprites[8]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/meatSlice_GUI");
-        respectiveItemSprites[9]=    Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/sausages_GUI");
-        respectiveItemSprites[10]=   Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/milk_GUI");
-        respectiveItemSprites[11]=   Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/curd_GUI");
-        respectiveItemSprites[12]=   Resources.Load<GameObject>("Prefabs/ObjectiveBoardAll/cheese_GUI");
+        respectiveItemSprites[0]=    Resources.Load<GameObject>("coin");
+        respectiveItemSprites[1]=    Resources.Load<GameObject>("chicken_onlyface");   // each prefabs should be in a folder "Assets/Resources"
+        respectiveItemSprites[2]=    Resources.Load<GameObject>("pig_onlyface");       // So temperorily there is a Resource folder which is copy of prefabs/objective prefabs folder
+        respectiveItemSprites[3]=    Resources.Load<GameObject>("cow_onlyface") ;
+        respectiveItemSprites[4]=    Resources.Load<GameObject>("egg_GUI");
+        respectiveItemSprites[5]=    Resources.Load<GameObject>("eggPowder_GUI");
+        respectiveItemSprites[6]=    Resources.Load<GameObject>("cake_GUI");
+        respectiveItemSprites[7]=    Resources.Load<GameObject>("meat_GUI");
+        respectiveItemSprites[8]=    Resources.Load<GameObject>("meatSlice_GUI");
+        respectiveItemSprites[9]=    Resources.Load<GameObject>("sausages_GUI");
+        respectiveItemSprites[10]=   Resources.Load<GameObject>("milk_GUI");
+        respectiveItemSprites[11]=   Resources.Load<GameObject>("curd_GUI");
+        respectiveItemSprites[12]=   Resources.Load<GameObject>("cheese_GUI");
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
 
 
     }
