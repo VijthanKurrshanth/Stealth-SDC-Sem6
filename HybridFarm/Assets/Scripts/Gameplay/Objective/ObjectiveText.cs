@@ -39,44 +39,60 @@ public class ObjectiveText : MonoBehaviour
 
         for (int i = 0; i < objective.items.Length; i++)
         {
+            Debug.Log(" " + i);
             if (objective.items[i]>0)
             {
                 
                 
                 //System.Array.Resize(ref itemsNumberpostionsInArray, itemsNumberpostionsInArray.Length + 1); //rezize array
                 itemsNumberpostionsInArray[flag] = i;
-                flag+=1;
+                Debug.Log(i.ToString());
+                flag++;
 
             }
         }
 
-    }
 
-    void Update()
-    {
-                
-        if (itemsNumberpostionsInArray.Length >= 3)
+
+
+
+
+        if (itemsNumberpostionsInArray.Length <= 3)
             {
+                
                 // Instantiate and position item 1
                 Vector3 spawnPosition1 = new Vector3(6.116402f, -3.85f, 16f);
                 GameObject objectiveitem1 = Instantiate(ItemPrefab1, spawnPosition1, Quaternion.identity);
-
+                transform.position = spawnPosition1;
                 // Update the objective text for item 1
                 //objectiveText.text = noOfItemCollected.ToString() + "/" + objective.items[itemsNumberpostionsInArray[0]].ToString();
 
                 // Instantiate and position item 2
                 Vector3 spawnPosition2 = new Vector3(6.116402f, -3.85f, 16f) + new Vector3(1.1f * 1, 0, 0);
                 GameObject objectiveitem2 = Instantiate(ItemPrefab2, spawnPosition2, Quaternion.identity);
-
+                transform.position = spawnPosition2;
                 // Update the objective text for item 2
                 //objectiveText.text = noOfItemCollected.ToString() + "/" + objective.items[itemsNumberpostionsInArray[1]].ToString();
 
                 // Instantiate and position item 3
                 Vector3 spawnPosition3 = new Vector3(6.116402f, -3.85f, 16f) + new Vector3(1.1f * 2, 0, 0);
                 GameObject objectiveitem3 = Instantiate(ItemPrefab3, spawnPosition3, Quaternion.identity);
-
+                transform.position = spawnPosition3;
                 // Update the objective text for item 3
                 //objectiveText.text = noOfItemCollected.ToString() + "/" + objective.items[itemsNumberpostionsInArray[2]].ToString();
             }
+
+
+
+
+
+
+
+    }
+
+    void Update()
+    {
+                
+
     }
 }
