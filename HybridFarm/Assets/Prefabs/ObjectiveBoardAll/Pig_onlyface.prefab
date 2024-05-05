@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8146567500886196442}
   - component: {fileID: 7872443896909353180}
   m_Layer: 0
-  m_Name: Pig_onlyface
+  m_Name: pig_onlyface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
