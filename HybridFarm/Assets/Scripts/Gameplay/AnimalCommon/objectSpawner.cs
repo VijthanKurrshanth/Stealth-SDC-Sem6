@@ -28,7 +28,7 @@ public class ObjectSpawner : MonoBehaviour
             Vector3 spawnPosition = new Vector3(
                 Random.Range(-spawnRange.x, spawnRange.x),
                 Random.Range(spawnRange.y, spawnRange.y),
-                0
+                6.7f
             );
 
             // Spawn the object at the generated position
