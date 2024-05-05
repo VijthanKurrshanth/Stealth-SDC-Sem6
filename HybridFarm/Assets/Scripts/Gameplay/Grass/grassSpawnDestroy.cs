@@ -8,7 +8,11 @@ public class grassSpawnDestroy : MonoBehaviour
     public GameObject[] grassPrefabs; // Reference to the grass prefab
     public bool flagRunEnabled = false; // Flag to enable/disable running
     private int numberOfGrassplant=0;
-
+    private float minY = -2.9f;
+    private float maxY = 2.83f;
+    private float minZ = 6.7f;
+    private float maxZ = 7.2f;
+    private float mappedZ;
 
 
 
@@ -49,14 +53,18 @@ public class grassSpawnDestroy : MonoBehaviour
                     if (numberOfGrassplant<5) 
                         {// Convert mouse position to world position
                             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                            mousePosition.z = 0; // Ensure the grass spawns at z = 0 (assuming 2D)
+                            float normalizedY = Mathf.InverseLerp(minY, maxY, mousePosition.y);
+                            float mappedZ = Mathf.Lerp(minZ, maxZ, normalizedY);
+                            
+                            mappedZ = Mathf.Clamp(mappedZ, minZ, maxZ); // Clamp mappedZ to ensure it stays within the range of minZ and maxZ
+                            mousePosition.z = mappedZ; // mouse pint Y mapped to Z
 
                             // Spawn grass at mouse position
                             for (int i = 0; i < Random.Range(10, 12); i++) {
                                 // Instantiate your game object at the desired position with Quaternion.identity rotation.
                                 if (hit.collider.CompareTag("Farm Evening")){
                                     float offsetX = Random.Range(-0.6f, 0.6f); // Adjust as needed
-                                    float offsetY = Random.Range(-0.3f, 0.3f); // Adjust as needed
+                                    float offsetY = Random.Range(-0.3f, 0.3f); // Adjust as needed                           
                                     Vector3 randomOffset = new Vector3(offsetX, offsetY,0);
                                     int randomIndex = Random.Range(0, grassPrefabs.Length);
                                     Instantiate(grassPrefabs[randomIndex], mousePosition + randomOffset, Quaternion.identity);

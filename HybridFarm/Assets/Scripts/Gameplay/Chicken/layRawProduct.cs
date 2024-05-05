@@ -41,7 +41,7 @@ public class layRawProduct : MonoBehaviour
 
     void SpawnRawProduct()
     {
-        // Instantiate the egg prefab at the current object's position and rotation
-        Instantiate(RawProductPrefab, transform.position, transform.rotation);
+        // Instantiate the Raw product prefab slightly front of the current object's position and rotation
+        Instantiate(RawProductPrefab, transform.position+ new Vector3 (0,-0.2f,-0.05f), transform.rotation);
     }
 }

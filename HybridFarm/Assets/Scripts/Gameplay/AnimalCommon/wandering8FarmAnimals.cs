@@ -19,8 +19,8 @@ public class wandering8FarmAnimals : MonoBehaviour
     // Define the y-axis range
     private float minY = -2.9f;
     private float maxY = 2.83f;
-    private float minZ = -0.5f;
-    private float maxZ = 0f;
+    private float minZ = 6.5f;
+    private float maxZ = 7f;
     private float mappedZ;
 
     private float timer = 0f;
