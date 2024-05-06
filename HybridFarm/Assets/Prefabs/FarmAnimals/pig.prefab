@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RawProductPrefab: {fileID: 2939858928316790415, guid: ecdb072494bf74749b5629163fb99b29, type: 3}
-  spawnInterval: 18
+  spawnInterval: 22
 --- !u!114 &9210428564820431873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34d8c64a8c7e08f4ab923b611eb81983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerforDeath: 12
-  timerofDeathConstant: 12
+  timerforDeath: 11
+  timerofDeathConstant: 11
 --- !u!50 &4975947434260723258
 Rigidbody2D:
   serializedVersion: 4

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class wandering8FarmAnimals : MonoBehaviour
 {
-    [SerializeField] float speed= 1.0f;
+    public float speed= 1.0f;
     [SerializeField] float range= 2.14f;
     [SerializeField] float maxDistance= 5f;
     private Vector2 wayPoint;
@@ -31,6 +31,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     private int destroyedNoOfGrassobject=0;
     bool approachingGrass= false;
     bool movingTowardsGrassAndEat = false;
+
 
     grassSpawnDestroy grassSpawner;
     farmAnimalDeath farmAnimalDeath;
@@ -295,7 +296,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     }
 
 
-    private IEnumerator SetAnimeFalse()
+    public IEnumerator SetAnimeFalse()
     {   
         anim.SetBool("up_anim",false);
         anim.SetBool("leftup_anim",false);
