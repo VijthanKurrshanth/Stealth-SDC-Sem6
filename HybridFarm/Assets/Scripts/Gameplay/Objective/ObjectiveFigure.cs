@@ -87,7 +87,7 @@ public class ObjectiveFigure : MonoBehaviour
 
     private IEnumerator GreenCorrectIndicatorBool()
     {
-        yield return new WaitForSeconds(0.1f); // Adjust the delay time as needed
+        yield return new WaitForSeconds(0.02f); // Adjust the delay time as needed
         
         for (int i=0; i< Green_Correct_Indicators.Length; i++)
         {
