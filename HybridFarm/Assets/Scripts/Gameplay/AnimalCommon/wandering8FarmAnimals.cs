@@ -108,7 +108,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             Vector3 targetPosition = new Vector3(wayPoint.x, wayPoint.y, mappedZ);
             //Debug.Log(mappedZ);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            Debug.Log("This is is speed2:  " + speed);
+            //Debug.Log("This is is speed2:  " + speed);
         }
 
         if (Vector2.Distance(transform.position, wayPoint) < range)

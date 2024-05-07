@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 public class Objective : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    // Below are objectives
     public int amount_of_money=0;
     public int No_of_chicken =0;
     public int No_of_pig =0;
@@ -20,15 +22,38 @@ public class Objective : MonoBehaviour
     public int No_of_curd =0 ;
     public int No_of_cheese =0;
 
+
+    //below are objective tracking
+    public int collected_amount_of_money=0;
+    public int collected_No_of_chicken =0;
+    public int collected_No_of_pig =0;
+    public int collected_No_of_cow =0;
+    public int collected_No_of_egg = 0;
+    public int collected_No_of_eggPoweder =0 ;
+    public int collected_No_of_cake =0 ;
+    public int collected_No_of_meat =0 ;
+    public int collected_No_of_meatSlice =0;
+    public int collected_No_of_sausage =0 ;
+    public int collected_No_of_milk =0 ;
+    public int collected_No_of_curd =0 ;
+    public int collected_No_of_cheese =0;
+
+
+
     public int[] items;
+    public int[] collected_items;
     public string[] itemsname;
     public GameObject[] respectiveItemSprites;
+    public bool?[] Green_Correct_Indicators;
+    private int flag =0;
+
     
 
     void Start()
     {
 
         items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
+        collected_items = new int[] { collected_amount_of_money, collected_No_of_chicken, collected_No_of_pig, collected_No_of_cow, collected_No_of_egg, collected_No_of_eggPoweder, collected_No_of_cake, collected_No_of_meat, collected_No_of_meatSlice, collected_No_of_sausage, collected_No_of_milk, collected_No_of_curd, collected_No_of_cheese };
         itemsname = new string[] { "Money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 
         respectiveItemSprites = new GameObject[13];
@@ -47,6 +72,9 @@ public class Objective : MonoBehaviour
         respectiveItemSprites[10]=   Resources.Load<GameObject>("milk_GUI");
         respectiveItemSprites[11]=   Resources.Load<GameObject>("curd_GUI");
         respectiveItemSprites[12]=   Resources.Load<GameObject>("cheese_GUI");
+
+        Green_Correct_Indicators = new bool?[] { null, null, null };
+
         
     }
 
@@ -54,7 +82,43 @@ public class Objective : MonoBehaviour
     void Update()
     {
 
+        for (int i=0; i<items.Length;i++)
+        {
+            if (items[i]>0)
+            {
+                if (collected_items[i]>= items[i])
+                {
+                    Green_Correct_Indicators[flag]= true;
+                    ResetFlag () ;
+                    
+                }
+                else
+                {
+                    Green_Correct_Indicators[flag]= false;
+                    ResetFlag () ;
+                }
 
 
+            }
+
+        }
+
+        Debug.Log((Green_Correct_Indicators[0]));
+
+
+    }
+
+
+    private void ResetFlag ()         //flag shouldn't go beyond 2
+    {
+                if (flag==2)
+                {
+                    flag= 0;
+                }
+
+                else 
+                {
+                    flag++;
+                }
     }
 }
