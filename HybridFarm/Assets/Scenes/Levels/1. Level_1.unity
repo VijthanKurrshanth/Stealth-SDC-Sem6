@@ -2393,6 +2393,7 @@ MonoBehaviour:
   fieldRange: {x: 3, y: 1}
   moveSpeed: 40
   reduceValue: 1000
+  nameoftheSpawnObject: pig
 --- !u!114 &933285219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2810,6 +2811,7 @@ MonoBehaviour:
   fieldRange: {x: 3, y: 1}
   moveSpeed: 40
   reduceValue: 100
+  nameoftheSpawnObject: chicken
 --- !u!114 &1008967460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3501,6 +3503,7 @@ MonoBehaviour:
   fieldRange: {x: 3, y: 1}
   moveSpeed: 40
   reduceValue: 10000
+  nameoftheSpawnObject: cow
 --- !u!114 &1234459199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4180,6 +4183,7 @@ MonoBehaviour:
   fieldRange: {x: 3, y: 1}
   moveSpeed: 40
   reduceValue: 2500
+  nameoftheSpawnObject: cat
 --- !u!114 &1450055408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5472,6 +5476,7 @@ MonoBehaviour:
   fieldRange: {x: 3, y: 1}
   moveSpeed: 40
   reduceValue: 2600
+  nameoftheSpawnObject: dog
 --- !u!114 &1932461297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5534,7 +5539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectiveSelectedprefabs: []
-  IndexPostioninObjectiveItems: 
+  NumberinIndexPostioninObjectiveItems: 
+  inIndexPostioninObjectiveItems: 
 --- !u!1001 &2472100801372131458
 PrefabInstance:
   m_ObjectHideFlags: 0

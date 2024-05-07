@@ -42,7 +42,7 @@ public class ObjectiveFigure : MonoBehaviour
         }
 
 
-        Debug.Log (inIndexPostioninObjectiveItems[0]);
+        //Debug.Log (inIndexPostioninObjectiveItems[2]);
 
         
 
@@ -88,18 +88,28 @@ public class ObjectiveFigure : MonoBehaviour
         for (int i=0; i< Green_Correct_Indicators.Length; i++)
         {
             //Debug.Log (objectiveFigure.inIndexPostioninObjectiveItems[i]);
+            
+            if (inIndexPostioninObjectiveItems[i]<13)
+            {
+                if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.items[inIndexPostioninObjectiveItems[i]] )
+                {
+                    Green_Correct_Indicators[i]= true;
+                }
+                else
+                {
+                    Green_Correct_Indicators[i]= false;
+                }
 
-            if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.items[inIndexPostioninObjectiveItems[i]] )
-            {
-                Green_Correct_Indicators[i]= true;
-            }
-            else
-            {
-                Green_Correct_Indicators[i]= false;
             }
         }
 
+        //Debug.Log(objective.collected_items[inIndexPostioninObjectiveItems[0]]);
+        //Debug.Log(objective.collected_items[inIndexPostioninObjectiveItems[1]]);
+        //Debug.Log(objective.collected_items[inIndexPostioninObjectiveItems[2]]);
 
+        //Debug.Log(objective.items[inIndexPostioninObjectiveItems[0]]);
+        //Debug.Log(Green_Correct_Indicators[0]);
+        //Debug.Log(Green_Correct_Indicators[1]);
        
     }
 }

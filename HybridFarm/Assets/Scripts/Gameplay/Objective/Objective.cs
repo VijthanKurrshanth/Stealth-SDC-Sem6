@@ -23,7 +23,7 @@ public class Objective : MonoBehaviour
     public int No_of_cheese =0;
 
 
-    //below are objective tracking
+    //below are objective tracking  this should be updated manually with initial item amount
     public int collected_amount_of_money=0;
     public int collected_No_of_chicken =0;
     public int collected_No_of_pig =0;
@@ -53,12 +53,14 @@ public class Objective : MonoBehaviour
 
     void Start()
     {
+        
 
         //objectiveFigure = FindObjectOfType<ObjectiveFigure>();
 
         items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
         collected_items = new int[] { collected_amount_of_money, collected_No_of_chicken, collected_No_of_pig, collected_No_of_cow, collected_No_of_egg, collected_No_of_eggPoweder, collected_No_of_cake, collected_No_of_meat, collected_No_of_meatSlice, collected_No_of_sausage, collected_No_of_milk, collected_No_of_curd, collected_No_of_cheese };
-        itemsname = new string[] { "Money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
+        // This should be entered as name for spawnobject scripts
+        itemsname = new string[] { "money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 
         respectiveItemSprites = new GameObject[13];
         //Debug.Log("Array size: " + respectiveItemSprites.Length);

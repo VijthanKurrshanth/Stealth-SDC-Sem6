@@ -25,7 +25,9 @@ public class correctMark : MonoBehaviour
     void Update()
     {
 
-        Debug.Log((objectiveFigure.Green_Correct_Indicators[0]));
+        Debug.Log(objectiveFigure.Green_Correct_Indicators[0]);
+        Debug.Log(objectiveFigure.Green_Correct_Indicators[1]);
+        //Debug.Log(objectiveFigure.Green_Correct_Indicators[2]);
         
 
         if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)

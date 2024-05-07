@@ -8,14 +8,17 @@ public class ObjectSpawner : MonoBehaviour
     public Vector2 fieldRange = new Vector2(3, 1);
     public float moveSpeed = 40.0f; // Speed at which the object will move to the new position
     [SerializeField] int reduceValue = 100;
+    [SerializeField] string nameoftheSpawnObject;
 
     MoneyScript moneyScript;
+    Objective objective;
 
     bool canSpawn = true; // Flag to control cooldown
 
     void Start()
     {
         moneyScript = FindObjectOfType<MoneyScript>();
+        objective = FindObjectOfType<Objective>();
     }
 
     public void SpawnObject()
@@ -43,6 +46,17 @@ public class ObjectSpawner : MonoBehaviour
 
             // Move the object to the new position with specified speed
             StartCoroutine(MoveObject(spawnedObject.transform, targetPosition, moveSpeed));
+
+            //
+            for (int i=0; i< objective.collected_items.Length; i++)
+            {
+                if (objective.itemsname[i] == nameoftheSpawnObject)
+                {
+                    objective.collected_items[i]++;
+                }
+                
+            }
+
         }
     }
 
