@@ -5,7 +5,7 @@ using UnityEngine;
 public class correctMark : MonoBehaviour
 {
     // Start is called before the first frame update
-    Objective objective;
+    //Objective objective;
     ObjectiveFigure objectiveFigure;
 
     //[SerializeField] int correctMarkNumber = 0;
@@ -15,7 +15,7 @@ public class correctMark : MonoBehaviour
 
     void Start()
     {
-        objective = FindObjectOfType<Objective>();
+        //objective = FindObjectOfType<Objective>();
         objectiveFigure = FindObjectOfType<ObjectiveFigure>();
         // Assuming the object you want to show/hide is the same GameObject this script is attached to
         //greenCorrectMark1 = gameObject;

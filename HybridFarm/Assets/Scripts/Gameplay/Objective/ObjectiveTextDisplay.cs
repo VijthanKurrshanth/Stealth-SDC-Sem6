@@ -32,16 +32,26 @@ public class ObjectiveTextDisplay : MonoBehaviour
 
     private IEnumerator DisplayObjectiveText()
     {
-        yield return new WaitForSeconds(0.1f); // Adjust the delay time as needed
+        yield return new WaitForSeconds(1.0f); // Adjust the delay time as needed
 
-        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
+        Debug.Log(objectiveFigure.Green_Correct_Indicators[correctMarkNumber]);
+
+        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]!=true)
         {
             
             if (objectiveFigure.NumberinIndexPostioninObjectiveItems[index]>0)
             {
-                ObjectiveText.text = "1" + "/" + objectiveFigure.NumberinIndexPostioninObjectiveItems[index].ToString();
+                //Debug.Log("Coming here");
+                ObjectiveText.text = objective.collected_items[objectiveFigure.inIndexPostioninObjectiveItems[index]].ToString() + "/" + objectiveFigure.NumberinIndexPostioninObjectiveItems[index].ToString();
             }
+
+           
             
+        }
+
+        else if(objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
+        {
+                ObjectiveText.text="hello";
         }
  
         

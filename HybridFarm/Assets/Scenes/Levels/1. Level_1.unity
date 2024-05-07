@@ -4627,7 +4627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectiveText: {fileID: 0}
   index: 2
-  correctMarkNumber: 0
+  correctMarkNumber: 2
 --- !u!114 &1622441273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,7 +4922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectiveText: {fileID: 0}
   index: 1
-  correctMarkNumber: 0
+  correctMarkNumber: 1
 --- !u!114 &1755059713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5515,9 +5515,6 @@ MonoBehaviour:
   ObjectiveSelectedprefabs: []
   NumberinIndexPostioninObjectiveItems: 
   inIndexPostioninObjectiveItems: 
-  greenmark1: {fileID: 0}
-  greenmark2: {fileID: 0}
-  greenmark3: {fileID: 0}
 --- !u!1001 &2472100801372131458
 PrefabInstance:
   m_ObjectHideFlags: 0
