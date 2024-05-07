@@ -25,10 +25,10 @@ public class correctMark : MonoBehaviour
     void Update()
     {
 
-        Debug.Log((objective.Green_Correct_Indicators[0]));
+        Debug.Log((objectiveFigure.Green_Correct_Indicators[0]));
         
 
-        if (objective.Green_Correct_Indicators[correctMarkNumber]==true)
+        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
         {
             
             markObject.SetActive(true);

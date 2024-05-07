@@ -37,9 +37,6 @@ public class wandering8FarmAnimals : MonoBehaviour
     farmAnimalDeath farmAnimalDeath;
 
 
-
-    
-
     void Start()
     {   
         rb = GetComponent<Rigidbody2D>();

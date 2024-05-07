@@ -81,7 +81,6 @@ public class ObjectiveFigure : MonoBehaviour
     }
 
 
-
     private IEnumerator GreenCorrectIndicatorBool()
     {
         yield return new WaitForSeconds(0.1f); // Adjust the delay time as needed
