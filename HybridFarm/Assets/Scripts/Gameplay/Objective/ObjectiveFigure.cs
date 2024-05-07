@@ -24,8 +24,8 @@ public class ObjectiveFigure : MonoBehaviour
         ObjectiveSelectedprefabs = new GameObject[] {null,null,null};
 
 
-        NumberinIndexPostioninObjectiveItems= new int[] {0,0,0};
-        inIndexPostioninObjectiveItems= new int[] {13,13,13};
+        NumberinIndexPostioninObjectiveItems= new int[] {0,0,0}; //valur of item objective not index
+        inIndexPostioninObjectiveItems= new int[] {13,13,13};    // index value, if 13 no objective
 
         
 
@@ -106,6 +106,9 @@ public class ObjectiveFigure : MonoBehaviour
                 }
 
             }
+
+
+
         }
 
         //Debug.Log(objective.collected_items[inIndexPostioninObjectiveItems[0]]);

@@ -41,7 +41,7 @@ public class ObjectiveTextDisplay : MonoBehaviour
         yield return new WaitForSeconds(0.05f); // Adjust the delay time as needed
 
 
-        Debug.Log(objectiveFigure.Green_Correct_Indicators[0]);
+        //Debug.Log(objectiveFigure.Green_Correct_Indicators[0]);
 
         if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]== false)
         {
