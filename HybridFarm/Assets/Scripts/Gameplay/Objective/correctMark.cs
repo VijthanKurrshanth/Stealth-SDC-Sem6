@@ -8,17 +8,19 @@ public class correctMark : MonoBehaviour
     Objective objective;
     ObjectiveFigure objectiveFigure;
 
-    [SerializeField] int correctMarkNumber = 0;
-    GameObject markObject; // corrrect object
+    //[SerializeField] int correctMarkNumber = 0;
+    public GameObject greenCorrectMark1; // corrrect object
+    public GameObject greenCorrectMark2;
+    public GameObject greenCorrectMark3;
 
     void Start()
     {
         objective = FindObjectOfType<Objective>();
         objectiveFigure = FindObjectOfType<ObjectiveFigure>();
         // Assuming the object you want to show/hide is the same GameObject this script is attached to
-        markObject = gameObject;
+        //greenCorrectMark1 = gameObject;
         // Initially hide the object
-        markObject.SetActive(false);
+        //markObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,19 +32,54 @@ public class correctMark : MonoBehaviour
         //Debug.Log(objectiveFigure.Green_Correct_Indicators[2]);
         
 
-        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
+        if (objectiveFigure.Green_Correct_Indicators[0]==true)
         {
             
-            markObject.SetActive(true);
+            greenCorrectMark1.SetActive(true);
             //StartCoroutine(visibleTheobject());
             
         }
         else 
         {
             
-            markObject.SetActive(false);
+            greenCorrectMark1.SetActive(false);
             //StartCoroutine(hideTheobject());
         }
+
+
+        if (objectiveFigure.Green_Correct_Indicators[1]==true)
+        {
+            
+            greenCorrectMark2.SetActive(true);
+            //StartCoroutine(visibleTheobject());
+            
+        }
+        else 
+        {
+            
+            greenCorrectMark2.SetActive(false);
+            //StartCoroutine(hideTheobject());
+        }
+
+
+        if (objectiveFigure.Green_Correct_Indicators[2]==true)
+        {
+            
+            greenCorrectMark3.SetActive(true);
+            //StartCoroutine(visibleTheobject());
+            
+        }
+        else 
+        {
+            
+            greenCorrectMark3.SetActive(false);
+            //StartCoroutine(hideTheobject());
+        }
+
+
+
+
+
     }
 
 

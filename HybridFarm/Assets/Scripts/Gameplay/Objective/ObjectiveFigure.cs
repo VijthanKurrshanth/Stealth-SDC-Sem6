@@ -14,6 +14,8 @@ public class ObjectiveFigure : MonoBehaviour
     public bool?[] Green_Correct_Indicators;
     private int flag =0;
 
+  
+
 
     void Start()
     {
@@ -78,6 +80,8 @@ public class ObjectiveFigure : MonoBehaviour
     
         StartCoroutine(GreenCorrectIndicatorBool()) ;
 
+
+
     }
 
 
@@ -94,6 +98,7 @@ public class ObjectiveFigure : MonoBehaviour
                 if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.items[inIndexPostioninObjectiveItems[i]] )
                 {
                     Green_Correct_Indicators[i]= true;
+
                 }
                 else
                 {

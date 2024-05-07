@@ -258,9 +258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 193852571}
   - component: {fileID: 193852570}
-  - component: {fileID: 193852572}
   m_Layer: 0
-  m_Name: CorrectMark1
+  m_Name: CorrectMark3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,19 +332,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 853299740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &193852572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193852569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7286b3726c90b194aa7455a6f957f332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctMarkNumber: 0
 --- !u!1 &199328446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,10 +2001,10 @@ MonoBehaviour:
   No_of_milk: 0
   No_of_curd: 0
   No_of_cheese: 0
-  collected_amount_of_money: 0
-  collected_No_of_chicken: 0
-  collected_No_of_pig: 0
-  collected_No_of_cow: 0
+  collected_amount_of_money: 1000
+  collected_No_of_chicken: 1
+  collected_No_of_pig: 1
+  collected_No_of_cow: 1
   collected_No_of_egg: 0
   collected_No_of_eggPoweder: 0
   collected_No_of_cake: 0
@@ -2069,6 +2055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 853299740}
+  - component: {fileID: 853299741}
   m_Layer: 0
   m_Name: CorrectMarks
   m_TagString: Untagged
@@ -2089,11 +2076,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 193852571}
-  - {fileID: 1370794047}
   - {fileID: 1312869866}
+  - {fileID: 1370794047}
+  - {fileID: 193852571}
   m_Father: {fileID: 1358106169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &853299741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853299739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7286b3726c90b194aa7455a6f957f332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenCorrectMark1: {fileID: 1312869864}
+  greenCorrectMark2: {fileID: 1370794045}
+  greenCorrectMark3: {fileID: 193852569}
 --- !u!1 &910452856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,9 +3529,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1312869866}
   - component: {fileID: 1312869865}
-  - component: {fileID: 1312869867}
   m_Layer: 0
-  m_Name: CorrectMark3
+  m_Name: CorrectMark1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3602,19 +3603,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 853299740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1312869867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312869864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7286b3726c90b194aa7455a6f957f332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctMarkNumber: 2
 --- !u!1 &1329886786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3806,7 +3794,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1370794047}
   - component: {fileID: 1370794046}
-  - component: {fileID: 1370794048}
   m_Layer: 0
   m_Name: CorrectMark2
   m_TagString: Untagged
@@ -3881,19 +3868,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 853299740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1370794048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1370794045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7286b3726c90b194aa7455a6f957f332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctMarkNumber: 1
 --- !u!1 &1401982142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,6 +5515,9 @@ MonoBehaviour:
   ObjectiveSelectedprefabs: []
   NumberinIndexPostioninObjectiveItems: 
   inIndexPostioninObjectiveItems: 
+  greenmark1: {fileID: 0}
+  greenmark2: {fileID: 0}
+  greenmark3: {fileID: 0}
 --- !u!1001 &2472100801372131458
 PrefabInstance:
   m_ObjectHideFlags: 0
