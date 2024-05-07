@@ -45,7 +45,7 @@ public class grassSpawnDestroy : MonoBehaviour
                 if (hit.collider.CompareTag("background"))
                 {
                     // Collision occurred with object tagged as "background"
-                    Debug.Log("Clicked on background!");
+                    //Debug.Log("Clicked on background!");
                 }
 
                 if (hit.collider.CompareTag("Farm Evening")) 

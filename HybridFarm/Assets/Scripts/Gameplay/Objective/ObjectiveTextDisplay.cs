@@ -26,20 +26,26 @@ public class ObjectiveTextDisplay : MonoBehaviour
         }
         
         
-        StartCoroutine(DisplayObjectiveText());
+        //StartCoroutine(DisplayObjectiveText());
         
+    }
+
+
+    void Update()
+    {
+        StartCoroutine(DisplayObjectiveText());
     }
 
     private IEnumerator DisplayObjectiveText()
     {
-        yield return new WaitForSeconds(1.0f); // Adjust the delay time as needed
+        yield return new WaitForSeconds(0.50f); // Adjust the delay time as needed
 
 
-        Debug.Log(objectiveFigure.Green_Correct_Indicators[correctMarkNumber]);
+        Debug.Log(objectiveFigure.Green_Correct_Indicators[0]);
 
-        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]!=true)
+        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]== false)
         {
-            
+            //Debug.Log("Coming here");
             if (objectiveFigure.NumberinIndexPostioninObjectiveItems[index]>0)
             {
                 //Debug.Log("Coming here");
@@ -52,14 +58,11 @@ public class ObjectiveTextDisplay : MonoBehaviour
 
         else if(objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
         {
-                ObjectiveText.text="hello";
+                ObjectiveText.text="";
         }
  
         
     }
 
-    void Update()
-    {
-        
-    }
+
 }
