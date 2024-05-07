@@ -1231,6 +1231,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 6258814697159719742, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
+      propertyPath: nameoftheSpawnObject
+      value: chicken
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2212,7 +2216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount_of_money: 0
-  No_of_chicken: 0
+  No_of_chicken: 5
   No_of_pig: 0
   No_of_cow: 0
   No_of_egg: 4
@@ -2466,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a116c4fc18f97d049ba97f3fb3b08a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyValue: 100
+  moneyValue: 10000
 --- !u!1 &933285213
 GameObject:
   m_ObjectHideFlags: 0

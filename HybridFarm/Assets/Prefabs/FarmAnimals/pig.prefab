@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerforDeath: 11
   timerofDeathConstant: 11
+  nameoftheSpawnObject: pig
 --- !u!50 &4975947434260723258
 Rigidbody2D:
   serializedVersion: 4

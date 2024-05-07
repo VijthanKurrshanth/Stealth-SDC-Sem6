@@ -302,3 +302,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerforDeath: 13
   timerofDeathConstant: 13
+  nameoftheSpawnObject: cow

@@ -303,6 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerforDeath: 10
   timerofDeathConstant: 10
+  nameoftheSpawnObject: chicken
 --- !u!1 &4775031785945158593
 GameObject:
   m_ObjectHideFlags: 0
