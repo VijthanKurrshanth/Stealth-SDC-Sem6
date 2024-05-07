@@ -163,4 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collecatableBoxToSpawn: {fileID: 1499076418586038428, guid: f78c786213db0a348b939d36736f9559, type: 3}
   spawnPosition: {x: -1.3, y: -4.3, z: -3}
+  nameoftheSpawnObject: meat
   numberOFEggs: 0

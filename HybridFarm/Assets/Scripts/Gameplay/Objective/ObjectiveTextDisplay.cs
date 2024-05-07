@@ -38,7 +38,7 @@ public class ObjectiveTextDisplay : MonoBehaviour
 
     private IEnumerator DisplayObjectiveText()
     {
-        yield return new WaitForSeconds(0.50f); // Adjust the delay time as needed
+        yield return new WaitForSeconds(0.05f); // Adjust the delay time as needed
 
 
         Debug.Log(objectiveFigure.Green_Correct_Indicators[0]);
