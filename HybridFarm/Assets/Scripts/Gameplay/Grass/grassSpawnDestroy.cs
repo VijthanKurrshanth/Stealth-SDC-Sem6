@@ -7,7 +7,9 @@ public class grassSpawnDestroy : MonoBehaviour
 {
     public GameObject[] grassPrefabs; // Reference to the grass prefab
     public bool flagRunEnabled = false; // Flag to enable/disable running
-    private int numberOfGrassplant=0;
+    public int numberOfGrassplant=0;
+
+    public int stockcount = 5;
     private float minY = -2.9f;
     private float maxY = 2.83f;
     private float minZ = 6.7f;
@@ -50,7 +52,7 @@ public class grassSpawnDestroy : MonoBehaviour
 
                 if (hit.collider.CompareTag("Farm Evening")) 
                 {
-                    if (numberOfGrassplant<5) 
+                    if (numberOfGrassplant<stockcount) 
                         {// Convert mouse position to world position
                             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                             float normalizedY = Mathf.InverseLerp(minY, maxY, mousePosition.y);
