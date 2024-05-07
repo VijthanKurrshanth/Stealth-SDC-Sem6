@@ -34,12 +34,12 @@ public class ObjectiveTextDisplay : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f); // Adjust the delay time as needed
 
-        if (objective.Green_Correct_Indicators[correctMarkNumber]==true)
+        if (objectiveFigure.Green_Correct_Indicators[correctMarkNumber]==true)
         {
             
-            if (objectiveFigure.IndexPostioninObjectiveItems[index]<13)
+            if (objectiveFigure.NumberinIndexPostioninObjectiveItems[index]>0)
             {
-                ObjectiveText.text = "1" + "/" + objectiveFigure.IndexPostioninObjectiveItems[index].ToString();
+                ObjectiveText.text = "1" + "/" + objectiveFigure.NumberinIndexPostioninObjectiveItems[index].ToString();
             }
             
         }

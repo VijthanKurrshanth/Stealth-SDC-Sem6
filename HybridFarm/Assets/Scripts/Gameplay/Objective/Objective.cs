@@ -44,13 +44,17 @@ public class Objective : MonoBehaviour
     public int[] collected_items;
     public string[] itemsname;
     public GameObject[] respectiveItemSprites;
-    public bool?[] Green_Correct_Indicators;
+    
+    
     private int flag =0;
 
+    //ObjectiveFigure objectiveFigure;
     
 
     void Start()
     {
+
+        //objectiveFigure = FindObjectOfType<ObjectiveFigure>();
 
         items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
         collected_items = new int[] { collected_amount_of_money, collected_No_of_chicken, collected_No_of_pig, collected_No_of_cow, collected_No_of_egg, collected_No_of_eggPoweder, collected_No_of_cake, collected_No_of_meat, collected_No_of_meatSlice, collected_No_of_sausage, collected_No_of_milk, collected_No_of_curd, collected_No_of_cheese };
@@ -73,52 +77,22 @@ public class Objective : MonoBehaviour
         respectiveItemSprites[11]=   Resources.Load<GameObject>("curd_GUI");
         respectiveItemSprites[12]=   Resources.Load<GameObject>("cheese_GUI");
 
-        Green_Correct_Indicators = new bool?[] { null, null, null };
+        
+        
 
         
     }
 
     // Update is called once per frame
     void Update()
-    {
+    {   
 
-        for (int i=0; i<items.Length;i++)
-        {
-            if (items[i]>0)
-            {
-                if (collected_items[i]>= items[i])
-                {
-                    Green_Correct_Indicators[flag]= true;
-                    ResetFlag () ;
-                    
-                }
-                else
-                {
-                    Green_Correct_Indicators[flag]= false;
-                    ResetFlag () ;
-                }
-
-
-            }
-
-        }
-
-        Debug.Log((Green_Correct_Indicators[0]));
-
+        
 
     }
 
 
-    private void ResetFlag ()         //flag shouldn't go beyond 2
-    {
-                if (flag==2)
-                {
-                    flag= 0;
-                }
 
-                else 
-                {
-                    flag++;
-                }
-    }
+
+
 }

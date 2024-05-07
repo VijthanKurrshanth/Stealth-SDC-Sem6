@@ -2,13 +2,16 @@ using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
+using System.Collections;
 
 public class ObjectiveFigure : MonoBehaviour
 {
     Objective objective;
     public GameObject[] ObjectiveSelectedprefabs;
 
-    public int[] IndexPostioninObjectiveItems;
+    public int[] NumberinIndexPostioninObjectiveItems;
+    public int[] inIndexPostioninObjectiveItems;
+    public bool?[] Green_Correct_Indicators;
     private int flag =0;
 
 
@@ -19,7 +22,8 @@ public class ObjectiveFigure : MonoBehaviour
         ObjectiveSelectedprefabs = new GameObject[] {null,null,null};
 
 
-        IndexPostioninObjectiveItems= new int[] {13,13,13};
+        NumberinIndexPostioninObjectiveItems= new int[] {0,0,0};
+        inIndexPostioninObjectiveItems= new int[] {13,13,13};
 
         
 
@@ -30,11 +34,15 @@ public class ObjectiveFigure : MonoBehaviour
             
             if (objective.items[i]>0)
             {
-                IndexPostioninObjectiveItems[flag]=objective.items[i];
+                inIndexPostioninObjectiveItems[flag]=i;
+                NumberinIndexPostioninObjectiveItems[flag]=objective.items[i];
                 ObjectiveSelectedprefabs[flag]=objective.respectiveItemSprites[i];
                 flag++;
             }
         }
+
+
+        Debug.Log (inIndexPostioninObjectiveItems[0]);
 
         
 
@@ -59,12 +67,40 @@ public class ObjectiveFigure : MonoBehaviour
             {
                 GameObject objectiveitem3 = Instantiate(ObjectiveSelectedprefabs[2], spawnPosition3, Quaternion.identity);
             }
+
+        Green_Correct_Indicators = new bool?[] { null, null, null };
+
                 
     }
 
     void Update()
     {
-                
+    
+        StartCoroutine(GreenCorrectIndicatorBool()) ;
 
+    }
+
+
+
+    private IEnumerator GreenCorrectIndicatorBool()
+    {
+        yield return new WaitForSeconds(0.1f); // Adjust the delay time as needed
+        
+        for (int i=0; i< Green_Correct_Indicators.Length; i++)
+        {
+            //Debug.Log (objectiveFigure.inIndexPostioninObjectiveItems[i]);
+
+            if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.items[inIndexPostioninObjectiveItems[i]] )
+            {
+                Green_Correct_Indicators[i]= true;
+            }
+            else
+            {
+                Green_Correct_Indicators[i]= false;
+            }
+        }
+
+
+       
     }
 }
