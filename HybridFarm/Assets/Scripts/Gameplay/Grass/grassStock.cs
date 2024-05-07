@@ -6,6 +6,7 @@ public class grassStock : MonoBehaviour
 {
     
     grassSpawnDestroy grassSpawnDestroy;
+    bool canrestock =true;
     
 
     void Start()
@@ -24,7 +25,19 @@ public class grassStock : MonoBehaviour
     {
         // This function will be called when the button is clicked
         //Debug.Log("Button clicked!");
+        if (canrestock)
+        {
         StartCoroutine(makenumberofGrassplanttoZero());
+        canrestock=false;
+        }
+
+        else 
+        {
+            StopCoroutine(makenumberofGrassplanttoZero());
+        }
+
+        StartCoroutine(makerestockCooldown());
+        
         // Add your code here that you want to execute when the button is pressed
     }
 
@@ -33,5 +46,14 @@ public class grassStock : MonoBehaviour
         
         yield return new WaitForSeconds(5);
         grassSpawnDestroy.numberOfGrassplant = 0 ;
+
+    }
+
+
+    IEnumerator makerestockCooldown()
+    {
+        canrestock = false;
+        yield return new WaitForSeconds(5);
+        canrestock = true;
     }
 }
