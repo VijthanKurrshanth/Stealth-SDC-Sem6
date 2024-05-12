@@ -437,13 +437,4 @@ public class wandering8FarmAnimals : MonoBehaviour
 
 
 
-    
-
-
-    
-
-
-
-    
-
 }
