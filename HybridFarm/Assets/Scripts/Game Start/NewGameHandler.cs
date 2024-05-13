@@ -8,28 +8,32 @@ public class NewGameHandler : MonoBehaviour
     public GameObject continueButton;
     public GameObject continueButtonMask;
     public GameObject warningPanel;
-
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(CheckPlayerExists());
     }
 
-    // This method is used to check if the player exists
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     IEnumerator CheckPlayerExists()
     {
         yield return new WaitForSeconds(0.1f);
         if (PlayerPrefs.GetInt("playerExists") == 1)
         {
             Debug.Log("Player exists");
-            continueButton.SetActive(true); // Show the continue button
+            continueButton.SetActive(true);
         }
         else
         {
             Debug.Log("Player does not exist");
             PlayerPrefs.SetInt("playerExists", 0);
-            continueButtonMask.SetActive(true); // Mask the continue button
-            continueButton.SetActive(false); // Hide the continue button
+            continueButtonMask.SetActive(true);
+            continueButton.SetActive(false);
         }
     }
 
@@ -54,7 +58,6 @@ public class NewGameHandler : MonoBehaviour
     public void OnConfirmButtonClicked()
     {
         PlayerPrefs.SetInt("playerExists", 0);
-        PlayerPrefs.SetInt("playerBoostPoints", 0);
         SceneManager.LoadScene("7.UserProfile");
     }
 

@@ -8,4 +8,5 @@ public class UserProfile
     public string Nic;
     public string PhoneNumber;
     public string Email;
+    public string ProfilePictureUrl;
 }

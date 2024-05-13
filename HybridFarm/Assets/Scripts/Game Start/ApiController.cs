@@ -1,237 +1,139 @@
 using UnityEngine;
 using System;
+using System.IO;
+using System.Net;
 using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
-using System.Text;
-using System.Collections;
 
-// This class contains methods that interact with APIs on the server
 public static class ApiController
 {
-    // This method is used to get the JWT key from the server
-    public static IEnumerator GetJwtKey(Action<string> callback = null)
+    public static string GetJwtKey()
     {
-        Debug.Log("Getting JWT key");
-        string result;
-        string url = "http://20.15.114.131:8080/api/login";
-        string body = "{\"apiKey\":\"NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmNlOjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJjNA\"}";
-
-        UnityWebRequest request = UnityWebRequest.Post(url, body, "application/json");
-        request.method = UnityWebRequest.kHttpVerbPOST;
-        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "*/*");
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
+        try
         {
-            yield return null; // Pause the coroutine until the request is complete
-        }
+            string url = "http://20.15.114.131:8080/api/login";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.Accept = "*/*";
+            string body = "{\"apiKey\":\"NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmNlOjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJjNA\"}";
 
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
-        {
-            Debug.Log($"Error occurred during JWT key retrieval: {request.error}");
-            result = null;
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(body);
+                streamWriter.Flush();
+            }
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+            {
+                string jsonResponse = reader.ReadToEnd();
+                JObject jsonObject = JObject.Parse(jsonResponse);
+                string token = (string)jsonObject["token"];
+                return token;
+            }
         }
-        else
+        catch (WebException ex)
         {
-            string jsonResponse = request.downloadHandler.text;
-            JObject jsonObject = JObject.Parse(jsonResponse);
-            string token = (string)jsonObject["token"];
-            result = token;
+            Debug.LogError($"Error occurred during JWT key retrieval: {ex.Message}");
+            return null;
         }
-        callback?.Invoke(result); // Invoke the callback function with the token or null
+        catch (Exception ex)
+        {
+            Debug.LogError($"An unexpected error occurred: {ex.Message}");
+            return null;
+        }
     }
 
-    // This method is used to get the user profile from the server
-    public static IEnumerator GetUserProfile(string jwtKey, Action<UserProfile> callback = null)
+    public static UserProfile GetUserProfile(string jwtKey)
     {
         if (string.IsNullOrEmpty(jwtKey))
         {
-            Debug.Log("JWT key is null or empty");
-            yield break;
+            Debug.LogError("JWT key is null or empty");
+            return null;
         }
 
-        string url = "http://20.15.114.131:8080/api/user/profile/view";
-        UnityWebRequest request = UnityWebRequest.Get(url);
-        request.method = UnityWebRequest.kHttpVerbGET;
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer " + jwtKey);
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
+        try
         {
-            yield return null; // Pause the coroutine until the request is complete
+            string url = "http://20.15.114.131:8080/api/user/profile/view";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers.Add("Authorization", "Bearer " + jwtKey);
+
+            using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            using StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = reader.ReadToEnd();
+            JObject jsonObject = JObject.Parse(jsonResponse);
+
+            UserProfile userProfile = new UserProfile()
+            {
+                FirstName = (string)jsonObject["user"]["firstname"],
+                LastName = (string)jsonObject["user"]["lastname"],
+                UserName = (string)jsonObject["user"]["username"],
+                Nic = (string)jsonObject["user"]["nic"],
+                PhoneNumber = (string)jsonObject["user"]["phoneNumber"],
+                Email = (string)jsonObject["user"]["email"],
+                ProfilePictureUrl = (string)jsonObject["user"]["profilePictureUrl"]
+            };
+
+            PlayerPrefs.SetString("userName", userProfile.UserName);
+
+            return userProfile;
         }
-
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        catch (WebException ex)
         {
-            Debug.Log($"Error occurred during user profile retrieval: {request.error}");
+            Debug.LogError($"Error occurred during user profile retrieval: {ex.Message}");
+            return null;
         }
-
-        string jsonResponse = request.downloadHandler.text;
-        JObject jsonObject = JObject.Parse(jsonResponse);
-
-        UserProfile userProfile = new()
+        catch (Exception ex)
         {
-            FirstName = (string)jsonObject["user"]["firstname"],
-            LastName = (string)jsonObject["user"]["lastname"],
-            UserName = (string)jsonObject["user"]["username"],
-            Nic = (string)jsonObject["user"]["nic"],
-            PhoneNumber = (string)jsonObject["user"]["phoneNumber"],
-            Email = (string)jsonObject["user"]["email"]
-        };
-
-        PlayerPrefs.SetString("userName", userProfile.UserName);
-
-        callback?.Invoke(userProfile); // Invoke the callback function with the user profile
+            Debug.LogError($"An unexpected error occurred: {ex.Message}");
+            return null;
+        }
     }
 
-    // This method is used to update the user profile on the server
-    public static IEnumerator UpdateUserProfile(string jwtKey, UpdateProfileDTO updateProfileObject, Action<string> callback = null)
+    public static string UpdateUserProfile(string jwtKey, UpdateProfileDTO updateProfileObject)
     {
+        //Debug.Log(updateProfileObject.GetValueOrDefault("firstname"));
         string url = "http://20.15.114.131:8080/api/user/profile/update";
+
         string jsonData = JsonUtility.ToJson(updateProfileObject);
+        Debug.Log(jsonData);
 
-        UnityWebRequest request = UnityWebRequest.Put(url, jsonData);
-        request.method = UnityWebRequest.kHttpVerbPUT;
-        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonData)); // Use raw upload for PUT request
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer " + jwtKey);
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
+        try
         {
-            yield return null; // Pause the coroutine until the request is complete
-        }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "PUT";
+            request.ContentType = "application/json";
+            request.Accept = "application/json";
+            request.Headers.Add("Authorization", "Bearer " + jwtKey);
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(jsonData);
+                streamWriter.Flush();
+            }
 
-        string message;
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
-        {
-            Debug.Log($"Error occurred during user profile update: {request.error}");
-            string exceptionBodyString = request.downloadHandler.text;
-            JObject exceptionBody = JObject.Parse(exceptionBodyString);
-            message = (string)exceptionBody["message"];
-        }
-        else
-        {
+            using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            using StreamReader reader = new StreamReader(response.GetResponseStream());
+            string jsonResponse = reader.ReadToEnd();
+            JObject jsonObject = JObject.Parse(jsonResponse);
+
             Debug.Log("Update successful");
-            message = "success";
+            return "success";
         }
-
-        callback?.Invoke(message); // Invoke the callback function with the message
-    }
-
-    // This method is used to open the web app frontend
-    public static void OpenWebAppInNewTab()
-    {
-        string targetUrl = "http://localhost:3000/";
-        Application.OpenURL(targetUrl);
-    }
-
-    // This method is used to authenticate the web app interactions
-    public static IEnumerator AuthenticateWebApp(Action callback = null)
-    {
-
-        string url = "http://localhost:8020/hybridFarm/v1/authenticate";
-        string body = "{\"apiKey\":\"NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmNlOjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJjNA\"}";
-
-        UnityWebRequest request = UnityWebRequest.Post(url, body, "application/json");
-        request.method = UnityWebRequest.kHttpVerbPOST;
-        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "*/*");
-
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
+        catch (WebException ex)
         {
-            yield return null; // Pause the coroutine until the request is complete
+            Debug.LogError($"Error occurred during user profile update: {ex.Message}");
+            string exceptionBodyString = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+            JObject exceptionBody = JObject.Parse(exceptionBodyString);
+            return (string)exceptionBody["message"];
         }
-
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        catch (Exception ex)
         {
-            Debug.Log($"Error occurred during Authentication: {request.error}");
-        }
-        else
-        {
-            callback?.Invoke();
-        }
-    }
-
-    // This method is used to get the score from the web app backend
-    public static IEnumerator GetScore(Action<int> callback = null)
-    {
-        int result;
-        string url = "http://localhost:8020/hybridFarm/v1/score";
-
-        UnityWebRequest request = UnityWebRequest.Get(url);
-        request.method = UnityWebRequest.kHttpVerbGET;
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "*/*");
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
-        {
-            yield return null; // Pause the coroutine until the request is complete
-        }
-
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
-        {
-            Debug.Log($"Error occurred during Score retrieval: {request.error}");
-            result = -2;
-        }
-        else
-        {
-            string score = request.downloadHandler.text;
-            if (int.TryParse(score, out int scoreValue))
-            {
-                Debug.Log($"Score: {scoreValue}");
-                result = scoreValue;
-            }
-            else
-            {
-                Debug.Log("Failed to parse score into an integer");
-                result = -2;
-            }
-        }
-        callback?.Invoke(result); // Invoke the callback function with the score
-    }
-
-    public static IEnumerator Reset()
-    {
-        string url = "http://localhost:8020/hybridFarm/v1/reset";
-        string body = "";
-
-        UnityWebRequest request = UnityWebRequest.Post(url, body, "application/json");
-        request.method = UnityWebRequest.kHttpVerbPOST;
-        request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(body));
-        request.downloadHandler = new DownloadHandlerBuffer();
-        request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Accept", "*/*");
-
-        yield return request.SendWebRequest();
-
-        while (!request.isDone)
-        {
-            yield return null; // Pause the coroutine until the request is complete
-        }
-
-        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
-        {
-            Debug.Log($"Error occurred during resetting: {request.error}");
+            Debug.LogError($"An unexpected error occurred: {ex.Message}");
+            return null;
         }
     }
 }

@@ -95,12 +95,6 @@ const Question = () => {
     }
   }
 
-  function handleFinalButton() {
-    if (window.confirm("Are you sure you want to close the application?")) {
-      window.close(); // Attempt to close the window/tab
-    }
-  }
-
   if (error)
     return (
       <div className="ErrorMessage">
@@ -114,12 +108,7 @@ const Question = () => {
         <div>
           <header className="BlankSpace"></header>
           <h1 className="Question">Your final score is {finalScore}</h1>
-          <button
-            className="FinalButton"
-            onClick={() => {
-              handleFinalButton();
-            }}
-          ></button>
+          <button className="FinalButton" onClick={() => {}}></button>
         </div>
       );
     } else if (finished) {
