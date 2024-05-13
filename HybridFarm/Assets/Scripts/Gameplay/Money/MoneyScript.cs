@@ -1,21 +1,19 @@
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.UI; // This is required for using UI elements
 using TMPro;
 
 public class MoneyScript : MonoBehaviour
 {
-    public int moneyValue = 100; // Variable to hold the money value
-    private TextMeshProUGUI moneyText; // Reference to the UI text element to display the money value
+    public int moneyValue = 0; // Variable to hold the money value
+    public TextMeshProUGUI moneyText; // Reference to the UI text element to display the money value
 
     // Start is called before the first frame update
     void Start()
     {
-        moneyText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
-        if (moneyText == null)
-        {
-            Debug.LogError("MoneyScript requires a TextMeshProUGUI component attached to the same GameObject.");
-            return;
-        }
-        //moneyValue = 100;   //initial Money
+        moneyText = FindObjectOfType<TextMeshProUGUI>();
+        moneyValue = 100;   //initial Money
         UpdateMoneyText(); // Call the function to update the money text when the game starts
         
     }

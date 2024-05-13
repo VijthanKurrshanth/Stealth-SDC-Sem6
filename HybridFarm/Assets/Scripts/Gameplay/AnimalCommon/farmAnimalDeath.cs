@@ -7,25 +7,18 @@ public class farmAnimalDeath : MonoBehaviour
 {
     // Start is called before the first frame update
     grassSpawnDestroy grassSpawner;
-    Objective objective;
 
-    private wandering8FarmAnimals wandering8FarmAnimals;
-    private wandering8FarmAnimals wandering8animalsIENumrator;
-    private Animator anim;
+    wandering8FarmAnimals wandering8FarmAnimals;
+
     public float timerforDeath = 10.0f;
     public float timerofDeathConstant= 10.0f ;
-
-    [SerializeField] string nameoftheSpawnObject;
 
 
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
-        objective = FindObjectOfType<Objective>();
         wandering8FarmAnimals = FindObjectOfType <wandering8FarmAnimals>();
-        wandering8animalsIENumrator = GetComponent<wandering8FarmAnimals>();
         timerforDeath = Random.Range(timerforDeath-1,timerforDeath+2);
     }
 
@@ -40,37 +33,15 @@ public class farmAnimalDeath : MonoBehaviour
                 if (timerforDeath <= 0) 
                 {
 
-
-                    // {
-                    //     Destroy(gameObject);
-                    //     Debug.Log("destroy");
-                    // }
-                    //Destroy(gameObject);
-                    StartCoroutine(DeathAnimate());
+                    {
+                        Destroy(gameObject);
+                        Debug.Log("destroy");
+                    }
+                    Destroy(gameObject);
                     
                 }
         }
     }
-
-
-private IEnumerator DeathAnimate()
-{
-    
-    yield return new WaitForSeconds(0.01f);
-
-    for (int i=0; i< objective.collected_items.Length; i++)
-    {
-                if (objective.itemsname[i] == nameoftheSpawnObject)
-                {
-                    objective.collected_items[i]--;
-                }
-                
-    }
-
-    Destroy(gameObject);
-
-
-}
 
 
 

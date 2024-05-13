@@ -9,17 +9,9 @@ public class collectableWarehouseTransform : MonoBehaviour
     private bool isMoving = false; // Flag to check if the object is currently moving
     public GameObject collecatableBoxToSpawn;
     public Vector3 spawnPosition = new Vector3(-1.3f, -4.3f, -3.0f); // Serialized variable for spawn position
-    Objective objective;
 
-    [SerializeField] string nameoftheSpawnObject;
     [SerializeField] int numberOFEggs=0;
 
-
-
-    void Start ()
-    {
-        objective = FindObjectOfType<Objective>();
-    }
     void Update()
     {
         // Check if the object is moving
@@ -33,15 +25,6 @@ public class collectableWarehouseTransform : MonoBehaviour
             {
                 // Destroy the object when it reaches the target position
                 Destroy(gameObject);
-                for (int i=0; i< objective.collected_items.Length; i++)
-                {
-                if (objective.itemsname[i] == nameoftheSpawnObject)
-                {
-                    objective.collected_items[i]++;
-                }
-                
-                }
-
                 SpawnCollectableBox();
 
             }
