@@ -25,7 +25,7 @@ public class layRawProduct : MonoBehaviour
         // Decrease the timer
 
         {   
-            if ( !grassSpawner.checkForGrassPresence())  // if grass exist this will be true
+            if ( !grassSpawner.checkForGrassNotPresence())  // if grass exist this will be true
             {   
                 timer -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer
@@ -41,7 +41,7 @@ public class layRawProduct : MonoBehaviour
 
     void SpawnRawProduct()
     {
-        // Instantiate the egg prefab at the current object's position and rotation
-        Instantiate(RawProductPrefab, transform.position, transform.rotation);
+        // Instantiate the Raw product prefab slightly front of the current object's position and rotation
+        Instantiate(RawProductPrefab, transform.position+ new Vector3 (0,-0.2f,-0.05f), transform.rotation);
     }
 }
