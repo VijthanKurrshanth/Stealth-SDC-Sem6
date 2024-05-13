@@ -229,15 +229,15 @@ RectTransform:
   m_GameObject: {fileID: 153189641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 10, y: 4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 652617437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 121}
-  m_SizeDelta: {x: 31.71, y: 24.24}
+  m_AnchoredPosition: {x: 0, y: 121}
+  m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153189643
 MonoBehaviour:
@@ -703,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9999995, y: 13.079996}
+  m_AnchoredPosition: {x: 0, y: 13.079996}
   m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &570109147
@@ -1469,15 +1469,15 @@ RectTransform:
   m_GameObject: {fileID: 1126545759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.570001, y: -313.09003}
-  m_SizeDelta: {x: 40.03, y: 30.72}
+  m_AnchoredPosition: {x: 0, y: -313.09003}
+  m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126545761
 MonoBehaviour:
@@ -1669,12 +1669,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 538844733}
-  - {fileID: 1126545760}
-  - {fileID: 1492057094}
-  - {fileID: 1626852672}
-  - {fileID: 1757950058}
-  - {fileID: 570109146}
   - {fileID: 652617437}
+  - {fileID: 570109146}
+  - {fileID: 1757950058}
+  - {fileID: 1492057094}
+  - {fileID: 1126545760}
+  - {fileID: 1626852672}
   - {fileID: 51830845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1727,15 +1727,15 @@ RectTransform:
   m_GameObject: {fileID: 1492057093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2800013, y: -205.38}
-  m_SizeDelta: {x: 40.44, y: 31.33}
+  m_AnchoredPosition: {x: 0, y: -205.38}
+  m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492057095
 MonoBehaviour:
@@ -1860,15 +1860,15 @@ RectTransform:
   m_GameObject: {fileID: 1626852671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.5100007, y: -420.58002}
-  m_SizeDelta: {x: 39.86, y: 30.37}
+  m_AnchoredPosition: {x: 0, y: -420.58002}
+  m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626852673
 MonoBehaviour:
@@ -2102,8 +2102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.9999995, y: -94.850006}
-  m_SizeDelta: {x: 315.13, y: 96.77}
+  m_AnchoredPosition: {x: 0, y: -94.850006}
+  m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757950059
 MonoBehaviour:
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 153189646}
+      - m_Target: {fileID: 1757950059}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
