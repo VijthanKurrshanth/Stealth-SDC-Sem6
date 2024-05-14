@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class layRawProduct : MonoBehaviour
 {
     public GameObject RawProductPrefab; // Reference to the prefab you want to spawn
