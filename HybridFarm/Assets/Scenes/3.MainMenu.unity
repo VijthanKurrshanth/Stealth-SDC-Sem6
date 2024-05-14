@@ -211,6 +211,8 @@ GameObject:
   - component: {fileID: 153189645}
   - component: {fileID: 153189644}
   - component: {fileID: 153189643}
+  - component: {fileID: 153189646}
+  - component: {fileID: 153189647}
   m_Layer: 0
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -227,15 +229,15 @@ RectTransform:
   m_GameObject: {fileID: 153189641}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 652617437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 121}
-  m_SizeDelta: {x: 315.13, y: 96.66}
+  m_AnchoredPosition: {x: -5, y: 121}
+  m_SizeDelta: {x: 31.71, y: 24.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &153189643
 MonoBehaviour:
@@ -293,6 +295,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 153189647}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 1. Level_1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &153189644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +345,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153189641}
   m_CullTransparentMesh: 1
+--- !u!114 &153189646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153189641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &153189647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153189641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &187366610
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +679,7 @@ GameObject:
   - component: {fileID: 570109149}
   - component: {fileID: 570109148}
   - component: {fileID: 570109147}
+  - component: {fileID: 570109151}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -664,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 13.079996}
+  m_AnchoredPosition: {x: -4.9999995, y: 13.079996}
   m_SizeDelta: {x: 315.13, y: 96.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &570109147
@@ -738,6 +777,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 570109151}
+        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 6. LevelMap
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &570109149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +827,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570109145}
   m_CullTransparentMesh: 1
+--- !u!114 &570109151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570109145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &581957121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,15 +1469,15 @@ RectTransform:
   m_GameObject: {fileID: 1126545759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -313.09003}
-  m_SizeDelta: {x: 315.13, y: 96.66}
+  m_AnchoredPosition: {x: 5.570001, y: -313.09003}
+  m_SizeDelta: {x: 40.03, y: 30.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126545761
 MonoBehaviour:
@@ -1606,12 +1669,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 538844733}
-  - {fileID: 652617437}
-  - {fileID: 570109146}
-  - {fileID: 1757950058}
-  - {fileID: 1492057094}
   - {fileID: 1126545760}
+  - {fileID: 1492057094}
   - {fileID: 1626852672}
+  - {fileID: 1757950058}
+  - {fileID: 570109146}
+  - {fileID: 652617437}
   - {fileID: 51830845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1664,15 +1727,15 @@ RectTransform:
   m_GameObject: {fileID: 1492057093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -205.38}
-  m_SizeDelta: {x: 315.13, y: 96.66}
+  m_AnchoredPosition: {x: 1.2800013, y: -205.38}
+  m_SizeDelta: {x: 40.44, y: 31.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492057095
 MonoBehaviour:
@@ -1797,15 +1860,15 @@ RectTransform:
   m_GameObject: {fileID: 1626852671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20.000336}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 7.8703713, y: 3.148148, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1471532730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -420.58002}
-  m_SizeDelta: {x: 315.13, y: 96.66}
+  m_AnchoredPosition: {x: 2.5100007, y: -420.58002}
+  m_SizeDelta: {x: 39.86, y: 30.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626852673
 MonoBehaviour:
@@ -1849,7 +1912,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: -658121452, guid: 5fb79f3d98685774cbc4c28b3d6742a4, type: 3}
+    m_PressedSprite: {fileID: 80141338, guid: 95d2a422457f18147a515b7cda2e3ad8, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1883,7 +1946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1999423433, guid: 5fb79f3d98685774cbc4c28b3d6742a4, type: 3}
+  m_Sprite: {fileID: -1459485139, guid: 95d2a422457f18147a515b7cda2e3ad8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2039,8 +2102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -94.850006}
-  m_SizeDelta: {x: 315.13, y: 96.66}
+  m_AnchoredPosition: {x: -4.9999995, y: -94.850006}
+  m_SizeDelta: {x: 315.13, y: 96.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757950059
 MonoBehaviour:
@@ -2098,7 +2161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1757950059}
+      - m_Target: {fileID: 153189646}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
