@@ -1562,6 +1562,8 @@ MonoBehaviour:
   spawnRange: {x: 3, y: 10}
   fieldRange: {x: 3, y: 1}
   moveSpeed: 50
+  reduceValue: 100
+  nameoftheSpawnObject: 
 --- !u!1 &938959721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1963,8 @@ MonoBehaviour:
   spawnRange: {x: 3, y: 10}
   fieldRange: {x: 3, y: 1}
   moveSpeed: 50
+  reduceValue: 100
+  nameoftheSpawnObject: 
 --- !u!1 &1228684286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +2259,8 @@ MonoBehaviour:
   spawnRange: {x: 3, y: 10}
   fieldRange: {x: 3, y: 1}
   moveSpeed: 50
+  reduceValue: 100
+  nameoftheSpawnObject: 
 --- !u!1 &1405618257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2572,6 +2578,8 @@ MonoBehaviour:
   spawnRange: {x: 3, y: 10}
   fieldRange: {x: 3, y: 1}
   moveSpeed: 50
+  reduceValue: 100
+  nameoftheSpawnObject: 
 --- !u!1 &1478982832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,8 +2609,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1690acd94d650e8409145b86cfeb701b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grass: {fileID: 888834745509854651, guid: 19e472a11bf1f0d489c24dcbf68d313f, type: 3}
+  grassPrefabs: []
   flagRunEnabled: 0
+  numberOfGrassplant: 0
+  stockcount: 5
 --- !u!4 &1478982834
 Transform:
   m_ObjectHideFlags: 0
@@ -3224,6 +3234,8 @@ MonoBehaviour:
   spawnRange: {x: 3, y: 10}
   fieldRange: {x: 3, y: 1}
   moveSpeed: 50
+  reduceValue: 100
+  nameoftheSpawnObject: 
 --- !u!1 &2125539874
 GameObject:
   m_ObjectHideFlags: 0
