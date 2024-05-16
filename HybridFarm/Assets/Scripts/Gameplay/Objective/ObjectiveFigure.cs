@@ -1,3 +1,6 @@
+
+// This scripts maintain increment/decrement of current collectables during gameplay
+
 using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
@@ -7,11 +10,11 @@ using System.Collections;
 public class ObjectiveFigure : MonoBehaviour
 {
     Objective objective;
-    public GameObject[] ObjectiveSelectedprefabs;
+    public GameObject[] ObjectiveSelectedprefabs;   //this array will have sprites image of objectives 
 
-    public int[] NumberinIndexPostioninObjectiveItems;
-    public int[] inIndexPostioninObjectiveItems;
-    public bool?[] Green_Correct_Indicators;
+    public int[] NumberinIndexPostioninObjectiveItems;  // amount at index position of objectives items in ITEMs intiated in obejctive scripts.
+    public int[] inIndexPostioninObjectiveItems;  // index of three objective among item array.
+    public bool?[] Green_Correct_Indicators;  //  three element with null.
     private int flag =0;
 
   
@@ -24,21 +27,21 @@ public class ObjectiveFigure : MonoBehaviour
         ObjectiveSelectedprefabs = new GameObject[] {null,null,null};
 
 
-        NumberinIndexPostioninObjectiveItems= new int[] {0,0,0}; //valur of item objective not index
-        inIndexPostioninObjectiveItems= new int[] {13,13,13};    // index value, if 13 no objective
+        NumberinIndexPostioninObjectiveItems= new int[] {0,0,0}; //value of item objective not index  ; see objective scripts.
+        inIndexPostioninObjectiveItems= new int[] {13,13,13};    // index value, if index= 13 no objective assined to it. Since we have 12 type of objective.
 
         
 
 
 
-        for (int i = 0; i < objective.items.Length; i++)
+        for (int i = 0; i < objective.objective_items.Length; i++)
         {
             
-            if (objective.items[i]>0)
+            if (objective.objective_items[i]>0)    //to check it is an objective or not?
             {
                 inIndexPostioninObjectiveItems[flag]=i;
-                NumberinIndexPostioninObjectiveItems[flag]=objective.items[i];
-                ObjectiveSelectedprefabs[flag]=objective.respectiveItemSprites[i];
+                NumberinIndexPostioninObjectiveItems[flag]=objective.objective_items[i];
+                ObjectiveSelectedprefabs[flag]=objective.respectiveItemSprites[i];  // see objective scripts.
                 flag++;
             }
         }
@@ -80,12 +83,10 @@ public class ObjectiveFigure : MonoBehaviour
     
         StartCoroutine(GreenCorrectIndicatorBool()) ;
 
-
-
     }
 
 
-    private IEnumerator GreenCorrectIndicatorBool()
+    private IEnumerator GreenCorrectIndicatorBool()  //to display green correct mark when an objective is completed.
     {
         yield return new WaitForSeconds(0.02f); // Adjust the delay time as needed
         
@@ -95,7 +96,7 @@ public class ObjectiveFigure : MonoBehaviour
             
             if (inIndexPostioninObjectiveItems[i]<13)
             {
-                if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.items[inIndexPostioninObjectiveItems[i]] )
+                if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.objective_items[inIndexPostioninObjectiveItems[i]] )
                 {
                     Green_Correct_Indicators[i]= true;
 

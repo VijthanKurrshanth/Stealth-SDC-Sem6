@@ -153,7 +153,6 @@ public class wandering8FarmAnimals : MonoBehaviour
         }
     }
 
-
     private Vector2 RandomDirectionWaypointonCollision()
     {
             //float[] possibleAngles = { 0f, 45f, 90f, 135f, 180f, 225f, 270f, 315f }; // Corrected the angles
@@ -418,9 +417,9 @@ public class wandering8FarmAnimals : MonoBehaviour
        else 
        {
             if (grasslocation.x >transform.position.x) {
-            StartCoroutine(SetAnimeFalse());
-            sprite_render.flipX= true;
-            anim.SetBool("eat_anim",true);
+                StartCoroutine(SetAnimeFalse());
+                sprite_render.flipX= true;
+                anim.SetBool("eat_anim",true);
             }
 
             else 
