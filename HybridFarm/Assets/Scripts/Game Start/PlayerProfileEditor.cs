@@ -30,6 +30,13 @@ public class PlayerProfileEditor : MonoBehaviour
     public GameObject alertPanel;
     public TextMeshProUGUI alertText;
 
+    public GameObject waitingPanel;
+    public TextMeshProUGUI waitingText;
+    public GameObject loadingScreen;
+    public GameObject attackAlgorithm;
+
+    public bool questionnaireFinished = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -202,8 +209,51 @@ public class PlayerProfileEditor : MonoBehaviour
     {
         SceneManager.LoadScene("3.MainMenu");
     }
+
+    public void OnCloseWaitButtonClick()
+    {
+        StartCoroutine(ApiController.GetScore((score) =>
+        {
+            if (!questionnaireFinished)
+            {
+                if (score == -1)
+                {
+                    waitingText.text = "Please finish the questionnaire";
+                }
+                else if (score == -2)
+                {
+                    waitingText.text = "Connection Issue";
+                }
+                else
+                {
+                    waitingText.text = $"Your score is: {score} \n Press Finish button again.";
+                    PlayerPrefs.SetInt("playerBoostPoints", score);
+                    StartCoroutine(ApiController.Reset());
+                    questionnaireFinished = true;
+                }
+            }
+            else
+            {
+                questionnaireFinished = false;
+                waitingPanel.SetActive(false); // Hide the waiting panel
+                StartCoroutine(LoadingScreen());
+            }
+        }));
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+        while (attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval() == 0)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        loadingScreen.SetActive(false);
+        SceneManager.LoadScene("4.GameplayEnvironment");
+    }
 }
 
+// This class is used to store the user profile data
 public class UpdateProfileDTO
 {
     public string firstname;
