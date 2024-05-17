@@ -28,11 +28,10 @@ public class LevelSelect : MonoBehaviour
     IEnumerator LoadingScreen(string level)
     {
         loadingScreen.SetActive(true);
-        while (attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval() == 0)
-        {
-            yield return new WaitForSeconds(1f);
-        }
-        loadingScreen.SetActive(false);
-        SceneManager.LoadScene(level);
+        yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
+       {
+           loadingScreen.SetActive(false);
+           SceneManager.LoadScene(level);
+       }));
     }
 }

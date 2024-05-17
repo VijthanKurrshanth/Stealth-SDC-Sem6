@@ -11,7 +11,6 @@ public static class ApiController
     // This method is used to get the JWT key from the server
     public static IEnumerator GetJwtKey(Action<string> callback = null)
     {
-        Debug.Log("Getting JWT key");
         string result;
         string url = "http://20.15.114.131:8080/api/login";
         string body = "{\"apiKey\":\"NjVjNjA0MGY0Njc3MGQ1YzY2MTcyMmNlOjY1YzYwNDBmNDY3NzBkNWM2NjE3MjJjNA\"}";
@@ -42,6 +41,7 @@ public static class ApiController
             string token = (string)jsonObject["token"];
             result = token;
         }
+        Debug.Log($"JWT key: {result}");
         callback?.Invoke(result); // Invoke the callback function with the token or null
     }
 
@@ -238,8 +238,8 @@ public static class ApiController
 
     // This method is used to get the power consumption of the previous day
     public static IEnumerator GetYesterdayConsumption(string jwtKey, Action<float> callback = null)
-
     {
+        Debug.Log("Getting yesterday's consumption");
         if (string.IsNullOrEmpty(jwtKey))
         {
             Debug.Log("JWT key is null or empty");
@@ -250,7 +250,7 @@ public static class ApiController
         string year = DateTime.Now.Year.ToString();
         string month = DateTime.Now.ToString("MMMM").ToUpper();
         string yesterday = DateTime.Now.AddDays(-1).Day.ToString();
-        string url = $"http://20.15.114.131:8080/api/power-consumption/month/daily/view?year={year}&month={month}";
+        string url = $"http://20.15.114.131:8080/api/power-consumption/current-month/daily/view";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         request.method = UnityWebRequest.kHttpVerbGET;
@@ -275,7 +275,7 @@ public static class ApiController
         JObject jsonObject = JObject.Parse(jsonResponse);
 
         consumption = (float)jsonObject["dailyPowerConsumptionView"]["dailyUnits"][yesterday];
-
+        Debug.Log($"Retrieved Yesterday's consumption: {consumption}");
         callback?.Invoke(consumption); // Invoke the callback function with the consumption
     }
 

@@ -25,30 +25,33 @@ public class AttackAlgorithm : MonoBehaviour
     }
 
     // Get the attack interval
-    public float GetAttackInterval()
+    public IEnumerator GetAttackInterval(Action<float> callback = null)
     {
         float attackInterval = 0;
-        if (PlayerPrefs.GetFloat("yesterdayConsumption") == 0)
+        float yesterdayConsumption = PlayerPrefs.GetFloat("yesterdayConsumption");
+        Debug.Log("Yesterday consumption: " + yesterdayConsumption);
+        if (yesterdayConsumption == 0)
         {
-            StartCoroutine(ApiController.GetJwtKey((JWTKey) => StartCoroutine(ApiController.GetYesterdayConsumption(JWTKey, (consumption) =>
+            Debug.Log("Yesterday consumption is 0");
+            yield return StartCoroutine(ApiController.GetJwtKey((JWTKey) =>
+            {
+                StartCoroutine(ApiController.GetYesterdayConsumption(JWTKey, (consumption) =>
             {
                 PlayerPrefs.SetFloat("yesterdayConsumption", consumption);
                 attackInterval = DetermineAttackInterval(consumption);
-            }))));
+                PlayerPrefs.SetFloat("attackInterval", attackInterval);
+                Debug.Log("Attack interval: " + attackInterval);
+                callback?.Invoke(attackInterval);
+            }));
+            }));
         }
         else
         {
-            attackInterval = DetermineAttackInterval(PlayerPrefs.GetFloat("yesterdayConsumption"));
+            attackInterval = DetermineAttackInterval(yesterdayConsumption);
+            PlayerPrefs.SetFloat("attackInterval", attackInterval);
+            Debug.Log("Attack interval: " + attackInterval);
+            callback?.Invoke(attackInterval);
         }
-
-        StartCoroutine(ApiController.GetJwtKey((JWTKey) => StartCoroutine(ApiController.GetCurrentConsumption(JWTKey, (consumption) =>
-        {
-            PlayerPrefs.SetString("currentConsumption", consumption.ToString());
-        }))));
-
-        PlayerPrefs.SetFloat("attackInterval", attackInterval);
-        Debug.Log("Attack interval: " + attackInterval);
-        return attackInterval;
     }
 
     // Get predator array based on consumption rate

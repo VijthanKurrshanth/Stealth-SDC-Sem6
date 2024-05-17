@@ -72,12 +72,11 @@ public class NewGameHandler : MonoBehaviour
     IEnumerator LoadingScreen()
     {
         loadingScreen.SetActive(true);
-        while (attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval() == 0)
+        yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
         {
-            yield return new WaitForSeconds(1f);
-        }
-        loadingScreen.SetActive(false);
-        SceneManager.LoadScene("4.GameplayEnvironment");
+            loadingScreen.SetActive(false);
+            SceneManager.LoadScene("1. Level_1");
+        }));
     }
 
     public void OnTestButtonClicked()
