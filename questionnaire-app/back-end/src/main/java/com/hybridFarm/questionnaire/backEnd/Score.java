@@ -12,6 +12,9 @@ import java.util.Arrays;
 public class Score {
     @Setter
     private Integer noOfQuestions = 10;
+    @Getter
+    @Setter
+    private Boolean finished = false;
     private String[] specificFeedbacks;
     private Boolean[] score;
 
@@ -28,5 +31,11 @@ public class Score {
 
     public void setSpecificFeedbacks(int index, String value) {
         specificFeedbacks[index] = value;
+    }
+
+    public void resetScore(){
+        Arrays.fill(score, false);
+        Arrays.fill(specificFeedbacks, "");
+        finished = false;
     }
 }
