@@ -164,7 +164,6 @@ public class PlayerProfileEditor : MonoBehaviour
                 {
                     waitingPanel.SetActive(true);
                     ApiController.OpenWebAppInNewTab();
-                    PlayerPrefs.SetInt("playerExists", 1);
                 })); // Authenticate the web app and open it in a new tab
 
             }
@@ -209,6 +208,7 @@ public class PlayerProfileEditor : MonoBehaviour
                     PlayerPrefs.SetInt("playerBoostPoints", score);
                     StartCoroutine(ApiController.Reset());
                     questionnaireFinished = true;
+                    PlayerPrefs.SetInt("playerExists", 1);
                 }
             }
             else
