@@ -6,6 +6,7 @@ using UnityEngine;
 public class AttackStarter : MonoBehaviour
 {
     public GameObject attackAlgorithm;
+    public GameObject predatorSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class AttackStarter : MonoBehaviour
             foreach (int num in predatorArray)
             {
                 Debug.Log(num);
+                predatorSpawn.GetComponent<PredatorSpawn>().SpawnObject(num);
             }
         }));
     }
