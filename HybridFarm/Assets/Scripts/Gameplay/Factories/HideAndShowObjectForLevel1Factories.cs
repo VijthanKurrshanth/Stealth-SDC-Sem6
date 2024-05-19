@@ -8,7 +8,7 @@ public class HideAndShowObjectForLevel1Factories : MonoBehaviour
     public bool isVisible = false;
     
     // Public integer for the cost of the factory
-    public int CostOfFactory = 0;
+    
 
     void Start()
     {
@@ -21,17 +21,16 @@ public class HideAndShowObjectForLevel1Factories : MonoBehaviour
 
     void Update()
     {
+
         
-        // Check if the "L" key is pressed
         if (isVisible)
         {
             // Toggle the visibility of the object and its children
-            isVisible = true;
-            SetRenderersEnabled(isVisible);
+            SetRenderersEnabled(true);
         }
 
         else {
-            SetRenderersEnabled(!isVisible);
+            SetRenderersEnabled(false);
         }
     }
 
