@@ -15,7 +15,7 @@ public class FactoryPurchaseButton : MonoBehaviour
 
     void Start()
     {
-        // Find the MoneyScript instance in the scene
+        //to find money current value
         moneyScript = FindObjectOfType<MoneyScript>();
 
         // Set initial state of the button
