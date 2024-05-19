@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class HideAndShowObjectForLevel1Factories : MonoBehaviour
 {
-    // Array to hold all Renderer components of the GameObject and its children
+    
     private Renderer[] renderers;
+    public bool isHide=true;
+    public int CostOfFactory = 0;
+
+    
+
 
     void Start()
     {
