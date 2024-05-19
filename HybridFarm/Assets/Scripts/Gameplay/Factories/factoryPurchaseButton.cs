@@ -2,34 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class factoryPurchaseButton : MonoBehaviour
-
-
+public class FactoryPurchaseButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    MoneyScript moneyScript;
-    private Renderer buttonRenderer;
+    // Reference to MoneyScript
+    private MoneyScript moneyScript;
+
+    // Reference to the GameObject that represents the button
+    public GameObject buttonGameObject;
+
+    // Cost of the factory
     public int CostOfFactory = 100;
 
     void Start()
     {
+        // Find the MoneyScript instance in the scene
         moneyScript = FindObjectOfType<MoneyScript>();
-        buttonRenderer = GetComponent<Renderer>();
-        
+
+        // Set initial state of the button
+        if (buttonGameObject != null)
+        {
+            buttonGameObject.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (moneyScript.moneyValue >= CostOfFactory)
+        // Check if money value is sufficient to enable the button
+        if (moneyScript != null && buttonGameObject != null)
         {
-            buttonRenderer.enabled = true; //false initially
+            if (moneyScript.moneyValue >= CostOfFactory)
+            {
+                buttonGameObject.SetActive(true);
+            }
+            else
+            {
+                buttonGameObject.SetActive(false);
+            }
         }
-
-        else
-        {
-            buttonRenderer.enabled = false;
-        }
-        
     }
 }
