@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using System.IO.Compression;
 
 public class FactoryPriceHandler : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class FactoryPriceHandler : MonoBehaviour
         }
 
         factoryLevels = new string[] {"level1","level2", "level3fuel", "level3electric","level4fuel","level4electric","level5fuel","level5electric"};
-        factoryLevelsCost = new int[] {150,250,350,450,550};
+        factoryLevelsCost = new int[] {150,250,350,400,450,500,550,600};
         currentFactory= null;
 
         UpdatePriceText(); // Call the function to update the money text when the game starts
@@ -37,8 +39,19 @@ public class FactoryPriceHandler : MonoBehaviour
     void Update()
     {
 
-        
-        FactoryPrice = 0;
+        currentFactory = factoryLevels[2];
+        int factoryIndex = Array.IndexOf(factoryLevels, currentFactory);
+
+        if (factoryIndex + 1 <= 8)
+        {
+        FactoryPrice = factoryLevelsCost[factoryIndex+1];
+        }
+        else
+        {
+         // remove buy button 
+        }
+
+
         
         
         UpdatePriceText(); // Call the function to update the money text when money value changes

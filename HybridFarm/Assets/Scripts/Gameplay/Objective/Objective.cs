@@ -24,7 +24,7 @@ public class Objective : MonoBehaviour
 
 
     //below are present amount tracking this should be updated manually with initial item amount.
-    public int collected_amount_of_money=0;
+    public int collected_amount_of_money = 0;
     public int collected_No_of_chicken =0;
     public int collected_No_of_pig =0;
     public int collected_No_of_cow =0;
