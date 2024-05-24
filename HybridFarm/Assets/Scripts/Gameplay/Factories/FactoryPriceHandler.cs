@@ -11,6 +11,8 @@ public class FactoryPriceHandler : MonoBehaviour
     public int FactoryPrice = 200;
 
     private string[] factoryLevels;
+    private int[] factoryLevelsCost;
+    private string currentFactory;
     void Start()
     {
         priceText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
@@ -21,7 +23,9 @@ public class FactoryPriceHandler : MonoBehaviour
         }
 
         factoryLevels = new string[] {"level1","level2", "level3fuel", "level3electric","level4fuel","level4electric","level5fuel","level5electric"};
-        
+        factoryLevelsCost = new int[] {150,250,350,450,550};
+        currentFactory= null;
+
         UpdatePriceText(); // Call the function to update the money text when the game starts
 
 
@@ -33,12 +37,13 @@ public class FactoryPriceHandler : MonoBehaviour
     void Update()
     {
 
-        if (FactoryPrice < 0)
-        {
-            FactoryPrice = 0;
-        }
+        
+        FactoryPrice = 0;
+        
         
         UpdatePriceText(); // Call the function to update the money text when money value changes
+
+
         
     }
 
