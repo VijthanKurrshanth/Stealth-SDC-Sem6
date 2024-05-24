@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.IO.Compression;
+using UnityEngine.Rendering;
 
 public class FactoryPriceHandler : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private string[] factoryLevels;
 
-    private int[] AllFactoryLevelsCost;
+    private int[] allFactoryLevelsCost;
     private int[] eggPowderfactoryLevelsCost;
     
     private int[] cakefactoryLevelsCost;
@@ -44,6 +45,7 @@ public class FactoryPriceHandler : MonoBehaviour
         curdfactoryLevelsCost = new int[] {10000,12500,15000,17500,20000,22500,25000};
         cheesefactoryLevelsCost = new int[] {12500,15000,17500,20000,22500,25000,27500};
 
+        allFactoryLevelsCost = new int[][] { eggPowderfactoryLevelsCost, cakefactoryLevelsCost, meatcutterfactoryLevelsCost, sausagefactoryLevelsCost, curdfactoryLevelsCost, cheesefactoryLevelsCost };
 
         currentFactory= null;
 
