@@ -17,7 +17,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private string[] factoryLevels;
 
-    private int[][] allFactoryLevelsCost;
+    private int[][] allFactoryLevelsCost =null;
 
 
 
@@ -59,7 +59,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
 
 
-        currentFactory= null;
+       // currentFactory= null;
 
         UpdatePriceText(); // Call the function to update the money text when the game starts
 
