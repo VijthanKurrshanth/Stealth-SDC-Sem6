@@ -15,7 +15,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private string[] factoryLevels;
 
-    private int[] allFactoryLevelsCost;
+    private int[][] allFactoryLevelsCost;
     private int[] eggPowderfactoryLevelsCost;
     
     private int[] cakefactoryLevelsCost;
@@ -47,6 +47,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
         allFactoryLevelsCost = new int[][] { eggPowderfactoryLevelsCost, cakefactoryLevelsCost, meatcutterfactoryLevelsCost, sausagefactoryLevelsCost, curdfactoryLevelsCost, cheesefactoryLevelsCost };
 
+        
         currentFactory= null;
 
         UpdatePriceText(); // Call the function to update the money text when the game starts
@@ -65,7 +66,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
         if (factoryIndex + 1 <= 8)
         {
-        FactoryPrice = factoryLevelsCost[factoryIndex+1];
+        FactoryPrice = eggPowderfactoryLevelsCost[factoryIndex+1];
         }
         else
         {
