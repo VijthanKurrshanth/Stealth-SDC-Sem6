@@ -12,10 +12,15 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private TextMeshProUGUI priceText;
     public int FactoryPrice = 200;
+    private string currentFactory;
+    public string nameOfFactory ;
 
     private string[] factoryLevels;
 
     private int[][] allFactoryLevelsCost;
+
+
+
     private int[] eggPowderfactoryLevelsCost;
     
     private int[] cakefactoryLevelsCost;
@@ -27,7 +32,7 @@ public class FactoryPriceHandler : MonoBehaviour
     private int[] curdfactoryLevelsCost;
     
     private int[] cheesefactoryLevelsCost;
-    private string currentFactory;
+    
     void Start()
     {
         priceText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
@@ -45,9 +50,15 @@ public class FactoryPriceHandler : MonoBehaviour
         curdfactoryLevelsCost = new int[] {10000,12500,15000,17500,20000,22500,25000};
         cheesefactoryLevelsCost = new int[] {12500,15000,17500,20000,22500,25000,27500};
 
-        allFactoryLevelsCost = new int[][] { eggPowderfactoryLevelsCost, cakefactoryLevelsCost, meatcutterfactoryLevelsCost, sausagefactoryLevelsCost, curdfactoryLevelsCost, cheesefactoryLevelsCost };
+        allFactoryLevelsCost[0]= eggPowderfactoryLevelsCost;
+        allFactoryLevelsCost[1]= cakefactoryLevelsCost;
+        allFactoryLevelsCost[2]= meatcutterfactoryLevelsCost;
+        allFactoryLevelsCost[3]= sausagefactoryLevelsCost;
+        allFactoryLevelsCost[4]= curdfactoryLevelsCost;
+        allFactoryLevelsCost[5]= cheesefactoryLevelsCost;
 
-        
+
+
         currentFactory= null;
 
         UpdatePriceText(); // Call the function to update the money text when the game starts
@@ -61,8 +72,9 @@ public class FactoryPriceHandler : MonoBehaviour
     void Update()
     {
 
-        currentFactory = factoryLevels[2];
-        int factoryIndex = Array.IndexOf(factoryLevels, currentFactory);
+
+        //currentFactory = factoryLevels[2];
+        int factoryIndex = Array.IndexOf(factoryLevels, nameOfFactory);
 
         if (factoryIndex + 1 <= 8)
         {

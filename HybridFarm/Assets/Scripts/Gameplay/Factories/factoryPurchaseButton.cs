@@ -32,7 +32,7 @@ public class FactoryPurchaseButton : MonoBehaviour
 
     void Update()
     {
-        if name
+        
         // Check if money value is sufficient to enable the button
         if (moneyScript != null && buttonGameObject != null)
         {
