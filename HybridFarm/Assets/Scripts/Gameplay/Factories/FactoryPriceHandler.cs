@@ -13,7 +13,19 @@ public class FactoryPriceHandler : MonoBehaviour
     public int FactoryPrice = 200;
 
     private string[] factoryLevels;
-    private int[] factoryLevelsCost;
+
+    private int[] AllFactoryLevelsCost;
+    private int[] eggPowderfactoryLevelsCost;
+    
+    private int[] cakefactoryLevelsCost;
+    
+    private int[] meatcutterfactoryLevelsCost;
+    
+    private int[] sausagefactoryLevelsCost;
+    
+    private int[] curdfactoryLevelsCost;
+    
+    private int[] cheesefactoryLevelsCost;
     private string currentFactory;
     void Start()
     {
@@ -24,8 +36,15 @@ public class FactoryPriceHandler : MonoBehaviour
             return;
         }
 
-        factoryLevels = new string[] {"level1","level2", "level3fuel", "level3electric","level4fuel","level4electric","level5fuel","level5electric"};
-        factoryLevelsCost = new int[] {150,250,350,400,450,500,550,600};
+        factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
+        eggPowderfactoryLevelsCost = new int[] {150,250,350,450,500,550,600};
+        cakefactoryLevelsCost = new int[] {200,300,400,500,550,600,650};
+        meatcutterfactoryLevelsCost = new int[] {1500,2500,3500,4500,5000,5500,6000};
+        sausagefactoryLevelsCost = new int[] {2000,3000,4000,4500,5500,6000,6500};
+        curdfactoryLevelsCost = new int[] {10000,12500,15000,17500,20000,22500,25000};
+        cheesefactoryLevelsCost = new int[] {12500,15000,17500,20000,22500,25000,27500};
+
+
         currentFactory= null;
 
         UpdatePriceText(); // Call the function to update the money text when the game starts

@@ -10,8 +10,13 @@ public class FactoryPurchaseButton : MonoBehaviour
     // Reference to the GameObject that represents the button
     public GameObject buttonGameObject;
 
+    private string[] choosenFacotryArray;
+
+    public string nameOfFactory;
+
     // Cost of the factory
     public int CostOfFactory = 100;
+
 
     void Start()
     {
@@ -27,6 +32,7 @@ public class FactoryPurchaseButton : MonoBehaviour
 
     void Update()
     {
+        if name
         // Check if money value is sufficient to enable the button
         if (moneyScript != null && buttonGameObject != null)
         {
