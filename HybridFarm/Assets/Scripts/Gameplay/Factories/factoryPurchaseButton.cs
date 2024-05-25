@@ -12,7 +12,7 @@ public class FactoryPurchaseButton : MonoBehaviour
 
     private string[] choosenFacotryArray;
 
-    public string nameOfFactory;
+    //public string nameOfFactory;
 
     // Cost of the factory
     public int CostOfFactory = 100;
