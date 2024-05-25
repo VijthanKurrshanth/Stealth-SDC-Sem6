@@ -12,8 +12,10 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private TextMeshProUGUI priceText;
     public int FactoryPrice = 200;
-    private string currentFactory;
+
     public string nameOfFactory ;
+    private string currentFactory;
+    
 
     private string[] factoryLevels;
 
@@ -32,15 +34,23 @@ public class FactoryPriceHandler : MonoBehaviour
     private int[] curdfactoryLevelsCost;
     
     private int[] cheesefactoryLevelsCost;
+
+
+    Objective objective;
     
     void Start()
     {
+
+        objective = FindObjectOfType<Objective>();
+
         priceText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
         if (priceText == null)
         {
             //Debug.LogError("requires a TextMeshProUGUI component attached to the same GameObject.");
             return;
         }
+
+        currentFactory = objective.nameOfFactory;
 
         factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
         eggPowderfactoryLevelsCost = new int[] {150,250,350,450,500,550,600};
