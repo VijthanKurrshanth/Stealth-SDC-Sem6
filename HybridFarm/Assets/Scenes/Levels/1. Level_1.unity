@@ -4769,7 +4769,7 @@ Transform:
   m_GameObject: {fileID: 270082443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7621108, y: 0.37621334, z: 0.1}
+  m_LocalPosition: {x: -0.7621108, y: 0.33, z: 0.1}
   m_LocalScale: {x: 0.07, y: 0.7, z: 1.0707}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9016,7 +9016,7 @@ Transform:
   m_GameObject: {fileID: 477038933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7476602, y: 0.3863061, z: 0.1}
+  m_LocalPosition: {x: 0.7476602, y: 0.34, z: 0.1}
   m_LocalScale: {x: 0.07, y: 0.7, z: 1.0707}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12192,7 +12192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: CheeseFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
@@ -17280,7 +17279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: MeatCutterFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
@@ -18089,8 +18087,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -18534,7 +18532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: CurdFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
@@ -18858,7 +18855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: SausagesFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
@@ -21741,8 +21737,8 @@ Transform:
   m_GameObject: {fileID: 1018578724}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7236328, y: 481.64108, z: 845.7}
-  m_LocalScale: {x: 100.14764, y: 85.60466, z: 108}
+  m_LocalPosition: {x: 0, y: 492.9, z: 845.7}
+  m_LocalScale: {x: 100.14764, y: 73.62001, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 270082444}
@@ -36123,7 +36119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: EggPowderFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
@@ -36827,7 +36822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FactoryPrice: 0
   nameOfFactory: CakeFactory
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
