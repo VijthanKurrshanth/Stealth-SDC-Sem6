@@ -53,7 +53,7 @@ public class FactoryPriceHandler : MonoBehaviour
         string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
 
         int indexOfFactoryAssigned =0;
-        for (int i = 0; i<=6 ;i++)
+        for (int i = 0; i<=5 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
@@ -107,7 +107,7 @@ public class FactoryPriceHandler : MonoBehaviour
         
         
         FactoryPrice = eggPowderfactoryLevelsCost[currentFactoryLevel];
-        
+
         
       
 
