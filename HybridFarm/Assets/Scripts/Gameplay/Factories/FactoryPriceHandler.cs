@@ -78,12 +78,12 @@ public class FactoryPriceHandler : MonoBehaviour
         curdfactoryLevelsCost = new int[] {10000,12500,15000,17500,20000,22500,25000};
         cheesefactoryLevelsCost = new int[] {12500,15000,17500,20000,22500,25000,27500};
 
-        allFactoryLevelsCost[0]= eggPowderfactoryLevelsCost;
-        allFactoryLevelsCost[1]= cakefactoryLevelsCost;
-        allFactoryLevelsCost[2]= meatcutterfactoryLevelsCost;
-        allFactoryLevelsCost[3]= sausagefactoryLevelsCost;
-        allFactoryLevelsCost[4]= curdfactoryLevelsCost;
-        allFactoryLevelsCost[5]= cheesefactoryLevelsCost;
+        // allFactoryLevelsCost[0]= eggPowderfactoryLevelsCost;
+        // allFactoryLevelsCost[1]= cakefactoryLevelsCost;
+        // allFactoryLevelsCost[2]= meatcutterfactoryLevelsCost;
+        // allFactoryLevelsCost[3]= sausagefactoryLevelsCost;
+        // allFactoryLevelsCost[4]= curdfactoryLevelsCost;
+        // allFactoryLevelsCost[5]= cheesefactoryLevelsCost;
 
 
 
