@@ -52,10 +52,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
 
         
-        
-        
-   
-        
+    
         //factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
         eggPowderfactoryLevelsCost = new int[] {150,250,350,450,500,550,600};
         cakefactoryLevelsCost = new int[] {200,300,400,500,550,600,650};
