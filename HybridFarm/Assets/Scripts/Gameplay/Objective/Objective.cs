@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -38,7 +39,8 @@ public class Objective : MonoBehaviour
     public int collected_No_of_curd =0 ;
     public int collected_No_of_cheese =0;
 
-
+    
+    public int[] factoryNamesLevels;
 
     public int[] objective_items;
     public int[] collected_items;
@@ -88,7 +90,7 @@ public class Objective : MonoBehaviour
 
         
         
-
+        factoryNamesLevels= new int[]  {eggpowderFactoryLevel,cakeFactoryLevel,meatCutterFactoryLevel,sausagesFactoryLevel,curdFactoryLevel,cheeseFactoryLevel };
         
     }
 
