@@ -5,6 +5,7 @@ using TMPro;
 using System;
 using System.IO.Compression;
 using UnityEngine.Rendering;
+using System.Runtime.CompilerServices;
 
 public class FactoryPriceHandler : MonoBehaviour
 {
@@ -20,8 +21,6 @@ public class FactoryPriceHandler : MonoBehaviour
     private string[] factoryLevels;
 
     private int[][] allFactoryLevelsCost =null;
-
-
 
     private int[] eggPowderfactoryLevelsCost;
     
@@ -53,14 +52,16 @@ public class FactoryPriceHandler : MonoBehaviour
 
         string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
 
-        int indeofFactory =0;
+        int indexOfFactoryAssigned =0;
         for (int i = 0; i<=6 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
-                indeofFactory = i;
+                indexOfFactoryAssigned = i;
             }
         }
+
+        // indexOF factory have which factory the script was assigned to...
 
         currentFactoryLevel = objective.nameOfFactory;
 
