@@ -41,7 +41,7 @@ public class MoneyScript : MonoBehaviour
     void UpdateMoneyText()
     {
         moneyText.fontStyle = FontStyles.Bold;
-        moneyText.fontSize = 50;
+        moneyText.fontSize = 40;
         moneyText.text = moneyValue.ToString();
 
     
