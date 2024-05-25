@@ -22,17 +22,17 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private int[][] allFactoryLevelsCost =null;
 
-    private int[] eggPowderfactoryLevelsCost;
+    public int[] eggPowderfactoryLevelsCost;
     
-    private int[] cakefactoryLevelsCost;
+    public int[] cakefactoryLevelsCost;
     
-    private int[] meatcutterfactoryLevelsCost;
+    public int[] meatcutterfactoryLevelsCost;
     
-    private int[] sausagefactoryLevelsCost;
+    public int[] sausagefactoryLevelsCost;
     
-    private int[] curdfactoryLevelsCost;
+    public int[] curdfactoryLevelsCost;
     
-    private int[] cheesefactoryLevelsCost;
+    public int[] cheesefactoryLevelsCost;
 
 
     Objective objective;
