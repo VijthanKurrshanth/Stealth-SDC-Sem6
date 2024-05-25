@@ -64,12 +64,12 @@ public class FactoryPriceHandler : MonoBehaviour
         curdfactoryLevelsCost = new int[] {10000,12500,15000,17500,20000,22500,25000};
         cheesefactoryLevelsCost = new int[] {12500,15000,17500,20000,22500,25000,27500};
 
-        // allFactoryLevelsCost[0]= eggPowderfactoryLevelsCost;
-        // allFactoryLevelsCost[1]= cakefactoryLevelsCost;
-        // allFactoryLevelsCost[2]= meatcutterfactoryLevelsCost;
-        // allFactoryLevelsCost[3]= sausagefactoryLevelsCost;
-        // allFactoryLevelsCost[4]= curdfactoryLevelsCost;
-        // allFactoryLevelsCost[5]= cheesefactoryLevelsCost;
+        //allFactoryLevelsCost[0]= eggPowderfactoryLevelsCost;
+        //allFactoryLevelsCost[1]= cakefactoryLevelsCost;
+        //allFactoryLevelsCost[2]= meatcutterfactoryLevelsCost;
+        //allFactoryLevelsCost[3]= sausagefactoryLevelsCost;
+        //allFactoryLevelsCost[4]= curdfactoryLevelsCost;
+        //allFactoryLevelsCost[5]= cheesefactoryLevelsCost;
 
 
 
@@ -98,6 +98,8 @@ public class FactoryPriceHandler : MonoBehaviour
             }
         }
 
+        //Debug.Log("" + indexOfFactoryAssigned);
+
         // indexOF factory have which factory the script was assigned to...
 
         currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; //this has factory and initial level.
@@ -108,8 +110,43 @@ public class FactoryPriceHandler : MonoBehaviour
         //int factoryIndex = Array.IndexOf(factoryLevels, currentFactoryLevel);
 
         
+        if (indexOfFactoryAssigned ==0)
+        {
+            FactoryPrice = eggPowderfactoryLevelsCost[currentFactoryLevel];
+        }
+
+        else if (indexOfFactoryAssigned ==1)
+        {
+            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+        }
         
-        FactoryPrice = eggPowderfactoryLevelsCost[currentFactoryLevel];
+        else if (indexOfFactoryAssigned ==2)
+        {
+            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+        }
+        
+        else if (indexOfFactoryAssigned ==3)
+        {
+            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+        }
+        
+        else if (indexOfFactoryAssigned ==4)
+        {
+            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+        }
+
+        else if (indexOfFactoryAssigned ==5)
+        {
+            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+        }
+
+        else 
+        {
+            Debug.Log("Not Assigned Factory");
+        }
+
+        
+        
 
         
       
