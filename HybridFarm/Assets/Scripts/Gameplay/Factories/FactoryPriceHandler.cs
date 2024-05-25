@@ -122,22 +122,22 @@ public class FactoryPriceHandler : MonoBehaviour
         
         else if (indexOfFactoryAssigned ==2)
         {
-            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+            FactoryPrice = meatcutterfactoryLevelsCost[currentFactoryLevel];
         }
         
         else if (indexOfFactoryAssigned ==3)
         {
-            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+            FactoryPrice = sausagefactoryLevelsCost[currentFactoryLevel];
         }
         
         else if (indexOfFactoryAssigned ==4)
         {
-            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+            FactoryPrice = curdfactoryLevelsCost[currentFactoryLevel];
         }
 
         else if (indexOfFactoryAssigned ==5)
         {
-            FactoryPrice = cakefactoryLevelsCost[currentFactoryLevel];
+            FactoryPrice = cheesefactoryLevelsCost[currentFactoryLevel];
         }
 
         else 
