@@ -12,7 +12,7 @@ public class FactoryPriceHandler : MonoBehaviour
     // Start is called before the first frame update
 
     private TextMeshProUGUI priceText;
-    public int FactoryPrice = 200;
+    private int FactoryPrice = 200;
 
     public string nameOfFactory ;
     private int currentFactoryLevel;
