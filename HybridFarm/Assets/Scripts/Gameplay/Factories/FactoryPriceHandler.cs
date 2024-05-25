@@ -50,27 +50,13 @@ public class FactoryPriceHandler : MonoBehaviour
             return;
         }
 
-        string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
-
-        int indexOfFactoryAssigned =0;
-        for (int i = 0; i<=5 ;i++)
-        {
-            if (nameOfFactory == factoryNames[i])
-            {
-                indexOfFactoryAssigned = i;
-            }
-        }
-
-        // indexOF factory have which factory the script was assigned to...
-
-        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; //this has factory and initial level.
 
         
         
         
    
         
-        factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
+        //factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
         eggPowderfactoryLevelsCost = new int[] {150,250,350,450,500,550,600};
         cakefactoryLevelsCost = new int[] {200,300,400,500,550,600,650};
         meatcutterfactoryLevelsCost = new int[] {1500,2500,3500,4500,5000,5500,6000};
@@ -99,6 +85,23 @@ public class FactoryPriceHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+        string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
+
+        int indexOfFactoryAssigned =0;
+        for (int i = 0; i<=5 ;i++)
+        {
+            if (nameOfFactory == factoryNames[i])
+            {
+                indexOfFactoryAssigned = i;
+            }
+        }
+
+        // indexOF factory have which factory the script was assigned to...
+
+        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; //this has factory and initial level.
+       
 
 
         //currentFactory = factoryLevels[2];
