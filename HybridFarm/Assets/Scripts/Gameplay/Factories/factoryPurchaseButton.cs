@@ -15,7 +15,7 @@ public class FactoryPurchaseButton : MonoBehaviour
     //public string nameOfFactory;
 
     // Cost of the factory
-    public int CostOfFactory = 100;
+    public int CostOfFactory;
 
 
     void Start()
