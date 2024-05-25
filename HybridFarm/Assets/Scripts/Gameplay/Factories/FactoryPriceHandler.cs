@@ -44,18 +44,36 @@ public class FactoryPriceHandler : MonoBehaviour
         objective = FindObjectOfType<Objective>();
 
 
-        priceText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
+        priceText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component.
         if (priceText == null)
         {
-            //Debug.LogError("requires a TextMeshProUGUI component attached to the same GameObject.");
+            //Debug.LogError("requires a TextMeshProUGUI component .");
             return;
         }
 
         string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
 
-        
+        int indeofFactory =0;
+        for (int i = 0; i<=6 ;i++)
+        {
+            if (nameOfFactory == factoryNames[i])
+            {
+                indeofFactory = i;
+            }
+        }
+
         currentFactoryLevel = objective.nameOfFactory;
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         factoryLevels = new string[] {"level1","level2", "level3","level4fuel","level4electric","level5fuel","level5electric"};
         eggPowderfactoryLevelsCost = new int[] {150,250,350,450,500,550,600};
         cakefactoryLevelsCost = new int[] {200,300,400,500,550,600,650};
