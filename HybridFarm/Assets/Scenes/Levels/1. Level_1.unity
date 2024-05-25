@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 549707244}
+  nameOfFactory: 
   CostOfFactory: 500
 --- !u!1 &108087445
 GameObject:
@@ -17371,6 +17372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 830636502}
+  nameOfFactory: 
   CostOfFactory: 600
 --- !u!114 &875563493
 MonoBehaviour:
@@ -17385,6 +17387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 0}
+  nameOfFactory: 
   CostOfFactory: 500
 --- !u!1 &883332029
 GameObject:
@@ -18931,6 +18934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 1965269905}
+  nameOfFactory: 
   CostOfFactory: 200
 --- !u!114 &946764359
 MonoBehaviour:
@@ -18945,6 +18949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 0}
+  nameOfFactory: 
   CostOfFactory: 100
 --- !u!1 &952045529
 GameObject:
@@ -20407,6 +20412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 328307136}
+  nameOfFactory: 
   CostOfFactory: 1000
 --- !u!114 &993841604
 MonoBehaviour:
@@ -20421,6 +20427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 0}
+  nameOfFactory: 
   CostOfFactory: 500
 --- !u!1 &995387684
 GameObject:
@@ -35524,6 +35531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FactoryPrice: 200
+  nameOfFactory: level1
 --- !u!1 &1683126387
 GameObject:
   m_ObjectHideFlags: 0
@@ -40750,6 +40758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 472884148}
+  nameOfFactory: 
   CostOfFactory: 2000
 --- !u!114 &1915203814
 MonoBehaviour:
@@ -40764,6 +40773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 0}
+  nameOfFactory: 
   CostOfFactory: 500
 --- !u!1 &1927691347
 GameObject:
@@ -43823,6 +43833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonGameObject: {fileID: 703839005}
+  nameOfFactory: 
   CostOfFactory: 100
 --- !u!1 &2068682073
 GameObject:

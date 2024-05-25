@@ -76,7 +76,7 @@ public class FactoryPriceHandler : MonoBehaviour
         //currentFactory = factoryLevels[2];
         int factoryIndex = Array.IndexOf(factoryLevels, nameOfFactory);
 
-        if (factoryIndex + 1 <= 8)
+        if (factoryIndex + 1 <= 6)
         {
         FactoryPrice = eggPowderfactoryLevelsCost[factoryIndex+1];
         }
