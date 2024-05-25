@@ -40,19 +40,21 @@ public class Objective : MonoBehaviour
     public int collected_No_of_cheese =0;
 
     
-    public int[] factoryNamesLevels;
 
-    public int[] objective_items;
-    public int[] collected_items;
-    public string[] itemsname;
-    public GameObject[] respectiveItemSprites;   // this will have sprites of objective in order resepctive to item(pissoble objective items)
-    
     public int eggpowderFactoryLevel=0;
     public int cakeFactoryLevel=0; 
     public int meatCutterFactoryLevel=0;
     public int sausagesFactoryLevel=0;
     public int curdFactoryLevel=0;
     public int cheeseFactoryLevel=0;
+
+
+    public int[] factoryNamesLevels;
+
+    public int[] objective_items;
+    public int[] collected_items;
+    public string[] itemsname;
+    public GameObject[] respectiveItemSprites;   // this will have sprites of objective in order resepctive to item(pissoble objective items)
        
     
     //private int flag =0;
