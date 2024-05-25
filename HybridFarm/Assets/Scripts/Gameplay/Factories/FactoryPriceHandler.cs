@@ -63,7 +63,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
         // indexOF factory have which factory the script was assigned to...
 
-        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned];
+        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; //this has factory and initial level.
 
         
         
@@ -102,16 +102,14 @@ public class FactoryPriceHandler : MonoBehaviour
 
 
         //currentFactory = factoryLevels[2];
-        int factoryIndex = Array.IndexOf(factoryLevels, currentFactoryLevel);
+        //int factoryIndex = Array.IndexOf(factoryLevels, currentFactoryLevel);
 
-        if (factoryIndex + 1 <= 6)
-        {
-        FactoryPrice = eggPowderfactoryLevelsCost[factoryIndex+1];
-        }
-        else
-        {
-         // remove buy button 
-        }
+        
+        
+        FactoryPrice = eggPowderfactoryLevelsCost[currentFactoryLevel];
+        
+        
+      
 
 
         
