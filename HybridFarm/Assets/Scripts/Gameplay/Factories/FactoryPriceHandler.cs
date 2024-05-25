@@ -15,7 +15,7 @@ public class FactoryPriceHandler : MonoBehaviour
     public int FactoryPrice = 200;
 
     public string nameOfFactory ;
-    private string currentFactoryLevel;
+    private int currentFactoryLevel;
     
 
     private string[] factoryLevels;
@@ -63,7 +63,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
         // indexOF factory have which factory the script was assigned to...
 
-        currentFactoryLevel = objective.nameOfFactory;
+        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned];
 
         
         
