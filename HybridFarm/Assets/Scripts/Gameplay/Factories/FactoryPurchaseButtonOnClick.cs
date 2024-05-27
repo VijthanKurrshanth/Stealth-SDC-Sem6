@@ -28,7 +28,6 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 
        
     }
-
     // Call this method when the button is pressed
     public void ToggleGroups()
     {
