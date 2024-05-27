@@ -4,6 +4,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 {
     // Assign these in the Inspector
     public GameObject[] renderersToHide;
+    public bool isVisible = false;
     public GameObject targetObjectToShow;
     public float targetX; // The X position to move to
     public float targetY; // The Y position to move to
@@ -14,7 +15,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     public GameObject targetObjectForCostofFactoryReduction;
     private FactoryPurchaseButtonReaction FactoryPurchaseButtonReaction;
     private Objective objective;
-    public bool isVisible = false;
+    
 
     void Start()
     {
@@ -56,11 +57,14 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     {
         if (hideAndShowObjectForLevel1Factories != null)
         {
-            hideAndShowObjectForLevel1Factories.isVisible=true;
+            
             if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
             {
+            hideAndShowObjectForLevel1Factories.isVisible=true;
             objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
-            //Debug.Log("enter");
+            objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.indexOfFactoryAssigned;
+            targetButtonObjectToMove.transform.position = new Vector3(targetX, targetY, targetButtonObjectToMove.transform.position.z);
+            
             }
 
             else 

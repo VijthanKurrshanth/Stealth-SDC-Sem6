@@ -16,6 +16,8 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     // Reference to the GameObject that represents the button
     public GameObject buttonGameObject;
 
+    public int currentFactoryLevel=0;
+
 
     //private string[] choosenFacotryArray;
 
@@ -59,7 +61,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
         }
         
 
-        int currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; // get corrosponding current factory level from objective script.
+        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; // get corrosponding current factory level from objective script.
 
 
 
