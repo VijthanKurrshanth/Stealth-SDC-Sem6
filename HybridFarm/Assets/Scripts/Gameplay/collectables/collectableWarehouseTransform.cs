@@ -37,7 +37,7 @@ public class collectableWarehouseTransform : MonoBehaviour
                 {
                 if (objective.itemsname[i] == nameoftheSpawnObject)
                 {
-                    objective.collected_items[i]++;
+                    objective.collected_items[i]+=1;
                 }
                 
                 }
