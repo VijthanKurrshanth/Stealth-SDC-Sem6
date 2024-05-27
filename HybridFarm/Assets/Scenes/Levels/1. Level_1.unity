@@ -1769,6 +1769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CurdFactory
   buttonGameObject: {fileID: 549707244}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!1 &108087445
 GameObject:
@@ -8491,11 +8493,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.45
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7407582
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13443,12 +13445,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderersToHide:
   - {fileID: 589555773}
-  targetObjectToShow: {fileID: 1927691347}
-  targetX: 0
-  targetY: 0
-  targetButtonObjectToMove: {fileID: 0}
-  targetObjectForCostofFactoryReduction: {fileID: 2065034639}
   isVisible: 0
+  targetObjectToShow: {fileID: 1927691347}
+  targetX: -6
+  targetY: 1.4
+  targetButtonObjectToMove: {fileID: 2065034639}
+  targetObjectForCostofFactoryReduction: {fileID: 2065034639}
 --- !u!1 &708989220
 GameObject:
   m_ObjectHideFlags: 0
@@ -17734,6 +17736,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CheeseFactory
   buttonGameObject: {fileID: 830636502}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!1 &883332029
 GameObject:
@@ -19588,6 +19592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: MeatCutterFactory
   buttonGameObject: {fileID: 1965269905}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!1 &952045529
 GameObject:
@@ -21051,6 +21057,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: SausagesFactory
   buttonGameObject: {fileID: 328307136}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!114 &993841604
 MonoBehaviour:
@@ -21066,6 +21074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: 
   buttonGameObject: {fileID: 0}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!1 &995387684
 GameObject:
@@ -39717,6 +39727,90 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1835087611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835087612}
+  - component: {fileID: 1835087613}
+  m_Layer: 0
+  m_Name: SolarPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835087612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835087611}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00023924893, y: 0.0069784345, z: -0.034263078, w: 0.99938846}
+  m_LocalPosition: {x: -0.317, y: 0.361, z: -0}
+  m_LocalScale: {x: 0.77161086, y: 0.6070507, z: 0.7311937}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1927691349}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.8, z: -3.927}
+--- !u!212 &1835087613
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835087611}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2b3a5aee52097bc4ca00d91f64581d5d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.96, y: 4.19}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1835309060
 GameObject:
   m_ObjectHideFlags: 0
@@ -41610,6 +41704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CakeFactory
   buttonGameObject: {fileID: 472884148}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 0
 --- !u!1 &1927691347
 GameObject:
@@ -41697,6 +41793,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 486502189}
+  - {fileID: 1835087612}
   - {fileID: 1578725635}
   - {fileID: 1083136662}
   - {fileID: 1535002712}
@@ -44701,6 +44798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: EggPowderFactory
   buttonGameObject: {fileID: 703839005}
+  currentFactoryLevel: 0
+  indexOfFactoryAssigned: 0
   CostOfFactory: 100
 --- !u!1 &2068682073
 GameObject:
