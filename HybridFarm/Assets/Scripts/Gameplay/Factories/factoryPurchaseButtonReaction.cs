@@ -24,6 +24,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     //public string nameOfFactory;
 
     // Cost of the factory
+    public int indexOfFactoryAssigned;
     public int CostOfFactory;
 
 
@@ -51,7 +52,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
 
         
         // to find which factory was assigned to this script.....
-        int indexOfFactoryAssigned =0;
+        //indexOfFactoryAssigned =0;
         for (int i = 0; i<=5 ;i++)
         {
             if (nameOfFactory == factoryNames[i])

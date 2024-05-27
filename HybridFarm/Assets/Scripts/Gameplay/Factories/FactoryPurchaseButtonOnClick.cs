@@ -62,7 +62,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
             {
             hideAndShowObjectForLevel1Factories.isVisible=true;
             objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
-            objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.indexOfFactoryAssigned;
+            objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
             targetButtonObjectToMove.transform.position = new Vector3(targetX, targetY, targetButtonObjectToMove.transform.position.z);
             
             }
