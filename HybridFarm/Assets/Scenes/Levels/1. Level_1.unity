@@ -1769,6 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CurdFactory
   buttonGameObject: {fileID: 549707244}
+  CostOfFactory: 0
 --- !u!1 &108087445
 GameObject:
   m_ObjectHideFlags: 0
@@ -13412,7 +13413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderersToHide:
   - {fileID: 589555773}
-  targetObject: {fileID: 1927691347}
+  targetObjectToShow: {fileID: 1927691347}
+  targetObjectForCostofFactoryReduction: {fileID: 2065034639}
   isVisible: 0
 --- !u!1 &708989220
 GameObject:
@@ -16734,7 +16736,7 @@ GameObject:
   - component: {fileID: 860097365}
   - component: {fileID: 860097364}
   m_Layer: 5
-  m_Name: FactoryBoardsAndButtons
+  m_Name: Factories
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17699,6 +17701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CheeseFactory
   buttonGameObject: {fileID: 830636502}
+  CostOfFactory: 0
 --- !u!1 &883332029
 GameObject:
   m_ObjectHideFlags: 0
@@ -19552,6 +19555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: MeatCutterFactory
   buttonGameObject: {fileID: 1965269905}
+  CostOfFactory: 0
 --- !u!1 &952045529
 GameObject:
   m_ObjectHideFlags: 0
@@ -21014,6 +21018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: SausagesFactory
   buttonGameObject: {fileID: 328307136}
+  CostOfFactory: 0
 --- !u!114 &993841604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21028,6 +21033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: 
   buttonGameObject: {fileID: 0}
+  CostOfFactory: 0
 --- !u!1 &995387684
 GameObject:
   m_ObjectHideFlags: 0
@@ -36021,6 +36027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23ec2d11ee8be247bfbd5c9d27bceb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grassCost: 18
 --- !u!1 &1682165427
 GameObject:
   m_ObjectHideFlags: 0
@@ -41570,6 +41577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: CakeFactory
   buttonGameObject: {fileID: 472884148}
+  CostOfFactory: 0
 --- !u!1 &1927691347
 GameObject:
   m_ObjectHideFlags: 0
@@ -44658,6 +44666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfFactory: EggPowderFactory
   buttonGameObject: {fileID: 703839005}
+  CostOfFactory: 100
 --- !u!1 &2068682073
 GameObject:
   m_ObjectHideFlags: 0
@@ -45917,13 +45926,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123675719}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.026, y: -0, z: 0.027}
+  m_LocalRotation: {x: 0.02836838, y: 0.14992353, z: 0.02925374, w: 0.98785746}
+  m_LocalPosition: {x: -0.048, y: -0, z: 0.05}
   m_LocalScale: {x: 1.0566, y: 1.0566, z: 1.0566}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2085226429}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.71, y: 17.349, z: 3.806}
 --- !u!212 &2123675721
 SpriteRenderer:
   m_ObjectHideFlags: 0

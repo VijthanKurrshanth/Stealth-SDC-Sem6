@@ -5,6 +5,10 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     // Assign these in the Inspector
     public GameObject[] renderersToHide;
     public GameObject targetObjectToShow;
+    public float targetX; // The X position to move to
+    public float targetY; // The Y position to move to
+
+    public GameObject targetButtonObjectToMove;
     private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
 
     public GameObject targetObjectForCostofFactoryReduction;
