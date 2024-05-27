@@ -4,7 +4,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 {
     // Assign these in the Inspector
     public GameObject[] renderersToHide;
-    public GameObject targetObjectForHideAndShow;
+    public GameObject targetObjectToShow;
     private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
 
     public GameObject targetObjectForCostofFactoryReduction;
@@ -14,20 +14,14 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 
     void Start()
     {
-        if (targetObjectForHideAndShow != null)
-        {
-            hideAndShowObjectForLevel1Factories = targetObjectForHideAndShow.GetComponent<HideAndShowObjectForLevel1Factories>();
-            FactoryPurchaseButtonReaction = targetObjectForCostofFactoryReduction.GetComponent<FactoryPurchaseButtonReaction>();
-            moneyScript = FindObjectOfType<MoneyScript>();
-            if (hideAndShowObjectForLevel1Factories == null)
-            {
-                Debug.LogError("HideAndShowObjectForLevel1Factories component not found on targetObject.");
-            }
-        }
-        else
-        {
-            Debug.LogError("Target object is not assigned.");
-        }
+        
+        hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
+        FactoryPurchaseButtonReaction = targetObjectForCostofFactoryReduction.GetComponent<FactoryPurchaseButtonReaction>();  
+        
+        moneyScript = FindObjectOfType<MoneyScript>();
+            
+
+       
     }
 
     // Call this method when the button is pressed
@@ -59,7 +53,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
         if (hideAndShowObjectForLevel1Factories != null)
         {
             hideAndShowObjectForLevel1Factories.isVisible=true;
-            moneyScript.moneyValue-= 
+            moneyScript.moneyValue-= FactoryPurchaseButtonReaction.CostOfFactory;
         }
         else
         {

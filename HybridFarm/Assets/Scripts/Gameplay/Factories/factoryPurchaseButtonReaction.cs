@@ -22,7 +22,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     //public string nameOfFactory;
 
     // Cost of the factory
-    private int CostOfFactory;
+    public int CostOfFactory;
 
 
     void Start()
