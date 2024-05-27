@@ -10,10 +10,10 @@ public class ContinueButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Ensure the pause menu is initially not visible
+        // Ensure the pause menu is initially  visible
         if (pauseMenu != null)
         {
-            pauseMenu.SetActive(false);
+            pauseMenu.SetActive(true);
         }
     }
 
@@ -23,17 +23,16 @@ public class ContinueButton : MonoBehaviour
         
     }
 
-    // Method to be called when the menu button is clicked
-    public void OnMenuButtonClick()
+    // Method to be called when the continue button is clicked
+    public void OnContinueButtonClick()
     {
-        // Pause the game
-        Time.timeScale = 0;
+        // Continue the game
+        Time.timeScale = 1;
 
-        // Display the pause menu
+        // Hide the pause menu
         if (pauseMenu != null)
         {
-            pauseMenu.SetActive(true);
+            pauseMenu.SetActive(false);
         }
     }
 }
-
