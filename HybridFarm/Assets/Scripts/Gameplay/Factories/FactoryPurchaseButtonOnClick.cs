@@ -9,7 +9,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 
     public GameObject targetObjectForCostofFactoryReduction;
     private FactoryPurchaseButtonReaction FactoryPurchaseButtonReaction;
-    private MoneyScript moneyScript;
+    private Objective objective;
     public bool isVisible = false;
 
     void Start()
@@ -18,7 +18,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
         hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
         FactoryPurchaseButtonReaction = targetObjectForCostofFactoryReduction.GetComponent<FactoryPurchaseButtonReaction>();  
         
-        moneyScript = FindObjectOfType<MoneyScript>();
+        objective = FindObjectOfType<Objective>();
             
 
        
@@ -53,7 +53,17 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
         if (hideAndShowObjectForLevel1Factories != null)
         {
             hideAndShowObjectForLevel1Factories.isVisible=true;
-            moneyScript.moneyValue-= FactoryPurchaseButtonReaction.CostOfFactory;
+            if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
+            {
+            objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
+            //Debug.Log("enter");
+            }
+
+            else 
+            {
+                //arrow mark indication show cash not enough...
+            }
+
         }
         else
         {
