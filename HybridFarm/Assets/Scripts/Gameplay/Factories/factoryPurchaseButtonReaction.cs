@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FactoryPurchaseButton : MonoBehaviour
+public class FactoryPurchaseButtonReaction : MonoBehaviour
 {
     // Reference to MoneyScript
     private MoneyScript moneyScript;
@@ -27,8 +27,8 @@ public class FactoryPurchaseButton : MonoBehaviour
 
     void Start()
     {
-        //to find money current value
-        moneyScript = FindObjectOfType<MoneyScript>();
+        
+        moneyScript = FindObjectOfType<MoneyScript>();  //to find money current value
         factoryPriceHandler = FindObjectOfType<FactoryPriceHandler>();
         objective = FindObjectOfType<Objective>();
 
@@ -47,23 +47,25 @@ public class FactoryPurchaseButton : MonoBehaviour
 
         string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
 
+        
+        // to find which factory was assigned to this script.....
         int indexOfFactoryAssigned =0;
         for (int i = 0; i<=5 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
-                indexOfFactoryAssigned = i;
+                indexOfFactoryAssigned = i; // i has index of factory script assigned...
             }
         }
+        
 
-
-        int currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned];
+        int currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; // get corrosponding current factory level from objective script.
 
 
 
         if (indexOfFactoryAssigned ==0)
         {
-            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel]; //display factory price on upgrade board based on selected factory...
         }
 
         else if (indexOfFactoryAssigned ==1)

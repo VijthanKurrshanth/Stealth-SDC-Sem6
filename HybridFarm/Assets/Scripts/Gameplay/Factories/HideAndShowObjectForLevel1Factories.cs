@@ -35,7 +35,7 @@ public class HideAndShowObjectForLevel1Factories : MonoBehaviour
     }
 
     // Method to enable or disable all Renderer components
-    private void SetRenderersEnabled(bool isEnabled)
+    public void SetRenderersEnabled(bool isEnabled)
     {
         foreach (Renderer renderer in renderers)
         {

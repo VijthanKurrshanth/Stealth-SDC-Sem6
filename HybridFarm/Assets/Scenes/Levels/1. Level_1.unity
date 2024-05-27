@@ -510,7 +510,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24198923}
-  - component: {fileID: 24198924}
   m_Layer: 0
   m_Name: Level1Factories
   m_TagString: Untagged
@@ -539,19 +538,6 @@ Transform:
   - {fileID: 1997317736}
   m_Father: {fileID: 1342578012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24198924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24198921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isVisible: 0
 --- !u!1 &24740362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4507,6 +4493,7 @@ GameObject:
   - component: {fileID: 248031745}
   - component: {fileID: 248031748}
   - component: {fileID: 248031747}
+  - component: {fileID: 248031749}
   m_Layer: 0
   m_Name: Confectionery Factory
   m_TagString: Untagged
@@ -4658,6 +4645,19 @@ PolygonCollider2D:
       - {x: 1.0151044, y: 0.70000005}
       - {x: 1.0151044, y: -0.77000004}
   m_UseDelaunayMesh: 0
+--- !u!114 &248031749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248031744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &248989507
 GameObject:
   m_ObjectHideFlags: 0
@@ -13265,7 +13265,7 @@ GameObject:
   - component: {fileID: 703839010}
   - component: {fileID: 703839009}
   - component: {fileID: 703839008}
-  - component: {fileID: 703839007}
+  - component: {fileID: 703839011}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -13292,18 +13292,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00007605553, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &703839007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703839005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &703839008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13348,16 +13336,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 703839007}
-        m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 703839011}
+        m_TargetAssemblyTypeName: FactoryPurchaseButtonOnClick, Assembly-CSharp
+        m_MethodName: ToggleGroups
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 3.MainMenu
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 703839011}
+        m_TargetAssemblyTypeName: FactoryPurchaseButtonOnClick, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &703839009
@@ -13398,6 +13398,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703839005}
   m_CullTransparentMesh: 1
+--- !u!114 &703839011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703839005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b64cc0df3103946822ab92169051a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToHide:
+  - {fileID: 589555773}
+  targetObject: {fileID: 1927691347}
+  isVisible: 0
 --- !u!1 &708989220
 GameObject:
   m_ObjectHideFlags: 0
@@ -39813,6 +39829,7 @@ GameObject:
   - component: {fileID: 1863792859}
   - component: {fileID: 1863792862}
   - component: {fileID: 1863792861}
+  - component: {fileID: 1863792863}
   m_Layer: 0
   m_Name: meat Cutter Factory
   m_TagString: Untagged
@@ -39964,6 +39981,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1863792863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863792858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &1869621256
 GameObject:
   m_ObjectHideFlags: 0
@@ -41519,6 +41549,7 @@ GameObject:
   - component: {fileID: 1927691348}
   - component: {fileID: 1927691351}
   - component: {fileID: 1927691350}
+  - component: {fileID: 1927691352}
   m_Layer: 0
   m_Name: egg Powder Factory
   m_TagString: Untagged
@@ -41678,6 +41709,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1927691352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927691347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &1930213106
 GameObject:
   m_ObjectHideFlags: 0
@@ -43585,6 +43629,7 @@ GameObject:
   - component: {fileID: 1997317735}
   - component: {fileID: 1997317738}
   - component: {fileID: 1997317737}
+  - component: {fileID: 1997317739}
   m_Layer: 0
   m_Name: cheese Factory
   m_TagString: Untagged
@@ -43737,6 +43782,19 @@ PolygonCollider2D:
       - {x: 0.9370015, y: 0.6681818}
       - {x: 0.9370015, y: -0.7863636}
   m_UseDelaunayMesh: 0
+--- !u!114 &1997317739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997317734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &2005147559
 GameObject:
   m_ObjectHideFlags: 0
@@ -44749,6 +44807,7 @@ GameObject:
   - component: {fileID: 2075746254}
   - component: {fileID: 2075746257}
   - component: {fileID: 2075746256}
+  - component: {fileID: 2075746258}
   m_Layer: 0
   m_Name: sausages Factory
   m_TagString: Untagged
@@ -44900,6 +44959,19 @@ PolygonCollider2D:
       - {x: 1.0274999, y: 0.6677625}
       - {x: 1.0274999, y: -0.8628393}
   m_UseDelaunayMesh: 0
+--- !u!114 &2075746258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075746253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &2085226428
 GameObject:
   m_ObjectHideFlags: 0
@@ -45861,7 +45933,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 768449898, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -45883,6 +45955,7 @@ GameObject:
   - component: {fileID: 2126731504}
   - component: {fileID: 2126731507}
   - component: {fileID: 2126731506}
+  - component: {fileID: 2126731508}
   m_Layer: 0
   m_Name: Curd Processing Factory
   m_TagString: Untagged
@@ -46034,6 +46107,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2126731508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126731503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 0
 --- !u!1 &2137091497
 GameObject:
   m_ObjectHideFlags: 0
