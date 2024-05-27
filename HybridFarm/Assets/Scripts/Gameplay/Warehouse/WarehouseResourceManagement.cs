@@ -19,7 +19,7 @@ public class WarehouseResourceManagement : MonoBehaviour
 
     void Start()
     {
-        objective_items = new int[] { No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
+        //objective_items = new int[] { No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
     }
 
     // Update is called once per frame
