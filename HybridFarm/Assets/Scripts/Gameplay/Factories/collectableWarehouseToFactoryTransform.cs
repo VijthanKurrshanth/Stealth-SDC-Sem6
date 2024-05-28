@@ -72,22 +72,21 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
             }
         }
 
-        if (objective.collected_items[indexofSpawnObject]>0){
-
-
-        // Check if the clicked object has the specified factory tag
-        if (gameObject.CompareTag(factoryname))
+        if (objective.collected_items[indexofSpawnObject]>0)
         {
-            // Spawn the sprite at the spawn position
-            if (spriteToMove != null)
+        // Check if the clicked object has the specified factory tag
+            if (gameObject.CompareTag(factoryname))
             {
-                movingObject = new GameObject("MovingSprite");
-                movingObject.transform.position = spawnPosition;
-                SpriteRenderer renderer = movingObject.AddComponent<SpriteRenderer>();
-                renderer.sprite = spriteToMove;
-                isMoving = true; // Set the flag to start moving the object
+                // Spawn the sprite at the spawn position
+                if (spriteToMove != null)
+                {
+                    movingObject = new GameObject("MovingSprite");
+                    movingObject.transform.position = spawnPosition;
+                    SpriteRenderer renderer = movingObject.AddComponent<SpriteRenderer>();
+                    renderer.sprite = spriteToMove;
+                    isMoving = true; // Set the flag to start moving the object
+                }
             }
-        }
 
         }
     }
