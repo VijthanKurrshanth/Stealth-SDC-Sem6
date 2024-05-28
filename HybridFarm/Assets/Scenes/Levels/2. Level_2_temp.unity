@@ -12480,6 +12480,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: -4, z: -3}
   ProcessedOutputToSpawn: {fileID: 2343631306098868113, guid: 9cb937492a178434c9d91809a7d70456, type: 3}
   processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: -3}
+  delayBeforeSpawn: 5
   factoryname: eggPowderFactory
   nameoftheRawMaterial: egg
 --- !u!1 &1932461291
@@ -13345,6 +13346,7 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: -4, z: -3}
   ProcessedOutputToSpawn: {fileID: 2343631306098868113, guid: 9cb937492a178434c9d91809a7d70456, type: 3}
   processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: -3}
+  delayBeforeSpawn: 3
   factoryname: eggPowderFactory
   nameoftheRawMaterial: egg
 --- !u!1001 &4957421206859879485
