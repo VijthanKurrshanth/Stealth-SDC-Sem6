@@ -1,11 +1,13 @@
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Timer : MonoBehaviour
 {
     public float timeRemaining = 0; // Initial time to start from 00:00
     public TextMeshProUGUI timerText; // Reference to the TextMeshProUGUI component to display the timer
 
+    public String TimeinFormat;
     void Start()
     {
         timerText = GetComponent<TextMeshProUGUI>(); // Get the TextMeshProUGUI component attached to the same GameObject
@@ -34,6 +36,8 @@ public class Timer : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeRemaining % 60);
 
         // Update the timer text
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+         
+        TimeinFormat= string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = TimeinFormat;
     }
 }

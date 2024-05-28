@@ -8,10 +8,17 @@ public class LevelComplete : MonoBehaviour
     ObjectiveFigure objectiveFigure;
 
     public GameObject LevelResultBoard;
+    //public GameObject TimerInObjectiveBoard;
+
+    //public GameObject ResultBoxTimerObjectToDisplay;
+
+    //private Timer timer;
+    
 
     void Start()
     {
         objectiveFigure = FindObjectOfType<ObjectiveFigure>();
+        //timer = TimerInObjectiveBoard.GetComponent<Timer>();
     }
 
     void Update()
@@ -84,7 +91,12 @@ public class LevelComplete : MonoBehaviour
             {
                 Time.timeScale = 0f; // Set time scale to zero to pause
                 LevelResultBoard.SetActive(true);
-                Debug.Log("Level is Completed");
+
+                
+
+
+
+                //Debug.Log("Level is Completed");
             }
             // else // If game is unpaused, resume time
             // {
