@@ -23,10 +23,15 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
     private AnimateFactory animateFactory;
 
+    
+
+    //public GameObject factoryToAnimate;
+
     void Start()
     {
         objective = FindObjectOfType<Objective>();
         animateFactory = FindObjectOfType<AnimateFactory>();
+        
     }
 
     void Update()
@@ -52,6 +57,7 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
                 // processed output object after a delay
                 Invoke("SpawnProcessedOutput", delayBeforeSpawn);
+                
 
             }
         }
@@ -60,7 +66,7 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
     void OnMouseDown()
     {
 
-
+    
 
         int indexofSpawnObject = 0;
         for (int i = 0; i < objective.collected_items.Length; i++)
@@ -86,6 +92,8 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
                     isMoving = true; // Set the flag to start moving the object
                 }
             }
+        
+
         }
     }
 
@@ -98,6 +106,7 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
         {
             Instantiate(ProcessedOutputToSpawn, processedOutputSpawnPosition, Quaternion.identity);
             animateFactory.canAnimate=false;
+        
         }
 
 
