@@ -22,6 +22,7 @@ public class collectableWarehouseTransform : MonoBehaviour
     }
     void Update()
     {
+        //objective.collected_items[4]++;
         // Check if the object is moving
         if (isMoving)
         {
@@ -32,13 +33,18 @@ public class collectableWarehouseTransform : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPosition) < 0.01f)
             {
                 // Destroy the object when it reaches the target position
-                Destroy(gameObject);
+                
                 for (int i=0; i< objective.collected_items.Length; i++)
                 {
                 if (objective.itemsname[i] == nameoftheSpawnObject)
                 {
                     objective.collected_items[i]+=1;
+                    //Debug.Log(i);
                 }
+
+                
+                Destroy(gameObject);
+                
                 
                 }
 
@@ -81,6 +87,10 @@ public class collectableWarehouseTransform : MonoBehaviour
             Debug.LogError("Prefab to spawn is not assigned in PrefabSpawner script!");
         }
     }
+
+
+
+    
 
 
 

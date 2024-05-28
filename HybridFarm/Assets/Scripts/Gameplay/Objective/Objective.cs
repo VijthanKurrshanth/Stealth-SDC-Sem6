@@ -71,7 +71,7 @@ public class Objective : MonoBehaviour
         objective_items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
         collected_items = new int[] { collected_amount_of_money, collected_No_of_chicken, collected_No_of_pig, collected_No_of_cow, collected_No_of_egg, collected_No_of_eggPoweder, collected_No_of_cake, collected_No_of_meat, collected_No_of_meatSlice, collected_No_of_sausage, collected_No_of_milk, collected_No_of_curd, collected_No_of_cheese };
         // This should be entered as name for spawnobject scripts when script assigned.
-        itemsname = new string[] { "money","chicken", "pig", "cow", "egg", "eggPoweder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
+        itemsname = new string[] { "money","chicken", "pig", "cow", "egg", "eggPowder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 
         respectiveItemSprites = new GameObject[13];
         //Debug.Log("Array size: " + respectiveItemSprites.Length);

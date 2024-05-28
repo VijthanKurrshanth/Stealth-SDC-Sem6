@@ -76,17 +76,17 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
 
         // Check if the clicked object has the specified factory tag
-            if (gameObject.CompareTag(factoryname))
+        if (gameObject.CompareTag(factoryname))
+        {
+            // Spawn the sprite at the spawn position
+            if (spriteToMove != null)
             {
-                // Spawn the sprite at the spawn position
-                if (spriteToMove != null)
-                {
-                    movingObject = new GameObject("MovingSprite");
-                    movingObject.transform.position = spawnPosition;
-                    SpriteRenderer renderer = movingObject.AddComponent<SpriteRenderer>();
-                    renderer.sprite = spriteToMove;
-                    isMoving = true; // Set the flag to start moving the object
-                }
+                movingObject = new GameObject("MovingSprite");
+                movingObject.transform.position = spawnPosition;
+                SpriteRenderer renderer = movingObject.AddComponent<SpriteRenderer>();
+                renderer.sprite = spriteToMove;
+                isMoving = true; // Set the flag to start moving the object
+            }
         }
 
         }
