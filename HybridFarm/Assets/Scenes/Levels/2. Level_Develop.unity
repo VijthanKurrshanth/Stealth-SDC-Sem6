@@ -24316,6 +24316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 0
   timerText: {fileID: 0}
+  TimeinFormat: 
 --- !u!1 &1113867457
 GameObject:
   m_ObjectHideFlags: 0
@@ -42967,7 +42968,6 @@ GameObject:
   - component: {fileID: 1969900910}
   - component: {fileID: 1969900913}
   - component: {fileID: 1969900912}
-  - component: {fileID: 1969900911}
   m_Layer: 5
   m_Name: LevelResultBoardText_Time_Value
   m_TagString: Untagged
@@ -42994,19 +42994,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1.0688307, y: 0.22993469}
   m_SizeDelta: {x: 378.91, y: 75.82}
   m_Pivot: {x: 0.5, y: 0.49999997}
---- !u!114 &1969900911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969900909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a116c4fc18f97d049ba97f3fb3b08a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneyValue: 10000
 --- !u!114 &1969900912
 MonoBehaviour:
   m_ObjectHideFlags: 0
