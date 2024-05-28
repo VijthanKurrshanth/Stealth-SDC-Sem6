@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 {
-    public float speed = 18f; // Speed at which the object moves
-    public Vector3 targetPosition = new Vector3(0f, -4f, -3f); // Target position for the object to move towards
+    public float speed = 18f; 
+    public Vector3 targetPosition = new Vector3(0f, -4f, -3f); 
 
     public Sprite spriteToMove; // Sprite to be instantiated
-    public Vector3 spawnPosition = new Vector3(0f, -4f, -3f); // Serialized variable for spawn position
-    private bool isMoving = false; // Flag to check if the object is currently moving
-    private GameObject movingObject; // Reference to the spawned moving object
+    public Vector3 spawnPosition = new Vector3(0f, -4f, -3f); 
+    private bool isMoving = false; 
+    private GameObject movingObject; 
 
-    public GameObject ProcessedOutputToSpawn; // Object to spawn after sprite is destroyed
-    public Vector3 processedOutputSpawnPosition = new Vector3(0f, -4f, -3f); // Position to spawn the processed output
+    public GameObject ProcessedOutputToSpawn; // Object to spawn after sprite...
+    public Vector3 processedOutputSpawnPosition = new Vector3(0f, -4f, -3f); 
 
-    public float delayBeforeSpawn = 2f; // Delay for spawning the processed output object
+    public float delayBeforeSpawn = 2f; // Delay for spawning processed...
+
+    public float cooldownTime = 5f; // Cooldown time between spawns
+    private float lastSpawnTime = -Mathf.Infinity; // Time when the last object was spawned...
 
     Objective objective;
     public string factoryname;
@@ -23,15 +26,10 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
     private AnimateFactory animateFactory;
 
-    
-
-    //public GameObject factoryToAnimate;
-
     void Start()
     {
         objective = FindObjectOfType<Objective>();
         animateFactory = FindObjectOfType<AnimateFactory>();
-        
     }
 
     void Update()
@@ -40,33 +38,39 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
 
 
-        
         if (isMoving && movingObject != null)
         {
-            
             movingObject.transform.position = Vector2.MoveTowards(movingObject.transform.position, targetPosition, speed * Time.deltaTime);
 
-            
             if (Vector2.Distance(movingObject.transform.position, targetPosition) < 0.01f)
             {
-                // Destroy the object.....
+                // Destroy the object
                 animateFactory.canAnimate = true;
                 Destroy(movingObject);
-                
-                isMoving = false; // Reset  moving flag....
 
-                // processed output object after a delay
+                isMoving = false; // Reset the moving flag
+
+                // Spawn the processed output object after a delay
                 Invoke("SpawnProcessedOutput", delayBeforeSpawn);
-                
-
             }
+        
+        
         }
+
+
+
     }
 
     void OnMouseDown()
     {
 
-    
+
+
+        
+        if (Time.time - lastSpawnTime < cooldownTime)
+        {
+            return; // Exit the method if still  cooldown .........
+        }
 
         int indexofSpawnObject = 0;
         for (int i = 0; i < objective.collected_items.Length; i++)
@@ -79,37 +83,33 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
 
         if (objective.collected_items[indexofSpawnObject] > 0)
         {
-            // Check for clicked object has  factory tag....
+
+            
             if (gameObject.CompareTag(factoryname))
             {
-                // Spawn the sprite .....
+                
                 if (spriteToMove != null)
                 {
                     movingObject = new GameObject("MovingSprite");
                     movingObject.transform.position = spawnPosition;
                     SpriteRenderer renderer = movingObject.AddComponent<SpriteRenderer>();
                     renderer.sprite = spriteToMove;
-                    isMoving = true; // Set the flag to start moving the object
+                    isMoving = true; // Set the flag to start moving 
+                    lastSpawnTime = Time.time; // Update the last spa....
                 }
             }
-        
-
         }
     }
 
     void SpawnProcessedOutput()
     {
 
-
-        // Spawn the processed output 
+        
+        
         if (ProcessedOutputToSpawn != null)
         {
             Instantiate(ProcessedOutputToSpawn, processedOutputSpawnPosition, Quaternion.identity);
-            animateFactory.canAnimate=false;
-        
+            animateFactory.canAnimate = false;
         }
-
-
-
     }
 }
