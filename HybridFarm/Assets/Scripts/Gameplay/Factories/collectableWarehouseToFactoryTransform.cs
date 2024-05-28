@@ -21,9 +21,12 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
     public string factoryname;
     public string nameoftheRawMaterial;
 
+    private AnimateFactory animateFactory;
+
     void Start()
     {
         objective = FindObjectOfType<Objective>();
+        animateFactory = FindObjectOfType<AnimateFactory>();
     }
 
     void Update()
@@ -42,11 +45,14 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
             if (Vector2.Distance(movingObject.transform.position, targetPosition) < 0.01f)
             {
                 // Destroy the object.....
+                animateFactory.canAnimate = true;
                 Destroy(movingObject);
+                
                 isMoving = false; // Reset  moving flag....
 
                 // processed output object after a delay
                 Invoke("SpawnProcessedOutput", delayBeforeSpawn);
+
             }
         }
     }
@@ -91,9 +97,10 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
         if (ProcessedOutputToSpawn != null)
         {
             Instantiate(ProcessedOutputToSpawn, processedOutputSpawnPosition, Quaternion.identity);
+            animateFactory.canAnimate=false;
         }
 
 
-        
+
     }
 }

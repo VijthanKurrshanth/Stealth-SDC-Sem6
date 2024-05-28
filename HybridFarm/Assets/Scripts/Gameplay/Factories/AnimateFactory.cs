@@ -29,7 +29,8 @@ public class AnimateFactory : MonoBehaviour
 
         else 
         {
-            //nothing
+            
+            gameObject.transform.localScale = new Vector3 (1f,1f,1f);
         }
         
     }
