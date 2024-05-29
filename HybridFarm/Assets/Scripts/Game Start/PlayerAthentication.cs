@@ -15,6 +15,8 @@ public class PlayerAuthentication : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
+
         StartCoroutine(ApiController.GetJwtKey((responseString) => AuthenticateAndSaveProfile(responseString)));
     }
 
