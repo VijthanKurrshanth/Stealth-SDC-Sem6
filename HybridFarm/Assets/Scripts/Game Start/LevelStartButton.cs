@@ -12,6 +12,7 @@ public class LevelStartButton : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1;
     }
 
 }
