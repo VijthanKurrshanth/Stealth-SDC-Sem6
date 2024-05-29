@@ -83,7 +83,7 @@ public class FactoryPriceHandler : MonoBehaviour
     void Update()
     {
 
-        
+        priceText.raycastTarget = false;
         string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
 
         int indexOfFactoryAssigned =0;
