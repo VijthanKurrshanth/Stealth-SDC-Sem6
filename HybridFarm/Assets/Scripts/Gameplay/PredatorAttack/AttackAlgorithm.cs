@@ -9,7 +9,7 @@ public class AttackAlgorithm : MonoBehaviour
     private readonly int maxLevelTime = 5;
     private readonly int maxDailyUnits = 10;
     private readonly float maxConsumptionRate = 0.1f;
-    private double currentTime = 0;
+    //private double currentTime = 0;
 
     // Start is called before the first frame update
     void Start()
