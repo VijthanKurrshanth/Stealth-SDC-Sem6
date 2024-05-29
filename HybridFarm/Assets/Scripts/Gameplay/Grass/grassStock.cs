@@ -6,6 +6,8 @@ public class grassStock : MonoBehaviour
 {
     
     grassSpawnDestroy grassSpawnDestroy;
+    Objective objective;
+    public int grassCost = 18;
     bool canrestock =true;
     
 
@@ -13,6 +15,7 @@ public class grassStock : MonoBehaviour
     {
         // Find the grassSpawnDestroy object in the scene
         grassSpawnDestroy = FindObjectOfType<grassSpawnDestroy>();
+        objective = FindObjectOfType<Objective>();
         
 
         if (grassSpawnDestroy == null)
@@ -28,6 +31,7 @@ public class grassStock : MonoBehaviour
         if (canrestock)
         {
         StartCoroutine(makenumberofGrassplanttoZero());
+        objective.collected_amount_of_money-= grassCost;
         canrestock=false;
         }
 

@@ -10,14 +10,16 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] int reduceValue = 100;
     [SerializeField] string nameoftheSpawnObject;
 
-    MoneyScript moneyScript;
+    /// <summary>
+    //MoneyScript moneyScript;
+    /// </summary>
     Objective objective;
 
     bool canSpawn = true; // Flag to control cooldown
 
     void Start()
     {
-        moneyScript = FindObjectOfType<MoneyScript>();
+        //moneyScript = FindObjectOfType<MoneyScript>();
         objective = FindObjectOfType<Objective>();
     }
 
@@ -84,6 +86,6 @@ public class ObjectSpawner : MonoBehaviour
             // Yield until the next frame
             yield return null;
         }
-        moneyScript.moneyValue -= reduceValue; // reduce money
+        objective.collected_amount_of_money -= reduceValue; // reduce money
     }
 }

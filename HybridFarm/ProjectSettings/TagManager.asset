@@ -12,6 +12,7 @@ TagManager:
   - collectableBox
   - Farm Evening
   - grassGroup
+  - eggPowderFactory
   layers:
   - Default
   - TransparentFX
