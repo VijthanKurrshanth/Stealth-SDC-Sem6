@@ -160,8 +160,10 @@ public class FactoryPriceHandler : MonoBehaviour
 void UpdatePriceText()
     {
         priceText.fontStyle = FontStyles.Bold;
-        priceText.fontSize = 15;
+        priceText.fontSize = 18;
         priceText.text = FactoryPrice.ToString();
+        priceText.color = Color.white; 
+
 
     
     }

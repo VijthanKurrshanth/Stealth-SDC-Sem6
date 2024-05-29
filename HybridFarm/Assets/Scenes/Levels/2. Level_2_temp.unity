@@ -10125,8 +10125,8 @@ RectTransform:
   m_LocalScale: {x: 0.0043756277, y: 0.008463671, z: 0.0029620263}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 457572583}
   - {fileID: 579094315}
+  - {fileID: 457572583}
   - {fileID: 547200460}
   - {fileID: 684653903}
   m_Father: {fileID: 191896652}
@@ -13131,8 +13131,8 @@ RectTransform:
   m_LocalScale: {x: 0.0043756277, y: 0.008463671, z: 0.0029620263}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1682165428}
   - {fileID: 563144246}
+  - {fileID: 1682165428}
   - {fileID: 703839006}
   - {fileID: 753041520}
   m_Father: {fileID: 191896652}
