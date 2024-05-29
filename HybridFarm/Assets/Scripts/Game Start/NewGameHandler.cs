@@ -8,6 +8,9 @@ public class NewGameHandler : MonoBehaviour
     public GameObject continueButton;
     public GameObject continueButtonMask;
     public GameObject warningPanel;
+    public GameObject attackAlgorithm;
+    public GameObject loadingScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,7 @@ public class NewGameHandler : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        SceneManager.LoadScene("4.GameplayEnvironment");
+        StartCoroutine(LoadingScreen());
     }
 
     public void OnConfirmButtonClicked()
@@ -64,5 +67,31 @@ public class NewGameHandler : MonoBehaviour
     public void OnCloseButtonClicked()
     {
         warningPanel.SetActive(false);
+    }
+
+    IEnumerator LoadingScreen()
+    {
+        loadingScreen.SetActive(true);
+        yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
+        {
+            loadingScreen.SetActive(false);
+            SceneManager.LoadScene("1. Level_1");
+        }));
+    }
+
+    public void OnTestButtonClicked()
+    {
+        // List<int> array = attackAlgorithm.GetComponent<AttackAlgorithm>().GetPredatorArray(0.05f);
+        // PrintList(array);
+
+        // void PrintList(List<int> list)
+        // {
+        //     foreach (int num in list)
+        //     {
+        //         Debug.Log(num);
+        //     }
+        // }
+        //PlayerPrefs.SetString("currentConsumption", "348091.79162336694");
+        //StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().SendPredatorAttack());
     }
 }

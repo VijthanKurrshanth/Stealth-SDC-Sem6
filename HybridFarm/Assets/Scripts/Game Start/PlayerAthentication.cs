@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using System.Net;
 using System;
+using UnityEngine.Networking;
+using System.Text;
 
 public class PlayerAuthentication : MonoBehaviour
 {
@@ -11,90 +13,74 @@ public class PlayerAuthentication : MonoBehaviour
     // Property to check if the user is authenticated
     public static bool IsAuthenticated { get; private set; }
 
-    IEnumerator CheckInternetConnection(Action<bool> action)
-    {
-        const string targetUrl = "http://google.com";
-        const float checkInterval = 1f; // Check every 3 seconds
-
-        bool isConnected = false;
-
-        while (!isConnected) // Continue checking until the connection is established
-        {
-            try
-            {
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(targetUrl);
-                using HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                isConnected = true;
-                action(true); // Connection established
-            }
-            catch (Exception)
-            {
-                // Connection failed, retry after a delay
-                isConnected = false;
-                action(false); // Connection failed
-            }
-            // Wait for 3 seconds before retrying
-            yield return new WaitForSeconds(checkInterval);
-        }
-    }
-
     void Start()
     {
-        StartCoroutine(CheckInternetConnection((isConnected) =>
-        {
-            if (isConnected)
-            {
-                debugText.text = "Internet connection established";
-                StartCoroutine(AuthenticateAndSaveProfile());
-            }
-            else
-            {
-                debugText.text = "No Internet connection";
-            }
-        }));
+        StartCoroutine(ApiController.GetJwtKey((responseString) => AuthenticateAndSaveProfile(responseString)));
     }
 
-    IEnumerator AuthenticateAndSaveProfile()
+    // Check internet connection. Not used in this script but can be used to check internet connection before making API calls
+    IEnumerator CheckInternetConnection(Action<bool> action = null)
+    {
+        const string targetUrl = "https://google.com";
+        bool isConnected = false;
+
+        UnityWebRequest request = UnityWebRequest.Get(targetUrl);
+        request.method = UnityWebRequest.kHttpVerbGET;
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "*/*");
+
+        yield return request.SendWebRequest();
+
+        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        {
+            Debug.LogError($"Error occurred during JWT key retrieval: {request.error}");
+        }
+        else
+        {
+            isConnected = true;
+        }
+        action?.Invoke(isConnected);
+    }
+
+    private void AuthenticateAndSaveProfile(string responseString)
     {
         // Authenticate the user
-        string jwtKey = ApiController.GetJwtKey();
 
-        if (jwtKey == null)
+        if (responseString == null)
         {
             debugText.text = "Error occurred during JWT key retrieval";
-            yield break; // Exit the coroutine on error
         }
         else
         {
             debugText.text = "JWT key retrieved successfully";
         }
-        yield return new WaitForSeconds(1f);
 
         // Save the user profile
-        UserProfile userProfile = ApiController.GetUserProfile(jwtKey);
+        StartCoroutine(ApiController.GetUserProfile(responseString, (userProfile) => SaveProfile(userProfile)));
+    }
 
+    private void SaveProfile(UserProfile userProfile)
+    {
         if (userProfile == null)
         {
             debugText.text = "Error occurred during user profile retrieval";
-            yield break; // Exit the coroutine on error
         }
         else
         {
             debugText.text = "User profile retrieved successfully";
         }
-        yield return new WaitForSeconds(1f);
 
-        // Display the user profile
+        // Display the username
         debugText.text = $"Welcome {userProfile.UserName}";
 
-        // Save the user profile data
+        // Save the username
         PlayerPrefs.SetString("firstName", userProfile.FirstName);
         PlayerPrefs.SetString("lastName", userProfile.LastName);
         PlayerPrefs.SetString("userName", userProfile.UserName);
         PlayerPrefs.SetString("nic", userProfile.Nic);
         PlayerPrefs.SetString("phoneNumber", userProfile.PhoneNumber);
         PlayerPrefs.SetString("email", userProfile.Email);
-        PlayerPrefs.SetString("profilePictureUrl", userProfile.ProfilePictureUrl);
 
         // Set authentication status to true
         IsAuthenticated = true;
