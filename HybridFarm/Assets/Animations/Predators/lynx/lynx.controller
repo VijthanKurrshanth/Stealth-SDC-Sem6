@@ -48,7 +48,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: lynx_leftdown_anim
+    m_ConditionEvent: leftdown_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5055250314508891071}
@@ -73,31 +73,31 @@ AnimatorController:
   m_Name: lynx
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: lynx_left_anim
+  - m_Name: left_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: lynx_leftup_anim
+  - m_Name: leftup_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: lynx_leftdown_anim
+  - m_Name: leftdown_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: lynx_up_anim
+  - m_Name: up_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: lynx_down_anim
+  - m_Name: down_anim
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -125,7 +125,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: lynx_down_anim
+    m_ConditionEvent: down_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2075256826066897064}
@@ -150,7 +150,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: lynx_left_anim
+    m_ConditionEvent: left_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3264597958274537201}
@@ -305,7 +305,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: lynx_up_anim
+    m_ConditionEvent: up_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2126206942487044419}
@@ -330,7 +330,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: lynx_leftup_anim
+    m_ConditionEvent: leftup_anim
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2736680961989724897}

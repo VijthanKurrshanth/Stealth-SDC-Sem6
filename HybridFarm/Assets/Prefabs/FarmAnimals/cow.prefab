@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 218003689539377856}
   - component: {fileID: 173632323544978650}
   - component: {fileID: 1248788185620738253}
+  - component: {fileID: 1671799320457566585}
   m_Layer: 0
   m_Name: cow
   m_TagString: Untagged
@@ -303,3 +304,15 @@ MonoBehaviour:
   timerforDeath: 13
   timerofDeathConstant: 13
   nameoftheSpawnObject: cow
+--- !u!114 &1671799320457566585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077012121768510942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c44f77f065e4244b41278c2b0ec3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
