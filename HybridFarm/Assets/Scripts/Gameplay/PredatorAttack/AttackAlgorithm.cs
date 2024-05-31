@@ -20,7 +20,7 @@ public class AttackAlgorithm : MonoBehaviour
     // Determine the attack interval in mins
     private float DetermineAttackInterval(float yesterdayConsumption)
     {
-        float attackInterval = Mathf.Lerp(maxLevelTime, 0, yesterdayConsumption / maxDailyUnits);
+        float attackInterval = Mathf.Lerp(maxLevelTime, 0.2f, yesterdayConsumption / maxDailyUnits);
         return attackInterval;
     }
 
