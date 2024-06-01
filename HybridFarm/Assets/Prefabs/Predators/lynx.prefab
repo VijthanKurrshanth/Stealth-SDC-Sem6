@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7145670060633069862}
   - component: {fileID: 6211217233206341674}
   - component: {fileID: 9203535580573455521}
-  - component: {fileID: 6784516441518491407}
+  - component: {fileID: 3994091566265556363}
   m_Layer: 0
   m_Name: lynx
   m_TagString: Untagged
@@ -171,7 +171,7 @@ CircleCollider2D:
   m_Offset: {x: 0.068784416, y: 0.005173981}
   serializedVersion: 2
   m_Radius: 0.361412
---- !u!114 &6784516441518491407
+--- !u!114 &3994091566265556363
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,9 +180,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4088240949854963463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf16d19476f3e147ad99f97139a9d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e73b86cffc216042ac82f80e74fa5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.5
   range: 2.14
   maxDistance: 5

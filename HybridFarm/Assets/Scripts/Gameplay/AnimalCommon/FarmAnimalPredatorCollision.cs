@@ -10,20 +10,28 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    public float speedOfThrow = 5;
-    public float scaleReductionSpeed = 0.1f;
+    private float speedOfThrow;
+    private float scaleReductionSpeed;
 
-    public float rotationSpeed = 100f;
+    private float rotationSpeed;
+
+    //private CircleCollider2D circleCollider2D;
     
 
   
 
     void Start ()
     {
-
+        //circleCollider2D = GetComponent<CircleCollider2D>();
         
-        targetLeftPosition = new Vector3(0, 0, transform.position.z);
-        targetRightPosition = new Vector3(0, 0, transform.position.z);
+        targetLeftPosition = new Vector3(-7.31f, 3.43f, 5);
+        targetRightPosition = new Vector3(7.31f, 3.43f, 5);
+
+        speedOfThrow = 10f;
+        scaleReductionSpeed = 1.5f;
+        rotationSpeed = 2000f;
+
+
     }
     void Update()
     {
@@ -67,11 +75,13 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
 
 
        
-        while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+        while (Vector3.Distance(transform.position, targetPosition) > 0.05f)
         {
+            //circleCollider2D.enabled = false;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedOfThrow * Time.deltaTime);
             transform.localScale = Vector3.MoveTowards(transform.localScale, Vector3.zero, scaleReductionSpeed * Time.deltaTime);
             transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+
             yield return null;
         }
 
