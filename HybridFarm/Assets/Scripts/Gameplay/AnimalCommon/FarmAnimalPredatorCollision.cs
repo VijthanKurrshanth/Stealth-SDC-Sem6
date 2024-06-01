@@ -32,13 +32,15 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
         {
             
             
-            StartCoroutine;
+            StartCoroutine (ThrowAndDestoryGameAnimal());
             //Destroy(gameObject);
         }
+
+    
     }
 
 
-    private IEnumerator ThrowAndDestoryGameAnimalT()
+    private IEnumerator ThrowAndDestoryGameAnimal()
     {
         yield return new WaitForSeconds(0.001f);
 
