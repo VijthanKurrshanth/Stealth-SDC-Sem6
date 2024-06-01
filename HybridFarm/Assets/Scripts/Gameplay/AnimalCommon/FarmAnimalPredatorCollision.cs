@@ -9,6 +9,9 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
     public Vector3 targetRightPosition; 
 
     private Vector3 targetPosition;
+
+    public int speedOfThrow = 5;
+    public float scaleReductionSpeed = 0.1f;
     
 
   
@@ -64,7 +67,8 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
        
         while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, 5 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedOfThrow * Time.deltaTime);
+            transform.localScale = Vector3.MoveTowards(transform.localScale, Vector3.zero, scaleReductionSpeed * Time.deltaTime);
             yield return null;
         }
 

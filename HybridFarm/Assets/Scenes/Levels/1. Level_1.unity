@@ -1716,6 +1716,10 @@ PrefabInstance:
       propertyPath: nameoftheSpawnObject
       value: chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7761,7 +7765,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 2543}
   m_LocalScale: {x: 3.0387049, y: 11.900273, z: 1.7931914}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1817376945}
   m_Father: {fileID: 938959725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8491,12 +8496,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817376943}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: 2.66, z: 0}
-  m_LocalScale: {x: 2.1648, y: 0.14, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.64501166, y: -5.2704673, z: -1418.1421}
+  m_LocalScale: {x: 76.94015, y: 1.270559, z: 60.227814}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1679717354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1860425780 stripped
 Transform:
@@ -9178,8 +9183,7 @@ SceneRoots:
   - {fileID: 1422898136}
   - {fileID: 1401982144}
   - {fileID: 860097367}
-  - {fileID: 459437030}
   - {fileID: 816438879}
   - {fileID: 1597888602}
   - {fileID: 275000294}
-  - {fileID: 1817376945}
+  - {fileID: 459437030}
