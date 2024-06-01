@@ -10,8 +10,10 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    public int speedOfThrow = 5;
+    public float speedOfThrow = 5;
     public float scaleReductionSpeed = 0.1f;
+
+    public float rotationSpeed = 100f;
     
 
   
@@ -69,6 +71,7 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speedOfThrow * Time.deltaTime);
             transform.localScale = Vector3.MoveTowards(transform.localScale, Vector3.zero, scaleReductionSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
             yield return null;
         }
 
