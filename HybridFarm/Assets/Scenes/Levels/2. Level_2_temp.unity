@@ -2524,6 +2524,10 @@ PrefabInstance:
       value: chicken
       objectReference: {fileID: 0}
     - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
       propertyPath: targetLeftPosition.x
       value: -6.42
       objectReference: {fileID: 0}
