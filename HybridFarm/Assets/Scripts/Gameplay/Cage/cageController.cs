@@ -45,7 +45,7 @@ public class cageController : MonoBehaviour
 
         if (cageStep > 0 && cageStep < cagePrefabs.Length)
         {
-            currentCage = Instantiate(cagePrefabs[cageStep - 1], transform.position, Quaternion.identity);
+            currentCage = Instantiate(cagePrefabs[cageStep - 1], transform.position+ new Vector3(0,0,-0.1f), Quaternion.identity);
             currentCage.transform.SetParent(this.transform);
         }
         else if (cageStep >= cagePrefabs.Length)

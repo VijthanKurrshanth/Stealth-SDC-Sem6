@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2542334326833275645}
   - component: {fileID: 434031062712460499}
   - component: {fileID: 5773863087577156368}
+  - component: {fileID: 4477811350797393627}
   m_Layer: 0
   m_Name: wolf
   m_TagString: Predators
@@ -186,3 +187,27 @@ CircleCollider2D:
   m_Offset: {x: -0.024825156, y: -0.043621838}
   serializedVersion: 2
   m_Radius: 0.4792624
+--- !u!114 &4477811350797393627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243464467755976467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f39b425312ab0478da7a8fccf60362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cagePrefabs:
+  - {fileID: 5322151330921410177, guid: b5012e58b5fb23a438fad509d2e629fe, type: 3}
+  - {fileID: 8077455056340823809, guid: bad6d6340226aaf4c91332720875e018, type: 3}
+  - {fileID: 3952602718165104764, guid: cec590e1f93739e489f0ca26197a6257, type: 3}
+  - {fileID: 8024225777398676754, guid: 83affb0b0dfdc84499e70a8223a19da8, type: 3}
+  - {fileID: 4313228612702800940, guid: d1959995f50a7da479da6b5fcf31e8f4, type: 3}
+  - {fileID: 6968759731826873964, guid: 7ac53f30214c9d443aeb453a3ec53902, type: 3}
+  - {fileID: 8125223767768070378, guid: 909ac961f1743a7408fd9c5d620de336, type: 3}
+  - {fileID: 6909405541431612278, guid: 519b03f969b3a4c45b1c75eba48cfa1e, type: 3}
+  - {fileID: 8800114514968514757, guid: 113f7e9b1aa33da4a853fd6e67470a15, type: 3}
+  cagedAnimalPrefab: {fileID: 6783510401562594569, guid: 1ed43479080b90d44b45168d17db9b41, type: 3}
+  timeToReverse: 4
