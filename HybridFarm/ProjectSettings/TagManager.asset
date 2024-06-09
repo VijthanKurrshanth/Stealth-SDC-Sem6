@@ -14,6 +14,7 @@ TagManager:
   - grassGroup
   - eggPowderFactory
   - Predators
+  - CagedAnimal
   layers:
   - Default
   - TransparentFX
