@@ -2572,9 +2572,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1806166634}
-        m_TargetAssemblyTypeName: LevelStartButton, Assembly-CSharp
-        m_MethodName: LoadScene
+      - m_Target: {fileID: 1051535729}
+        m_TargetAssemblyTypeName: LevelSelect, Assembly-CSharp
+        m_MethodName: OnLevelButtonClicked
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
