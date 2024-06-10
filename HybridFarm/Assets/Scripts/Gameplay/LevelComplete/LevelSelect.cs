@@ -28,10 +28,19 @@ public class LevelSelect : MonoBehaviour
     IEnumerator LoadingScreen(string level)
     {
         loadingScreen.SetActive(true);
-        yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
-       {
-           loadingScreen.SetActive(false);
-           SceneManager.LoadScene(level);
-       }));
+
+        if (level == "1. Level_1") // No predator attack in level 1
+        {
+            loadingScreen.SetActive(false);
+            SceneManager.LoadScene(level);
+        }
+        else
+        {
+            yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
+            {
+                loadingScreen.SetActive(false);
+                SceneManager.LoadScene(level);
+            }));
+        }
     }
 }
