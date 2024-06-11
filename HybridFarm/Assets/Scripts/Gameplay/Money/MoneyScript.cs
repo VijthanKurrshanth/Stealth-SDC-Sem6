@@ -20,7 +20,7 @@ public class MoneyScript : MonoBehaviour
         }
         //moneyValue = 100;   //initial Money
         UpdateMoneyText(); // Call the function to update the money text when the game starts
-        moneyValue=objective.collected_amount_of_money;
+        moneyValue=objective.collected_items[0];
         
         
     }
@@ -29,7 +29,7 @@ public class MoneyScript : MonoBehaviour
     void Update()
     {
         // Example: Increase money value by 1 every frame 
-        moneyValue=objective.collected_amount_of_money;
+        moneyValue=objective.collected_items[0];
         if (moneyValue < 0)
         {
             moneyValue = 0;

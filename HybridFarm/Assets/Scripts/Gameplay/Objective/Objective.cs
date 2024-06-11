@@ -25,19 +25,19 @@ public class Objective : MonoBehaviour
 
 
     //below are present amount tracking this should be updated manually with initial item amount.
-    public int collected_amount_of_money = 0;
-    public int collected_No_of_chicken =0;
-    public int collected_No_of_pig =0;
-    public int collected_No_of_cow =0;
-    public int collected_No_of_egg = 0;
-    public int collected_No_of_eggPoweder =0 ;
-    public int collected_No_of_cake =0 ;
-    public int collected_No_of_meat =0 ;
-    public int collected_No_of_meatSlice =0;
-    public int collected_No_of_sausage =0 ;
-    public int collected_No_of_milk =0 ;
-    public int collected_No_of_curd =0 ;
-    public int collected_No_of_cheese =0;
+    public int Initial_amount_of_money = 0;
+    public int Initial_No_of_chicken =0;
+    public int Initial_No_of_pig =0;
+    public int Initial_No_of_cow =0;
+    public int Initial_No_of_egg = 0;
+    public int Initial_No_of_eggPoweder =0 ;
+    public int Initial_No_of_cake =0 ;
+    public int Initial_No_of_meat =0 ;
+    public int Initial_No_of_meatSlice =0;
+    public int Initial_No_of_sausage =0 ;
+    public int Initial_No_of_milk =0 ;
+    public int Initial_No_of_curd =0 ;
+    public int Initial_No_of_cheese =0;
 
     
 
@@ -69,7 +69,7 @@ public class Objective : MonoBehaviour
         //objectiveFigure = FindObjectOfType<ObjectiveFigure>();
 
         objective_items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
-        collected_items = new int[] { collected_amount_of_money, collected_No_of_chicken, collected_No_of_pig, collected_No_of_cow, collected_No_of_egg, collected_No_of_eggPoweder, collected_No_of_cake, collected_No_of_meat, collected_No_of_meatSlice, collected_No_of_sausage, collected_No_of_milk, collected_No_of_curd, collected_No_of_cheese };
+        collected_items = new int[] { Initial_amount_of_money, Initial_No_of_chicken, Initial_No_of_pig, Initial_No_of_cow, Initial_No_of_egg, Initial_No_of_eggPoweder, Initial_No_of_cake, Initial_No_of_meat, Initial_No_of_meatSlice, Initial_No_of_sausage, Initial_No_of_milk, Initial_No_of_curd, Initial_No_of_cheese };
         // This should be entered as name for spawnobject scripts when script assigned.
         itemsname = new string[] { "money","chicken", "pig", "cow", "egg", "eggPowder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 

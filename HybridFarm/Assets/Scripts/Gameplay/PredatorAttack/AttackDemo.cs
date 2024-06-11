@@ -1,34 +1,39 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class ObjectSpawner : MonoBehaviour
+public class AttackDemo : MonoBehaviour
 {
-    public GameObject objectToSpawn;
+    public GameObject fox;
     public Vector2 spawnRange = new Vector2(3, 10);
     public Vector2 fieldRange = new Vector2(3, 1);
     public float moveSpeed = 40.0f; // Speed at which the object will move to the new position
-    [SerializeField] int reduceValue = 100;
-    [SerializeField] string nameoftheSpawnObject;
-
-    /// <summary>
-    //MoneyScript moneyScript;
-    /// </summary>
-    Objective objective;
+    public float spawnDelay = 2.0f; // Delay before spawning the fox
 
     bool canSpawn = true; // Flag to control cooldown
 
+    bool isPredatorSpawn=false;
+
     void Start()
     {
-        //moneyScript = FindObjectOfType<MoneyScript>();
-        objective = FindObjectOfType<Objective>();
+        // Start coroutine to spawn the fox after a delay
+        StartCoroutine(SpawnFoxAfterDelay());
     }
 
-    public void SpawnObject()
+    IEnumerator SpawnFoxAfterDelay()
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(spawnDelay);
+
+        // Spawn the fox
+        SpawnObject(0); // Assuming 0 is the index for the fox
+    }
+
+    public void SpawnObject(int predatorIndex)
     {
         if (canSpawn)
         {
-            StartCoroutine(SpawnCooldown());
-
+            //isPredatorSpawn = true;
             // Generate random position within the spawn range
             Vector3 spawnPosition = new Vector3(
                 Random.Range(-spawnRange.x, spawnRange.x),
@@ -37,7 +42,7 @@ public class ObjectSpawner : MonoBehaviour
             );
 
             // Spawn the object at the generated position
-            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(fox, spawnPosition, Quaternion.identity);
 
             // Calculate the new position within the field range while maintaining x position
             Vector3 targetPosition = new Vector3(
@@ -49,20 +54,12 @@ public class ObjectSpawner : MonoBehaviour
             // Move the object to the new position with specified speed
             StartCoroutine(MoveObject(spawnedObject.transform, targetPosition, moveSpeed));
 
-            //
-            for (int i=0; i< objective.collected_items.Length; i++)
-            {
-                if (objective.itemsname[i] == nameoftheSpawnObject)
-                {
-                    objective.collected_items[i]++;
-                }
-                
-            }
-
+            // Start the cooldown coroutine
+            StartCoroutine(SpawnCoolDown());
         }
     }
 
-    IEnumerator SpawnCooldown()
+    IEnumerator SpawnCoolDown()
     {
         canSpawn = false;
         yield return new WaitForSeconds(0.3f);
@@ -71,21 +68,22 @@ public class ObjectSpawner : MonoBehaviour
 
     IEnumerator MoveObject(Transform objectToMove, Vector3 targetPosition, float moveSpeed)
     {
-        //  distance to move calculatetions
+        
         float distance = Vector3.Distance(objectToMove.position, targetPosition);
-
-        // Continue moving until the object reaches the target position
+       
         while (distance > Mathf.Epsilon)
         {
             // Move towards the target position
             objectToMove.position = Vector3.MoveTowards(objectToMove.position, targetPosition, moveSpeed * Time.deltaTime);
 
-            // Recalculate the distance to the target position
+            
             distance = Vector3.Distance(objectToMove.position, targetPosition);
 
             // Yield until the next frame
             yield return null;
+
         }
-        objective.collected_items[0] -= reduceValue; // reduce money
+
+
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.TextCore.Text;
 
 public class grassSpawnDestroy : MonoBehaviour
 {
+    //Objective objective;
     public GameObject[] grassPrefabs; // Reference to the grass prefab
     public bool flagRunEnabled = false; // Flag to enable/disable running
     public int numberOfGrassplant=0;
@@ -23,6 +24,7 @@ public class grassSpawnDestroy : MonoBehaviour
         
  
         // Check if there are any grass objects present in the scene
+        //objective = FindObjectOfType<Objective>();
         GameObject[] grassObjects = GameObject.FindGameObjectsWithTag("grass");
         if (grassObjects.Length > 0)
         {
@@ -38,6 +40,7 @@ public class grassSpawnDestroy : MonoBehaviour
         // Check if the mouse button is clicked (left mouse button)
         if (Input.GetMouseButtonDown(0))
         {   
+        //if (objective.collected_items[0] > 18){
             Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPosition, Vector2.zero);
 
@@ -76,6 +79,7 @@ public class grassSpawnDestroy : MonoBehaviour
                         }
                 }
             }
+            //}
         }
     }
 

@@ -5,12 +5,13 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     // Assign these in the Inspector
     public GameObject[] renderersToHide;
     public bool isVisible = false;
-    public GameObject targetObjectToShow;
-    public float targetX; // The X position to move to
-    public float targetY; // The Y position to move to
+    //public GameObject targetObjectToShow;
+    public float factoryTargetX; // The X position to move to
+    public float factoryTargetY; // The Y position to move to
 
-    public GameObject targetButtonObjectToMove;
-    private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
+    //public GameObject targetButtonObjectToMove;
+    public GameObject FactoryToSpawn;
+    //private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
 
     public GameObject targetObjectForCostofFactoryReduction;
     private FactoryPurchaseButtonReaction FactoryPurchaseButtonReaction;
@@ -20,7 +21,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     void Start()
     {
         
-        hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
+        //hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
         FactoryPurchaseButtonReaction = targetObjectForCostofFactoryReduction.GetComponent<FactoryPurchaseButtonReaction>();  
         
         objective = FindObjectOfType<Objective>();
@@ -42,7 +43,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("One of the objects in renderersToHide is null.");
+                    Debug.LogWarning("One of the objects in renderersToHide is null....");
                 }
             }
         }
@@ -54,27 +55,20 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 
     public void OnButtonClick()
     {
-        if (hideAndShowObjectForLevel1Factories != null)
+        
+        if (objective.collected_items[0]>=FactoryPurchaseButtonReaction.CostOfFactory)
         {
-            
-            if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
-            {
-            hideAndShowObjectForLevel1Factories.isVisible=true;
-            objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
-            objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
-            targetButtonObjectToMove.transform.position = new Vector3(targetX, targetY, targetButtonObjectToMove.transform.position.z);
-            
-            }
-
-            else 
-            {
-                //arrow mark indication show cash not enough...
-            }
-
+        //hideAndShowObjectForLevel1Factories.isVisible=true;
+        objective.collected_items[0]-= FactoryPurchaseButtonReaction.CostOfFactory;
+        objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
+        GameObject newFactory = Instantiate(FactoryToSpawn, new Vector3(factoryTargetX,factoryTargetY,5), Quaternion.identity);
         }
-        else
+
+        else 
         {
-            Debug.LogWarning("HideAndShowObjectForLevel1Factories is not initialized.");
+        //arrow mark indication show cash not enough...
         }
+
+    
     }
 }

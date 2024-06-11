@@ -96,6 +96,7 @@ public class CollectableWarehouseToFactoryTransform : MonoBehaviour
                     renderer.sprite = spriteToMove;
                     isMoving = true; // Set the flag to start moving 
                     lastSpawnTime = Time.time; // Update the last spa....
+                    objective.collected_items[indexofSpawnObject] -= 1;
                 }
             }
         }
