@@ -10,14 +10,19 @@ public class AttackStarter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float interval = PlayerPrefs.GetFloat("attackInterval");
         //interval = 0.2f;
 
-        StartCoroutine(ApiController.GetJwtKey((JWTKey) => StartCoroutine(ApiController.GetCurrentConsumption(JWTKey, (consumptionString) =>
+        StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
         {
-            PlayerPrefs.SetString("currentConsumption", consumptionString);
-            InvokeRepeating(nameof(Attack), interval * 60, interval * 60);
-        }))));
+            float interval = attackInterval;
+            StartCoroutine(ApiController.GetJwtKey((JWTKey) => StartCoroutine(ApiController.GetCurrentConsumption(JWTKey, (consumptionString) =>
+            {
+                PlayerPrefs.SetString("currentConsumption", consumptionString);
+                InvokeRepeating(nameof(Attack), interval * 60, interval * 60);
+            }))));
+        }));
+
+
     }
 
     // Update is called once per frame
