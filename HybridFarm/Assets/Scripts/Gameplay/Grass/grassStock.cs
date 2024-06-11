@@ -28,7 +28,7 @@ public class grassStock : MonoBehaviour
     {
         // This function will be called when the button is clicked
         //Debug.Log("Button clicked!");
-        if (canrestock)
+        if (canrestock && objective.collected_items[0]>18)
         {
         StartCoroutine(makenumberofGrassplanttoZero());
         objective.collected_items[0]-= grassCost;

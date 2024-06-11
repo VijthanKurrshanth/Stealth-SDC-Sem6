@@ -3299,19 +3299,19 @@ MonoBehaviour:
   No_of_milk: 0
   No_of_curd: 0
   No_of_cheese: 0
-  collected_amount_of_money: 150
-  collected_No_of_chicken: 1
-  collected_No_of_pig: 0
-  collected_No_of_cow: 0
-  collected_No_of_egg: 0
-  collected_No_of_eggPoweder: 0
-  collected_No_of_cake: 0
-  collected_No_of_meat: 0
-  collected_No_of_meatSlice: 0
-  collected_No_of_sausage: 0
-  collected_No_of_milk: 0
-  collected_No_of_curd: 0
-  collected_No_of_cheese: 0
+  Initial_amount_of_money: 40
+  Initial_No_of_chicken: 1
+  Initial_No_of_pig: 0
+  Initial_No_of_cow: 0
+  Initial_No_of_egg: 0
+  Initial_No_of_eggPoweder: 0
+  Initial_No_of_cake: 0
+  Initial_No_of_meat: 0
+  Initial_No_of_meatSlice: 0
+  Initial_No_of_sausage: 0
+  Initial_No_of_milk: 0
+  Initial_No_of_curd: 0
+  Initial_No_of_cheese: 0
   eggpowderFactoryLevel: 0
   cakeFactoryLevel: 0
   meatCutterFactoryLevel: 0
