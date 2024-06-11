@@ -2502,10 +2502,10 @@ MonoBehaviour:
   renderersToHide:
   - {fileID: 191896651}
   isVisible: 0
-  targetObjectToShow: {fileID: 0}
-  targetX: -6
-  targetY: 1.4
-  targetButtonObjectToMove: {fileID: 1571920435}
+  targetObjectToShow: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
+  factoryTargetX: -5.253
+  factoryTargetY: 2.25
+  FactoryToSpawn: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
   targetObjectForCostofFactoryReduction: {fileID: 1571920435}
 --- !u!114 &547200462
 MonoBehaviour:
@@ -3906,10 +3906,10 @@ MonoBehaviour:
   renderersToHide:
   - {fileID: 191896651}
   isVisible: 0
-  targetObjectToShow: {fileID: 0}
-  targetX: -6
-  targetY: 1.4
-  targetButtonObjectToMove: {fileID: 2065034639}
+  targetObjectToShow: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
+  factoryTargetX: -5.253
+  factoryTargetY: 2.25
+  FactoryToSpawn: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
   targetObjectForCostofFactoryReduction: {fileID: 2065034639}
 --- !u!1 &738546655
 GameObject:
@@ -10851,8 +10851,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAnimate: 0
-  factoryToAnimate1: {fileID: 0}
-  factoryToAnimate2: {fileID: 0}
+  factoryToAnimate1: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
+  factoryToAnimate2: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
 --- !u!1001 &4957421206859879485
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,10 +6,11 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     public GameObject[] renderersToHide;
     public bool isVisible = false;
     public GameObject targetObjectToShow;
-    public float targetX; // The X position to move to
-    public float targetY; // The Y position to move to
+    public float factoryTargetX; // The X position to move to
+    public float factoryTargetY; // The Y position to move to
 
-    public GameObject targetButtonObjectToMove;
+    //public GameObject targetButtonObjectToMove;
+    public GameObject FactoryToSpawn;
     private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
 
     public GameObject targetObjectForCostofFactoryReduction;
@@ -20,7 +21,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     void Start()
     {
         
-        hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
+        //hideAndShowObjectForLevel1Factories = targetObjectToShow.GetComponent<HideAndShowObjectForLevel1Factories>();
         FactoryPurchaseButtonReaction = targetObjectForCostofFactoryReduction.GetComponent<FactoryPurchaseButtonReaction>();  
         
         objective = FindObjectOfType<Objective>();
@@ -62,8 +63,8 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
             //hideAndShowObjectForLevel1Factories.isVisible=true;
             objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
             objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
-            targetButtonObjectToMove.transform.position = new Vector3(targetX, targetY, targetButtonObjectToMove.transform.position.z);
-            
+    
+            Instantiate(FactoryToSpawn, new Vector3(factoryTargetX,factoryTargetY,5), Quaternion.identity);
             }
 
             else 
