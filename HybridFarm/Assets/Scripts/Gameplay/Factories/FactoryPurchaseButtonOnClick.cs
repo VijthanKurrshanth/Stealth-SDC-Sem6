@@ -42,7 +42,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogWarning("One of the objects in renderersToHide is null.");
+                    Debug.LogWarning("One of the objects in renderersToHide is null....");
                 }
             }
         }
@@ -59,7 +59,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
             
             if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
             {
-            hideAndShowObjectForLevel1Factories.isVisible=true;
+            //hideAndShowObjectForLevel1Factories.isVisible=true;
             objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
             objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
             targetButtonObjectToMove.transform.position = new Vector3(targetX, targetY, targetButtonObjectToMove.transform.position.z);
