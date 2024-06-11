@@ -10,6 +10,8 @@ public class COkButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.SetActive(false);
+
         // Ensure the pause menu is initially  visible
         if (ShipmentMenu != null)
         {

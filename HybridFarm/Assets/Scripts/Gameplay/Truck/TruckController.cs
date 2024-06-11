@@ -11,6 +11,7 @@ public class TruckController2D : MonoBehaviour
     private Color clickColor = Color.red;
 
     public GameObject buttonToDisable;
+    public GameObject buttonToEnable;
 
     void Update()
     {
@@ -38,7 +39,7 @@ public class TruckController2D : MonoBehaviour
                 // Check for mouse click
                 if (Input.GetMouseButtonDown(0))
                 {   
-                    MenuOFF();
+                    ButtonsToOFF();
                     // Change the color to clickColor
                     currentRenderer.color = clickColor;
 
@@ -71,7 +72,14 @@ public class TruckController2D : MonoBehaviour
     }
 
 
-    void MenuOFF()  //hide menuButton
+    void ButtonsToOFF()  //hide menuButton
+    {
+    
+        buttonToDisable.SetActive(false);
+            
+    }
+
+    void ButtonsToON()  //hide menuButton
     {
     
         buttonToDisable.SetActive(false);
