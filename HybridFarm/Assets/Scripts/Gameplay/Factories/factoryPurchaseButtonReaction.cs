@@ -35,7 +35,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
         factoryPriceHandler = FindObjectOfType<FactoryPriceHandler>();
         objective = FindObjectOfType<Objective>();
 
-        // Set initial state of the button
+        
         if (buttonGameObject != null)
         {
             buttonGameObject.SetActive(false);
