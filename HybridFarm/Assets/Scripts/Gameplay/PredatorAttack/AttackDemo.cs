@@ -12,6 +12,8 @@ public class AttackDemo : MonoBehaviour
 
     bool canSpawn = true; // Flag to control cooldown
 
+    bool isPredatorSpawn=false;
+
     void Start()
     {
         // Start coroutine to spawn the fox after a delay
@@ -31,6 +33,7 @@ public class AttackDemo : MonoBehaviour
     {
         if (canSpawn)
         {
+            //isPredatorSpawn = true;
             // Generate random position within the spawn range
             Vector3 spawnPosition = new Vector3(
                 Random.Range(-spawnRange.x, spawnRange.x),
@@ -78,6 +81,9 @@ public class AttackDemo : MonoBehaviour
 
             // Yield until the next frame
             yield return null;
+
         }
+
+
     }
 }

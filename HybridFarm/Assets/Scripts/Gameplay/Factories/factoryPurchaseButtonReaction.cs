@@ -26,6 +26,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     // Cost of the factory
     public int indexOfFactoryAssigned;
     public int CostOfFactory;
+    public bool isElectricFactory =  false;
 
 
     void Start()
@@ -48,12 +49,12 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     {
 
 
-        string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
+        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactory","CurdFactoryFuel","CheeseFactoryFuel","CheeseFactoryElectric"};
 
         
         // to find which factory was assigned to this script.....
         //indexOfFactoryAssigned =0;
-        for (int i = 0; i<=5 ;i++)
+        for (int i = 0; i<=9 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
