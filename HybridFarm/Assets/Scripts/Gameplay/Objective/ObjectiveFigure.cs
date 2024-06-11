@@ -94,7 +94,7 @@ public class ObjectiveFigure : MonoBehaviour
         {
             //Debug.Log (objectiveFigure.inIndexPostioninObjectiveItems[i]);
             
-            if (inIndexPostioninObjectiveItems[i]<13)
+            if (inIndexPostioninObjectiveItems[i]<13 || Green_Correct_Indicators[i]== true )
             {
                 if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.objective_items[inIndexPostioninObjectiveItems[i]] )
                 {

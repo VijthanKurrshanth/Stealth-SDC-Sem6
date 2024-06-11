@@ -31,7 +31,7 @@ public class grassStock : MonoBehaviour
         if (canrestock)
         {
         StartCoroutine(makenumberofGrassplanttoZero());
-        objective.collected_amount_of_money-= grassCost;
+        objective.collected_items[0]-= grassCost;
         canrestock=false;
         }
 

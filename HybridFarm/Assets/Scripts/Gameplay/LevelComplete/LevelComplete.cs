@@ -8,6 +8,10 @@ public class LevelComplete : MonoBehaviour
     ObjectiveFigure objectiveFigure;
 
     public GameObject LevelResultBoard;
+
+    // private bool Level1completed =false ;
+    // private bool Level2completed =false ;
+    // private bool Level3completed =false ;
     //public GameObject TimerInObjectiveBoard;
 
     //public GameObject ResultBoxTimerObjectToDisplay;
@@ -25,7 +29,7 @@ public class LevelComplete : MonoBehaviour
     {
 
         
-        // we should attach this scrtipt a an visible empty object beacuse the attach board will hidden initially.
+        // we should attach this script to an visible empty object beacuse the attach board will hidden initially.
 
         if (objectiveFigure.inIndexPostioninObjectiveItems[0]<13 &objectiveFigure.inIndexPostioninObjectiveItems[1]<13 & objectiveFigure.inIndexPostioninObjectiveItems[2]<13)
         {
