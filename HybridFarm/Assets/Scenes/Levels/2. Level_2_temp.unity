@@ -276,8 +276,7 @@ Transform:
   m_LocalPosition: {x: -5.14, y: 2.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2117140705}
+  m_Children: []
   m_Father: {fileID: 1342578012}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &142885147
@@ -2502,7 +2501,6 @@ MonoBehaviour:
   renderersToHide:
   - {fileID: 191896651}
   isVisible: 0
-  targetObjectToShow: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
   factoryTargetX: -5.253
   factoryTargetY: 2.25
   FactoryToSpawn: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
@@ -3906,7 +3904,6 @@ MonoBehaviour:
   renderersToHide:
   - {fileID: 191896651}
   isVisible: 0
-  targetObjectToShow: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
   factoryTargetX: -5.253
   factoryTargetY: 2.25
   FactoryToSpawn: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
@@ -10806,53 +10803,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116806784}
   m_CullTransparentMesh: 1
---- !u!1 &2117140704
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2117140705}
-  - component: {fileID: 2117140706}
-  m_Layer: 0
-  m_Name: AnimateFactory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2117140705
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117140704}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 24198923}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2117140706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117140704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2cbc94b71802f4995e4993bc2da093, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canAnimate: 0
-  factoryToAnimate1: {fileID: 7404265556774009946, guid: 539195de4335ebb4690d76747e3d477d, type: 3}
-  factoryToAnimate2: {fileID: 2744804260602555347, guid: 5da2d43b1afb4524dae5f7396b3c9b06, type: 3}
 --- !u!1001 &4957421206859879485
 PrefabInstance:
   m_ObjectHideFlags: 0

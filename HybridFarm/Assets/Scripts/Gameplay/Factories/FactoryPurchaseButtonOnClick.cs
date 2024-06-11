@@ -5,13 +5,13 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
     // Assign these in the Inspector
     public GameObject[] renderersToHide;
     public bool isVisible = false;
-    public GameObject targetObjectToShow;
+    //public GameObject targetObjectToShow;
     public float factoryTargetX; // The X position to move to
     public float factoryTargetY; // The Y position to move to
 
     //public GameObject targetButtonObjectToMove;
     public GameObject FactoryToSpawn;
-    private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
+    //private HideAndShowObjectForLevel1Factories hideAndShowObjectForLevel1Factories;
 
     public GameObject targetObjectForCostofFactoryReduction;
     private FactoryPurchaseButtonReaction FactoryPurchaseButtonReaction;
@@ -55,27 +55,20 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
 
     public void OnButtonClick()
     {
-        if (hideAndShowObjectForLevel1Factories != null)
+        
+        if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
         {
-            
-            if (objective.collected_amount_of_money>=FactoryPurchaseButtonReaction.CostOfFactory)
-            {
-            //hideAndShowObjectForLevel1Factories.isVisible=true;
-            objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
-            objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
+        //hideAndShowObjectForLevel1Factories.isVisible=true;
+        objective.collected_amount_of_money-= FactoryPurchaseButtonReaction.CostOfFactory;
+        objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
+        GameObject newFactory = Instantiate(FactoryToSpawn, new Vector3(factoryTargetX,factoryTargetY,5), Quaternion.identity);
+        }
+
+        else 
+        {
+        //arrow mark indication show cash not enough...
+        }
+
     
-            Instantiate(FactoryToSpawn, new Vector3(factoryTargetX,factoryTargetY,5), Quaternion.identity);
-            }
-
-            else 
-            {
-                //arrow mark indication show cash not enough...
-            }
-
-        }
-        else
-        {
-            Debug.LogWarning("HideAndShowObjectForLevel1Factories is not initialized.");
-        }
     }
 }

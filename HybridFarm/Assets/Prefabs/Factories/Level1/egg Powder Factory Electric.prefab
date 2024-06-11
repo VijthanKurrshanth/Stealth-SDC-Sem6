@@ -351,8 +351,8 @@ GameObject:
   - component: {fileID: 5601257895586906023}
   - component: {fileID: 5245325254876962930}
   - component: {fileID: 7082549309354130538}
-  - component: {fileID: 5700108903878390760}
   - component: {fileID: 8828599604963148247}
+  - component: {fileID: 1734968864493719543}
   m_Layer: 0
   m_Name: egg Powder Factory Electric
   m_TagString: eggPowderFactory
@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2744804260602555347}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.006982533, z: -0, w: 0.9999757}
+  m_LocalRotation: {x: 0, y: -0.0069813156, z: 0, w: 0.9999757}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -513,19 +513,6 @@ PolygonCollider2D:
       - {x: 0.9678444, y: 0.63}
       - {x: 0.9678444, y: -0.78000003}
   m_UseDelaunayMesh: 0
---- !u!114 &5700108903878390760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2744804260602555347}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb95cda6a1a3a54e8908646a9654d0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isVisible: 1
 --- !u!114 &8828599604963148247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,6 +535,19 @@ MonoBehaviour:
   cooldownTime: 5
   factoryname: eggPowderFactory
   nameoftheRawMaterial: egg
+--- !u!114 &1734968864493719543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2744804260602555347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2cbc94b71802f4995e4993bc2da093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canAnimate: 0
 --- !u!1 &3036850208122541441
 GameObject:
   m_ObjectHideFlags: 0
