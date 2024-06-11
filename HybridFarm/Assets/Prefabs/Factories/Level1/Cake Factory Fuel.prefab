@@ -368,7 +368,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.0069813156, z: 0, w: 0.9999757}
   m_LocalPosition: {x: 0.16, y: -0.24249348, z: 5}
-  m_LocalScale: {x: -1.0022041, y: 1, z: 1}
+  m_LocalScale: {x: 0.90689445, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 765598922628213922}
@@ -522,12 +522,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  targetPosition: {x: -5.1, y: 2.180771, z: -3}
+  targetPosition: {x: 5.1, y: 2.180771, z: -3}
   spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
   spawnPosition: {x: 0, y: -4, z: -3}
   ProcessedOutputToSpawn: {fileID: 2649260095408926020, guid: 8b92fe57066dfa445a0589ba881d6a98, type: 3}
   processedOutputSpawnPosition: {x: 3.41, y: 1.56, z: -3}
-  delayBeforeSpawn: 3
+  delayBeforeSpawn: 5
   cooldownTime: 5
   factoryname: cakeFactory
   nameoftheRawMaterial: eggPowder

@@ -74,17 +74,17 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
 
         else if (indexOfFactoryAssigned ==1)
         {
-            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel+1];
         }
         
         else if (indexOfFactoryAssigned ==2)
         {
-            CostOfFactory = factoryPriceHandler.meatcutterfactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
         }
         
         else if (indexOfFactoryAssigned ==3)
         {
-            CostOfFactory = factoryPriceHandler.sausagefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel+1];
         }
         
         else if (indexOfFactoryAssigned ==4)
@@ -94,7 +94,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
 
         else if (indexOfFactoryAssigned ==5)
         {
-            CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel+1];
         }
 
         else 
