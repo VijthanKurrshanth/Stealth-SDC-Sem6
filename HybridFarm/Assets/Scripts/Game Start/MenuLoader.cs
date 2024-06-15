@@ -11,6 +11,7 @@ public class MenuLoader : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
+        PlayerPrefs.Save();
 
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
