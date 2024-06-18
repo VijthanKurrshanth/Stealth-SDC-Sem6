@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRetrieve : MonoBehaviour
 {
+    public GameObject leaderBoardContent;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,7 @@ public class PlayerRetrieve : MonoBehaviour
                 {
                     Debug.Log("Rank: " + player.rank + " Username: " + player.userName + " Score: " + player.score);
                 }
+                leaderBoardContent.GetComponent<PlayerView>().DisplayPlayers(playerList);
             }));
         }));
     }
