@@ -60,7 +60,10 @@ public class NewGameHandler : MonoBehaviour
 
     public void OnConfirmButtonClicked()
     {
+        string leaderBoardLastChecked = PlayerPrefs.GetString("LastCheckedTime");
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("playerExists", 0);
+        PlayerPrefs.SetString("LastCheckedTime", leaderBoardLastChecked);
         SceneManager.LoadScene("7.UserProfile");
     }
 

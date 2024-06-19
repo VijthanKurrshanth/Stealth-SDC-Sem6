@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using UnityEngine.Networking;
 using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 
 // This class contains methods that interact with APIs on the server
 public static class ApiController
@@ -315,5 +316,41 @@ public static class ApiController
 
         consumption = (string)jsonObject["currentConsumption"];
         callback?.Invoke(consumption); // Invoke the callback function with the consumption
+    }
+
+    // This method is used to get the players list from the server
+    public static IEnumerator GetPlayersList(string jwtKey, Action<List<JObject>> callback = null)
+    {
+        if (string.IsNullOrEmpty(jwtKey))
+        {
+            Debug.Log("JWT key is null or empty");
+            yield break;
+        }
+
+        string url = "http://20.15.114.131:8080/api/user/profile/list";
+        UnityWebRequest request = UnityWebRequest.Get(url);
+        request.method = UnityWebRequest.kHttpVerbGET;
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.SetRequestHeader("Accept", "application/json");
+        request.SetRequestHeader("Authorization", "Bearer " + jwtKey);
+
+        yield return request.SendWebRequest();
+
+        while (!request.isDone)
+        {
+            yield return null; // Pause the coroutine until the request is complete
+        }
+
+        if ((request.result == UnityWebRequest.Result.ConnectionError) || (request.result == UnityWebRequest.Result.ProtocolError))
+        {
+            Debug.Log($"Error occurred during player list retrieval: {request.error}");
+        }
+
+        string jsonResponse = request.downloadHandler.text;
+        JObject jsonObject = JObject.Parse(jsonResponse);
+
+        List<JObject> playersList = jsonObject["userViews"].ToObject<List<JObject>>();
+        callback?.Invoke(playersList); // Invoke the callback function with the players list
     }
 }

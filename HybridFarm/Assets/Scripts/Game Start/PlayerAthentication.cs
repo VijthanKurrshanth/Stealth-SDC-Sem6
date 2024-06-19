@@ -1,10 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using System.Net;
 using System;
 using UnityEngine.Networking;
-using System.Text;
 
 public class PlayerAuthentication : MonoBehaviour
 {
@@ -83,6 +81,7 @@ public class PlayerAuthentication : MonoBehaviour
         PlayerPrefs.SetString("nic", userProfile.Nic);
         PlayerPrefs.SetString("phoneNumber", userProfile.PhoneNumber);
         PlayerPrefs.SetString("email", userProfile.Email);
+        PlayerPrefs.Save();
 
         // Set authentication status to true
         IsAuthenticated = true;
