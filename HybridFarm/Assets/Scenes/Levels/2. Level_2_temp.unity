@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfFactory: CakeFactory
+  nameOfFactory: EggPowderFactoryElectric
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
   meatcutterfactoryLevelsCost: 
@@ -7985,7 +7985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5393f43cb68d2ae4aa241b013d37d44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfFactory: CakeFactory
+  nameOfFactory: EggPowderFactoryElectric
   buttonGameObject: {fileID: 547200459}
   currentFactoryLevel: 0
   indexOfFactoryAssigned: 0
@@ -9110,7 +9110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e88718690867b34ba74ceba222c6f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfFactory: EggPowderFactory
+  nameOfFactory: EggPowderFactoryFuel
   eggPowderfactoryLevelsCost: 
   cakefactoryLevelsCost: 
   meatcutterfactoryLevelsCost: 
@@ -10473,7 +10473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5393f43cb68d2ae4aa241b013d37d44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameOfFactory: EggPowderFactory
+  nameOfFactory: EggPowderFactoryFuel
   buttonGameObject: {fileID: 703839005}
   currentFactoryLevel: 0
   indexOfFactoryAssigned: 0
