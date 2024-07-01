@@ -46,14 +46,14 @@ public class PlayerRetrieve : MonoBehaviour
 
                 foreach (JObject obj in players)
                 {
-                    if (obj["username"].ToString() == "oversight_g9")
+                    if (obj["username"].ToString() == PlayerPrefs.GetString("userName"))
                     {
                         Player player = new()
                         {
                             userName = PlayerPrefs.GetString("userName"),
                             firstName = PlayerPrefs.GetString("firstName"),
                             lastName = PlayerPrefs.GetString("lastName"),
-                            score = PlayerPrefs.GetInt("score"),
+                            score = PlayerPrefs.GetInt("PlayerScore"),
                         };
                         playerList.Add(player);
                     }
@@ -111,7 +111,7 @@ public class PlayerRetrieve : MonoBehaviour
         int maxScore = 3000;
         int minScore = 500;
 
-        int baseScore = (maxScore - minScore) * num / totalPlayers;
+        int baseScore = minScore + (maxScore - minScore) * num / totalPlayers;
         return baseScore;
     }
 
