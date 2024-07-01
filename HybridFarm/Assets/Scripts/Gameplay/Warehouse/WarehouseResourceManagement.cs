@@ -138,11 +138,6 @@ public class WarehouseResourceManagement : MonoBehaviour
     } 
 
 
-
-
-
-
-
     IEnumerator SpawnBlinkPrefab()
         {
             Vector3 spawnPosition = new Vector3(0.92f, -2.83f, 3.8f); 
@@ -153,19 +148,12 @@ public class WarehouseResourceManagement : MonoBehaviour
 
             while (elapsedTime < blinkDuration)
             {
-                // Spawn the arrow indicator prefab
+                
                 GameObject blinkObject = Instantiate(ArrowIndicatorOfWareHouse, spawnPosition, spawnRotation);
-
-                // Wait for 0.25 seconds
                 yield return new WaitForSeconds(0.25f);
-
-                // Destroy the spawned object
                 Destroy(blinkObject);
-
-                // Wait for another 0.25 seconds before spawning again
+                // Wait for another 0.25 
                 yield return new WaitForSeconds(0.25f);
-
-                // Update elapsed time
                 elapsedTime += 0.5f; // Since we wait for 0.25 + 0.25 = 0.5 seconds each cycle
             }
 
