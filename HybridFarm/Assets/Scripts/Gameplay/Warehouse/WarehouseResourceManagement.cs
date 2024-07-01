@@ -137,6 +137,29 @@ public class WarehouseResourceManagement : MonoBehaviour
         
     } 
 
+    public void ArrangeCollectables( int startposition, int endposition )
+    {
+        float zposistion= 4f;
+        Vector3[] AllPostitions = { 
+
+                                    new Vector3 (-1.3f ,-4.34f ,zposistion), new Vector3 (-1.3f ,-4.126f ,zposistion),new Vector3 (-1.3f ,-3.913f ,zposistion),new Vector3 (-1.3f ,-3.6991f ,zposistion),
+                                    new Vector3 (-1.0957f ,-4.34f ,zposistion), new Vector3 (-1.0957f ,-4.1268f ,zposistion),new Vector3 (-1.0957f ,-3.913f ,zposistion),new Vector3 (-1.0957f ,-3.6991f ,zposistion),
+                                    new Vector3 (-0.8917f ,-4.34f ,zposistion), new Vector3 (-0.8917f ,-4.1262f ,zposistion),new Vector3 (-0.8917f ,-3.913f ,zposistion),new Vector3 (-0.8917f ,-3.6991f ,zposistion),
+                                    new Vector3 (-0.6882f ,-4.34f ,zposistion), new Vector3 (-0.6882f ,-4.126f ,zposistion),new Vector3 (-0.6882f ,-3.913f ,zposistion),new Vector3 (-0.6882f ,-3.6991f ,zposistion),
+                                    new Vector3 (-0.484f ,-4.34f ,zposistion), new Vector3 (-0.484f ,-4.126f ,zposistion),new Vector3 (-0.484f ,-3.913f ,zposistion),new Vector3 (-0.484f ,-3.6991f ,zposistion),
+                                    new Vector3 (-0.281f ,-4.34f ,zposistion), new Vector3 (-0.281f ,-4.126f ,zposistion),new Vector3 (-0.281f ,-3.913f ,zposistion),new Vector3 (-0.281f ,-3.6991f ,zposistion),
+                                    new Vector3 (-0.075f ,-4.34f ,zposistion), new Vector3 (-0.075f ,-4.126f ,zposistion),new Vector3 (-0.075f ,-3.913f ,zposistion),new Vector3 (-0.075f ,-3.6991f ,zposistion),
+                                    new Vector3 (0.128f ,-4.34f ,zposistion), new Vector3 (0.128f ,-4.126f ,zposistion),new Vector3 (0.128f ,-3.913f ,zposistion),new Vector3 (0.128f ,-3.6991f ,zposistion),
+                                    new Vector3 (0.331f ,-4.34f ,zposistion), new Vector3 (0.331f ,-4.126f ,zposistion),new Vector3 (0.331f ,-3.913f ,zposistion),new Vector3 (0.331f ,-3.6991f ,zposistion),
+                                    new Vector3 (0.537f ,-4.34f ,zposistion), new Vector3 (0.537f ,-4.126f ,zposistion),new Vector3 (0.537f ,-3.913f ,zposistion),new Vector3 (0.537f ,-3.6991f ,zposistion),
+                                    new Vector3 (0.74f ,-4.34f ,zposistion), new Vector3 (0.74f ,-4.126f ,zposistion),new Vector3 (0.74f ,-3.913f ,zposistion),new Vector3 (0.74f ,-3.6991f ,zposistion),
+                                    
+                                     
+                                     
+                                    };
+
+    }
+
 
     IEnumerator SpawnBlinkPrefab()
         {
@@ -161,6 +184,12 @@ public class WarehouseResourceManagement : MonoBehaviour
  
 
 }
+
+
+
+
+
+
 
 
 
