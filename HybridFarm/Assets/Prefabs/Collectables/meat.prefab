@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e5ff2df9803e44a90d55a0e4a11dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabToSpawninWarehouse: {fileID: 0}
   nameoftheSpawnObject: meat
 --- !u!1 &7180655937598600401
 GameObject:

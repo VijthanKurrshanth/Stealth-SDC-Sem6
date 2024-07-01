@@ -7,6 +7,8 @@ public class collectableWarehouseTransform : MonoBehaviour
     private Vector3 targetPosition= new Vector3 (0f, -4f ,-3f); // Target position for the object to move towards
 
     private bool isMoving = false; // Flag to check if the object is currently moving
+
+    public GameObject   prefabToSpawninWarehouse;
     
     Objective objective;
     WarehouseResourceManagement warehouseResourceManagement;
@@ -67,7 +69,7 @@ public class collectableWarehouseTransform : MonoBehaviour
               isMoving = true; //if true object will move and destroyed...
               
 
-              warehouseResourceManagement.warehouseAllignment( boxRequired ); // not completed
+              warehouseResourceManagement.warehouseAllignment( boxRequired, prefabToSpawninWarehouse ); // not completed
                 
               warehouseResourceManagement.RemainingCapacityOfWarehouse -= boxRequired;
 

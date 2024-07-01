@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e5ff2df9803e44a90d55a0e4a11dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabToSpawninWarehouse: {fileID: 1636687748852870620, guid: c5c56f4934fcde64aa1378e157c5802e, type: 3}
   nameoftheSpawnObject: eggPowder
 --- !u!58 &2922382675427131717
 CircleCollider2D:

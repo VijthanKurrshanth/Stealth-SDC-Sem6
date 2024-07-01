@@ -12,6 +12,7 @@ public class WarehouseResourceManagement : MonoBehaviour
 
     Objective objective;
     public GameObject ArrowIndicatorOfWareHouse;
+    
 
     [SerializeField] int CapacityOfWarehouse = 44;
     public int RemainingCapacityOfWarehouse = 44; 
@@ -122,7 +123,7 @@ public class WarehouseResourceManagement : MonoBehaviour
     //This code not completed 
 
 
-    public void warehouseAllignment(int boxRequired) 
+    public void warehouseAllignment(int boxRequired, GameObject prefabToSpawnInWareHouse) 
     {
 
         int startposition =0;
@@ -133,13 +134,11 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         Debug.Log(startposition);
         Debug.Log(endposition);
-
         
-    } 
-
-    public void ArrangeCollectables( int startposition, int endposition )
-    {
-        float zposistion= 4f;
+        
+        
+        float zposistion= 4f;  // z position of warehouse product arrangement
+        
         Vector3[] AllPostitions = { 
 
                                     new Vector3 (-1.3f ,-4.34f ,zposistion), new Vector3 (-1.3f ,-4.126f ,zposistion),new Vector3 (-1.3f ,-3.913f ,zposistion),new Vector3 (-1.3f ,-3.6991f ,zposistion),
@@ -158,7 +157,18 @@ public class WarehouseResourceManagement : MonoBehaviour
                                      
                                     };
 
-    }
+        for (int i = startposition-1 ; i <= endposition-1; i++) 
+        {
+            Instantiate(prefabToSpawnInWareHouse, AllPostitions[i], Quaternion.identity);
+
+        }
+
+
+
+
+        
+    } 
+
 
 
     IEnumerator SpawnBlinkPrefab()
