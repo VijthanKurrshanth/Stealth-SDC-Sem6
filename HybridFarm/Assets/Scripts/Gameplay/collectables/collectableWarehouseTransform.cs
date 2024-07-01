@@ -13,16 +13,14 @@ public class collectableWarehouseTransform : MonoBehaviour
     [SerializeField] string nameoftheSpawnObject;
     
 
-
-
     void Start ()
     {
         objective = FindObjectOfType<Objective>();
     }
     void Update()
     {
-        //objective.collected_items[4]++;
-        // Check if the object is moving
+        
+        // Check if object is moving..
         if (isMoving)
         {
             // Move the object towards the target position
@@ -46,9 +44,6 @@ public class collectableWarehouseTransform : MonoBehaviour
                 
                 
                 }
-
-                
-
             }
         }
     }
@@ -59,7 +54,12 @@ public class collectableWarehouseTransform : MonoBehaviour
         if (gameObject.CompareTag("collectables"))
         {
             // Set the flag to start moving the object
-            isMoving = true;
+
+
+            
+            isMoving = true; //if true object will move and destroyed...
+
+
         }
     }
 

@@ -78,32 +78,49 @@ public class WarehouseResourceManagement : MonoBehaviour
     }
 
 
+//tupple that has mixed data types
 
-    public int Remainder(string ItemName, int warehouseLevel, int RemainingSpace) 
+public (int BoxRequired, int RemainingSpace, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel, int RemainingSpace) 
+{
+    int boxRequired = 0;
+    bool canCollect = false;
+
+    int[] warehouse1SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+    int[] warehouse2SpaceAllocations = { 1, 1, 2, 5, 7, 10, 14, 17, 21 };
+    int[] warehouse3SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+    int[] warehouse4SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+    int[] warehouse5SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+
+    int[][] warehouseSpaceAllocations = {
+        warehouse1SpaceAllocations,
+        warehouse2SpaceAllocations,
+        warehouse3SpaceAllocations,
+        warehouse4SpaceAllocations,
+        warehouse5SpaceAllocations
+    };
+
+    if (warehouseLevel >= 1 && warehouseLevel <= warehouseSpaceAllocations.Length) 
     {
-        int boxRequired =0;
-        int[] RemainderCaluatedArray = {boxRequired, RemainingSpace};
-
-        int[] warehouse1SpaceAllocations = {1,3,5,8,12,16,20,24,27};   // 
-        int[] warehouse2SpaceAllocations = {1,1,2,5,7,10,14,17,21};
-        int[] warehouse3SpaceAllocations = {1,3,5,8,12,16,20,24,27}; // not yet filled
-        int[] warehouse4SpaceAllocations = {1,3,5,8,12,16,20,24,27};  // not yet filled
-        int[] warehouse5SpaceAllocations = {1,3,5,8,12,16,20,24,27};  // not yet filled
-
+        int[] selectedWarehouseAllocations = warehouseSpaceAllocations[warehouseLevel - 1];
         
-
-        if (warehouseLevel==1) 
+        // Assuming you have a way to get the index.......
+        int itemIndex = Array.IndexOf(objective.itemsname, ItemName);
         
+        if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
         {
-            if (RemainingSpace >= warehouse1SpaceAllocations[objective.collected_items[Array.IndexOf(objective.itemsname, ItemName)]])
+            int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
+            if (RemainingSpace >= ItemSpace)
             {
-                // RemainingSpace = RemainingSpace-
+                canCollect = true;
+                RemainingSpace -= ItemSpace;
+                boxRequired = objective.collected_items[itemIndex];
             }
-
         }
-
-        return 0;
     }
+
+    return (boxRequired, RemainingSpace, canCollect);
+}
+
 
 
 }
