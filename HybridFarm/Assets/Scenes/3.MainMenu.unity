@@ -2003,6 +2003,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 40197537261964009, guid: 34a8de985081b634bb48455a10c1c726, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1817595389764591167, guid: 34a8de985081b634bb48455a10c1c726, type: 3}
       propertyPath: m_Controller
       value: 
