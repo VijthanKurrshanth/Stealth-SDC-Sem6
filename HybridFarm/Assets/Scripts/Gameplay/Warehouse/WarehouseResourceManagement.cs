@@ -61,7 +61,7 @@ public class WarehouseResourceManagement : MonoBehaviour
 
     //tupple that has mixed data types taken as input and return remaining , box allocation and can collect
 
-    public (int BoxRequired, int RemainingSpace, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel, int RemainingSpace) 
+    public (int BoxRequired, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel) 
     {
         int boxRequired = 0;
         bool canCollect = false;
@@ -90,21 +90,32 @@ public class WarehouseResourceManagement : MonoBehaviour
             if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
             {
                 int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
-                if (RemainingSpace >= ItemSpace)
+                if (RemainingCapacityOfWarehouse >= ItemSpace)
                 {
                     canCollect = true;
-                    RemainingSpace -= ItemSpace;
                     boxRequired = objective.collected_items[itemIndex];
                 }
             }
         }
 
-        return (boxRequired, RemainingSpace, canCollect);
+        return (boxRequired, canCollect);
     }
 
 
-    public void warehouseAllignment(int boxRequired, int remainingSpaceOfWareHouse) 
+    //This code not completed 
+
+
+    public void warehouseAllignment(int boxRequired) 
     {
+
+        int startposition =0;
+        int endposition =0;
+
+        startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse ;
+        endposition = startposition + boxRequired;
+
+
+
 
 
 

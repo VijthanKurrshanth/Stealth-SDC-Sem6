@@ -58,16 +58,15 @@ public class collectableWarehouseTransform : MonoBehaviour
             // Set the flag to start moving the object
 
 
-            (int boxRequired, int remainingSpace, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel, warehouseResourceManagement.RemainingCapacityOfWarehouse);
+            (int boxRequired, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel);
             
             if (canCollect == true) 
             {
               isMoving = true; //if true object will move and destroyed...
-              warehouseResourceManagement.RemainingCapacityOfWarehouse = remainingSpace;
 
-              //  void code to assign sprites for warehouse
-              warehouseResourceManagement.warehouseAllignment(boxRequired,warehouseResourceManagement.RemainingCapacityOfWarehouse );
-              
+            
+              warehouseResourceManagement.warehouseAllignment( boxRequired ); // not completed
+
             }
             
 
