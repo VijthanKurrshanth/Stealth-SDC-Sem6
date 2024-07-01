@@ -526,11 +526,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  targetPosition: {x: -5.1, y: 2.180771, z: -3}
+  targetPosition: {x: -5.1, y: 2.180771, z: 0}
   spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
-  spawnPosition: {x: 0, y: -4, z: -3}
+  spawnPosition: {x: 0, y: -4, z: 0}
   ProcessedOutputToSpawn: {fileID: 2343631306098868113, guid: 9cb937492a178434c9d91809a7d70456, type: 3}
-  processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: -3}
+  processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: 7}
   delayBeforeSpawn: 3
   cooldownTime: 5
   factoryname: eggPowderFactory
