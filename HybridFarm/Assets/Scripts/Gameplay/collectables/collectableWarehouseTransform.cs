@@ -60,6 +60,7 @@ public class collectableWarehouseTransform : MonoBehaviour
 
             (int boxRequired, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel);
             
+
             
             if (canCollect == true) 
             {

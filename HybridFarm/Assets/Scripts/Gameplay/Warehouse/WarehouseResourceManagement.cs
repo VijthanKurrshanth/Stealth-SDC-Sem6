@@ -88,11 +88,12 @@ public class WarehouseResourceManagement : MonoBehaviour
              
 
             int itemIndex = Array.IndexOf(objective.itemsname, ItemName); // itemsname is list of String in Objective.cs
-            
             //Debug.Log("" + itemIndex);
-            if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
+            //Debug.Log("" + itemIndex);
+            if (itemIndex >= 0) // to confirm item is not money which not is warehouse
             {
-                int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
+                int ItemSpace = selectedWarehouseAllocations[itemIndex-4];
+                Debug.Log("" + ItemSpace);
                 if (RemainingCapacityOfWarehouse >= ItemSpace)
                 {
                     canCollect = true;
@@ -116,12 +117,6 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse+1 ;
         endposition = startposition + boxRequired-1;
-
-        Debug.Log(""+ startposition);
-        Debug.Log("" + endposition);
-
-
-        
 
 
 
