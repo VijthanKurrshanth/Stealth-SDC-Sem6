@@ -55,7 +55,8 @@ public class NewGameHandler : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        StartCoroutine(LoadingScreen());
+        int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+        StartCoroutine(LoadingScreen(currentLevel + 4)); // Load the level scene based on the build index, level 1 is 5, level 2 is 6, etc. 
     }
 
     public void OnConfirmButtonClicked()
@@ -72,14 +73,12 @@ public class NewGameHandler : MonoBehaviour
         warningPanel.SetActive(false);
     }
 
-    IEnumerator LoadingScreen()
+    IEnumerator LoadingScreen(int index)
     {
         loadingScreen.SetActive(true);
-        yield return StartCoroutine(attackAlgorithm.GetComponent<AttackAlgorithm>().GetAttackInterval((attackInterval) =>
-        {
-            loadingScreen.SetActive(false);
-            SceneManager.LoadScene("1. Level_1");
-        }));
+        yield return new WaitForSeconds(1f);
+        loadingScreen.SetActive(false);
+        SceneManager.LoadScene(index);
     }
 
     public void OnTestButtonClicked()
