@@ -60,12 +60,16 @@ public class collectableWarehouseTransform : MonoBehaviour
 
             (int boxRequired, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel);
             
+            
             if (canCollect == true) 
             {
               isMoving = true; //if true object will move and destroyed...
+              
 
-            
               warehouseResourceManagement.warehouseAllignment( boxRequired ); // not completed
+                
+              warehouseResourceManagement.RemainingCapacityOfWarehouse -= boxRequired;
+
 
             }
             

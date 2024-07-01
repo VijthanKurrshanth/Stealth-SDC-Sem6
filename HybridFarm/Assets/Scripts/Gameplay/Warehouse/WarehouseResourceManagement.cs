@@ -84,16 +84,19 @@ public class WarehouseResourceManagement : MonoBehaviour
         {
             int[] selectedWarehouseAllocations = warehouseSpaceAllocations[warehouseLevel - 1];
             
-            // Assuming you have a way to get the index.......
+
+             
+
             int itemIndex = Array.IndexOf(objective.itemsname, ItemName); // itemsname is list of String in Objective.cs
             
+            //Debug.Log("" + itemIndex);
             if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
             {
                 int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
                 if (RemainingCapacityOfWarehouse >= ItemSpace)
                 {
                     canCollect = true;
-                    boxRequired = objective.collected_items[itemIndex];
+                    boxRequired = warehouse1SpaceAllocations[itemIndex-4];
                 }
             }
         }
@@ -113,6 +116,9 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse ;
         endposition = startposition + boxRequired;
+
+        Debug.Log(""+ startposition);
+        Debug.Log("" + endposition);
 
 
 
