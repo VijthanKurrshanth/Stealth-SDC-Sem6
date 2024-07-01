@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelComplete : MonoBehaviour
 {
@@ -142,14 +143,49 @@ public class LevelComplete : MonoBehaviour
         float scoreMultiplier = 1f - timePercentage; // Calculate the score multiplier based on the time percentage
         score += Mathf.RoundToInt(scoreMultiplier * 700); // Add the score multiplier to a maximum score attainable
 
+        // Save the score
+        int level = SceneManager.GetActiveScene().buildIndex - 5; // Get the level number based on the build index level 1 is 5, level 2 is 6, etc.
+        int[] levelScores = LoadIntArray("LevelScores"); // Load the level scores from PlayerPrefs
+        levelScores[level] = score; // Update the score for the current level
+        SaveIntArray("LevelScores", levelScores); // Save the updated level scores to PlayerPrefs
+
         // Display and save the score
         LevelScoreText.text = score.ToString(); // Display the score on the UI
         LevelTimeText.text = timeString; // Display the time taken on the UI
+       
+    }
 
-        int playerScore = PlayerPrefs.GetInt("PlayerScore", 0); // Get the previous score from PlayerPrefs
-        playerScore += score; // Add the current score to the previous score
-        PlayerPrefs.SetInt("PlayerScore", score); // Save the score to PlayerPrefs
-        PlayerPrefs.Save(); // Save the PlayerPrefs data
+    // Method to save an array of integers
+    public void SaveIntArray(string key, int[] array)
+    {
+        // Convert array of integers to a single string, separated by commas
+        string arrayString = string.Join(",", array);
+        PlayerPrefs.SetString(key, arrayString);
+        PlayerPrefs.Save(); // Make sure to save PlayerPrefs changes
+    }
+
+    // Method to load an array of integers
+    public int[] LoadIntArray(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            // Retrieve the string from PlayerPrefs
+            string arrayString = PlayerPrefs.GetString(key);
+            // Split the string into an array of strings
+            string[] stringArray = arrayString.Split(',');
+            // Convert each string in the array to an integer
+            int[] intArray = new int[stringArray.Length];
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                intArray[i] = int.Parse(stringArray[i]);
+            }
+            return intArray;
+        }
+        else
+        {
+            // Return an empty array if the key does not exist
+            return new int[15];
+        }
     }
 
 }
