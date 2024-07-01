@@ -11,6 +11,7 @@ public class WarehouseResourceManagement : MonoBehaviour
     // Start is called before the first frame update
 
     Objective objective;
+    public GameObject ArrowIndicatorOfWareHouse;
 
     [SerializeField] int CapacityOfWarehouse = 44;
     public int RemainingCapacityOfWarehouse = 44; 
@@ -93,11 +94,23 @@ public class WarehouseResourceManagement : MonoBehaviour
             if (itemIndex >= 0) // to confirm item is not money which not is warehouse
             {
                 int ItemSpace = selectedWarehouseAllocations[itemIndex-4];
-                Debug.Log("" + ItemSpace);
+                
+                //Debug.Log("" + ItemSpace);
+
                 if (RemainingCapacityOfWarehouse >= ItemSpace)
                 {
                     canCollect = true;
                     boxRequired = warehouse1SpaceAllocations[itemIndex-4];
+                }
+
+                else
+                {
+
+                    StartCoroutine(SpawnBlinkPrefab());
+
+                    
+                    
+                    
                 }
             }
         }
@@ -118,16 +131,48 @@ public class WarehouseResourceManagement : MonoBehaviour
         startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse+1 ;
         endposition = startposition + boxRequired-1;
 
-
+        Debug.Log(startposition);
+        Debug.Log(endposition);
 
         
     } 
 
 
 
+
+
+
+
+    IEnumerator SpawnBlinkPrefab()
+        {
+            Vector3 spawnPosition = new Vector3(0.92f, -2.83f, 3.8f); 
+            Quaternion spawnRotation = Quaternion.Euler(0, 0, -131.973f);
+
+            float elapsedTime = 0f;
+            float blinkDuration = 2f;
+
+            while (elapsedTime < blinkDuration)
+            {
+                // Spawn the arrow indicator prefab
+                GameObject blinkObject = Instantiate(ArrowIndicatorOfWareHouse, spawnPosition, spawnRotation);
+
+                // Wait for 0.25 seconds
+                yield return new WaitForSeconds(0.25f);
+
+                // Destroy the spawned object
+                Destroy(blinkObject);
+
+                // Wait for another 0.25 seconds before spawning again
+                yield return new WaitForSeconds(0.25f);
+
+                // Update elapsed time
+                elapsedTime += 0.5f; // Since we wait for 0.25 + 0.25 = 0.5 seconds each cycle
+            }
+
+        }
+ 
+
 }
-
-
 
 
 
