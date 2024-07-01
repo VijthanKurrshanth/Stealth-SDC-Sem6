@@ -66,6 +66,8 @@ public class collectableWarehouseTransform : MonoBehaviour
               warehouseResourceManagement.RemainingCapacityOfWarehouse = remainingSpace;
 
               //  void code to assign sprites for warehouse
+              warehouseResourceManagement.warehouseAllignment(boxRequired,warehouseResourceManagement.RemainingCapacityOfWarehouse );
+              
             }
             
 

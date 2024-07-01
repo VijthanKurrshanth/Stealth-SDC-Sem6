@@ -13,7 +13,7 @@ public class WarehouseResourceManagement : MonoBehaviour
     Objective objective;
 
     [SerializeField] int CapacityOfWarehouse = 44;
-    public int RemainingCapacityOfWarehouse = 0; 
+    public int RemainingCapacityOfWarehouse = 44; 
 
     public int warehouseLevel = 0;
 
@@ -54,10 +54,7 @@ public class WarehouseResourceManagement : MonoBehaviour
 
     void Update()
     {
-        //money is omitted here and objective.collected array has all collectables other than predators.
-
-
-
+        
         
     }
 
@@ -104,6 +101,15 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         return (boxRequired, RemainingSpace, canCollect);
     }
+
+
+    public void warehouseAllignment(int boxRequired, int remainingSpaceOfWareHouse) 
+    {
+
+
+
+        
+    } 
 
 
 
