@@ -30,6 +30,7 @@ public class SaveScore : MonoBehaviour
         Debug.Log("Sum of Level Scores: " + sum);
         playerScore = sum; // Update the player score with the sum of level scores
         PlayerPrefs.SetInt("PlayerScore", playerScore); // Save the updated score to PlayerPrefs
+        PlayerPrefs.SetInt("currentLevel", 2); // Set the current level to next level
         PlayerPrefs.Save(); // Save the PlayerPrefs data
         Debug.Log("Player Score: " + PlayerPrefs.GetInt("PlayerScore")); // Log the player score
     }
