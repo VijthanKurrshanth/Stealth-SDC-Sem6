@@ -55,7 +55,7 @@ public class WarehouseResourceManagement : MonoBehaviour
     void Update()
     {
         
-        
+        //Debug.Log(RemainingCapacityOfWarehouse);
     }
 
 
@@ -114,14 +114,14 @@ public class WarehouseResourceManagement : MonoBehaviour
         int startposition =0;
         int endposition =0;
 
-        startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse ;
-        endposition = startposition + boxRequired;
+        startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse+1 ;
+        endposition = startposition + boxRequired-1;
 
         Debug.Log(""+ startposition);
         Debug.Log("" + endposition);
 
 
-
+        
 
 
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7747057121967934816}
   - component: {fileID: 288419937465613276}
+  - component: {fileID: 5987664224475965552}
   m_Layer: 0
   m_Name: cheese
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5987664224475965552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240338203124949585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e5ff2df9803e44a90d55a0e4a11dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameoftheSpawnObject: cheese

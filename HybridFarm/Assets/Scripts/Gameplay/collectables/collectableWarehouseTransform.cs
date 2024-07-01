@@ -56,7 +56,7 @@ public class collectableWarehouseTransform : MonoBehaviour
         if (gameObject.CompareTag("collectables"))
         {
             // Set the flag to start moving the object
-
+            
 
             (int boxRequired, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel);
             
@@ -69,6 +69,8 @@ public class collectableWarehouseTransform : MonoBehaviour
               warehouseResourceManagement.warehouseAllignment( boxRequired ); // not completed
                 
               warehouseResourceManagement.RemainingCapacityOfWarehouse -= boxRequired;
+
+              //Debug.Log(warehouseResourceManagement.RemainingCapacityOfWarehouse);
 
 
             }
