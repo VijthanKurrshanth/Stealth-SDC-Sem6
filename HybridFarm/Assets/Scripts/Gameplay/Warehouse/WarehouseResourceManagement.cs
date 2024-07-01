@@ -56,70 +56,54 @@ public class WarehouseResourceManagement : MonoBehaviour
     {
         //money is omitted here and objective.collected array has all collectables other than predators.
 
-        // No_of_chicken_inWarehouse =objective.collected_items[1];
-        // No_of_pig_inWarehouse =objective.collected_items[2];
-        // No_of_cow_inWarehouse =objective.collected_items[3];    
-        // No_of_egg_inWarehouse = objective.collected_items[4];
-        // No_of_eggPoweder_inWarehouse = objective.collected_items[5];
-        // No_of_cake_inWarehouse = objective.collected_items[6];
-        // No_of_meat_inWarehouse = objective.collected_items[7];
-        // No_of_meatSlice_inWarehouse = objective.collected_items[8];
-        // No_of_sausage_inWarehouse = objective.collected_items[9];
-        // No_of_milk_inWarehouse = objective.collected_items[10];
-        // No_of_curd_inWarehouse = objective.collected_items[11];
-        // No_of_cheese_inWarehouse = objective.collected_items[12];
-
-        
-
-
 
 
         
     }
 
 
-//tupple that has mixed data types
+    //tupple that has mixed data types taken as input and return remaining , box allocation and can collect
 
-public (int BoxRequired, int RemainingSpace, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel, int RemainingSpace) 
-{
-    int boxRequired = 0;
-    bool canCollect = false;
-
-    int[] warehouse1SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
-    int[] warehouse2SpaceAllocations = { 1, 1, 2, 5, 7, 10, 14, 17, 21 };
-    int[] warehouse3SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
-    int[] warehouse4SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
-    int[] warehouse5SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
-
-    int[][] warehouseSpaceAllocations = {
-        warehouse1SpaceAllocations,
-        warehouse2SpaceAllocations,
-        warehouse3SpaceAllocations,
-        warehouse4SpaceAllocations,
-        warehouse5SpaceAllocations
-    };
-
-    if (warehouseLevel >= 1 && warehouseLevel <= warehouseSpaceAllocations.Length) 
+    public (int BoxRequired, int RemainingSpace, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel, int RemainingSpace) 
     {
-        int[] selectedWarehouseAllocations = warehouseSpaceAllocations[warehouseLevel - 1];
-        
-        // Assuming you have a way to get the index.......
-        int itemIndex = Array.IndexOf(objective.itemsname, ItemName);
-        
-        if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
+        int boxRequired = 0;
+        bool canCollect = false;
+
+        int[] warehouse1SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+        int[] warehouse2SpaceAllocations = { 1, 1, 2, 5, 7, 10, 14, 17, 21 };
+        int[] warehouse3SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+        int[] warehouse4SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+        int[] warehouse5SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+
+        int[][] warehouseSpaceAllocations = {
+            warehouse1SpaceAllocations,
+            warehouse2SpaceAllocations,
+            warehouse3SpaceAllocations,
+            warehouse4SpaceAllocations,
+            warehouse5SpaceAllocations
+        };
+
+        if (warehouseLevel >= 1 && warehouseLevel <= warehouseSpaceAllocations.Length) 
         {
-            int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
-            if (RemainingSpace >= ItemSpace)
+            int[] selectedWarehouseAllocations = warehouseSpaceAllocations[warehouseLevel - 1];
+            
+            // Assuming you have a way to get the index.......
+            int itemIndex = Array.IndexOf(objective.itemsname, ItemName); // itemsname is list of String in Objective.cs
+            
+            if (itemIndex >= 0 && itemIndex < selectedWarehouseAllocations.Length)
             {
-                canCollect = true;
-                RemainingSpace -= ItemSpace;
-                boxRequired = objective.collected_items[itemIndex];
+                int ItemSpace = selectedWarehouseAllocations[objective.collected_items[itemIndex]];
+                if (RemainingSpace >= ItemSpace)
+                {
+                    canCollect = true;
+                    RemainingSpace -= ItemSpace;
+                    boxRequired = objective.collected_items[itemIndex];
+                }
             }
         }
-    }
 
-    return (boxRequired, RemainingSpace, canCollect);
-}
+        return (boxRequired, RemainingSpace, canCollect);
+    }
 
 
 

@@ -9,6 +9,7 @@ public class collectableWarehouseTransform : MonoBehaviour
     private bool isMoving = false; // Flag to check if the object is currently moving
     
     Objective objective;
+    WarehouseResourceManagement warehouseResourceManagement;
 
     [SerializeField] string nameoftheSpawnObject;
     
@@ -16,6 +17,7 @@ public class collectableWarehouseTransform : MonoBehaviour
     void Start ()
     {
         objective = FindObjectOfType<Objective>();
+        warehouseResourceManagement = FindObjectOfType<WarehouseResourceManagement>();
     }
     void Update()
     {
@@ -56,8 +58,16 @@ public class collectableWarehouseTransform : MonoBehaviour
             // Set the flag to start moving the object
 
 
+            (int boxRequired, int remainingSpace, bool canCollect) = warehouseResourceManagement.SpaceAllocationWarehouse(nameoftheSpawnObject, warehouseResourceManagement.warehouseLevel, warehouseResourceManagement.RemainingCapacityOfWarehouse);
             
-            isMoving = true; //if true object will move and destroyed...
+            if (canCollect == true) 
+            {
+              isMoving = true; //if true object will move and destroyed...
+              warehouseResourceManagement.RemainingCapacityOfWarehouse = remainingSpace;
+
+              //  void code to assign sprites for warehouse
+            }
+            
 
 
         }
