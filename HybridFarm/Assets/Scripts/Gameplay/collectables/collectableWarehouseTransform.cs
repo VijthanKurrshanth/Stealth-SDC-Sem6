@@ -7,12 +7,11 @@ public class collectableWarehouseTransform : MonoBehaviour
     private Vector3 targetPosition= new Vector3 (0f, -4f ,-3f); // Target position for the object to move towards
 
     private bool isMoving = false; // Flag to check if the object is currently moving
-    public GameObject collecatableBoxToSpawn;
-    public Vector3 spawnPosition = new Vector3(-1.3f, -4.3f, -3.0f); // Serialized variable for spawn position
+    
     Objective objective;
 
     [SerializeField] string nameoftheSpawnObject;
-    [SerializeField] int numberOFEggs=0;
+    
 
 
 
@@ -48,7 +47,7 @@ public class collectableWarehouseTransform : MonoBehaviour
                 
                 }
 
-                SpawnCollectableBox();
+                
 
             }
         }
@@ -69,24 +68,6 @@ public class collectableWarehouseTransform : MonoBehaviour
 
 
 
-    void SpawnCollectableBox()
-    {
-        // Check if the prefab to spawn is assigned
-        if (collecatableBoxToSpawn != null)
-        {
-            // Instantiate the prefab at the position of this GameObject
-            spawnPosition += new Vector3 (0,numberOFEggs * 0.25f,0); // this method not working
-            Instantiate(collecatableBoxToSpawn, spawnPosition, Quaternion.identity);
-            numberOFEggs+=1;
-            spawnPosition= new Vector3 (-1.3f,-4.3f,-3.0f);
-
-
-        }
-        else
-        {
-            Debug.LogError("Prefab to spawn is not assigned in PrefabSpawner script!");
-        }
-    }
 
 
 

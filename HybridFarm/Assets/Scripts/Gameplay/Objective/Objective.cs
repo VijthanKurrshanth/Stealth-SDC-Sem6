@@ -52,7 +52,7 @@ public class Objective : MonoBehaviour
     public int[] factoryNamesLevels;
 
     public int[] objective_items;
-    public int[] collected_items;
+    public int[] collected_items;   // warehouse items excluding predators
     public string[] itemsname;
     public GameObject[] respectiveItemSprites;   // this will have sprites of objective in order resepctive to item(pissoble objective items)
        
