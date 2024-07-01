@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class LevelComplete : MonoBehaviour
@@ -8,6 +9,12 @@ public class LevelComplete : MonoBehaviour
     ObjectiveFigure objectiveFigure;
 
     public GameObject LevelResultBoard;
+
+    public TextMeshProUGUI timerText; // Reference to the TextMeshProUGUI component to display the timer
+
+    public TextMeshProUGUI LevelTimeText;
+
+    public TextMeshProUGUI LevelScoreText;
 
     // private bool Level1completed =false ;
     // private bool Level2completed =false ;
@@ -96,7 +103,7 @@ public class LevelComplete : MonoBehaviour
                 Time.timeScale = 0f; // Set time scale to zero to pause
                 LevelResultBoard.SetActive(true);
 
-                
+                setScore();
 
 
 
@@ -117,7 +124,33 @@ public class LevelComplete : MonoBehaviour
 
     }
 
+    void setScore()
+    {
+        string timeString = timerText.text; // Get the timer text
+        string[] parts = timeString.Split(':'); // Step 1: Split the string
+        int minutes = int.Parse(parts[0]); // Step 2: Convert minutes to integer
+        int seconds = int.Parse(parts[1]); // Step 3: Convert seconds to integer
+        int totalTimeInSeconds = (minutes * 60) + seconds; // Step 4: Calculate total time in seconds
 
+        // Calculate score based on time
+
+        int score = 300; // Basic score for completing the level
+        int maxTimeInSeconds = 300; // Maximum time assumed for the level in seconds
+
+        // Calculate score based on time
+        float timePercentage = (float)totalTimeInSeconds / maxTimeInSeconds; // Calculate the percentage of time taken
+        float scoreMultiplier = 1f - timePercentage; // Calculate the score multiplier based on the time percentage
+        score += Mathf.RoundToInt(scoreMultiplier * 700); // Add the score multiplier to a maximum score attainable
+
+        // Display and save the score
+        LevelScoreText.text = score.ToString(); // Display the score on the UI
+        LevelTimeText.text = timeString; // Display the time taken on the UI
+
+        int playerScore = PlayerPrefs.GetInt("PlayerScore", 0); // Get the previous score from PlayerPrefs
+        playerScore += score; // Add the current score to the previous score
+        PlayerPrefs.SetInt("PlayerScore", score); // Save the score to PlayerPrefs
+        PlayerPrefs.Save(); // Save the PlayerPrefs data
+    }
 
 }
 
