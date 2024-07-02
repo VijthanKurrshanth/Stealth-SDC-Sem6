@@ -23,7 +23,17 @@ public class ShipmentController : MonoBehaviour
 
     private List<GameObject> spawnedItems = new List<GameObject>();
     private List<GameObject> spawnedTexts = new List<GameObject>();
-    public Transform parentPrefab; // for textmesh prp sprites to spawn
+
+    private List<GameObject> spawnedButtons = new List<GameObject>();
+
+
+    public GameObject buttonPrefab1;
+    public GameObject buttonPrefab2;
+
+    public GameObject CoinPrefabs;
+
+    public Transform parentPrefabforText; // for textmesh pro sprites to spawn
+    public Transform parentPrefabforButtons;
     public GameObject textMeshProPrefab;
     //TextMeshProUGUI ObjectiveText;
 
@@ -143,12 +153,43 @@ public class ShipmentController : MonoBehaviour
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
 
-                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(1.1f, -0.15f, 0), Quaternion.identity);
+                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(1.1f, -0.14f, 0), Quaternion.identity);
                     TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
                     textMeshPro.text = "× " + objective.collected_items[i].ToString()+"</b>";
-                    textObj.transform.SetParent(parentPrefab);
+                    textObj.transform.SetParent(parentPrefabforText);
                     textObj.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj);
+
+
+                    GameObject textObj2 = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(2.15f, -0.14f, 0), Quaternion.identity);
+                    TextMeshProUGUI textMeshPro2 = textObj2.GetComponent<TextMeshProUGUI>();
+                    textMeshPro2.text = ItemsPrice[i-1].ToString() +"</b>";
+                    textObj2.transform.SetParent(parentPrefabforText);
+                    textObj2.transform.localScale = Vector3.one;
+                    spawnedTexts.Add(textObj2);
+
+                    GameObject coin = Instantiate(CoinPrefabs , ShipmentPostitions[l]+ new Vector3(2.15f, 0f, 0) , Quaternion.identity);
+                    coin.transform.localScale *= 0.45f;
+                    spawnedItems.Add(coin);
+
+
+
+
+
+                    GameObject button1 = Instantiate(buttonPrefab1, ShipmentPostitions[l] + new Vector3(2.5f, 0f, 0), Quaternion.identity);
+                    button1.transform.SetParent(parentPrefabforButtons);
+                    button1.transform.localScale = new Vector3 (0.23f,0.23f,1f) ; // to Ensure scale is (1, 1, 1)   for Vector3.one
+                    spawnedButtons.Add(button1);
+
+                    // Instantiate the second button next to the first one
+                    GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[l] + new Vector3(2.9f , 0f, 0), Quaternion.identity);
+                    button2.transform.SetParent(parentPrefabforButtons);
+                    button2.transform.localScale = new Vector3 (0.23f,0.23f,1f) ;// Vector3.one; // to Ensure scale is (1, 1, 1)
+                    spawnedButtons.Add(button2);
+
+
+
+
                     l+=1;
                 }
 
@@ -158,12 +199,41 @@ public class ShipmentController : MonoBehaviour
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
 
-                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(1.1f, -0.15f, 0), Quaternion.identity);
+                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(1.1f, -0.14f, 0), Quaternion.identity);
                     TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-                    textMeshPro.text = "× " + objective.collected_items[i].ToString()+"</b>";
-                    textObj.transform.SetParent(parentPrefab);
+                    textMeshPro.text = "× " + objective.collected_items[i].ToString() +"</b>";
+                    textObj.transform.SetParent(parentPrefabforText);
                     textObj.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj);
+
+
+                    GameObject textObj2 = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(1.75f, -0.14f, 0), Quaternion.identity);
+                    TextMeshProUGUI textMeshPro2 = textObj2.GetComponent<TextMeshProUGUI>();
+                    textMeshPro2.text = ItemsPrice[i-1].ToString() +"</b>";
+                    textObj2.transform.SetParent(parentPrefabforText);
+                    textObj2.transform.localScale = Vector3.one;
+                    spawnedTexts.Add(textObj2);
+
+                    GameObject coin = Instantiate(CoinPrefabs , ShipmentPostitions[k]+ new Vector3(1.55f, 0f, 0) , Quaternion.identity);
+                    coin.transform.localScale *= 0.45f;
+                    spawnedItems.Add(coin);
+
+
+
+
+
+                    GameObject button1 = Instantiate(buttonPrefab1, ShipmentPostitions[k] + new Vector3(1.84f, 0f, 0), Quaternion.identity);
+                    button1.transform.SetParent(parentPrefabforButtons);
+                    button1.transform.localScale = new Vector3 (0.23f,0.23f,1f) ; // to Ensure scale is (1, 1, 1)   for Vector3.one
+                    spawnedButtons.Add(button1);
+
+                    // Instantiate the second button next to the first one
+                    GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[k] + new Vector3(2.2f , 0f, 0), Quaternion.identity);
+                    button2.transform.SetParent(parentPrefabforButtons);
+                    button2.transform.localScale = new Vector3 (0.23f,0.23f,1f) ;// Vector3.one; // to Ensure scale is (1, 1, 1)
+                    spawnedButtons.Add(button2);
+
+
                     k+=1;
 
                 }
@@ -197,6 +267,12 @@ public class ShipmentController : MonoBehaviour
         foreach (GameObject text in spawnedTexts)
         {
             Destroy(text);
+        }
+        spawnedTexts.Clear();
+
+        foreach (GameObject item in spawnedButtons)
+        {
+            Destroy(item);
         }
         spawnedTexts.Clear();
 
