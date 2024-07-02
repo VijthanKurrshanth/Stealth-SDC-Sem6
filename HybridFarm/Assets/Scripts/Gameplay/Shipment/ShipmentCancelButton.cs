@@ -8,10 +8,13 @@ public class ShipmentCancelButton : MonoBehaviour
     public GameObject ShipmentMenuPrefabs;
     AllButtonDisableEnabler allButtonDisableEnabler;
 
+    TruckController2D truckController2D;
+
     // Start is called before the first frame update
     void Start()
     {
         allButtonDisableEnabler =  FindObjectOfType<AllButtonDisableEnabler>();
+        truckController2D = FindObjectOfType<TruckController2D>();
         // Ensure the pause menu is initially  visible
         if (ShipmentMenuPrefabs != null)
         {
@@ -31,6 +34,7 @@ public class ShipmentCancelButton : MonoBehaviour
         // Continue the game
         Time.timeScale = 1;
         allButtonDisableEnabler.EnableAllButtons();
+        truckController2D.vehicleisPressed =false;
 
         
         if (ShipmentMenuPrefabs != null)

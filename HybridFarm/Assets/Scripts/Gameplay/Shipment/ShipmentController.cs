@@ -10,23 +10,27 @@ public class ShipmentController : MonoBehaviour
 {
     // Start is called before the first frame update
     public int vehicleLevel = 0;
-    private int colletablesPerBoxLevel0 =5;
-    private int colletablesPerBoxLevel1 =5;
-    private int colletablesPerBoxLevel2 =5;
-    private int colletablesPerBoxLevel3 =5;
+    // private int colletablesPerBoxLevel0 =5;
+    // private int colletablesPerBoxLevel1 =5;
+    // private int colletablesPerBoxLevel2 =5;
+    // private int colletablesPerBoxLevel3 =5;
 
 
     private int[] BoxPerVehicle =  {2,3,5,7};   // index 0 is for level 0 vehicle.
 
     private float zposistion = -2.1f;
 
+    private List<GameObject> spawnedItems = new List<GameObject>();
+
     
 
     Objective objective;
+    TruckController2D truckController2D;
 
     void Start()
     {
         objective = FindObjectOfType<Objective>();
+        truckController2D = FindObjectOfType<TruckController2D>();
 
 
         // price list
@@ -69,8 +73,17 @@ public class ShipmentController : MonoBehaviour
         }
 
 
+        if ( truckController2D.vehicleisPressed )
+        {
+            displayItemsONShipmentMenu();
+        }
 
-        displayItemsONShipmentMenu ();
+        else 
+        {
+            clearShipmentMenu();
+        }
+
+
 
 
     }
@@ -100,7 +113,7 @@ public class ShipmentController : MonoBehaviour
 
         
 
-        int k=4;
+        int k=3;
         int l=0;
 
         // int[] currentItemsCountOnShipment = new int [20];     //first 12 enough for colletables and animals
@@ -112,16 +125,19 @@ public class ShipmentController : MonoBehaviour
             if ( objective.collected_items[i] > 0 )
             {
 
-                if (i<=3) {
+                if (i<=2) {
 
-                    Instantiate(objective.respectiveItemSprites[k], ShipmentPostitions[l] , Quaternion.identity);
-
+                    GameObject spritespawn = Instantiate(objective.respectiveItemSprites[i], ShipmentPostitions[l] , Quaternion.identity);
+                    spritespawn.transform.localScale *= 0.5f;
+                    spawnedItems.Add(spritespawn);
                     l+=1;
                 }
 
                 else 
                 {
-                    Instantiate(objective.respectiveItemSprites[k], ShipmentPostitions[k] , Quaternion.identity);
+                    GameObject spritespawn = Instantiate(objective.respectiveItemSprites[i], ShipmentPostitions[k] , Quaternion.identity);
+                    spritespawn.transform.localScale *= 0.5f;
+                    spawnedItems.Add(spritespawn);
                     k+=1;
 
                 }
@@ -133,7 +149,7 @@ public class ShipmentController : MonoBehaviour
 
             if (i== objective.collected_items.Length-1)
             {
-                k=4;
+                k=3;
                 l=0;               
             }
 
@@ -142,6 +158,16 @@ public class ShipmentController : MonoBehaviour
     
     
     
+    }
+
+
+    void clearShipmentMenu()
+    {
+        foreach (GameObject item in spawnedItems)
+        {
+            Destroy(item);
+        }
+        spawnedItems.Clear();
     }
 
 

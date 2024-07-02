@@ -14,6 +14,8 @@ public class TruckController2D : MonoBehaviour
 
     AllButtonDisableEnabler allButtonDisableEnabler;
 
+    public bool vehicleisPressed = false;
+
     void Start()
     {
         allButtonDisableEnabler = FindObjectOfType<AllButtonDisableEnabler>();
@@ -48,9 +50,13 @@ public class TruckController2D : MonoBehaviour
                     // Change the color to clickColor
                     currentRenderer.color = clickColor;
 
+
+
                     // Spawn the prefab at the specified spawn position
                     GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
                     spawnedObject.transform.SetParent(parentPrefab);
+
+                    vehicleisPressed =true;
 
                     // Pause the game
                     Time.timeScale = 0;
