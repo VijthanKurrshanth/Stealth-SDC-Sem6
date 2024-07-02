@@ -10,8 +10,6 @@ public class MenuLoader : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
-
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             StartCoroutine(DelayedLoadNextScene());
@@ -19,7 +17,14 @@ public class MenuLoader : MonoBehaviour
         else if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             StartCoroutine(WaitForAuthenticationAndLoadNextScene());
+            PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
+            PlayerPrefs.Save();
         }
+        else if (SceneManager.GetActiveScene().buildIndex != 2)
+        {
+            LoadMainMenu();
+        }
+
     }
 
     IEnumerator DelayedLoadNextScene()
@@ -44,6 +49,11 @@ public class MenuLoader : MonoBehaviour
     public void LoadNextScene()
     {
         StartCoroutine(LoadSceneWithTransition(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(LoadSceneWithTransition(2));
     }
 
     IEnumerator LoadSceneWithTransition(int sceneIndex)

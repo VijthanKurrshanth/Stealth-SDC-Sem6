@@ -86,6 +86,6 @@ public class ObjectSpawner : MonoBehaviour
             // Yield until the next frame
             yield return null;
         }
-        objective.collected_amount_of_money -= reduceValue; // reduce money
+        objective.collected_items[0] -= reduceValue; // reduce money
     }
 }

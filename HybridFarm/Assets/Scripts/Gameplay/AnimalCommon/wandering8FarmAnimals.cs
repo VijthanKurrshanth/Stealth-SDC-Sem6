@@ -29,7 +29,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     private bool isHungry =false;
     private bool startedEating = false;
     private int destroyedNoOfGrassobject=0;
-    bool approachingGrass= false;
+    //bool approachingGrass= false;
     bool movingTowardsGrassAndEat = false;
 
 
@@ -147,7 +147,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             anim.SetBool("eat_anim",true);
             startedEating = true;
             //Debug.Log("Eating");
-            approachingGrass=false;
+            //approachingGrass=false;
             StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
             }
         }
@@ -200,7 +200,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                     }
                 }
                 // Now nearestGrass will hold the closest grass object so chicken can move to nearest grass.
-                approachingGrass = true;
+                //approachingGrass = true;
                 return nearestGrass.transform.position;       
         }
         else

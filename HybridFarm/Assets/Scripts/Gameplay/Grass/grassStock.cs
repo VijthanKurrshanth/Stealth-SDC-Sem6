@@ -13,7 +13,7 @@ public class grassStock : MonoBehaviour
 
     void Start()
     {
-        // Find the grassSpawnDestroy object in the scene
+        
         grassSpawnDestroy = FindObjectOfType<grassSpawnDestroy>();
         objective = FindObjectOfType<Objective>();
         
@@ -26,12 +26,12 @@ public class grassStock : MonoBehaviour
 
     public void TaskOnClick()
     {
-        // This function will be called when the button is clicked
+        
         //Debug.Log("Button clicked!");
-        if (canrestock)
+        if (canrestock && objective.collected_items[0]>18)
         {
         StartCoroutine(makenumberofGrassplanttoZero());
-        objective.collected_amount_of_money-= grassCost;
+        objective.collected_items[0]-= grassCost;
         canrestock=false;
         }
 

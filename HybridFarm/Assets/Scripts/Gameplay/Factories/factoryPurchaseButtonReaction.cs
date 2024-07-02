@@ -26,6 +26,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     // Cost of the factory
     public int indexOfFactoryAssigned;
     public int CostOfFactory;
+    public bool isElectricFactory =  false;
 
 
     void Start()
@@ -35,7 +36,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
         factoryPriceHandler = FindObjectOfType<FactoryPriceHandler>();
         objective = FindObjectOfType<Objective>();
 
-        // Set initial state of the button
+        
         if (buttonGameObject != null)
         {
             buttonGameObject.SetActive(false);
@@ -48,12 +49,12 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     {
 
 
-        string[] factoryNames= new string [] {"EggPowderFactory","CakeFactory","MeatCutterFactory","SausagesFactory","CurdFactory","CheeseFactory"};
+        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactory","CurdFactoryFuel","CheeseFactoryFuel","CheeseFactoryElectric"};
 
         
         // to find which factory was assigned to this script.....
         //indexOfFactoryAssigned =0;
-        for (int i = 0; i<=5 ;i++)
+        for (int i = 0; i<=9 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
@@ -73,17 +74,17 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
 
         else if (indexOfFactoryAssigned ==1)
         {
-            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel+1];
         }
         
         else if (indexOfFactoryAssigned ==2)
         {
-            CostOfFactory = factoryPriceHandler.meatcutterfactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
         }
         
         else if (indexOfFactoryAssigned ==3)
         {
-            CostOfFactory = factoryPriceHandler.sausagefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel+1];
         }
         
         else if (indexOfFactoryAssigned ==4)
@@ -93,7 +94,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
 
         else if (indexOfFactoryAssigned ==5)
         {
-            CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel];
+            CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel+1];
         }
 
         else 
