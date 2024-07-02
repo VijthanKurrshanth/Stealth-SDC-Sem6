@@ -7,11 +7,9 @@ public class TruckController2D : MonoBehaviour
     public Vector3 spawnPosition; // Public variable to set the spawn position in the Inspector
     private SpriteRenderer currentRenderer;
     private Color originalColor;
-    private Color hoverColor = Color.yellow;
+    private Color hoverColor = Color.white;
     private Color clickColor = Color.red;
 
-    public GameObject buttonToDisable;
-    public GameObject buttonToEnable;
 
     void Update()
     {
@@ -39,7 +37,7 @@ public class TruckController2D : MonoBehaviour
                 // Check for mouse click
                 if (Input.GetMouseButtonDown(0))
                 {   
-                    ButtonsToOFF();
+                    
                     // Change the color to clickColor
                     currentRenderer.color = clickColor;
 
@@ -71,19 +69,5 @@ public class TruckController2D : MonoBehaviour
         }
     }
 
-
-    void ButtonsToOFF()  //hide menuButton
-    {
-    
-        buttonToDisable.SetActive(false);
-            
-    }
-
-    void ButtonsToON()  //hide menuButton
-    {
-    
-        buttonToDisable.SetActive(false);
-            
-    }
     
 }

@@ -24,6 +24,12 @@ public class ShipmentController : MonoBehaviour
     void Start()
     {
         objective = FindObjectOfType<Objective>();
+
+
+        // price list
+
+        int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
+
         
         
     }
@@ -73,12 +79,14 @@ public class ShipmentController : MonoBehaviour
     void displayItemsONShipmentMenu ()
 
     {
+        int k=0;
+
         int[] currentItemsCountOnShipment = new int [20];     //first 12 enough for colletables and animals
         string [] currentItemsNameOnShipment = new string [20];
 
         for (int i = 1 ; i< objective.collected_items.Length ; i++)
         {
-            int k=
+            
             if ( objective.collected_items[i] > 0 )
             {
                 
@@ -87,10 +95,19 @@ public class ShipmentController : MonoBehaviour
 
                 k+=1;
 
+                                               // each fram check for warehouse non zero count collectables and update current ITems array
+            }
 
+            if (i== objective.collected_items.Length-1)
+            {
+                k=0;               
             }
 
         }
+
+
+
+
 
 
 
