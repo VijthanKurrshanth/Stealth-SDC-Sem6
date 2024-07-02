@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System.Collections.Generic;
+
 
 public class ShipmentController : MonoBehaviour
 {
@@ -18,6 +18,9 @@ public class ShipmentController : MonoBehaviour
 
     private int[] BoxPerVehicle =  {2,3,5,7};   // index 0 is for level 0 vehicle.
 
+    private float zposistion = -2.1f;
+
+    
 
     Objective objective;
 
@@ -28,13 +31,12 @@ public class ShipmentController : MonoBehaviour
 
         // price list
 
-        int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
 
-        
         
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         if (vehicleLevel==0)
@@ -68,9 +70,9 @@ public class ShipmentController : MonoBehaviour
 
 
 
+        displayItemsONShipmentMenu ();
 
 
-        
     }
 
 
@@ -79,40 +81,67 @@ public class ShipmentController : MonoBehaviour
     void displayItemsONShipmentMenu ()
 
     {
-        int k=0;
+        int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
 
-        int[] currentItemsCountOnShipment = new int [20];     //first 12 enough for colletables and animals
-        string [] currentItemsNameOnShipment = new string [20];
 
-        for (int i = 1 ; i< objective.collected_items.Length ; i++)
+        
+        Vector3[] ShipmentPostitions = { 
+
+                                    new Vector3 (1.56f ,2.77f ,zposistion), new Vector3 (1.56f ,2.3f ,zposistion),new Vector3 (1.56f ,1.84f ,zposistion),new Vector3 (-5.3f ,2.7f ,zposistion),
+                                    new Vector3 (-5.3f ,2.22f ,zposistion), new Vector3 (-5.3f ,1.73f ,zposistion),new Vector3 (-5.3f ,1.3f ,zposistion),new Vector3 (-5.3f ,0.86f ,zposistion),
+                                    new Vector3 (-5.3f ,0.41f ,zposistion), new Vector3 (-5.3f ,-0.04f ,zposistion),new Vector3 (-5.3f ,-0.53f ,zposistion),new Vector3 (-5.3f ,-1.01f ,zposistion),
+                                    
+                                     
+                                    };
+
+                                    
+                                    //extraaa 
+                                    //new Vector3 (-5.3f ,-1.47f ,zposistion), new Vector3 (-5.3f ,-1.91f ,zposistion),new Vector3 (-5.3f,-2.331f ,zposistion),new Vector3 (-5.3f ,-2.3f ,zposistion)
+
+        
+
+        int k=4;
+        int l=0;
+
+        // int[] currentItemsCountOnShipment = new int [20];     //first 12 enough for colletables and animals
+        // string [] currentItemsNameOnShipment = new string [20];
+
+        for (int i = 1 ; i< objective.collected_items.Length ; i++) //i==1 avoid money
         {
             
             if ( objective.collected_items[i] > 0 )
             {
+
+                if (i<=3) {
+
+                    Instantiate(objective.respectiveItemSprites[k], ShipmentPostitions[l] , Quaternion.identity);
+
+                    l+=1;
+                }
+
+                else 
+                {
+                    Instantiate(objective.respectiveItemSprites[k], ShipmentPostitions[k] , Quaternion.identity);
+                    k+=1;
+
+                }
+
                 
-                currentItemsCountOnShipment[k] = objective.collected_items[i];
-                currentItemsNameOnShipment[k]  = objective.itemsname[i];
 
-                k+=1;
-
-                                               // each fram check for warehouse non zero count collectables and update current ITems array
+                // each fram check for warehouse non zero count collectables and update current ITems array
             }
 
             if (i== objective.collected_items.Length-1)
             {
-                k=0;               
+                k=4;
+                l=0;               
             }
 
         }
-
-
-
-
-
-
-
-
-        
+  
+    
+    
+    
     }
 
 
