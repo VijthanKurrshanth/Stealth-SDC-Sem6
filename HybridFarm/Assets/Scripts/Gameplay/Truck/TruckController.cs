@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TruckController2D : MonoBehaviour
 {
-    public GameObject prefabToSpawn; // Assign the prefab in the Inspector
+    public GameObject prefabToSpawn; 
     public Vector3 spawnPosition; // Public variable to set the spawn position in the Inspector
     private SpriteRenderer currentRenderer;
     private Color originalColor;

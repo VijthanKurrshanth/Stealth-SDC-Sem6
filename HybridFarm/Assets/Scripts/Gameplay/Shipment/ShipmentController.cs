@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 
 public class ShipmentController : MonoBehaviour
@@ -21,6 +22,10 @@ public class ShipmentController : MonoBehaviour
     private float zposistion = -2.1f;
 
     private List<GameObject> spawnedItems = new List<GameObject>();
+    private List<GameObject> spawnedTexts = new List<GameObject>();
+    public Transform parentPrefab; // for textmesh prp sprites to spawn
+    public GameObject textMeshProPrefab;
+    TextMeshProUGUI ObjectiveText;
 
     
 
@@ -29,8 +34,10 @@ public class ShipmentController : MonoBehaviour
 
     void Start()
     {
+        ObjectiveText = GetComponent<TextMeshProUGUI>();
         objective = FindObjectOfType<Objective>();
         truckController2D = FindObjectOfType<TruckController2D>();
+        //TextMeshPro textMeshPro = textObj.GetComponent<TextMeshPro>();
 
 
         // price list
@@ -84,10 +91,7 @@ public class ShipmentController : MonoBehaviour
         }
 
 
-
-
     }
-
 
 
 
@@ -111,7 +115,6 @@ public class ShipmentController : MonoBehaviour
                                     //extraaa 
                                     //new Vector3 (-5.3f ,-1.47f ,zposistion), new Vector3 (-5.3f ,-1.91f ,zposistion),new Vector3 (-5.3f,-2.331f ,zposistion),new Vector3 (-5.3f ,-2.3f ,zposistion)
 
-        
 
         int k=3;
         int l=0;
@@ -130,6 +133,12 @@ public class ShipmentController : MonoBehaviour
                     GameObject spritespawn = Instantiate(objective.respectiveItemSprites[i], ShipmentPostitions[l] , Quaternion.identity);
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
+
+                    // GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(0.5f, 0, 0), Quaternion.identity);
+                    // TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
+                    // textMeshPro.text = "× " + objective.collected_items[i].ToString();
+                    // textObj.transform.SetParent(parentPrefab);
+                    // spawnedTexts.Add(textObj);
                     l+=1;
                 }
 
@@ -138,6 +147,12 @@ public class ShipmentController : MonoBehaviour
                     GameObject spritespawn = Instantiate(objective.respectiveItemSprites[i], ShipmentPostitions[k] , Quaternion.identity);
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
+
+                    // GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(0.5f, 0, 0), Quaternion.identity);
+                    // TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
+                    // textMeshPro.text = "× " + objective.collected_items[i].ToString();
+                    // textObj.transform.SetParent(parentPrefab);
+                    // spawnedTexts.Add(textObj);
                     k+=1;
 
                 }
@@ -154,11 +169,9 @@ public class ShipmentController : MonoBehaviour
             }
 
         }
-  
-    
-    
     
     }
+
 
 
     void clearShipmentMenu()
@@ -168,6 +181,13 @@ public class ShipmentController : MonoBehaviour
             Destroy(item);
         }
         spawnedItems.Clear();
+
+        
+        foreach (GameObject text in spawnedTexts)
+        {
+            Destroy(text);
+        }
+        spawnedTexts.Clear();
     }
 
 
