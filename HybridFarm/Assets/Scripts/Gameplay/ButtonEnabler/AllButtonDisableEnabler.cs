@@ -35,4 +35,13 @@ public class AllButtonDisableEnabler : MonoBehaviour
             button.interactable = true;
         }
     }
+
+    public void EnableChildButtons( GameObject parentObject)
+    {
+        Button[] childButtons = parentObject.GetComponentsInChildren<Button>();
+        foreach (Button button in childButtons)
+        {
+            button.interactable = true;
+        }
+    }
 }

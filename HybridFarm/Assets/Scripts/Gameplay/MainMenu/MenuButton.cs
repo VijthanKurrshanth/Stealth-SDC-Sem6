@@ -33,6 +33,7 @@ public class MenuButton : MonoBehaviour
         // Pause the game
         Time.timeScale = 0;
         allButtonDisableEnabler.DisableAllButtons();
+        //allButtonDisableEnabler.EnableChildButtons(pauseMenu);
 
         // Display the pause menu
         if (pauseMenu != null)

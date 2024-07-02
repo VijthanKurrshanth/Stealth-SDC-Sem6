@@ -10,6 +10,14 @@ public class TruckController2D : MonoBehaviour
     private Color hoverColor = Color.white;
     private Color clickColor = Color.red;
 
+    public Transform parentPrefab; // Canva ShipmentUI
+
+    AllButtonDisableEnabler allButtonDisableEnabler;
+
+    void Start()
+    {
+        allButtonDisableEnabler = FindObjectOfType<AllButtonDisableEnabler>();
+    }
 
     void Update()
     {
@@ -36,16 +44,22 @@ public class TruckController2D : MonoBehaviour
 
                 // Check for mouse click
                 if (Input.GetMouseButtonDown(0))
-                {   
-                    
+                {
                     // Change the color to clickColor
                     currentRenderer.color = clickColor;
 
                     // Spawn the prefab at the specified spawn position
-                    Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                    GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                    spawnedObject.transform.SetParent(parentPrefab);
 
                     // Pause the game
                     Time.timeScale = 0;
+
+                    // Disable all buttons
+                    allButtonDisableEnabler.DisableAllButtons();
+
+                    // Enable specific buttons (children of the spawned prefab)
+                    allButtonDisableEnabler.EnableChildButtons(spawnedObject);
                 }
             }
             else
@@ -69,5 +83,12 @@ public class TruckController2D : MonoBehaviour
         }
     }
 
-    
+    // void EnableChildButtons(GameObject parentObject)
+    // {
+    //     Button[] childButtons = parentObject.GetComponentsInChildren<Button>();
+    //     foreach (Button button in childButtons)
+    //     {
+    //         button.interactable = true;
+    //     }
+    // }
 }
