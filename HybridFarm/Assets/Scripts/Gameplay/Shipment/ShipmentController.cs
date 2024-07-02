@@ -25,7 +25,9 @@ public class ShipmentController : MonoBehaviour
     private List<GameObject> spawnedTexts = new List<GameObject>();
     public Transform parentPrefab; // for textmesh prp sprites to spawn
     public GameObject textMeshProPrefab;
-    TextMeshProUGUI ObjectiveText;
+    //TextMeshProUGUI ObjectiveText;
+
+    private int count;
 
     
 
@@ -34,13 +36,15 @@ public class ShipmentController : MonoBehaviour
 
     void Start()
     {
-        ObjectiveText = GetComponent<TextMeshProUGUI>();
+        //ObjectiveText = GetComponent<TextMeshProUGUI>();
         objective = FindObjectOfType<Objective>();
         truckController2D = FindObjectOfType<TruckController2D>();
         //TextMeshPro textMeshPro = textObj.GetComponent<TextMeshPro>();
 
 
         // price list
+
+        count = 0;
 
 
         
@@ -80,15 +84,20 @@ public class ShipmentController : MonoBehaviour
         }
 
 
-        if ( truckController2D.vehicleisPressed )
+        if ( truckController2D.vehicleisPressed && count<=0  )
         {
+            
             displayItemsONShipmentMenu();
+           count+=1;  //only one time show .... it is not good after selling and
         }
 
-        else 
+        else if (! truckController2D.vehicleisPressed)
         {
             clearShipmentMenu();
+            count=0;
         }
+
+        
 
 
     }
@@ -134,11 +143,12 @@ public class ShipmentController : MonoBehaviour
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
 
-                    // GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(0.5f, 0, 0), Quaternion.identity);
-                    // TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-                    // textMeshPro.text = "× " + objective.collected_items[i].ToString();
-                    // textObj.transform.SetParent(parentPrefab);
-                    // spawnedTexts.Add(textObj);
+                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(1.1f, -0.15f, 0), Quaternion.identity);
+                    TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
+                    textMeshPro.text = "× " + objective.collected_items[i].ToString()+"</b>";
+                    textObj.transform.SetParent(parentPrefab);
+                    textObj.transform.localScale = Vector3.one;
+                    spawnedTexts.Add(textObj);
                     l+=1;
                 }
 
@@ -148,11 +158,12 @@ public class ShipmentController : MonoBehaviour
                     spritespawn.transform.localScale *= 0.5f;
                     spawnedItems.Add(spritespawn);
 
-                    // GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(0.5f, 0, 0), Quaternion.identity);
-                    // TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-                    // textMeshPro.text = "× " + objective.collected_items[i].ToString();
-                    // textObj.transform.SetParent(parentPrefab);
-                    // spawnedTexts.Add(textObj);
+                    GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(1.1f, -0.15f, 0), Quaternion.identity);
+                    TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
+                    textMeshPro.text = "× " + objective.collected_items[i].ToString()+"</b>";
+                    textObj.transform.SetParent(parentPrefab);
+                    textObj.transform.localScale = Vector3.one;
+                    spawnedTexts.Add(textObj);
                     k+=1;
 
                 }
@@ -188,6 +199,11 @@ public class ShipmentController : MonoBehaviour
             Destroy(text);
         }
         spawnedTexts.Clear();
+
+
+        //count=0;
+
+        
     }
 
 
