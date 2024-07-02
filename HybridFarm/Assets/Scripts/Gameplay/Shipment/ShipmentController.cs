@@ -214,7 +214,7 @@ public class ShipmentController : MonoBehaviour
                     textObj2.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj2);
 
-                    GameObject coin = Instantiate(CoinPrefabs , ShipmentPostitions[k]+ new Vector3(1.55f, 0f, 0) , Quaternion.identity);
+                    GameObject coin = Instantiate(CoinPrefabs , ShipmentPostitions[k]+ new Vector3(1.45f, 0f, 0) , Quaternion.identity);
                     coin.transform.localScale *= 0.45f;
                     spawnedItems.Add(coin);
 
@@ -222,13 +222,13 @@ public class ShipmentController : MonoBehaviour
 
 
 
-                    GameObject button1 = Instantiate(buttonPrefab1, ShipmentPostitions[k] + new Vector3(1.84f, 0f, 0), Quaternion.identity);
+                    GameObject button1 = Instantiate(buttonPrefab1, ShipmentPostitions[k] + new Vector3(1.78f, 0f, 0), Quaternion.identity);
                     button1.transform.SetParent(parentPrefabforButtons);
                     button1.transform.localScale = new Vector3 (0.23f,0.23f,1f) ; // to Ensure scale is (1, 1, 1)   for Vector3.one
                     spawnedButtons.Add(button1);
 
                     // Instantiate the second button next to the first one
-                    GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[k] + new Vector3(2.2f , 0f, 0), Quaternion.identity);
+                    GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[k] + new Vector3(2.15f , 0f, 0), Quaternion.identity);
                     button2.transform.SetParent(parentPrefabforButtons);
                     button2.transform.localScale = new Vector3 (0.23f,0.23f,1f) ;// Vector3.one; // to Ensure scale is (1, 1, 1)
                     spawnedButtons.Add(button2);
