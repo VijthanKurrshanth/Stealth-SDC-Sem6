@@ -69,6 +69,7 @@ public class ShipmentTransactions : MonoBehaviour
 
     public void ShipmentTransactionsProcess( )
     {
+        
         for (int i =0; i<=11; i++)
         {
             if (i==key && isTrasnferAll) 

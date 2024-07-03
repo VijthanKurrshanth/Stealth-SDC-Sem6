@@ -42,7 +42,7 @@ public class ShipmentController : MonoBehaviour
     public int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
 
     public Vector3[] ShipmentPostitions;
-    private int count;
+    public int count;
 
     
 
@@ -83,6 +83,8 @@ public class ShipmentController : MonoBehaviour
     {
         ChooseWarehouse ();
 
+        Debug.Log(shipmentTransactions.ReadyToShipMoney);
+
 
 
         if ( truckController2D.vehicleisPressed && count<=0  )
@@ -98,6 +100,8 @@ public class ShipmentController : MonoBehaviour
             clearShipmentMenu();
             count=0;
         }
+
+        //else {count =0;}
 
         
 
@@ -145,7 +149,7 @@ public class ShipmentController : MonoBehaviour
 
 
 
-    void displayItemsONShipmentMenu ()
+    public void displayItemsONShipmentMenu ()
 
     {
         
@@ -192,6 +196,7 @@ public class ShipmentController : MonoBehaviour
                     textObj2.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj2);
 
+
                     GameObject coin = Instantiate(CoinPrefabs , ShipmentPostitions[l]+ new Vector3(2.15f, 0f, 0) , Quaternion.identity);
                     coin.transform.localScale *= 0.45f;
                     spawnedItems.Add(coin);
@@ -204,12 +209,16 @@ public class ShipmentController : MonoBehaviour
                     button1.transform.SetParent(parentPrefabforButtons);
                     button1.transform.localScale = new Vector3 (0.23f,0.23f,1f) ; // to Ensure scale is (1, 1, 1)   for Vector3.one
                     spawnedButtons.Add(button1);
+                    oneButton buttonComponent1 = button1.GetComponent<oneButton>();
+                    buttonComponent1.keyNo = i-1;
 
                     // Instantiate the second button next to the first one
                     GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[l] + new Vector3(2.9f , 0f, 0), Quaternion.identity);
                     button2.transform.SetParent(parentPrefabforButtons);
                     button2.transform.localScale = new Vector3 (0.23f,0.23f,1f) ;// Vector3.one; // to Ensure scale is (1, 1, 1)
                     spawnedButtons.Add(button2);
+                    allButton buttonComponent2 = button2.GetComponent<allButton>();
+                    buttonComponent2.keyNo = i-1;
 
 
 
@@ -250,12 +259,16 @@ public class ShipmentController : MonoBehaviour
                     button1.transform.SetParent(parentPrefabforButtons);
                     button1.transform.localScale = new Vector3 (0.23f,0.23f,1f) ; // to Ensure scale is (1, 1, 1)   for Vector3.one
                     spawnedButtons.Add(button1);
+                    oneButton buttonComponent1 = button1.GetComponent<oneButton>();
+                    buttonComponent1.keyNo = i-1;
 
                     // Instantiate the second button next to the first one
                     GameObject button2 = Instantiate(buttonPrefab2, ShipmentPostitions[k] + new Vector3(2.15f , 0f, 0), Quaternion.identity);
                     button2.transform.SetParent(parentPrefabforButtons);
                     button2.transform.localScale = new Vector3 (0.23f,0.23f,1f) ;// Vector3.one; // to Ensure scale is (1, 1, 1)
                     spawnedButtons.Add(button2);
+                    allButton buttonComponent2 = button2.GetComponent<allButton>();
+                    buttonComponent2.keyNo = i-1;
 
 
                     k+=1;
@@ -279,7 +292,7 @@ public class ShipmentController : MonoBehaviour
 
 
 
-    void clearShipmentMenu()
+    public void clearShipmentMenu()
     {
         foreach (GameObject item in spawnedItems)
         {
@@ -316,6 +329,16 @@ public class ShipmentController : MonoBehaviour
         textObj3.transform.localScale = new Vector3(2,2,1); //Vector3.one;
         spawnedTexts.Add(textObj3);
         
+    }
+
+
+    public void ClearDisplayedTexts()
+    {
+        foreach (GameObject textObj in spawnedTexts)
+        {
+            Destroy(textObj);
+        }
+        spawnedTexts.Clear(); // Clear the list after destroying the objects
     }
 
 
