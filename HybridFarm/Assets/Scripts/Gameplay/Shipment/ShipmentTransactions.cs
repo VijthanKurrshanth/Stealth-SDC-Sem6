@@ -48,6 +48,23 @@ public class ShipmentTransactions : MonoBehaviour
         {
             for (int i = 0; i< quantityOfShipmentOfItems.Length ;i++)
             {
+                if (i==0)
+                {
+                    DestroyGameObjectsWithTag("chicken", quantityOfShipmentOfItems[i]);
+                }
+
+                else if (i==1)
+                {
+                    DestroyGameObjectsWithTag("pig", quantityOfShipmentOfItems[i]);
+
+                }
+
+                else if (i==2)
+                {
+                    DestroyGameObjectsWithTag("cow", quantityOfShipmentOfItems[i]);
+
+                }
+
                 objective.collected_items[i+1] -= quantityOfShipmentOfItems[i];
 
             }
@@ -134,6 +151,16 @@ public class ShipmentTransactions : MonoBehaviour
         }
 
         return sum;
+    }
+
+
+    void DestroyGameObjectsWithTag(string tag, int count)
+    {
+        GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
+        for (int i = 0; i < Mathf.Min(count, objects.Length); i++)
+        {
+            Destroy(objects[i]);
+        }
     }
 
     
