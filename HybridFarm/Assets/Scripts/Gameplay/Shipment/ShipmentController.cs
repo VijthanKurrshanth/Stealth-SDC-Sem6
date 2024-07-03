@@ -37,6 +37,7 @@ public class ShipmentController : MonoBehaviour
     public GameObject textMeshProPrefab;
     //TextMeshProUGUI ObjectiveText;
 
+    public int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
     private int count;
 
     
@@ -117,7 +118,7 @@ public class ShipmentController : MonoBehaviour
     void displayItemsONShipmentMenu ()
 
     {
-        int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
+        
 
 
         

@@ -10,6 +10,8 @@ public class ShipmentCancelButton : MonoBehaviour
 
     TruckController2D truckController2D;
 
+    public bool ShipmentCancelisPressed =false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class ShipmentCancelButton : MonoBehaviour
     // Method to be called when the continue button is clicked
     public void OnButtonClick()
     {
+        ShipmentCancelisPressed =true;   // to disable all transaction 
         // Continue the game
         Time.timeScale = 1;
         allButtonDisableEnabler.EnableAllButtons();
