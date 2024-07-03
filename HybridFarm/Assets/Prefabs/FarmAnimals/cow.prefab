@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1671799320457566585}
   m_Layer: 0
   m_Name: cow
-  m_TagString: Untagged
+  m_TagString: cow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,3 +316,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c44f77f065e4244b41278c2b0ec3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLeftPosition: {x: 0, y: 0, z: 0}
+  targetRightPosition: {x: 0, y: 0, z: 0}
