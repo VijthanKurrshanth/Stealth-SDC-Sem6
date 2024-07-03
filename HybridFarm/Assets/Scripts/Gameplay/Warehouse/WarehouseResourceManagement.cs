@@ -14,7 +14,7 @@ public class WarehouseResourceManagement : MonoBehaviour
     public GameObject ArrowIndicatorOfWareHouse;
     
 
-    [SerializeField] int CapacityOfWarehouse = 44;
+    [SerializeField] int CapacityOfWarehouse = 44;  // it should be 44 for all warehouse but for not implemented yet
     public int RemainingCapacityOfWarehouse = 44; 
 
     public int warehouseLevel = 0;

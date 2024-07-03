@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5987664224475965552}
   - component: {fileID: 1476340067025914332}
   - component: {fileID: 48018127222411399}
+  - component: {fileID: 8946473677103754899}
   m_Layer: 0
   m_Name: cheese
   m_TagString: collectables
@@ -163,3 +164,19 @@ CircleCollider2D:
   m_Offset: {x: 0.0059834905, y: -0.03141384}
   serializedVersion: 2
   m_Radius: 0.27112138
+--- !u!114 &8946473677103754899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2240338203124949585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1

@@ -1585,6 +1585,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0.09495617, y: -0.022609368}
   m_Size: {x: 2.28131, y: 0.90670836}
   m_Direction: 1
+--- !u!4 &278258207 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6093311673754542960, guid: bf1cc119bc030cd43a1adce26f3064e9, type: 3}
+  m_PrefabInstance: {fileID: 1598468686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &331964061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5521,6 +5526,90 @@ MonoBehaviour:
   greenCorrectMark1: {fileID: 1312869864}
   greenCorrectMark2: {fileID: 1370794045}
   greenCorrectMark3: {fileID: 193852569}
+--- !u!1 &858162066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 858162067}
+  - component: {fileID: 858162068}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &858162067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858162066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29, y: -0.41, z: -19.6}
+  m_LocalScale: {x: 1, y: 0.35, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 278258207}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &858162068
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858162066}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.43529412}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &860097363
 GameObject:
   m_ObjectHideFlags: 0
@@ -10054,7 +10143,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6093311673754542960, guid: bf1cc119bc030cd43a1adce26f3064e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 858162067}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 52880132245389398, guid: bf1cc119bc030cd43a1adce26f3064e9, type: 3}
       insertIndex: -1
@@ -11808,6 +11900,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipmentBarPrefab: {fileID: 2026095871617618815, guid: 0eab17f75d911ce46a0fbe044c150502, type: 3}
   shipmentVehiclePrefab: {fileID: 8897192129280936292, guid: d60860c5e94076944a54a6424266410d, type: 3}
+  PrefabParent: {fileID: 374637198}
+  textMeshProPrefab: {fileID: 7363283480368514392, guid: dd07e421b77a2034490ccc8e8badc58b, type: 3}
   vehicleLevel: 0
 --- !u!1 &1812011300
 GameObject:
@@ -11906,8 +12000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ArrowIndicatorOfWareHouse: {fileID: 4243227757800059278, guid: 2745eb1de3e0b0044922b918668bc745, type: 3}
-  CapacityOfWarehouse: 44
-  RemainingCapacityOfWarehouse: 44
+  CapacityOfWarehouse: 100
+  RemainingCapacityOfWarehouse: 100
   warehouseLevel: 1
   No_of_fox_inWarehouse: 0
   No_of_lynx_inWarehouse: 0
