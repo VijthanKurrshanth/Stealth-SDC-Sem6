@@ -76,12 +76,20 @@ public class ShipmentTransactions : MonoBehaviour
 
                 objective.collected_items[i+1] -= quantityOfShipmentOfItems[i];    //should be in shipmentBar Vechile
 
+                shipmentBar.money = ReadyToShipMoney;
+
+                for (int j = 0; j< quantityOfShipmentOfItems.Length ;j++)
+                {
+                    quantityOfShipmentOfItems[j]=0;
+
+                }
             }
 
                 //objective.collected_items[0] += ReadyToShipMoney;
             
 
             //OkisPressed =false;
+            
         }
         
 

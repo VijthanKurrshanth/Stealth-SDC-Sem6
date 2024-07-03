@@ -17,7 +17,9 @@ public class ShipmentBar : MonoBehaviour
     private ShipmentTransactions shipmentTransactions;
     private Objective objective;
 
-    //public bool canTravel=false;
+    public int money=0;
+
+    public bool canTravelagain=true;
 
     void Start()
     {
@@ -30,15 +32,20 @@ public class ShipmentBar : MonoBehaviour
     {
         if (shipmentTransactions.OkisPressed)
         {
+            
             //shipmentTransactions.OkisPressed = false; // Prevents starting multiple coroutines
             StartCoroutine(VehicleTravelToTown());
-            Debug.Log("Travelling");
+            Debug.Log(shipmentTransactions.ReadyToShipMoney);
         }
     }
 
     IEnumerator VehicleTravelToTown()
     {
+
+        canTravelagain=false;
         shipmentTransactions.OkisPressed = false;
+        //money = shipmentTransactions.ReadyToShipMoney;
+        //shipmentTransactions.ReadyToShipMoney=0;
         GameObject shipmentBarObject = Instantiate(shipmentBarPrefab, new Vector3(-5.69f, 4.31f, -1.5f), Quaternion.identity);
         GameObject vehicle = Instantiate(shipmentVehiclePrefab, new Vector3(-3.51f, 4.04f, -2.5f), Quaternion.identity);
 
@@ -49,7 +56,7 @@ public class ShipmentBar : MonoBehaviour
 
         GameObject textObj = Instantiate(textMeshProPrefab, originText , Quaternion.identity);
         TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-        textMeshPro.text = shipmentTransactions.ReadyToShipMoney.ToString() +"</b>";
+        textMeshPro.text = money.ToString() +"</b>";
         textObj.transform.SetParent(PrefabParent);
         textObj.transform.localScale = Vector3.one;
         
@@ -94,7 +101,11 @@ public class ShipmentBar : MonoBehaviour
         // Example: Storing collected items in an objective
         
         
-        objective.collected_items[0] += shipmentTransactions.ReadyToShipMoney;
+        objective.collected_items[0] += money;
+        canTravelagain=true;
+        money=0;
+        
+        
 
         
     }
