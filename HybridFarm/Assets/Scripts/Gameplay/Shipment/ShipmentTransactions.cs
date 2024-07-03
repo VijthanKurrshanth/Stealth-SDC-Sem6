@@ -53,6 +53,7 @@ public class ShipmentTransactions : MonoBehaviour
             }
 
             objective.collected_items[0] += ReadyToShipMoney;
+            //shipmentController.TempCollectedItems =objective.collected_items;
 
             OkisPressed=false;
         }
@@ -75,6 +76,7 @@ public class ShipmentTransactions : MonoBehaviour
             if (i==key && isTrasnferAll) 
             {
                 quantityOfShipmentOfItems[i]= objective.collected_items[i+1];
+                //objective.collected_items[i+1]=0;
                 key=-1;
                 isTrasnferAll=false;
             }
@@ -82,6 +84,7 @@ public class ShipmentTransactions : MonoBehaviour
             else if (i==key )
             {
                 quantityOfShipmentOfItems[i]+=1;
+                //objective.collected_items[i+1]-=1;
                 key=-1;
                 isTrasnferAll=false;
             }
@@ -91,6 +94,7 @@ public class ShipmentTransactions : MonoBehaviour
                 for (int j=0; j<=11 ; j++)
                 {
                     quantityOfShipmentOfItems[j]=0;
+                    //shipmentController.TempCollectedItems= objective.collected_items;
                     key=-1;
                     isTrasnferAll=false;
                 }
@@ -101,6 +105,7 @@ public class ShipmentTransactions : MonoBehaviour
                 for (int j=0; j<=11 ; j++)
                 {
                     quantityOfShipmentOfItems[j]=0;
+                    //shipmentController.TempCollectedItems= objective.collected_items;
                     key=-1;
                     isTrasnferAll=false;
                 }

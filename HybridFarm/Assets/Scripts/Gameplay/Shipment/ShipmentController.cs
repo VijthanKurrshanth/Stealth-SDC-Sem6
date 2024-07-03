@@ -41,6 +41,8 @@ public class ShipmentController : MonoBehaviour
 
     public int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
 
+    //public int[] TempCollectedItems ;
+
     public Vector3[] ShipmentPostitions;
     public int count;
 
@@ -60,6 +62,7 @@ public class ShipmentController : MonoBehaviour
         //TextMeshPro textMeshPro = textObj.GetComponent<TextMeshPro>();
 
 
+
         // price list
 
         count = 0;
@@ -74,16 +77,20 @@ public class ShipmentController : MonoBehaviour
                                     };
 
 
-        
+        //TempCollectedItems = objective.collected_items;
+
     }
 
 
 
     void Update()
     {
+
+        
+
         ChooseWarehouse ();
 
-        Debug.Log(shipmentTransactions.ReadyToShipMoney);
+        //Debug.Log(shipmentTransactions.ReadyToShipMoney);
 
 
 
@@ -97,9 +104,18 @@ public class ShipmentController : MonoBehaviour
 
         else if (! truckController2D.vehicleisPressed)
         {
+            //TempCollectedItems = objective.collected_items;
             clearShipmentMenu();
             count=0;
         }
+
+        else 
+        {
+            //TempCollectedItems = objective.collected_items;
+
+            }
+
+        
 
         //else {count =0;}
 
@@ -153,12 +169,6 @@ public class ShipmentController : MonoBehaviour
 
     {
         
-
-
-        
-        
-
-                                    
                                     //extraaa 
                                     //new Vector3 (-5.3f ,-1.47f ,zposistion), new Vector3 (-5.3f ,-1.91f ,zposistion),new Vector3 (-5.3f,-2.331f ,zposistion),new Vector3 (-5.3f ,-2.3f ,zposistion)
 
@@ -172,7 +182,7 @@ public class ShipmentController : MonoBehaviour
         for (int i = 1 ; i< objective.collected_items.Length ; i++) //i==1 avoid money
         {
             
-            if ( objective.collected_items[i] > 0 )
+            if ( objective.collected_items[i] - shipmentTransactions.quantityOfShipmentOfItems[i-1] > 0 )
             {
 
                 if (i<=2) {
@@ -183,7 +193,7 @@ public class ShipmentController : MonoBehaviour
 
                     GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[l] + new Vector3(1.1f, -0.14f, 0), Quaternion.identity);
                     TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-                    textMeshPro.text = "× " + objective.collected_items[i].ToString()+"</b>";
+                    textMeshPro.text = "× " + (objective.collected_items[i] - shipmentTransactions.quantityOfShipmentOfItems[i-1]).ToString()+"</b>";
                     textObj.transform.SetParent(parentPrefabforText);
                     textObj.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj);
@@ -234,7 +244,7 @@ public class ShipmentController : MonoBehaviour
 
                     GameObject textObj = Instantiate(textMeshProPrefab, ShipmentPostitions[k] + new Vector3(1.1f, -0.14f, 0), Quaternion.identity);
                     TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
-                    textMeshPro.text = "× " + objective.collected_items[i].ToString() +"</b>";
+                    textMeshPro.text = "× " + (objective.collected_items[i] - shipmentTransactions.quantityOfShipmentOfItems[i-1]).ToString() +"</b>";
                     textObj.transform.SetParent(parentPrefabforText);
                     textObj.transform.localScale = Vector3.one;
                     spawnedTexts.Add(textObj);
@@ -277,7 +287,7 @@ public class ShipmentController : MonoBehaviour
 
                 
 
-                // each fram check for warehouse non zero count collectables and update current ITems array
+                // each fram check for warehouse non zero count collectables and update current Items array
             }
 
             if (i== objective.collected_items.Length-1)

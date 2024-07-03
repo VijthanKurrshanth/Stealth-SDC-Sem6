@@ -32,8 +32,10 @@ public class oneButton : MonoBehaviour
     
     void OnButtonClick()
     {
+        //shipmentController.TempCollectedItems[key]
         shipmentController.clearShipmentMenu();
-        shipmentController.displayItemsONShipmentMenu();
+        //shipmentController.displayItemsONShipmentMenu();
+        
         //shipmentController.ClearDisplayedTexts() ;
         shipmentController.count=0;
         //Debug.Log("One is pressed");

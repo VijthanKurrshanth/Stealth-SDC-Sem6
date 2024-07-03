@@ -34,7 +34,7 @@ public class allButton : MonoBehaviour
     {
         
         shipmentController.clearShipmentMenu();
-        shipmentController.displayItemsONShipmentMenu();
+        //shipmentController.displayItemsONShipmentMenu();
         //shipmentController.ClearDisplayedTexts() ;
         shipmentController.count=0;
         //Debug.Log("all is pressed");
