@@ -34,7 +34,6 @@ public class ShipmentController : MonoBehaviour
 
     public Transform parentPrefabforText; // for textmesh pro sprites to spawn
     public Transform parentPrefabforButtons;
-    public Transform parentPrefabforTextTransactionAmount;
     public GameObject textMeshProPrefab;
 
     
@@ -90,7 +89,8 @@ public class ShipmentController : MonoBehaviour
         {
             
             displayItemsONShipmentMenu();
-           count+=1;  //only one time show .... it is not good after selling and
+            DisplayTransactionPrice ();
+            count+=1;  //only one time show .... it is not good after selling and
         }
 
         else if (! truckController2D.vehicleisPressed)
@@ -98,6 +98,8 @@ public class ShipmentController : MonoBehaviour
             clearShipmentMenu();
             count=0;
         }
+
+        
 
 
         
@@ -307,11 +309,11 @@ public class ShipmentController : MonoBehaviour
 
     void DisplayTransactionPrice ()
     {
-        GameObject textObj3 = Instantiate(textMeshProPrefab, new Vector3(1.56f ,2.77f ,zposistion), Quaternion.identity);
+        GameObject textObj3 = Instantiate(textMeshProPrefab, new Vector3(3.5f ,-3.45f ,zposistion), Quaternion.identity);
         TextMeshProUGUI textMeshPro3 = textObj3.GetComponent<TextMeshProUGUI>();
         textMeshPro3.text = shipmentTransactions.ReadyToShipMoney.ToString();
-        textObj3.transform.SetParent(parentPrefabforTextTransactionAmount);
-        textObj3.transform.localScale = Vector3.one;
+        textObj3.transform.SetParent(parentPrefabforText);
+        textObj3.transform.localScale = new Vector3(2,2,1); //Vector3.one;
         spawnedTexts.Add(textObj3);
         
     }

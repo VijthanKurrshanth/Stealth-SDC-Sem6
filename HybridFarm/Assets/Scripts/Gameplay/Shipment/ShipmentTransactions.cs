@@ -10,7 +10,7 @@ public class ShipmentTransactions : MonoBehaviour
 
     Objective objective;
     ShipmentController shipmentController;
-    ShipmentCancelButton shipmentCancelButton;
+    //ShipmentCancelButton shipmentCancelButton;
 
     public int ReadyToShipMoney = 0;
     public int [] quantityOfShipmentOfItems = {0,0,0,0,0,0,0,0,0,0,0,0};    //this will be sort like collectables items excluding Money amount.
@@ -20,12 +20,16 @@ public class ShipmentTransactions : MonoBehaviour
 
     public bool isDiscard = false;
 
+    public bool OkisPressed = false;
+
+    public bool ShipmentCancelisPressed =false;
+
 
     void Start()
     {
         objective = FindObjectOfType<Objective>();
         shipmentController = FindObjectOfType<ShipmentController>();
-        shipmentCancelButton = FindObjectOfType<ShipmentCancelButton>();
+        //shipmentCancelButton = FindObjectOfType<ShipmentCancelButton>();
         
     }
 
@@ -91,7 +95,7 @@ public class ShipmentTransactions : MonoBehaviour
                 }
             }
 
-            else if  (shipmentCancelButton.ShipmentCancelisPressed)
+            else if  (ShipmentCancelisPressed)
             {
                 for (int j=0; j<=11 ; j++)
                 {
@@ -99,7 +103,7 @@ public class ShipmentTransactions : MonoBehaviour
                     key=-1;
                     isTrasnferAll=false;
                 }
-                shipmentCancelButton.ShipmentCancelisPressed = false;
+                ShipmentCancelisPressed = false;
 
             }
 
@@ -120,7 +124,7 @@ public class ShipmentTransactions : MonoBehaviour
 
         for (int i=0; i<=11; i++)
         {
-            sum+=quantityArray[i] * shipmentController.ItemsPrice[i];
+            sum += quantityArray[i] * shipmentController.ItemsPrice[i];
         }
 
         return sum;
