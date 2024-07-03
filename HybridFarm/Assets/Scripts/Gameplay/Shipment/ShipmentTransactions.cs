@@ -35,7 +35,24 @@ public class ShipmentTransactions : MonoBehaviour
 
 
 
-        ShipmentTransactionsProcess( );
+        ShipmentTransactionsProcess();
+        ReadyToShipMoney = CalcualteTotalAmount(quantityOfShipmentOfItems);
+
+        //Displaying it on TextMeshPro in shipmentController
+
+        if (OkisPressed) 
+        {
+            for (int i = 0; i< quantityOfShipmentOfItems.Length ;i++)
+            {
+                objective.collected_items[i+1] -= quantityOfShipmentOfItems[i];
+
+            }
+
+            objective.collected_items[0] += ReadyToShipMoney;
+
+            OkisPressed=false;
+        }
+        
 
 
 

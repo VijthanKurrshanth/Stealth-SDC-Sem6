@@ -34,10 +34,15 @@ public class ShipmentController : MonoBehaviour
 
     public Transform parentPrefabforText; // for textmesh pro sprites to spawn
     public Transform parentPrefabforButtons;
+    public Transform parentPrefabforTextTransactionAmount;
     public GameObject textMeshProPrefab;
+
+    
     //TextMeshProUGUI ObjectiveText;
 
     public int[] ItemsPrice = {50,500,5000,10,20,40,200,250,400,1000,2000,3000}; // index zero is money in objective arrays
+
+    public Vector3[] ShipmentPostitions;
     private int count;
 
     
@@ -45,17 +50,29 @@ public class ShipmentController : MonoBehaviour
     Objective objective;
     TruckController2D truckController2D;
 
+    ShipmentTransactions shipmentTransactions;
+
     void Start()
     {
         //ObjectiveText = GetComponent<TextMeshProUGUI>();
         objective = FindObjectOfType<Objective>();
         truckController2D = FindObjectOfType<TruckController2D>();
+        shipmentTransactions = FindObjectOfType<ShipmentTransactions>();
         //TextMeshPro textMeshPro = textObj.GetComponent<TextMeshPro>();
 
 
         // price list
 
         count = 0;
+
+        ShipmentPostitions = new Vector3[] { 
+
+                                    new Vector3 (1.56f ,2.77f ,zposistion), new Vector3 (1.56f ,2.3f ,zposistion),new Vector3 (1.56f ,1.84f ,zposistion),new Vector3 (-5.3f ,2.7f ,zposistion),
+                                    new Vector3 (-5.3f ,2.22f ,zposistion), new Vector3 (-5.3f ,1.73f ,zposistion),new Vector3 (-5.3f ,1.3f ,zposistion),new Vector3 (-5.3f ,0.86f ,zposistion),
+                                    new Vector3 (-5.3f ,0.41f ,zposistion), new Vector3 (-5.3f ,-0.04f ,zposistion),new Vector3 (-5.3f ,-0.53f ,zposistion),new Vector3 (-5.3f ,-1.01f ,zposistion),
+                                    
+                                     
+                                    };
 
 
         
@@ -64,6 +81,34 @@ public class ShipmentController : MonoBehaviour
 
 
     void Update()
+    {
+        ChooseWarehouse ();
+
+
+
+        if ( truckController2D.vehicleisPressed && count<=0  )
+        {
+            
+            displayItemsONShipmentMenu();
+           count+=1;  //only one time show .... it is not good after selling and
+        }
+
+        else if (! truckController2D.vehicleisPressed)
+        {
+            clearShipmentMenu();
+            count=0;
+        }
+
+
+        
+
+        
+
+
+    }
+
+
+    void ChooseWarehouse () 
     {
         if (vehicleLevel==0)
         {
@@ -94,23 +139,6 @@ public class ShipmentController : MonoBehaviour
 
         }
 
-
-        if ( truckController2D.vehicleisPressed && count<=0  )
-        {
-            
-            displayItemsONShipmentMenu();
-           count+=1;  //only one time show .... it is not good after selling and
-        }
-
-        else if (! truckController2D.vehicleisPressed)
-        {
-            clearShipmentMenu();
-            count=0;
-        }
-
-        
-
-
     }
 
 
@@ -122,14 +150,7 @@ public class ShipmentController : MonoBehaviour
 
 
         
-        Vector3[] ShipmentPostitions = { 
-
-                                    new Vector3 (1.56f ,2.77f ,zposistion), new Vector3 (1.56f ,2.3f ,zposistion),new Vector3 (1.56f ,1.84f ,zposistion),new Vector3 (-5.3f ,2.7f ,zposistion),
-                                    new Vector3 (-5.3f ,2.22f ,zposistion), new Vector3 (-5.3f ,1.73f ,zposistion),new Vector3 (-5.3f ,1.3f ,zposistion),new Vector3 (-5.3f ,0.86f ,zposistion),
-                                    new Vector3 (-5.3f ,0.41f ,zposistion), new Vector3 (-5.3f ,-0.04f ,zposistion),new Vector3 (-5.3f ,-0.53f ,zposistion),new Vector3 (-5.3f ,-1.01f ,zposistion),
-                                    
-                                     
-                                    };
+        
 
                                     
                                     //extraaa 
@@ -280,6 +301,18 @@ public class ShipmentController : MonoBehaviour
 
         //count=0;
 
+        
+    }
+
+
+    void DisplayTransactionPrice ()
+    {
+        GameObject textObj3 = Instantiate(textMeshProPrefab, new Vector3(1.56f ,2.77f ,zposistion), Quaternion.identity);
+        TextMeshProUGUI textMeshPro3 = textObj3.GetComponent<TextMeshProUGUI>();
+        textMeshPro3.text = shipmentTransactions.ReadyToShipMoney.ToString();
+        textObj3.transform.SetParent(parentPrefabforTextTransactionAmount);
+        textObj3.transform.localScale = Vector3.one;
+        spawnedTexts.Add(textObj3);
         
     }
 
