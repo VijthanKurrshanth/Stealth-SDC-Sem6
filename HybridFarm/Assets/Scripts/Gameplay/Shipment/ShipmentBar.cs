@@ -1,10 +1,15 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class ShipmentBar : MonoBehaviour
 {
     public GameObject shipmentBarPrefab;
     public GameObject shipmentVehiclePrefab;
+
+    public Transform PrefabParent;
+
+    public GameObject textMeshProPrefab;
     public int vehicleLevel = 0; // Speed level for the vehicle
     //public int TimeTakenToTravel = 0; // Time taken to travel to destination in seconds
     private Vector3 destination = new Vector3(-7.9f, 4.04f, -2.1f);
@@ -33,12 +38,26 @@ public class ShipmentBar : MonoBehaviour
         GameObject shipmentBarObject = Instantiate(shipmentBarPrefab, new Vector3(-5.69f, 4.31f, -1.5f), Quaternion.identity);
         GameObject vehicle = Instantiate(shipmentVehiclePrefab, new Vector3(-3.51f, 4.04f, -2.1f), Quaternion.identity);
 
+
+
+
+        GameObject textObj = Instantiate(textMeshProPrefab, new Vector3(-5.69f, 4.31f, -1.5f) , Quaternion.identity);
+        TextMeshProUGUI textMeshPro = textObj.GetComponent<TextMeshProUGUI>();
+        textMeshPro.text = shipmentTransactions.ReadyToShipMoney.ToString() +"</b>";
+        textObj.transform.SetParent(PrefabParent);
+        textObj.transform.localScale = Vector3.one;
+        
+
+
+
+
         float vehicleSpeed = 1f; // Adjust this speed as needed
 
         // Move vehicle to destination
         while (Vector3.Distance(vehicle.transform.position, destination) > 0.01f)
         {
             vehicle.transform.position = Vector3.MoveTowards(vehicle.transform.position, destination, Time.deltaTime * vehicleSpeed);
+            textObj.transform.position = Vector3.MoveTowards(textObj.transform.position, destination, Time.deltaTime * vehicleSpeed);
             yield return null;
         }
 
@@ -53,6 +72,7 @@ public class ShipmentBar : MonoBehaviour
         while (Vector3.Distance(vehicle.transform.position, origin) > 0.01f)
         {
             vehicle.transform.position = Vector3.MoveTowards(vehicle.transform.position, origin, Time.deltaTime * vehicleSpeed);
+            textObj.transform.position = Vector3.MoveTowards(textObj.transform.position, destination, Time.deltaTime * vehicleSpeed);
             yield return null;
         }
 
