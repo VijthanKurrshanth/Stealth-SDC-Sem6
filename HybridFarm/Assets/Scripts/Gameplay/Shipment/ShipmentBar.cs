@@ -17,6 +17,8 @@ public class ShipmentBar : MonoBehaviour
     private ShipmentTransactions shipmentTransactions;
     private Objective objective;
 
+    //public bool canTravel=false;
+
     void Start()
     {
         // Initialization if needed
@@ -30,11 +32,13 @@ public class ShipmentBar : MonoBehaviour
         {
             //shipmentTransactions.OkisPressed = false; // Prevents starting multiple coroutines
             StartCoroutine(VehicleTravelToTown());
+            Debug.Log("Travelling");
         }
     }
 
     IEnumerator VehicleTravelToTown()
     {
+        shipmentTransactions.OkisPressed = false;
         GameObject shipmentBarObject = Instantiate(shipmentBarPrefab, new Vector3(-5.69f, 4.31f, -1.5f), Quaternion.identity);
         GameObject vehicle = Instantiate(shipmentVehiclePrefab, new Vector3(-3.51f, 4.04f, -2.5f), Quaternion.identity);
 
@@ -91,6 +95,7 @@ public class ShipmentBar : MonoBehaviour
         
         
         objective.collected_items[0] += shipmentTransactions.ReadyToShipMoney;
+
         
     }
 }

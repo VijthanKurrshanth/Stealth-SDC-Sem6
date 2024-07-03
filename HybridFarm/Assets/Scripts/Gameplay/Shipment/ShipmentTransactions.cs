@@ -23,12 +23,14 @@ public class ShipmentTransactions : MonoBehaviour
     public bool OkisPressed = false;
 
     public bool ShipmentCancelisPressed =false;
+    ShipmentBar shipmentBar;
 
 
     void Start()
     {
         objective = FindObjectOfType<Objective>();
         shipmentController = FindObjectOfType<ShipmentController>();
+        shipmentBar = FindObjectOfType<ShipmentBar>();
         //shipmentCancelButton = FindObjectOfType<ShipmentCancelButton>();
         
     }
@@ -39,6 +41,7 @@ public class ShipmentTransactions : MonoBehaviour
 
 
 
+
         ShipmentTransactionsProcess();
         ReadyToShipMoney = CalcualteTotalAmount(quantityOfShipmentOfItems);
 
@@ -46,6 +49,8 @@ public class ShipmentTransactions : MonoBehaviour
 
         if (OkisPressed) 
         {
+            shipmentBar.canTravel=true;
+            Debug.Log("Ok is pressed");
             for (int i = 0; i< quantityOfShipmentOfItems.Length ;i++)
             {
                 if (i==0)
@@ -76,7 +81,7 @@ public class ShipmentTransactions : MonoBehaviour
                 //objective.collected_items[0] += ReadyToShipMoney;
             
 
-            OkisPressed=false;
+            //OkisPressed =false;
         }
         
 
