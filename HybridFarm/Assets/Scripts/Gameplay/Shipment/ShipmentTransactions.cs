@@ -49,7 +49,7 @@ public class ShipmentTransactions : MonoBehaviour
 
         if (OkisPressed) 
         {
-            shipmentBar.canTravel=true;
+            //shipmentBar.canTravel=true;
             Debug.Log("Ok is pressed");
             for (int i = 0; i< quantityOfShipmentOfItems.Length ;i++)
             {
