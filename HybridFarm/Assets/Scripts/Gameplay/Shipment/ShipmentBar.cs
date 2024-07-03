@@ -12,7 +12,7 @@ public class ShipmentBar : MonoBehaviour
     public GameObject textMeshProPrefab;
     public int vehicleLevel = 0; // Speed level for the vehicle
     //public int TimeTakenToTravel = 0; // Time taken to travel to destination in seconds
-    private Vector3 destination = new Vector3(-7.9f, 4.04f, -2.1f);
+    private Vector3 destination = new Vector3(-7.9f, 4.04f, -2.5f);
 
     private ShipmentTransactions shipmentTransactions;
     private Objective objective;
@@ -36,11 +36,11 @@ public class ShipmentBar : MonoBehaviour
     IEnumerator VehicleTravelToTown()
     {
         GameObject shipmentBarObject = Instantiate(shipmentBarPrefab, new Vector3(-5.69f, 4.31f, -1.5f), Quaternion.identity);
-        GameObject vehicle = Instantiate(shipmentVehiclePrefab, new Vector3(-3.51f, 4.04f, -2.1f), Quaternion.identity);
+        GameObject vehicle = Instantiate(shipmentVehiclePrefab, new Vector3(-3.51f, 4.04f, -2.5f), Quaternion.identity);
 
-        Vector3 origin = new Vector3(-3.51f, 4.04f, -2.1f);
+        Vector3 origin = new Vector3(-3.51f, 4.04f, -2.5f);
         
-        Vector3 originText = new Vector3(-3.10f, 4.34f, -2.1f);
+        Vector3 originText = new Vector3(-3.05f, 4.34f, -2.5f);
 
 
         GameObject textObj = Instantiate(textMeshProPrefab, originText , Quaternion.identity);
@@ -63,7 +63,7 @@ public class ShipmentBar : MonoBehaviour
             
 
             vehicle.transform.position = Vector3.MoveTowards(vehicle.transform.position, destination , Time.deltaTime * vehicleSpeed);
-            textObj.transform.position = Vector3.MoveTowards(textObj.transform.position, new Vector3(-7.4f,4.34f,-2.1f), Time.deltaTime * vehicleSpeed);
+            textObj.transform.position = Vector3.MoveTowards(textObj.transform.position, new Vector3(-7.34f,4.34f,-2.5f), Time.deltaTime * vehicleSpeed);
             yield return null;
         }
 
@@ -85,6 +85,7 @@ public class ShipmentBar : MonoBehaviour
         // Destroy vehicle after returning
         Destroy(vehicle);
         Destroy(shipmentBarObject);
+        Destroy(textObj);
 
         // Example: Storing collected items in an objective
         
