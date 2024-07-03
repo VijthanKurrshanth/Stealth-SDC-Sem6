@@ -51,26 +51,30 @@ public class ShipmentTransactions : MonoBehaviour
                 if (i==0)
                 {
                     DestroyGameObjectsWithTag("chicken", quantityOfShipmentOfItems[i]);
+                    
+                    
                 }
 
                 else if (i==1)
                 {
                     DestroyGameObjectsWithTag("pig", quantityOfShipmentOfItems[i]);
+                    
 
                 }
 
                 else if (i==2)
                 {
                     DestroyGameObjectsWithTag("cow", quantityOfShipmentOfItems[i]);
+                   
 
                 }
 
-                objective.collected_items[i+1] -= quantityOfShipmentOfItems[i];
+                objective.collected_items[i+1] -= quantityOfShipmentOfItems[i];    //should be in shipmentBar Vechile
 
             }
 
-            objective.collected_items[0] += ReadyToShipMoney;
-            //shipmentController.TempCollectedItems =objective.collected_items;
+                //objective.collected_items[0] += ReadyToShipMoney;
+            
 
             OkisPressed=false;
         }
@@ -156,12 +160,17 @@ public class ShipmentTransactions : MonoBehaviour
 
     void DestroyGameObjectsWithTag(string tag, int count)
     {
+        
         GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
         for (int i = 0; i < Mathf.Min(count, objects.Length); i++)
         {
             Destroy(objects[i]);
         }
     }
+
+
+
+
 
     
 
