@@ -66,9 +66,9 @@ public class WarehouseResourceManagement : MonoBehaviour
     public (int BoxRequired, bool CanCollect) SpaceAllocationWarehouse(string ItemName, int warehouseLevel) 
     {
         int boxRequired = 0;
-        bool canCollect = false;
+        //bool canCollect = false;
 
-        int[] warehouse1SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
+        int[] warehouse1SpaceAllocations = {1,1,1,1,1,1,1,1,1};   //{ 1, 3, 5, 8, 12, 16, 20, 24, 27 };
         int[] warehouse2SpaceAllocations = { 1, 1, 2, 5, 7, 10, 14, 17, 21 };
         int[] warehouse3SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
         int[] warehouse4SpaceAllocations = { 1, 3, 5, 8, 12, 16, 20, 24, 27 };
@@ -100,7 +100,7 @@ public class WarehouseResourceManagement : MonoBehaviour
 
                 if (RemainingCapacityOfWarehouse >= ItemSpace)
                 {
-                    canCollect = true;
+                    //canCollect = true;
                     boxRequired = warehouse1SpaceAllocations[itemIndex-4];
                 }
 
@@ -116,7 +116,7 @@ public class WarehouseResourceManagement : MonoBehaviour
             }
         }
 
-        return (boxRequired, canCollect);
+        return (boxRequired, true ); //cancollected);
     }
 
 
@@ -131,6 +131,13 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         startposition = CapacityOfWarehouse - RemainingCapacityOfWarehouse+1 ;
         endposition = startposition + boxRequired-1;
+
+
+
+        // if (RemainingCapacityOfWarehouse<=20)
+        // {
+        //     RemainingCapacityOfWarehouse =44;
+        // }
 
         //Debug.Log(startposition);
         //Debug.Log(endposition);
@@ -159,6 +166,14 @@ public class WarehouseResourceManagement : MonoBehaviour
 
         for (int i = startposition-1 ; i <= endposition-1; i++) 
         {
+
+            if (endposition>=40)
+            {
+                startposition=0;
+                endposition = startposition + boxRequired-1;
+                i=0;
+            }
+            
             Instantiate(prefabToSpawnInWareHouse, AllPostitions[i], Quaternion.identity);
 
         }
