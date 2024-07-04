@@ -17,6 +17,9 @@ TagManager:
   - CagedAnimal
   - DialogBox
   - cakeFactory
+  - Truck
+  - pig
+  - cow
   layers:
   - Default
   - TransparentFX

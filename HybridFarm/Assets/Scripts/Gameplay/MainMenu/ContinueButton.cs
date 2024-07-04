@@ -6,10 +6,12 @@ public class ContinueButton : MonoBehaviour
 {
     // Reference to the pause menu UI object
     public GameObject pauseMenu;
+    AllButtonDisableEnabler allButtonDisableEnabler;
 
     // Start is called before the first frame update
     void Start()
     {
+        allButtonDisableEnabler =  FindObjectOfType<AllButtonDisableEnabler>();
         // Ensure the pause menu is initially  visible
         if (pauseMenu != null)
         {
@@ -28,6 +30,7 @@ public class ContinueButton : MonoBehaviour
     {
         // Continue the game
         Time.timeScale = 1;
+        allButtonDisableEnabler.EnableAllButtons();
 
         // Hide the pause menu
         if (pauseMenu != null)

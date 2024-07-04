@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1349327552584366883}
   - component: {fileID: 1006925087223247024}
+  - component: {fileID: 5702822392387385242}
+  - component: {fileID: 2238377689882528359}
   m_Layer: 0
   m_Name: sausages
   m_TagString: Untagged
@@ -84,3 +86,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5702822392387385242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889793523611341094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e5ff2df9803e44a90d55a0e4a11dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawninWarehouse: {fileID: 8157573052558251973, guid: 713714f2e86722d459c68d6ad99762b9, type: 3}
+  nameoftheSpawnObject: sausages
+--- !u!114 &2238377689882528359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889793523611341094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1
