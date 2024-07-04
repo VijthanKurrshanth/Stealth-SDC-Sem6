@@ -107,7 +107,7 @@ public class WarehouseResourceManagement : MonoBehaviour
                 else
                 {
 
-                    StartCoroutine(SpawnBlinkPrefab());
+                    //StartCoroutine(SpawnBlinkPrefab());
 
                     
                     

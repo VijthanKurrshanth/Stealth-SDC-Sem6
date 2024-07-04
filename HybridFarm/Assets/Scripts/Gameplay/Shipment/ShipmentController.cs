@@ -185,7 +185,7 @@ public class ShipmentController : MonoBehaviour
             if ( objective.collected_items[i] - shipmentTransactions.quantityOfShipmentOfItems[i-1] > 0 )
             {
 
-                if (i<=2) {
+                if (i<=3) {
 
                     GameObject spritespawn = Instantiate(objective.respectiveItemSprites[i], ShipmentPostitions[l] , Quaternion.identity);
                     spritespawn.transform.localScale *= 0.5f;
