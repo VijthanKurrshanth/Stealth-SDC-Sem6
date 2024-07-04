@@ -3962,7 +3962,7 @@ MonoBehaviour:
   No_of_curd: 0
   No_of_cheese: 0
   Initial_amount_of_money: 250
-  Initial_No_of_chicken: 2
+  Initial_No_of_chicken: 1
   Initial_No_of_pig: 0
   Initial_No_of_cow: 0
   Initial_No_of_egg: 0
