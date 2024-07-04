@@ -49,7 +49,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     {
 
 
-        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactory","CurdFactoryFuel","CheeseFactoryFuel","CheeseFactoryElectric"};
+        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactoryFuel","CurdFactoryElectric","CheeseFactoryFuel","CheeseFactoryElectric"};
 
         
         // to find which factory was assigned to this script.....

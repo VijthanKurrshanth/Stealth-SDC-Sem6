@@ -86,7 +86,7 @@ public class FactoryPriceHandler : MonoBehaviour
     {
 
         priceText.raycastTarget = false;
-        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactory","CurdFactoryFuel","CheeseFactoryFuel","CheeseFactoryElectric"};
+        string[] factoryNames= new string [] {"EggPowderFactoryFuel","EggPowderFactoryElectric","CakeFactoryFuel","CakeFactoryElectric","MeatCutterFactoryFuel","MeatCutterFactoryElectric","SausagesFactoryFuel","SausagesFactoryElectric","CurdFactoryFuel","CurdFactoryElectric","CheeseFactoryFuel","CheeseFactoryElectric"};
 
         int indexOfFactoryAssigned =0;
         for (int i = 0; i<=11 ;i++)   // 9 ->11

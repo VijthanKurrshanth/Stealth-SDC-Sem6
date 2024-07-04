@@ -21,6 +21,9 @@ TagManager:
   - pig
   - cow
   - cheeseFactory
+  - meatCutterFactory
+  - curdFactory
+  - sausagesFactory
   layers:
   - Default
   - TransparentFX

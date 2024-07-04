@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 8353889501698653074}
   m_Layer: 0
   m_Name: meat Cutter Factory Fuel
-  m_TagString: eggPowderFactory
+  m_TagString: meatCutterFactory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1369,15 +1369,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  targetPosition: {x: -5.1, y: 2.180771, z: 0}
-  spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
+  targetPosition: {x: -6.56, y: 0, z: 0}
+  spriteToMove: {fileID: 157985812, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
   spawnPosition: {x: 0, y: -4, z: 0}
-  ProcessedOutputToSpawn: {fileID: 2343631306098868113, guid: 9cb937492a178434c9d91809a7d70456, type: 3}
-  processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: 7}
+  ProcessedOutputToSpawn: {fileID: 7752910793376209128, guid: 96450038debddc64c9e1444e96cc227e, type: 3}
+  processedOutputSpawnPosition: {x: -4.96, y: 0, z: 7}
   delayBeforeSpawn: 5
   cooldownTime: 5
-  factoryname: eggPowderFactory
-  nameoftheRawMaterial: egg
+  factoryname: meatCutterFactory
+  nameoftheRawMaterial: meat
 --- !u!114 &8353889501698653074
 MonoBehaviour:
   m_ObjectHideFlags: 0

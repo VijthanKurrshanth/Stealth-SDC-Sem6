@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 9025134719941066454}
   m_Layer: 0
   m_Name: sausages Factory Fuel
-  m_TagString: cakeFactory
+  m_TagString: sausagesFactory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -522,15 +522,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  targetPosition: {x: 5.1, y: 2.180771, z: 0}
-  spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
+  targetPosition: {x: 6.64, y: 0.1, z: 0}
+  spriteToMove: {fileID: 839873480, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
   spawnPosition: {x: 0, y: -4, z: 0}
-  ProcessedOutputToSpawn: {fileID: 2649260095408926020, guid: 8b92fe57066dfa445a0589ba881d6a98, type: 3}
-  processedOutputSpawnPosition: {x: 3.41, y: 1.56, z: 7}
+  ProcessedOutputToSpawn: {fileID: 7889793523611341094, guid: 11584b1565b672d439a7fc2508ad7b08, type: 3}
+  processedOutputSpawnPosition: {x: 4.96, y: 0.1, z: 7}
   delayBeforeSpawn: 5
   cooldownTime: 5
-  factoryname: cakeFactory
-  nameoftheRawMaterial: eggPowder
+  factoryname: sausagesFactory
+  nameoftheRawMaterial: meatSlice
 --- !u!114 &9025134719941066454
 MonoBehaviour:
   m_ObjectHideFlags: 0
