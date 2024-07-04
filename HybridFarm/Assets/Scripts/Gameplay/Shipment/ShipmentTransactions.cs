@@ -44,7 +44,8 @@ public class ShipmentTransactions : MonoBehaviour
 
         ShipmentTransactionsProcess();
         ReadyToShipMoney = CalcualteTotalAmount(quantityOfShipmentOfItems);
-
+        
+         Debug.Log(quantityOfShipmentOfItems[2]);
         //Displaying it on TextMeshPro in shipmentController
 
         if (OkisPressed) 
@@ -53,8 +54,10 @@ public class ShipmentTransactions : MonoBehaviour
             Debug.Log("Ok is pressed");
             for (int i = 0; i< quantityOfShipmentOfItems.Length ;i++)
             {
+                
                 if (i==0)
                 {
+                    Debug.Log("ChickenDestroyed");
                     DestroyGameObjectsWithTag("chicken", quantityOfShipmentOfItems[i]);
                     
                     
@@ -69,6 +72,8 @@ public class ShipmentTransactions : MonoBehaviour
 
                 else if (i==2)
                 {
+                    Debug.Log("Cow destroyed");
+                    Debug.Log(quantityOfShipmentOfItems[i]);
                     DestroyGameObjectsWithTag("cow", quantityOfShipmentOfItems[i]);
                    
 
@@ -78,11 +83,13 @@ public class ShipmentTransactions : MonoBehaviour
 
                 shipmentBar.money = ReadyToShipMoney;
 
-                for (int j = 0; j< quantityOfShipmentOfItems.Length ;j++)
-                {
-                    quantityOfShipmentOfItems[j]=0;
 
-                }
+            }
+
+            for (int j = 0; j< quantityOfShipmentOfItems.Length ;j++)
+            {
+                quantityOfShipmentOfItems[j]=0;
+
             }
 
                 //objective.collected_items[0] += ReadyToShipMoney;

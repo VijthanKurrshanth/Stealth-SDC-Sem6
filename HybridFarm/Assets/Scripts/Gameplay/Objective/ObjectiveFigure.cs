@@ -17,6 +17,8 @@ public class ObjectiveFigure : MonoBehaviour
     public bool?[] Green_Correct_Indicators;  //  three element with null.
     private int flag =0;
 
+    private bool a =false;
+
   
 
 
@@ -96,14 +98,17 @@ public class ObjectiveFigure : MonoBehaviour
             
             if (inIndexPostioninObjectiveItems[i]<13 || Green_Correct_Indicators[i]== true )
             {
-                if (objective.collected_items[inIndexPostioninObjectiveItems[i]]>= objective.objective_items[inIndexPostioninObjectiveItems[i]] )
+                if (objective.collected_itemsIncrements[inIndexPostioninObjectiveItems[i]]>= objective.objective_items[inIndexPostioninObjectiveItems[i]] )
                 {
                     Green_Correct_Indicators[i]= true;
+                    a=true;
 
                 }
                 else
                 {
+                    if (!a) {
                     Green_Correct_Indicators[i]= false;
+                    }
                 }
 
             }
