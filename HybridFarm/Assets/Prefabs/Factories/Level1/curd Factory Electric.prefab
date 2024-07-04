@@ -526,15 +526,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  targetPosition: {x: -5.1, y: 2.180771, z: 0}
-  spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
+  targetPosition: {x: -6.45, y: -2.23, z: 0}
+  spriteToMove: {fileID: 314645742, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
   spawnPosition: {x: 0, y: -4, z: 0}
-  ProcessedOutputToSpawn: {fileID: 2343631306098868113, guid: 9cb937492a178434c9d91809a7d70456, type: 3}
-  processedOutputSpawnPosition: {x: -3.7, y: 1.62, z: 7}
+  ProcessedOutputToSpawn: {fileID: 428810181535445551, guid: ef7fd31773cfaf04d827af18e3945ddd, type: 3}
+  processedOutputSpawnPosition: {x: -4.9, y: -2.01, z: 7}
   delayBeforeSpawn: 3
   cooldownTime: 5
-  factoryname: eggPowderFactory
-  nameoftheRawMaterial: egg
+  factoryname: curdFactory
+  nameoftheRawMaterial: milk
 --- !u!114 &1734968864493719543
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ TagManager:
   - Truck
   - pig
   - cow
+  - cheeseFactory
   layers:
   - Default
   - TransparentFX
