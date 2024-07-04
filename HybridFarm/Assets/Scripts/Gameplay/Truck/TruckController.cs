@@ -16,18 +16,26 @@ public class TruckController2D : MonoBehaviour
 
     public bool vehicleisPressed = false;
 
+    ShipmentBar shipmentBar;
+
     void Start()
     {
         allButtonDisableEnabler = FindObjectOfType<AllButtonDisableEnabler>();
+        //shipmentBar = FindObjectOfType<ShipmentBar>();
     }
 
     void Update()
     {
+        
+        //gameObject.SetActive(shipmentBar.canTravelagain);
+
+        //Debug.Log(shipmentBar.canTravelagain);
+
         // Get the mouse position in world coordinates
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-        // Check if the ray hits a collider
+        
         if (hit.collider != null)
         {
             // Check if the object has the tag "Truck"
@@ -35,7 +43,7 @@ public class TruckController2D : MonoBehaviour
             {
                 SpriteRenderer renderer = hit.collider.GetComponent<SpriteRenderer>();
 
-                // Change the color to hoverColor if not already hovered
+                
                 if (renderer != currentRenderer)
                 {
                     ResetColor();
@@ -44,19 +52,17 @@ public class TruckController2D : MonoBehaviour
                     currentRenderer.color = hoverColor;
                 }
 
-                // Check for mouse click
+                
                 if (Input.GetMouseButtonDown(0))
                 {
-                    // Change the color to clickColor
+                    
                     currentRenderer.color = clickColor;
-
-
 
                     // Spawn the prefab at the specified spawn position
                     GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
                     spawnedObject.transform.SetParent(parentPrefab);
 
-                    vehicleisPressed =true;
+                    vehicleisPressed = true;
 
                     // Pause the game
                     Time.timeScale = 0;
@@ -88,13 +94,4 @@ public class TruckController2D : MonoBehaviour
             currentRenderer = null;
         }
     }
-
-    // void EnableChildButtons(GameObject parentObject)
-    // {
-    //     Button[] childButtons = parentObject.GetComponentsInChildren<Button>();
-    //     foreach (Button button in childButtons)
-    //     {
-    //         button.interactable = true;
-    //     }
-    // }
 }

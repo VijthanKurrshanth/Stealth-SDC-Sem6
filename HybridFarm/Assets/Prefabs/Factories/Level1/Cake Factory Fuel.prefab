@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 18
   targetPosition: {x: 5.1, y: 2.180771, z: 0}
-  spriteToMove: {fileID: 1047670545, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
+  spriteToMove: {fileID: 768449898, guid: fc5a6928179b0f64e81b732415ddb1fb, type: 3}
   spawnPosition: {x: 0, y: -4, z: 0}
   ProcessedOutputToSpawn: {fileID: 2649260095408926020, guid: 8b92fe57066dfa445a0589ba881d6a98, type: 3}
   processedOutputSpawnPosition: {x: 3.41, y: 1.56, z: 7}
