@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4982072655282187901}
   - component: {fileID: 2922382675427131717}
   - component: {fileID: 642806522058787206}
+  - component: {fileID: 7283087164460775053}
   m_Layer: 0
   m_Name: eggPowder
   m_TagString: collectables
@@ -163,3 +164,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7283087164460775053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343631306098868113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1

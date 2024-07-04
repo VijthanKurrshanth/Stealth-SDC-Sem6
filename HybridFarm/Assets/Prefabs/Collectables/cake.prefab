@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1051218156157598460}
   - component: {fileID: 6141820046996751247}
   - component: {fileID: 313771201680332371}
+  - component: {fileID: 6289797894081085011}
   m_Layer: 0
   m_Name: cake
   m_TagString: collectables
@@ -163,3 +164,19 @@ CircleCollider2D:
   m_Offset: {x: 0.0016459905, y: -0.067487136}
   serializedVersion: 2
   m_Radius: 0.2634445
+--- !u!114 &6289797894081085011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649260095408926020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1

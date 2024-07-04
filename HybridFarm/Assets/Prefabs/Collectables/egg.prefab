@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5245809076080912436}
   - component: {fileID: 6213619107553094454}
   - component: {fileID: -6509587173104923690}
+  - component: {fileID: 1088326355678879323}
   m_Layer: 0
   m_Name: egg
   m_TagString: collectables
@@ -248,3 +249,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawninWarehouse: {fileID: 1499076418586038428, guid: f78c786213db0a348b939d36736f9559, type: 3}
   nameoftheSpawnObject: egg
+--- !u!114 &1088326355678879323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926607628925942432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1

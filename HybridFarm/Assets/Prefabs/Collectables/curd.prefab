@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8939943357592701686}
   - component: {fileID: 5229334987065256103}
   - component: {fileID: 2454893924778741661}
+  - component: {fileID: 1074839005094714426}
   m_Layer: 0
   m_Name: curd
   m_TagString: collectables
@@ -163,3 +164,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1074839005094714426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428810181535445551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1

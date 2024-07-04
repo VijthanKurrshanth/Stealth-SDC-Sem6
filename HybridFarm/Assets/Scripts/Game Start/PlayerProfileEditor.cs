@@ -132,6 +132,7 @@ public class PlayerProfileEditor : MonoBehaviour
     // This method is used to update the user profile on the server
     private void UpdateProfile(UpdateProfileDTO updateProfileObject)
     {
+        SavePlayerNames(updateProfileObject);
         StartCoroutine(ApiController.GetJwtKey((string key) =>
         {
             string message = null;
@@ -209,6 +210,7 @@ public class PlayerProfileEditor : MonoBehaviour
                     StartCoroutine(ApiController.Reset());
                     questionnaireFinished = true;
                     PlayerPrefs.SetInt("playerExists", 1);
+                    PlayerPrefs.Save();
                 }
             }
             else
@@ -218,6 +220,14 @@ public class PlayerProfileEditor : MonoBehaviour
                 SceneManager.LoadScene("6. LevelMap");
             }
         }));
+    }
+
+    private void SavePlayerNames(UpdateProfileDTO updateProfileDTO)
+    {
+        PlayerPrefs.SetString("firstName", updateProfileDTO.firstname);
+        PlayerPrefs.SetString("lastName", updateProfileDTO.lastname);
+        PlayerPrefs.SetString("userName", userProfile.UserName);
+        PlayerPrefs.Save();
     }
 }
 

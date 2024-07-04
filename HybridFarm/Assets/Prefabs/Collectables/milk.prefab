@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3329887726620131281}
   - component: {fileID: 4917387219145651334}
   - component: {fileID: 5442603364023563003}
+  - component: {fileID: 5041392711290106417}
   m_Layer: 0
   m_Name: milk
   m_TagString: collectables
@@ -248,3 +249,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawninWarehouse: {fileID: 7362319723219655201, guid: 2f314f01aee8b3e4ebf6054333ef9b3e, type: 3}
   nameoftheSpawnObject: milk
+--- !u!114 &5041392711290106417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128044745258084478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d1b2862ebca8a4d807fc16bfa3cd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkInterval: 0.25
+  destroyTime: 15
+  blinkStartTime: 10
+  brightnessReduction: 0.1
