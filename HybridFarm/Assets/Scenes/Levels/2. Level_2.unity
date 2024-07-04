@@ -3249,6 +3249,7 @@ MonoBehaviour:
   ObjectiveText: {fileID: 0}
   index: 0
   correctMarkNumber: 0
+  ItemsCountForObjectiveBar: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &684653902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3982,6 +3983,7 @@ MonoBehaviour:
   factoryNamesLevels: 
   objective_items: 
   collected_items: 
+  collected_itemsIncrements: 
   itemsname: []
   respectiveItemSprites:
   - {fileID: 0}
@@ -8029,6 +8031,7 @@ MonoBehaviour:
   ObjectiveText: {fileID: 0}
   index: 2
   correctMarkNumber: 2
+  ItemsCountForObjectiveBar: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1622441273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9294,6 +9297,7 @@ MonoBehaviour:
   ObjectiveText: {fileID: 0}
   index: 1
   correctMarkNumber: 1
+  ItemsCountForObjectiveBar: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1755059713
 MonoBehaviour:
   m_ObjectHideFlags: 0

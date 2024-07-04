@@ -40,6 +40,7 @@ public class collectableWarehouseTransform : MonoBehaviour
                 if (objective.itemsname[i] == nameoftheSpawnObject)
                 {
                     objective.collected_items[i]+=1;
+                    objective.collected_itemsIncrements[i]+=1;
                     //Debug.Log(i);
                 }
 
