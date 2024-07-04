@@ -6308,18 +6308,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount_of_money: 0
   No_of_chicken: 0
-  No_of_pig: 0
+  No_of_pig: 1
   No_of_cow: 0
   No_of_egg: 0
   No_of_eggPoweder: 0
-  No_of_cake: 10
+  No_of_cake: 0
   No_of_meat: 0
   No_of_meatSlice: 0
   No_of_sausage: 0
   No_of_milk: 0
   No_of_curd: 0
   No_of_cheese: 0
-  Initial_amount_of_money: 200
+  Initial_amount_of_money: 700
   Initial_No_of_chicken: 2
   Initial_No_of_pig: 0
   Initial_No_of_cow: 0
@@ -12175,91 +12175,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535833407}
   m_CullTransparentMesh: 1
---- !u!1001 &1544587544
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2107791192138509865, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4461410092442803493, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_Name
-      value: chicken (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetLeftPosition.x
-      value: -6.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetLeftPosition.y
-      value: 3.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetLeftPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetRightPosition.x
-      value: 6.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetRightPosition.y
-      value: 3.87
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384772618530206205, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
-      propertyPath: targetRightPosition.z
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 151bcb5b44e7921499b7e244686d1635, type: 3}
 --- !u!1 &1571920435
 GameObject:
   m_ObjectHideFlags: 0
@@ -16975,5 +16890,4 @@ SceneRoots:
   - {fileID: 1752698364}
   - {fileID: 1271595684}
   - {fileID: 459437030}
-  - {fileID: 1544587544}
   - {fileID: 5081753006092322753}
