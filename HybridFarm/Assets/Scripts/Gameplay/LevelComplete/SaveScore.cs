@@ -33,7 +33,7 @@ public class SaveScore : MonoBehaviour
         PlayerPrefs.SetInt("PlayerScore", playerScore); // Save the updated score to PlayerPrefs
 
         int level = SceneManager.GetActiveScene().buildIndex - 4; // Get the level number based on the build index level 1 is 5, level 2 is 6, etc.
-        PlayerPrefs.SetInt("currentLevel", level); // Set the current level to next level
+        PlayerPrefs.SetInt("currentLevel", level + 1); // Set the current level to next level
         PlayerPrefs.Save(); // Save the PlayerPrefs data
         Debug.Log("Player Score: " + PlayerPrefs.GetInt("PlayerScore")); // Log the player score
     }
