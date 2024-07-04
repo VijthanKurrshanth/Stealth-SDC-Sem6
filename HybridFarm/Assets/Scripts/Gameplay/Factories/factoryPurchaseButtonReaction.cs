@@ -26,7 +26,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
     // Cost of the factory
     public int indexOfFactoryAssigned;
     public int CostOfFactory;
-    public bool isElectricFactory =  false;
+    //private bool isElectricFactory =  false;
 
 
     void Start()
@@ -54,7 +54,7 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
         
         // to find which factory was assigned to this script.....
         //indexOfFactoryAssigned =0;
-        for (int i = 0; i<=9 ;i++)
+        for (int i = 0; i<=11 ;i++)
         {
             if (nameOfFactory == factoryNames[i])
             {
@@ -63,44 +63,109 @@ public class FactoryPurchaseButtonReaction : MonoBehaviour
         }
         
 
-        currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; // get corrosponding current factory level from objective script.
+        //currentFactoryLevel = objective.factoryNamesLevels[indexOfFactoryAssigned]; // get corrosponding current factory level from objective script.
 
 
 
-        if (indexOfFactoryAssigned ==0)
+        if (indexOfFactoryAssigned ==0 || indexOfFactoryAssigned==1)
         {
-            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel]; //display factory price on upgrade board based on selected factory...
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel];
+            }
+     
         }
 
-        else if (indexOfFactoryAssigned ==1)
+
+        else if (indexOfFactoryAssigned ==2 || indexOfFactoryAssigned==3)
         {
-            CostOfFactory = factoryPriceHandler.eggPowderfactoryLevelsCost[currentFactoryLevel+1];
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
+            }
+     
         }
+
         
-        else if (indexOfFactoryAssigned ==2)
+        else if (indexOfFactoryAssigned ==4 || indexOfFactoryAssigned==5)
         {
-            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel];
-        }
-        
-        else if (indexOfFactoryAssigned ==3)
-        {
-            CostOfFactory = factoryPriceHandler.cakefactoryLevelsCost[currentFactoryLevel+1];
-        }
-        
-        else if (indexOfFactoryAssigned ==4)
-        {
-            CostOfFactory = factoryPriceHandler.curdfactoryLevelsCost[currentFactoryLevel];
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.meatcutterfactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.meatcutterfactoryLevelsCost[currentFactoryLevel];
+            }
+     
         }
 
-        else if (indexOfFactoryAssigned ==5)
+
+        
+        else if (indexOfFactoryAssigned ==6 || indexOfFactoryAssigned==7)
         {
-            CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel+1];
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.sausagefactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.sausagefactoryLevelsCost[currentFactoryLevel];
+            }
+     
+        }
+
+
+
+        
+        else if (indexOfFactoryAssigned ==8 || indexOfFactoryAssigned==9)
+        {
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.curdfactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.curdfactoryLevelsCost[currentFactoryLevel];
+            }
+     
+        }
+
+
+        
+        else if (indexOfFactoryAssigned ==10 || indexOfFactoryAssigned==11)
+        {
+            if (indexOfFactoryAssigned % 2 == 1)
+            {
+                CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel+1]; //display factory price on upgrade board based on selected factory...
+            }
+
+            else
+            {
+                CostOfFactory = factoryPriceHandler.cheesefactoryLevelsCost[currentFactoryLevel];
+            }
+     
         }
 
         else 
         {
             Debug.Log("Not Assigned Factory");
         }
+
+        
 
 
 

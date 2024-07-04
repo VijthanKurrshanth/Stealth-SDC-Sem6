@@ -60,7 +60,7 @@ public class FactoryPurchaseButtonOnClick : MonoBehaviour
         {
         //hideAndShowObjectForLevel1Factories.isVisible=true;
         objective.collected_items[0]-= FactoryPurchaseButtonReaction.CostOfFactory;
-        objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
+        //objective.factoryNamesLevels[FactoryPurchaseButtonReaction.indexOfFactoryAssigned] += 1;
         GameObject newFactory = Instantiate(FactoryToSpawn, new Vector3(factoryTargetX,factoryTargetY,5), Quaternion.identity);
         }
 
