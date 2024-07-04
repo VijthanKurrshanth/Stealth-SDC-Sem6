@@ -151,11 +151,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1008967455}
-  - {fileID: 933285214}
-  - {fileID: 1234459194}
-  - {fileID: 1450055403}
-  - {fileID: 1932461292}
+  - {fileID: 356556236}
+  - {fileID: 45148847}
+  - {fileID: 332758946}
+  - {fileID: 421666667}
+  - {fileID: 60983460}
   - {fileID: 331964062}
   m_Father: {fileID: 938959725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -248,6 +248,108 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1860425780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &45148846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45148847}
+  - component: {fileID: 45148848}
+  m_Layer: 5
+  m_Name: Pig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &45148847
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45148846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 933285214}
+  m_Father: {fileID: 17332126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 527.7, y: 474.2}
+  m_SizeDelta: {x: 107, y: 116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &45148848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45148846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToHide: {fileID: 933285213}
+  cost: 1000
+--- !u!1 &60983459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60983460}
+  - component: {fileID: 60983461}
+  m_Layer: 5
+  m_Name: Dog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &60983460
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60983459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1932461292}
+  m_Father: {fileID: 17332126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 885.8999, y: 474.2}
+  m_SizeDelta: {x: 107, y: 116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &60983461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60983459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToHide: {fileID: 1932461291}
+  cost: 2600
 --- !u!1 &76068238
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToHide: {fileID: 0}
   cost: 10000
 --- !u!114 &273998845
 MonoBehaviour:
@@ -1627,6 +1730,108 @@ Transform:
   - {fileID: 2070756221}
   m_Father: {fileID: 17332126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &332758945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 332758946}
+  - component: {fileID: 332758947}
+  m_Layer: 5
+  m_Name: Cow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &332758946
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332758945}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1234459194}
+  m_Father: {fileID: 17332126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 651.3, y: 473.8}
+  m_SizeDelta: {x: 119.839966, y: 116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &332758947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332758945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToHide: {fileID: 1234459193}
+  cost: 10000
+--- !u!1 &356556235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 356556236}
+  - component: {fileID: 356556237}
+  m_Layer: 5
+  m_Name: Chicken
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &356556236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356556235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1008967455}
+  m_Father: {fileID: 17332126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 411.2, y: 474.2}
+  m_SizeDelta: {x: 107, y: 116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &356556237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356556235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToHide: {fileID: 1008967454}
+  cost: 100
 --- !u!1 &374637197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2416,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &421666666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421666667}
+  - component: {fileID: 421666668}
+  m_Layer: 5
+  m_Name: Cat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &421666667
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421666666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1450055403}
+  m_Father: {fileID: 17332126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 769.00006, y: 474.2}
+  m_SizeDelta: {x: 107, y: 116}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &421666668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421666666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToHide: {fileID: 1450055402}
+  cost: 2500
 --- !u!1 &443488057
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +5157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToHide: {fileID: 0}
   cost: 1000
 --- !u!114 &738546658
 MonoBehaviour:
@@ -6258,7 +6515,6 @@ GameObject:
   - component: {fileID: 933285216}
   - component: {fileID: 933285215}
   - component: {fileID: 933285218}
-  - component: {fileID: 933285219}
   m_Layer: 5
   m_Name: buyPig
   m_TagString: Untagged
@@ -6279,11 +6535,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 738546656}
-  m_Father: {fileID: 17332126}
+  m_Father: {fileID: 45148847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 527.7, y: 474.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 107, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933285215
@@ -6398,19 +6654,6 @@ MonoBehaviour:
   moveSpeed: 40
   reduceValue: 1000
   nameoftheSpawnObject: pig
---- !u!114 &933285219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933285213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 1000
 --- !u!1 &938959721
 GameObject:
   m_ObjectHideFlags: 0
@@ -6574,6 +6817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToHide: {fileID: 0}
   cost: 2500
 --- !u!114 &956461844
 MonoBehaviour:
@@ -6925,7 +7169,6 @@ GameObject:
   - component: {fileID: 1008967457}
   - component: {fileID: 1008967456}
   - component: {fileID: 1008967459}
-  - component: {fileID: 1008967460}
   m_Layer: 5
   m_Name: buyChicken
   m_TagString: Untagged
@@ -6946,11 +7189,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1151500767}
-  m_Father: {fileID: 17332126}
+  m_Father: {fileID: 356556236}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 411.2, y: 474.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 107, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008967456
@@ -7065,19 +7308,6 @@ MonoBehaviour:
   moveSpeed: 40
   reduceValue: 100
   nameoftheSpawnObject: chicken
---- !u!114 &1008967460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008967454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 100
 --- !u!1 &1018578724
 GameObject:
   m_ObjectHideFlags: 0
@@ -7602,6 +7832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToHide: {fileID: 0}
   cost: 100
 --- !u!114 &1151500769
 MonoBehaviour:
@@ -7851,6 +8082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToHide: {fileID: 0}
   cost: 2600
 --- !u!114 &1204736770
 MonoBehaviour:
@@ -8112,7 +8344,6 @@ GameObject:
   - component: {fileID: 1234459196}
   - component: {fileID: 1234459195}
   - component: {fileID: 1234459198}
-  - component: {fileID: 1234459199}
   m_Layer: 5
   m_Name: buyCow
   m_TagString: Untagged
@@ -8133,11 +8364,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 273998843}
-  m_Father: {fileID: 17332126}
+  m_Father: {fileID: 332758946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 651.3, y: 473.8}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 107, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1234459195
@@ -8252,19 +8483,6 @@ MonoBehaviour:
   moveSpeed: 40
   reduceValue: 10000
   nameoftheSpawnObject: cow
---- !u!114 &1234459199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234459193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 10000
 --- !u!1 &1253980174
 GameObject:
   m_ObjectHideFlags: 0
@@ -9050,7 +9268,6 @@ GameObject:
   - component: {fileID: 1450055405}
   - component: {fileID: 1450055404}
   - component: {fileID: 1450055407}
-  - component: {fileID: 1450055408}
   m_Layer: 5
   m_Name: buyCat
   m_TagString: Untagged
@@ -9071,11 +9288,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 956461842}
-  m_Father: {fileID: 17332126}
+  m_Father: {fileID: 421666667}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 769.00006, y: 474.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 107, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1450055404
@@ -9190,19 +9407,6 @@ MonoBehaviour:
   moveSpeed: 40
   reduceValue: 2500
   nameoftheSpawnObject: cat
---- !u!114 &1450055408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1450055402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 2500
 --- !u!1 &1478982832
 GameObject:
   m_ObjectHideFlags: 0
@@ -12435,7 +12639,6 @@ GameObject:
   - component: {fileID: 1932461294}
   - component: {fileID: 1932461293}
   - component: {fileID: 1932461296}
-  - component: {fileID: 1932461297}
   m_Layer: 5
   m_Name: buyDog
   m_TagString: Untagged
@@ -12456,11 +12659,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1204736768}
-  m_Father: {fileID: 17332126}
+  m_Father: {fileID: 60983460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 885.8999, y: 474.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 107, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1932461293
@@ -12575,19 +12778,6 @@ MonoBehaviour:
   moveSpeed: 40
   reduceValue: 2600
   nameoftheSpawnObject: dog
---- !u!114 &1932461297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932461291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6524f84c3d27982408e031e1c29ba2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 2600
 --- !u!1 &1939329661
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,26 +4,31 @@ public class hideObjectBasedOnMoney : MonoBehaviour
 {
     
     
-    MoneyScript moneyScript;
+    //MoneyScript moneyScript;
+
+    Objective objective;
+
+    public GameObject ToHide;
+
     [SerializeField] int cost = 100;
 
 
     void Start()
     {
-        moneyScript =FindObjectOfType<MoneyScript>();
+        objective =FindObjectOfType<Objective>();
         
 
     }
     void Update()
     {
 
-        if (moneyScript.moneyValue < cost)
+        if (objective.collected_items[0] < cost)
         {
-            gameObject.SetActive(false); // Hide the GameObject
+            ToHide.SetActive(false); // Hide the GameObject
         }
         else
         {
-            gameObject.SetActive(true); // Show the GameObject
+            ToHide.SetActive(true); // Show the GameObject
         }
     }
 }
