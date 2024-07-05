@@ -56,7 +56,10 @@ public class NewGameHandler : MonoBehaviour
     public void OnContinueButtonClicked()
     {
         int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
-        StartCoroutine(LoadingScreen(currentLevel + 4)); // Load the level scene based on the build index, level 1 is 5, level 2 is 6, etc. 
+        //StartCoroutine(LoadingScreen(currentLevel + 4)); // Load the level scene based on the build index, level 1 is 5, level 2 is 6, etc. 
+        Time.timeScale = 1;
+        SceneManager.LoadScene(currentLevel + 4);
+        Time.timeScale = 1;
     }
 
     public void OnConfirmButtonClicked()
@@ -75,10 +78,11 @@ public class NewGameHandler : MonoBehaviour
 
     IEnumerator LoadingScreen(int index)
     {
-        loadingScreen.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        loadingScreen.SetActive(false);
+        // loadingScreen.SetActive(true);
+        // yield return new WaitForSeconds(1f);
+        // loadingScreen.SetActive(false);
         SceneManager.LoadScene(index);
+        yield return null;
     }
 
     public void OnTestButtonClicked()

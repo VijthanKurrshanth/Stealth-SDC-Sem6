@@ -53,6 +53,8 @@ public class Objective : MonoBehaviour
 
     public int[] objective_items;
     public int[] collected_items;   // warehouse items excluding predators
+
+    public int [] collected_itemsIncrements;
     public string[] itemsname;
     public GameObject[] respectiveItemSprites;   // this will have sprites of objective in order resepctive to item(pissoble objective items)
        
@@ -70,6 +72,7 @@ public class Objective : MonoBehaviour
 
         objective_items = new int[] { amount_of_money, No_of_chicken, No_of_pig, No_of_cow, No_of_egg, No_of_eggPoweder, No_of_cake, No_of_meat, No_of_meatSlice, No_of_sausage, No_of_milk, No_of_curd, No_of_cheese };
         collected_items = new int[] { Initial_amount_of_money, Initial_No_of_chicken, Initial_No_of_pig, Initial_No_of_cow, Initial_No_of_egg, Initial_No_of_eggPoweder, Initial_No_of_cake, Initial_No_of_meat, Initial_No_of_meatSlice, Initial_No_of_sausage, Initial_No_of_milk, Initial_No_of_curd, Initial_No_of_cheese };
+        collected_itemsIncrements = new int[] { Initial_amount_of_money, Initial_No_of_chicken, Initial_No_of_pig, Initial_No_of_cow, Initial_No_of_egg, Initial_No_of_eggPoweder, Initial_No_of_cake, Initial_No_of_meat, Initial_No_of_meatSlice, Initial_No_of_sausage, Initial_No_of_milk, Initial_No_of_curd, Initial_No_of_cheese };
         // This should be entered as name for spawnobject scripts when script assigned.
         itemsname = new string[] { "money","chicken", "pig", "cow", "egg", "eggPowder", "cake", "meat", "meatSlice", "sausages", "milk", "curd", "cheese" };
 
