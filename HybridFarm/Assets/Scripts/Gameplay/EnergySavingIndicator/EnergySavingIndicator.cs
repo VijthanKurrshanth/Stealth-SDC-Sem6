@@ -39,12 +39,12 @@ public class EnergySavingIndicator : MonoBehaviour
         yield return StartCoroutine(ApiController.GetJwtKey((JWTKey) => StartCoroutine(ApiController.GetCurrentConsumption(JWTKey, (consumptionString) =>
         {
             double currentConsumption = double.Parse(PlayerPrefs.GetString("currentConsumptionForIndicator"));
-            Debug.Log("Current consumption for indicator: " + currentConsumption);
+            //Debug.Log("Current consumption for indicator: " + currentConsumption);
 
             PlayerPrefs.SetString("currentConsumptionForIndicator", consumptionString);
 
             double consumption = double.Parse(consumptionString);
-            Debug.Log("Consumption: " + consumption);
+            //Debug.Log("Consumption: " + consumption);
 
             double difference = consumption - currentConsumption;
             if (difference <= 0)
@@ -55,7 +55,7 @@ public class EnergySavingIndicator : MonoBehaviour
             {
                 consumptionRate = difference / updateInterval;
             }
-            Debug.Log("Consumption rate for indicator: " + consumptionRate);
+            //Debug.Log("Consumption rate for indicator: " + consumptionRate);
 
             callback(consumptionRate);
         }))));
