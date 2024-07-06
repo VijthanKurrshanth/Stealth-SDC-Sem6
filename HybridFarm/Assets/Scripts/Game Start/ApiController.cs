@@ -248,10 +248,12 @@ public static class ApiController
         }
 
         float consumption = 0.0f;
-        string year = DateTime.Now.Year.ToString();
-        string month = DateTime.Now.ToString("MMMM").ToUpper();
-        string yesterday = DateTime.Now.AddDays(-1).Day.ToString();
-        string url = $"http://20.15.114.131:8080/api/power-consumption/current-month/daily/view";
+        DateTime yesterday = DateTime.Now.AddDays(-1);
+        string year = yesterday.Year.ToString();
+        string month = yesterday.ToString("MMMM").ToUpper();
+        string yesterdayString = yesterday.Day.ToString();
+        Debug.Log($"Yesterday: {yesterdayString}");
+        string url = $"http://20.15.114.131:8080/api/power-consumption/month/daily/view?year={year}&month={month}";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         request.method = UnityWebRequest.kHttpVerbGET;
