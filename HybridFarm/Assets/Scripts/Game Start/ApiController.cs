@@ -248,10 +248,12 @@ public static class ApiController
         }
 
         float consumption = 0.0f;
-        string year = DateTime.Now.Year.ToString();
-        string month = DateTime.Now.ToString("MMMM").ToUpper();
-        string yesterday = DateTime.Now.AddDays(-1).Day.ToString();
-        string url = $"http://20.15.114.131:8080/api/power-consumption/current-month/daily/view";
+        DateTime yesterday = DateTime.Now.AddDays(-1);
+        string year = yesterday.Year.ToString();
+        string month = yesterday.ToString("MMMM").ToUpper();
+        string yesterdayString = yesterday.Day.ToString();
+        Debug.Log($"Yesterday: {yesterdayString}, {month}, {year}");
+        string url = $"http://20.15.114.131:8080/api/power-consumption/month/daily/view?year={year}&month={month}";
 
         UnityWebRequest request = UnityWebRequest.Get(url);
         request.method = UnityWebRequest.kHttpVerbGET;
@@ -275,7 +277,7 @@ public static class ApiController
         string jsonResponse = request.downloadHandler.text;
         JObject jsonObject = JObject.Parse(jsonResponse);
 
-        consumption = (float)jsonObject["dailyPowerConsumptionView"]["dailyUnits"][yesterday];
+        consumption = (float)jsonObject["dailyPowerConsumptionView"]["dailyUnits"][yesterdayString];
         Debug.Log($"Retrieved Yesterday's consumption: {consumption}");
         callback?.Invoke(consumption); // Invoke the callback function with the consumption
     }

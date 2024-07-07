@@ -15,7 +15,13 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
 
     private float rotationSpeed;
 
+    public string nameOfAnimal;
+
+    public bool isDontLay = false;
+
     //private CircleCollider2D circleCollider2D;
+
+    Objective objective;
     
 
   
@@ -23,6 +29,7 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
     void Start ()
     {
         //circleCollider2D = GetComponent<CircleCollider2D>();
+        objective = FindObjectOfType<Objective>();
         
         targetLeftPosition = new Vector3(-7.31f, 3.43f, 5);
         targetRightPosition = new Vector3(7.31f, 3.43f, 5);
@@ -43,10 +50,28 @@ public class FarmAnimalPredatorCollision : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Predators"))
         {
+
+            isDontLay=true;
             
             
             StartCoroutine (ThrowAndDestoryGameAnimal());
             //Destroy(gameObject);
+
+            for (int i = 0; i<objective.itemsname.Length; i++)
+            {
+                if (objective.itemsname[i] == nameOfAnimal)
+                {
+                    objective.collected_items[i]-=1;
+                }
+            }
+
+            
+
+        }
+
+        else 
+        {
+            isDontLay=false;
         }
 
     

@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLeftPosition: {x: 0, y: 0, z: 0}
   targetRightPosition: {x: 0, y: 0, z: 0}
+  nameOfAnimal: pig
 --- !u!1 &8438227632418978974
 GameObject:
   m_ObjectHideFlags: 0
