@@ -9,9 +9,12 @@ public class layRawProduct : MonoBehaviour
     private float timer = 0f;
     grassSpawnDestroy grassSpawner;
 
+    FarmAnimalPredatorCollision farmAnimalPredatorCollision;
+
     // Start is called before the first frame update
     void Start()
     {
+        farmAnimalPredatorCollision = FindObjectOfType<FarmAnimalPredatorCollision>();
         // Initialize the timer
         timer = spawnInterval;
         grassSpawner =FindObjectOfType<grassSpawnDestroy>();
@@ -24,7 +27,7 @@ public class layRawProduct : MonoBehaviour
         // Decrease the timer
 
         {   
-            if ( !grassSpawner.checkForGrassNotPresence())  // if grass exist this will be true
+            if ( !grassSpawner.checkForGrassNotPresence() && !farmAnimalPredatorCollision.isDontLay)  // if grass exist this will be true
             {   
                 timer -= Time.deltaTime;
                 // If the timer reaches zero or less, spawn the prefab and reset the timer

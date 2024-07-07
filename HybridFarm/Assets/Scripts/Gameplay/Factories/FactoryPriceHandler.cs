@@ -22,7 +22,7 @@ public class FactoryPriceHandler : MonoBehaviour
 
     private string[] factoryLevels;
 
-    private int[][] allFactoryLevelsCost =null;
+    //private int[][] allFactoryLevelsCost =null;
 
     public int[] eggPowderfactoryLevelsCost;
     
