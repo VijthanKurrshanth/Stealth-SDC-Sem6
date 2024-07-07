@@ -105,7 +105,26 @@ public class PlayerRetrieve : MonoBehaviour
             double increase = interval * 100 * randomScoreWeight / 60 / totalPlayers;
             currentScore += (int)increase;
         }
-
+        else if (interval >= 60*3)
+        {
+            double increase = interval * 80 * randomScoreWeight / 60 / totalPlayers;
+            currentScore += (int)increase;
+        }
+        else if (interval >= 60*9)
+        {
+            double increase = interval * 60 * randomScoreWeight / 60 / totalPlayers;
+            currentScore += (int)increase;
+        }
+        else if (interval >= 60*24)
+        {
+            double increase = interval * 40 * randomScoreWeight / 60 / totalPlayers;
+            currentScore += (int)increase;
+        }
+        else
+        {
+            double increase = interval * 20 * randomScoreWeight / 60 / totalPlayers;
+            currentScore += (int)increase;
+        }
         PlayerPrefs.SetInt(userName + "_score", currentScore);
         PlayerPrefs.Save();
 
