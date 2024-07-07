@@ -13,6 +13,7 @@ public class PlayerRetrieve : MonoBehaviour
         int interval = 0;
 
         string lastCheckedTimeStr = PlayerPrefs.GetString("LastCheckedTime");
+        Debug.Log("lastCheckedTime :"+lastCheckedTimeStr);
         if (!string.IsNullOrEmpty(lastCheckedTimeStr))
         {
             System.DateTime lastCheckedTime = System.DateTime.Parse(lastCheckedTimeStr);
@@ -23,6 +24,11 @@ public class PlayerRetrieve : MonoBehaviour
                 PlayerPrefs.SetString("LastCheckedTime", currentTime.ToString());
                 PlayerPrefs.Save();
             }
+        }
+        else
+        {
+            PlayerPrefs.SetString("LastCheckedTime", currentTime.ToString());
+            PlayerPrefs.Save();
         }
 
         StartCoroutine(ApiController.GetJwtKey((string key) =>
@@ -72,7 +78,7 @@ public class PlayerRetrieve : MonoBehaviour
                 RankPlayers(playerList);
                 foreach (Player player in playerList)
                 {
-                    Debug.Log("Rank: " + player.rank + " Username: " + player.userName + " Score: " + player.score);
+                    //Debug.Log("Rank: " + player.rank + " Username: " + player.userName + " Score: " + player.score);
                 }
                 leaderBoardContent.GetComponent<PlayerView>().DisplayPlayers(playerList);
             }));
