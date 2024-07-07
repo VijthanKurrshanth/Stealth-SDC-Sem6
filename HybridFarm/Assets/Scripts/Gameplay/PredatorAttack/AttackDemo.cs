@@ -12,7 +12,7 @@ public class AttackDemo : MonoBehaviour
 
     bool canSpawn = true; // Flag to control cooldown
 
-    bool isPredatorSpawn=false;
+    //bool isPredatorSpawn=false;
 
     void Start()
     {

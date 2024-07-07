@@ -45,7 +45,7 @@ public class ShipmentTransactions : MonoBehaviour
         ShipmentTransactionsProcess();
         ReadyToShipMoney = CalcualteTotalAmount(quantityOfShipmentOfItems);
         
-         Debug.Log(quantityOfShipmentOfItems[2]);
+//         Debug.Log(quantityOfShipmentOfItems[2]);
         //Displaying it on TextMeshPro in shipmentController
 
         if (OkisPressed) 
