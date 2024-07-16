@@ -318,3 +318,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLeftPosition: {x: 0, y: 0, z: 0}
   targetRightPosition: {x: 0, y: 0, z: 0}
+  nameOfAnimal: cow

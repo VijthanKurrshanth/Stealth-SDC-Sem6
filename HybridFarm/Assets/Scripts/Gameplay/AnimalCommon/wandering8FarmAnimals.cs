@@ -13,7 +13,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float angle=0f;
     private Transform Transform;
     private Rigidbody2D rb;
-    private string directionOfMovement;
+    //private string directionOfMovement;
     private Vector2 directionAngle;
     private Vector2 newPoint;
     // Define the y-axis range
@@ -27,7 +27,7 @@ public class wandering8FarmAnimals : MonoBehaviour
     private float timervalueForHungryTrigger = 10.0f;
     public bool noGrassatAll = false;
     private bool isHungry =false;
-    private bool startedEating = false;
+    //private bool startedEating = false;
     private int destroyedNoOfGrassobject=0;
     //bool approachingGrass= false;
     bool movingTowardsGrassAndEat = false;
@@ -145,7 +145,7 @@ public class wandering8FarmAnimals : MonoBehaviour
             {
             SetAnimeFalse();
             anim.SetBool("eat_anim",true);
-            startedEating = true;
+            //startedEating = true;
             //Debug.Log("Eating");
             //approachingGrass=false;
             StartCoroutine(DestroyGrass(collision.gameObject)); // Pass the grass object to destroy
@@ -224,7 +224,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("left_anim",true);
                 sprite_render.flipX=true;
-                directionOfMovement= "East";
+                //directionOfMovement= "East";
             }
 
             else if (angle>=21 && angle<=65)
@@ -232,7 +232,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftup_anim",true);
                 sprite_render.flipX=true;
-                directionOfMovement= "Northeast";
+                //directionOfMovement= "Northeast";
             }
 
             else if (angle>=66 && angle<=115)
@@ -240,7 +240,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("up_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "North";
+                //directionOfMovement= "North";
             }
 
             else if (angle>=116 && angle<=159)
@@ -248,7 +248,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftup_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "Northwest";
+                //directionOfMovement= "Northwest";
             }
 
             else if (angle>=160 && angle<=210)
@@ -256,7 +256,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("left_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "West";
+                //directionOfMovement= "West";
             }
             
             else if (angle>=211 && angle<=259)
@@ -264,7 +264,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftdown_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "Southwest";
+                //directionOfMovement= "Southwest";
             }
 
             else if (angle>=260 && angle<=300)
@@ -272,7 +272,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("down_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "South";
+                //directionOfMovement= "South";
             }
 
             else if (angle>=301 && angle<=349)
@@ -280,12 +280,12 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftdown_anim",true);
                 sprite_render.flipX= true;
-                directionOfMovement= "Southeast";
+                //directionOfMovement= "Southeast";
             }
 
             else 
             {
-                directionOfMovement= " Other Dir";
+                //directionOfMovement= " Other Dir";
             }
         //Debug.Log(directionOfMovement);
         yield return null;
@@ -348,7 +348,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("left_anim",true);
                 sprite_render.flipX=true;
-                directionOfMovement= "East";
+                //directionOfMovement= "East";
             }
 
             else if (angle>=21 && angle<=65)
@@ -356,7 +356,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftup_anim",true);
                 sprite_render.flipX=true;
-                directionOfMovement= "Northeast";
+                //directionOfMovement= "Northeast";
             }
 
             else if (angle>=66 && angle<=115)
@@ -364,7 +364,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("up_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "North";
+                //directionOfMovement= "North";
             }
 
             else if (angle>=116 && angle<=159)
@@ -372,7 +372,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftup_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "Northwest";
+                //directionOfMovement= "Northwest";
             }
 
             else if (angle>=160 && angle<=210)
@@ -380,7 +380,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("left_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "West";
+                //directionOfMovement= "West";
             }
             
             else if (angle>=211 && angle<=259)
@@ -388,7 +388,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftdown_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "Southwest";
+                //directionOfMovement= "Southwest";
             }
 
             else if (angle>=260 && angle<=300)
@@ -396,7 +396,7 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("down_anim",true);
                 sprite_render.flipX=false;
-                directionOfMovement= "South";
+                //directionOfMovement= "South";
             }
 
             else if (angle>=301 && angle<=349)
@@ -404,12 +404,12 @@ public class wandering8FarmAnimals : MonoBehaviour
                 StartCoroutine(SetAnimeFalse());
                 anim.SetBool("leftdown_anim",true);
                 sprite_render.flipX= true;
-                directionOfMovement= "Southeast";
+                //directionOfMovement= "Southeast";
             }
 
             else 
             {
-                directionOfMovement= " Other Dir";
+                //directionOfMovement= " Other Dir";
             }
 
        }

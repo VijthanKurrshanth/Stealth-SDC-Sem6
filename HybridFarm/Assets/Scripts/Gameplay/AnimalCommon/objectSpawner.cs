@@ -55,6 +55,7 @@ public class ObjectSpawner : MonoBehaviour
                 if (objective.itemsname[i] == nameoftheSpawnObject)
                 {
                     objective.collected_items[i]++;
+                    objective.collected_itemsIncrements[i]++;
                 }
                 
             }

@@ -14,6 +14,8 @@ public class ObjectiveTextDisplay : MonoBehaviour
     [SerializeField] int index=0;
     [SerializeField] int correctMarkNumber = 0;
 
+    [SerializeField] int [] ItemsCountForObjectiveBar = new int [] {0,0,0,0,0,0,0,0,0,0,0,0,0};
+
     void Start()
     {
         objective = FindObjectOfType<Objective>();
@@ -38,6 +40,20 @@ public class ObjectiveTextDisplay : MonoBehaviour
 
     private IEnumerator DisplayObjectiveText()
     {
+        // for (int i=0; i< ItemsCountForObjectiveBar.Length; i++)
+        // {
+        //     if (ItemsCountForObjectiveBar[i]>= objective.collected_items[i])
+        //     {
+        //         ItemsCountForObjectiveBar[i]= objective.collected_items[i];
+        //     }
+
+        //     else 
+        //     {
+        //         ItemsCountForObjectiveBar[i]= ItemsCountForObjectiveBar[i];
+        //     }
+
+        // }
+
         yield return new WaitForSeconds(0.05f); // Adjust the delay time as needed
 
 
@@ -49,7 +65,7 @@ public class ObjectiveTextDisplay : MonoBehaviour
             if (objectiveFigure.NumberinIndexPostioninObjectiveItems[index]>0)
             {
                 //Debug.Log("Coming here");
-                ObjectiveText.text = objective.collected_items[objectiveFigure.inIndexPostioninObjectiveItems[index]].ToString() + "/" + objectiveFigure.NumberinIndexPostioninObjectiveItems[index].ToString();
+                ObjectiveText.text = objective.collected_itemsIncrements[objectiveFigure.inIndexPostioninObjectiveItems[index]].ToString() + "/" + objectiveFigure.NumberinIndexPostioninObjectiveItems[index].ToString();
             }
 
            

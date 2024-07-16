@@ -317,6 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c44f77f065e4244b41278c2b0ec3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLeftPosition: {x: 0, y: 0, z: 0}
+  targetRightPosition: {x: 0, y: 0, z: 0}
+  nameOfAnimal: chicken
 --- !u!1 &4775031785945158593
 GameObject:
   m_ObjectHideFlags: 0

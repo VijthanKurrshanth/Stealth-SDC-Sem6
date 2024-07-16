@@ -13,6 +13,7 @@ public class PlayerRetrieve : MonoBehaviour
         int interval = 0;
 
         string lastCheckedTimeStr = PlayerPrefs.GetString("LastCheckedTime");
+        Debug.Log("lastCheckedTime :"+lastCheckedTimeStr);
         if (!string.IsNullOrEmpty(lastCheckedTimeStr))
         {
             System.DateTime lastCheckedTime = System.DateTime.Parse(lastCheckedTimeStr);
@@ -23,6 +24,11 @@ public class PlayerRetrieve : MonoBehaviour
                 PlayerPrefs.SetString("LastCheckedTime", currentTime.ToString());
                 PlayerPrefs.Save();
             }
+        }
+        else
+        {
+            PlayerPrefs.SetString("LastCheckedTime", currentTime.ToString());
+            PlayerPrefs.Save();
         }
 
         StartCoroutine(ApiController.GetJwtKey((string key) =>
@@ -72,7 +78,7 @@ public class PlayerRetrieve : MonoBehaviour
                 RankPlayers(playerList);
                 foreach (Player player in playerList)
                 {
-                    Debug.Log("Rank: " + player.rank + " Username: " + player.userName + " Score: " + player.score);
+                    //Debug.Log("Rank: " + player.rank + " Username: " + player.userName + " Score: " + player.score);
                 }
                 leaderBoardContent.GetComponent<PlayerView>().DisplayPlayers(playerList);
             }));
@@ -96,10 +102,33 @@ public class PlayerRetrieve : MonoBehaviour
         }
         else if (interval >= 60)
         {
-            double increase = interval * 100 * randomScoreWeight / 60 / totalPlayers;
-            currentScore += (int)increase;
+            if (interval <= 60*60)
+            {
+                double increase = interval * 100 * randomScoreWeight / 60 / totalPlayers;
+                currentScore += (int)increase;
+            }
+        
+            else if (interval <= 60*60*3)
+            {
+                double increase = interval * 80 * randomScoreWeight / 60 / totalPlayers;
+                currentScore += (int)increase;
+            }
+            else if (interval <= 60*60*9)
+            {
+                double increase = interval * 60 * randomScoreWeight / 60 / totalPlayers;
+                currentScore += (int)increase;
+            }
+            else if (interval <= 60*60*24)
+            {
+                double increase = interval * 40 * randomScoreWeight / 60 / totalPlayers;
+                currentScore += (int)increase;
+            }
+            else
+            {
+                double increase = interval * 20 * randomScoreWeight / 60 / totalPlayers;
+                currentScore += (int)increase;
+            }
         }
-
         PlayerPrefs.SetInt(userName + "_score", currentScore);
         PlayerPrefs.Save();
 
