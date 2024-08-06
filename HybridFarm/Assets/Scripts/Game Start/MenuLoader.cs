@@ -17,9 +17,10 @@ public class MenuLoader : MonoBehaviour
         else if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             StartCoroutine(WaitForAuthenticationAndLoadNextScene());
-            PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
-            PlayerPrefs.Save();
+            //PlayerPrefs.SetFloat("yesterdayConsumption", 0); // Reset yesterday's consumption at the start of the game
+            //PlayerPrefs.Save();
         }
+
         else if (SceneManager.GetActiveScene().buildIndex != 2)
         {
             LoadMainMenu();
@@ -36,10 +37,10 @@ public class MenuLoader : MonoBehaviour
 
     IEnumerator WaitForAuthenticationAndLoadNextScene()
     {
-        while (!PlayerAuthentication.IsAuthenticated)
-        {
-            yield return null; // Wait until authenticated
-        }
+        // while (!PlayerAuthentication.IsAuthenticated)
+        // {
+        //     yield return null; // Wait until authenticated
+        // }
 
         yield return new WaitForSeconds(3f); // Additional delay (optional)
 
