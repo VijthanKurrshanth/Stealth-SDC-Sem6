@@ -10,7 +10,9 @@ public class QuitButton : MonoBehaviour
     
     public void LoadScene (String sceneName)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneName);
+
     }
 
 }
