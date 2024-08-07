@@ -1870,7 +1870,7 @@ GameObject:
   - component: {fileID: 1626852676}
   - component: {fileID: 1626852675}
   - component: {fileID: 1626852674}
-  - component: {fileID: 1626852673}
+  - component: {fileID: 1626852677}
   m_Layer: 0
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1897,18 +1897,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5100007, y: -420.58002}
   m_SizeDelta: {x: 39.86, y: 30.37}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1626852673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626852671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7761f7acde6e8d0499c243a246a9345a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1626852674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,7 +1940,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1626852675}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1626852677}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1626852675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,6 +1991,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626852671}
   m_CullTransparentMesh: 1
+--- !u!114 &1626852677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626852671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3e0e2d6c1c4f345a06b751a2153246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1737019914
 PrefabInstance:
   m_ObjectHideFlags: 0
