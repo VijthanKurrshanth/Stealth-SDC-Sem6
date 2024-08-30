@@ -73,3 +73,67 @@ HybridFarm/[Aa]ssets/[Ss]treamingAssets/aa/*
 HybridFarm/.vscode/extensions.json
 HybridFarm/.vscode/launch.json
 HybridFarm/.vscode/settings.json
+
+.fake
+
+# React .gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+questionnaire-app/front-end/node_modules/
+questionnaire-app/front-end/*.pnp
+questionnaire-app/front-end/*.pnp.js
+
+# testing
+questionnaire-app/front-end/coverage/
+
+# production
+questionnaire-app/front-end/build/
+
+# misc
+questionnaire-app/front-end/*.DS_Store
+questionnaire-app/front-end/*.env.local
+questionnaire-app/front-end/*.env.development.local
+questionnaire-app/front-end/*.env.test.local
+questionnaire-app/front-end/*.env.production.local
+
+questionnaire-app/front-end/npm-debug.log*
+questionnaire-app/front-end/yarn-debug.log*
+questionnaire-app/front-end/yarn-error.log*
+
+# Spring .gitignore
+questionnaire-app/back-end/HELP.md
+questionnaire-app/back-end/target/
+questionnaire-app/back-end/!.mvn/wrapper/maven-wrapper.jar
+questionnaire-app/back-end/!**/src/main/**/target/
+questionnaire-app/back-end/!**/src/test/**/target/
+
+### STS ###
+questionnaire-app/back-end/.apt_generated
+questionnaire-app/back-end/.classpath
+questionnaire-app/back-end/.factorypath
+questionnaire-app/back-end/.project
+questionnaire-app/back-end/.settings
+questionnaire-app/back-end/.springBeans
+questionnaire-app/back-end/.sts4-cache
+
+### IntelliJ IDEA ###
+questionnaire-app/back-end/.idea
+questionnaire-app/back-end/*.iws
+questionnaire-app/back-end/*.iml
+questionnaire-app/back-end/*.ipr
+
+### NetBeans ###
+questionnaire-app/back-end//nbproject/private/
+questionnaire-app/back-end//nbbuild/
+questionnaire-app/back-end//dist/
+questionnaire-app/back-end//nbdist/
+questionnaire-app/back-end//.nb-gradle/
+questionnaire-app/back-end/build/
+questionnaire-app/back-end/!**/src/main/**/build/
+questionnaire-app/back-end/!**/src/test/**/build/
+
+### VS Code ###
+questionnaire-app/back-end/.vscode/
+
+questionnaire-app/front-end/.vscode/settings.json
