@@ -1,6 +1,12 @@
-# Stealth-SDC-Sem6
+# Hybrid Farm v1.0
+## Stealth-SDC-Sem6
 
 Repository for the game development challenge for Software Design Competition (EN3350) module, semester 6, University of Moratuwa.
+
+- Facebook Page [Hybrid Farm](https://www.facebook.com/profile.php?id=61557334201111&mibextid=ZbWKwL).
+- Watch the glimpse [here](https://fb.watch/tIER01mfnW/).
+
+<img src="https://github.com/SAIRISAN123/SAIRISAN123/blob/main/Releasing%20Poster.png" alt="Releasing Poster" height="400" style="display: block; margin-left: auto; margin-right: auto;">
 
 Team Name : Stealth
 
