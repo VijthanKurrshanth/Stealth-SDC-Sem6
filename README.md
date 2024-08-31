@@ -11,7 +11,7 @@ Team Members :
 - C.M.C.C. Miranda
 - R. Sairisan
 
-# # Copyright © Stealth Development 2024
+## Copyright © Stealth Development 2024
 
 # Attribution-NonCommercial-NoDerivatives 4.0 International
 
