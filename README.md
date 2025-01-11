@@ -5,7 +5,7 @@ Repository for the game development challenge for Software Design Competition (E
 - Facebook Page [Hybrid Farm](https://www.facebook.com/profile.php?id=61557334201111&mibextid=ZbWKwL).
 - Watch the glimpse [here](https://fb.watch/tIER01mfnW/).
 
-<img src="https://github.com/SAIRISAN123/SAIRISAN123/blob/main/Releasing%20Poster.png" alt="Releasing Poster" height="400" style="display: block; margin-left: auto; margin-right: auto;">
+<img src="https://github.com/Stealth-Devs-Org/HybridFarm-v1.0/blob/master/Releasing%20Poster.png">
 
 Team Name : Stealth
 
