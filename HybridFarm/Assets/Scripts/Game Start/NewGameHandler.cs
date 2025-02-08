@@ -25,32 +25,18 @@ public class NewGameHandler : MonoBehaviour
 
     IEnumerator CheckPlayerExists()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (PlayerPrefs.GetInt("playerExists") == 1)
-        {
-            Debug.Log("Player exists");
-            continueButton.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("Player does not exist");
-            PlayerPrefs.SetInt("playerExists", 0);
-            continueButtonMask.SetActive(true);
-            continueButton.SetActive(false);
-        }
+        
+        yield return new WaitForSeconds(0.5f);
+        continueButton.SetActive(true);
+        
+  
     }
 
     public void OnNewGameButtonClicked()
     {
-        if (PlayerPrefs.GetInt("playerExists") == 1)
-        {
-            warningPanel.SetActive(true);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("playerExists", 0);
-            SceneManager.LoadScene("7.UserProfile");
-        }
+
+        SceneManager.LoadScene("6. LevelMap");
+        
     }
 
     public void OnContinueButtonClicked()
@@ -62,14 +48,14 @@ public class NewGameHandler : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void OnConfirmButtonClicked()
-    {
-        string leaderBoardLastChecked = PlayerPrefs.GetString("LastCheckedTime");
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetInt("playerExists", 0);
-        PlayerPrefs.SetString("LastCheckedTime", leaderBoardLastChecked);
-        SceneManager.LoadScene("7.UserProfile");
-    }
+    // public void OnConfirmButtonClicked()
+    // {
+    //     string leaderBoardLastChecked = PlayerPrefs.GetString("LastCheckedTime");
+    //     PlayerPrefs.DeleteAll();
+    //     PlayerPrefs.SetInt("playerExists", 0);
+    //     PlayerPrefs.SetString("LastCheckedTime", leaderBoardLastChecked);
+    //     SceneManager.LoadScene("7.UserProfile");
+    // }
 
     public void OnCloseButtonClicked()
     {
